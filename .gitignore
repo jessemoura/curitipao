@@ -1,0 +1,36 @@
+# Dependências
+node_modules/
+dist/
+dist-ssr/
+
+# Runtime PHP local portátil (binários Windows)
+php/
+
+# Arquivos temporários e logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Arquivos de backup e pacotes compactados pesados (>100MB GitHub limit)
+*.zip
+*.tar.gz
+*.rar
+
+# Variáveis de ambiente e credenciais
+.env
+.env.*
+!.env.example
+*.local
+
+# IDEs e editores
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

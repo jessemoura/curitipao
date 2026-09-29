@@ -1,0 +1,566 @@
+/* CuritiPão 2026 – Design Tokens Oficiais */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-marrom: #5D3323;
+  --color-ocre: #D08942;
+  --color-creme: #FAF4EC;
+  --color-branco: #FFFFFF;
+  --color-bege: #E8D8C8;
+}
+
+/* Reset e Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--color-creme);
+  color: var(--color-marrom);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* TOP BAR (Imediatamente acima do banner principal, alinhada à direita) */
+.top-bar {
+  width: 100%;
+  background: var(--color-creme);
+  padding: 0.5rem 1.25rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1px solid rgba(232, 216, 200, 0.4);
+}
+
+.top-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-marrom);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.top-bar a:hover {
+  opacity: 0.85;
+  color: var(--color-ocre);
+}
+
+.top-bar .insta-icon {
+  height: 26px;
+  width: 26px;
+  vertical-align: middle;
+  object-fit: contain;
+  display: block;
+}
+
+.top-bar .insta-text {
+  display: inline;
+}
+
+/* BANNER PRINCIPAL */
+.site-header {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-creme);
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* SEÇÕES DE APRESENTAÇÃO */
+.intro, .how-it-works {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 1rem;
+  text-align: center;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  color: var(--color-marrom);
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.intro p {
+  font-size: 1.05rem;
+  color: var(--color-marrom);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.how-it-works {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  text-align: left;
+}
+
+.how-it-works h2 {
+  font-size: 1.4rem;
+  color: var(--color-marrom);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.how-it-works ul {
+  max-width: 650px;
+  margin: 0 auto;
+  list-style: none;
+  background: var(--color-branco);
+  padding: 1.25rem 1.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-bege);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.how-it-works li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.98rem;
+  color: var(--color-marrom);
+}
+
+.how-it-works li:last-child {
+  margin-bottom: 0;
+}
+
+.how-it-works li::before {
+  content: "•";
+  position: absolute;
+  left: 0.25rem;
+  color: var(--color-ocre);
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* GRID DE CARDS */
+.cards-section {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* CARD INDIVIDUAL */
+.card {
+  background: var(--color-branco);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--color-bege);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.photos {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  background: #f0e6dc;
+}
+
+.photos img {
+  width: 50%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.2s;
+}
+
+.photos img:hover {
+  filter: brightness(1.03);
+  transform: scale(1.02);
+}
+
+.card h3 {
+  margin: 1rem 1.25rem 0.5rem;
+  font-size: 1.15rem;
+  color: var(--color-marrom);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card p {
+  margin: 0.35rem 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #4a382e;
+}
+
+.card p.product-name {
+  color: var(--color-marrom);
+  font-weight: 600;
+}
+
+.card p.price {
+  color: var(--color-marrom);
+  font-weight: 600;
+}
+
+/* CONTROLES / CONTATO NO FINAL DO CARD */
+.card .contact {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(232, 216, 200, 0.5);
+  background: #fdfaf6;
+}
+
+.card .contact a.insta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  transition: transform 0.2s ease;
+}
+
+.card .contact a.insta-link:hover {
+  transform: scale(1.1);
+}
+
+.card .contact a.insta-link img {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  vertical-align: middle;
+  display: block;
+}
+
+.map-btn {
+  margin: 0;
+  padding: 0.5rem 1.1rem;
+  background: var(--color-marrom);
+  color: var(--color-branco);
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.map-btn:hover {
+  background: var(--color-ocre);
+}
+
+.map-btn:active {
+  transform: scale(0.98);
+}
+
+/* FAIXA INSTITUCIONAL (REALIZAÇÃO & APOIO) */
+.institutional {
+  background: var(--color-creme);
+  padding: 3rem 1.25rem 2.5rem;
+  text-align: center;
+  border-top: 1px solid var(--color-bege);
+}
+
+.institutional-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.inst-group {
+  margin-bottom: 2rem;
+}
+
+.inst-group:last-child {
+  margin-bottom: 0;
+}
+
+.inst-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-ocre);
+  margin-bottom: 1rem;
+}
+
+.inst-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.inst-logo-link:hover {
+  opacity: 0.88;
+  transform: scale(1.02);
+}
+
+.logo-curitidoce {
+  max-width: 130px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.partner-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.partner-link:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.partner-logo {
+  max-width: 150px;
+  max-height: 65px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .partner-logos {
+    gap: 1.5rem;
+  }
+  .partner-logo {
+    max-width: 130px;
+    max-height: 55px;
+  }
+}
+
+/* RODAPÉ */
+.site-footer {
+  background: var(--color-marrom);
+  color: var(--color-branco);
+  text-align: center;
+  padding: 2rem 1.25rem 1.75rem;
+  font-size: 0.9rem;
+}
+
+.footer-conexus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0.85rem;
+  color: var(--color-creme);
+  font-size: 0.95rem;
+}
+
+.footer-conexus a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.conexus-logo {
+  height: 34px;
+  width: auto;
+  max-width: 175px;
+  object-fit: contain;
+  vertical-align: middle;
+  display: inline-block;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-conexus a:hover .conexus-logo {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+@media (max-width: 480px) {
+  .footer-conexus {
+    font-size: 0.88rem;
+    gap: 8px;
+  }
+  .conexus-logo {
+    height: 28px;
+    max-width: 145px;
+  }
+}
+
+.privacy-paragraph {
+  margin-top: 0.5rem;
+}
+
+.privacy-link {
+  color: var(--color-bege);
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.privacy-link:hover {
+  color: var(--color-branco);
+  text-decoration: underline;
+}
+
+/* COOKIE BANNER */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #3d2015;
+  color: var(--color-creme);
+  padding: 1rem 1.5rem;
+  z-index: 9999;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  border-top: 2px solid var(--color-ocre);
+}
+
+.cookie-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 750px;
+}
+
+.cookie-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cookie-text {
+  line-height: 1.4;
+}
+
+.cookie-text a {
+  color: var(--color-ocre);
+  text-decoration: underline;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.cookie-btn-accept {
+  background: var(--color-ocre);
+  color: var(--color-branco);
+}
+
+.cookie-btn-accept:hover {
+  background: #b87431;
+}
+
+.cookie-btn-reject {
+  background: transparent;
+  color: var(--color-creme);
+  border-color: var(--color-bege);
+}
+
+.cookie-btn-reject:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+  .cookie-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .cookie-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 10, 8, 0.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+  cursor: zoom-out;
+  backdrop-filter: blur(4px);
+}
+
+.lightbox img {
+  max-width: 92%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  cursor: default;
+}

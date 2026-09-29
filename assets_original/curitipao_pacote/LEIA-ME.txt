@@ -1,0 +1,10 @@
+PACOTE OFICIAL — FESTIVAL CURITIPAO 2026
+
+Conteúdo:
+- 01-identidade-oficial: banner, logo principal, ícones e selos oficiais.
+- 02-fotos-padarias/originais: fotografias recebidas das 15 participantes + imagens gerais do hero.
+- 03-briefing/briefing-oficial.txt: conteúdo oficial e dados dos cards.
+- 03-briefing/INSTRUCOES-IMAGENS.txt: regras finais de seleção e exibição das fotografias.
+
+Destino planejado: curitipao.conexus.press
+Arquitetura: One Page, mobile-first, modo sazonal ACTIVE/INACTIVE.

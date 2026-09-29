@@ -1,0 +1,15 @@
+CURITIPAO 2026 — REGRAS DE IMAGENS
+
+1. Existem 15 padarias participantes.
+2. Para cada card, selecionar duas fotografias:
+   - imagem 1: melhor foto do produto inteiro;
+   - imagem 2: melhor foto do corte/interior.
+3. No card, usar enquadramento vertical 4:5, mobile-first, sem deformar.
+4. Usar object-fit: cover e ajustar object-position/ponto focal individualmente.
+5. Ao tocar/clicar, abrir o arquivo original completo, sem o recorte 4:5.
+6. Preservar TODOS os originais em alta resolução; não sobrescrever nem apagar alternativas.
+7. No desktop, as duas imagens podem aparecer lado a lado.
+8. Os arquivos curitipao-111.jpg e curitipao-108 (1).jpg são imagens gerais destinadas ao HERO/CABECALHO, não pertencem a nenhuma padaria.
+9. Fábrika Pães: usar Pão de Campanha - Fabrika Pães - 01.jpg como principal/produto inteiro e escolher a melhor 02 para corte/interior.
+10. Padaria América: usar BroaBrie 01 como principal/produto inteiro e BroaBrie 03 como corte/interior; 04 e 05 permanecem como alternativas/originais.
+11. Não inventar fotos, dados, links ou contatos.
