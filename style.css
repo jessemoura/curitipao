@@ -548,95 +548,10 @@ html, body {
   transform: scale(0.98);
 }
 
-/* FAIXA INSTITUCIONAL (REALIZAÇÃO & APOIO) */
-.institutional {
-  background: var(--color-creme);
-  padding: 3rem 1.25rem 2.5rem;
-  text-align: center;
-  border-top: 1px solid var(--color-bege);
-}
-
-.institutional-container {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-.inst-group {
-  margin-bottom: 2rem;
-}
-
-.inst-group:last-child {
-  margin-bottom: 0;
-}
-
-.inst-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--color-ocre);
-  margin-bottom: 1rem;
-}
-
-.inst-logo-link {
-  display: inline-block;
-  text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.inst-logo-link:hover {
-  opacity: 0.88;
-  transform: scale(1.02);
-}
-
-.logo-curitidoce {
-  max-width: 130px;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-  border-radius: 50%;
-  object-fit: contain;
-}
-
-.partner-logos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 0.5rem;
-}
-
-.partner-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-.partner-link:hover {
-  opacity: 0.85;
-  transform: scale(1.03);
-}
-
-.partner-logo {
-  max-width: 150px;
-  max-height: 65px;
-  height: auto;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-@media (max-width: 600px) {
-  .partner-logos {
-    gap: 1.5rem;
-  }
-  .partner-logo {
-    max-width: 130px;
-    max-height: 55px;
-  }
+/* FAIXA INSTITUCIONAL RODAPÉ (REPETE PADRÃO EXATO DA SUPERIOR) */
+.footer-sponsors-strip {
+  border-top: 1px solid rgba(232, 216, 200, 0.4);
+  border-bottom: none;
 }
 
 /* RODAPÉ */
@@ -665,9 +580,9 @@ html, body {
 }
 
 .conexus-logo {
-  height: 34px;
+  height: 44px;
   width: auto;
-  max-width: 175px;
+  max-width: 225px;
   object-fit: contain;
   vertical-align: middle;
   display: inline-block;
@@ -685,8 +600,8 @@ html, body {
     gap: 8px;
   }
   .conexus-logo {
-    height: 28px;
-    max-width: 145px;
+    height: 36px;
+    max-width: 185px;
   }
 }
 
