@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 2. BOTÃO "COMO CHEGAR"
+  // Botões gerais em cards de unidade única
   document.querySelectorAll('.card').forEach((card) => {
     const btn = card.querySelector('.map-btn');
     if (btn) {
@@ -38,13 +39,26 @@ document.addEventListener('DOMContentLoaded', () => {
         let address = '';
         if (addressP) {
           address = addressP.textContent.replace('Endereço:', '').trim();
-          // Se tiver múltiplas unidades, pega a primeira linha limpa ou o texto completo de Curitiba
           const firstAddr = address.split('/')[0].trim();
           const query = encodeURIComponent(firstAddr + ', Curitiba - PR');
           window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank', 'noopener,noreferrer');
         }
       });
     }
+  });
+
+  // Botões específicos de cada unidade em cards multi-unidade
+  document.querySelectorAll('.unit-map-btn').forEach((unitBtn) => {
+    unitBtn.addEventListener('click', () => {
+      if (unitBtn.disabled || unitBtn.classList.contains('is-disabled')) {
+        return;
+      }
+      const address = unitBtn.getAttribute('data-address');
+      if (address) {
+        const query = encodeURIComponent(address);
+        window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank', 'noopener,noreferrer');
+      }
+    });
   });
 
   // 3. BANNER DE COOKIES

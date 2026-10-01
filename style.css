@@ -496,9 +496,10 @@ html, body {
 .card .contact {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   margin-top: auto;
-  padding: 1rem 1.25rem;
+  padding: 0.85rem 1.25rem;
   border-top: 1px solid rgba(232, 216, 200, 0.5);
   background: #fdfaf6;
 }
@@ -506,18 +507,22 @@ html, body {
 .card .contact a.insta-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  line-height: 0;
-  transition: transform 0.2s ease;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--color-marrom);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .card .contact a.insta-link:hover {
-  transform: scale(1.1);
+  color: var(--color-ocre);
+  transform: translateY(-1px);
 }
 
 .card .contact a.insta-link img {
-  height: 32px;
-  width: 32px;
+  height: 28px;
+  width: 28px;
   object-fit: contain;
   vertical-align: middle;
   display: block;
@@ -546,6 +551,132 @@ html, body {
 
 .map-btn:active {
   transform: scale(0.98);
+}
+
+/* ESTRUTURA PARA CARDS COM MÚLTIPLAS UNIDADES */
+.multi-units-wrapper {
+  margin: 0.5rem 1.25rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.units-common-schedule {
+  background: var(--color-creme);
+  border: 1px solid var(--color-bege);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  color: var(--color-marrom);
+}
+
+.units-common-schedule strong {
+  color: var(--color-marrom);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.units-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.unit-item {
+  background: #fdfaf6;
+  border: 1px solid var(--color-bege);
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.unit-item:hover {
+  border-color: var(--color-ocre);
+  box-shadow: 0 2px 5px rgba(208, 137, 66, 0.1);
+}
+
+.unit-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.unit-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-marrom);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--color-bege);
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.unit-address {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: #4a382e;
+  margin: 0;
+}
+
+.unit-address.is-pending {
+  color: #8c7365;
+  font-style: italic;
+}
+
+.unit-schedule {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: #5d4638;
+  margin-top: 2px;
+  padding-top: 4px;
+  border-top: 1px dashed rgba(232, 216, 200, 0.8);
+}
+
+.unit-schedule strong {
+  color: var(--color-marrom);
+  font-weight: 600;
+}
+
+.unit-map-btn {
+  padding: 0.3rem 0.65rem;
+  background: var(--color-marrom);
+  color: var(--color-branco);
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.76rem;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+  flex-shrink: 0;
+}
+
+.unit-map-btn:hover:not(:disabled) {
+  background: var(--color-ocre);
+}
+
+.unit-map-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.unit-map-btn:disabled,
+.unit-map-btn.is-disabled {
+  background: #ded1c4;
+  color: #8a786a;
+  cursor: not-allowed;
+  opacity: 0.8;
 }
 
 /* FAIXA INSTITUCIONAL RODAPÉ (REPETE PADRÃO EXATO DA SUPERIOR) */
