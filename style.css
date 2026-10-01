@@ -542,15 +542,21 @@ html, body {
   background: var(--color-marrom);
   color: var(--color-branco);
   border: none;
+  outline: none;
   border-radius: 4px;
+  font-family: inherit;
   font-weight: 600;
   font-size: 0.88rem;
+  line-height: 1.2;
   cursor: pointer;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: background 0.2s ease, transform 0.1s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .map-btn:hover {
@@ -624,13 +630,16 @@ html, body {
 
 .unit-map-btn {
   margin: 0;
-  padding: 0.32rem 0.72rem;
+  padding: 0.35rem 0.75rem;
   background: var(--color-marrom);
   color: var(--color-branco);
   border: none;
+  outline: none;
   border-radius: 4px;
+  font-family: inherit;
   font-weight: 600;
-  font-size: 0.78rem;
+  font-size: 0.80rem;
+  line-height: 1.2;
   cursor: pointer;
   text-decoration: none;
   display: inline-flex;
@@ -639,6 +648,9 @@ html, body {
   white-space: nowrap;
   transition: background 0.2s ease, transform 0.1s ease;
   flex-shrink: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .unit-map-btn:hover {
