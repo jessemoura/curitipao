@@ -66,13 +66,327 @@ html, body {
   display: inline;
 }
 
-/* BANNER PRINCIPAL */
+/* BANNER DE ENCERRAMENTO (FESTIVAL CURITIPÃO 2026) */
 .site-header {
   width: 100%;
   position: relative;
   background-color: var(--color-creme);
 }
 
+.closing-banner {
+  width: 100%;
+  background: linear-gradient(135deg, #FAF4EC 0%, #FFF9F2 50%, #F5EBE1 100%);
+  border-bottom: 2px solid #E8D8C8;
+  position: relative;
+  overflow: hidden;
+}
+
+.closing-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 15% 30%, rgba(208, 137, 66, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.closing-banner-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.closing-banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.closing-banner-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.closing-banner-logo {
+  width: 96px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(93, 51, 35, 0.12));
+}
+
+.closing-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #C05A20;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(192, 90, 32, 0.3);
+}
+
+.closing-title {
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  color: #5D3323;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+}
+
+.closing-desc {
+  font-size: clamp(1.05rem, 1.3vw, 1.18rem);
+  color: #4A281B;
+  line-height: 1.55;
+  margin-bottom: 0.85rem;
+}
+
+.closing-highlight {
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  font-weight: 700;
+  color: #C05A20;
+  line-height: 1.5;
+  margin-bottom: 1.6rem;
+}
+
+.closing-action-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.closing-invite {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #5D3323;
+}
+
+.closing-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, #C05A20 0%, #A94A14 100%);
+  color: #FFFFFF !important;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.85rem 1.85rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(192, 90, 32, 0.35);
+  transition: all 0.25s ease;
+  min-height: 48px;
+}
+
+.closing-btn:hover {
+  background: linear-gradient(135deg, #D36526 0%, #BD5317 100%);
+  box-shadow: 0 6px 20px rgba(192, 90, 32, 0.45);
+  transform: translateY(-2px);
+}
+
+.closing-btn .btn-arrow {
+  transition: transform 0.25s ease;
+}
+
+.closing-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.closing-banner-media {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closing-banner-photo {
+  width: 100%;
+  max-width: 480px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(93, 51, 35, 0.18);
+  border: 4px solid #FFFFFF;
+}
+
+/* AVISO DISCRETO ACIMA DOS CARDS */
+.archive-disclaimer {
+  max-width: 1180px;
+  margin: 0 auto 2.5rem;
+  padding: 1rem 1.4rem;
+  background-color: rgba(208, 137, 66, 0.08);
+  border: 1px solid rgba(208, 137, 66, 0.35);
+  border-left: 4px solid #C05A20;
+  border-radius: 6px;
+}
+
+.archive-disclaimer-text {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: #5D3323;
+  font-style: italic;
+  margin: 0;
+}
+
+/* RESPONSIVIDADE DO BANNER DE ENCERRAMENTO */
+@media (max-width: 900px) {
+  .closing-banner-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.25rem 1.5rem;
+    text-align: center;
+  }
+
+  .closing-banner-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .closing-banner-brand {
+    justify-content: center;
+  }
+
+  .closing-action-group {
+    align-items: center;
+  }
+
+  .closing-banner-photo {
+    max-width: 100%;
+    height: 280px;
+  }
+}
+
+@media (max-width: 540px) {
+  .closing-banner-container {
+    padding: 1.75rem 1rem;
+  }
+
+  .closing-banner-logo {
+    width: 80px;
+  }
+
+  .closing-badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .closing-title {
+    font-size: 1.5rem;
+  }
+
+  .closing-desc {
+    font-size: 0.98rem;
+  }
+
+  .closing-highlight {
+    font-size: 0.96rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .closing-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .closing-banner-photo {
+    height: 220px;
+    border-radius: 12px;
+  }
+
+  .archive-disclaimer {
+    margin: 0 1rem 1.75rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .archive-disclaimer-text {
+    font-size: 0.88rem;
+  }
+}
+
+/* MODO ESCURO (PREFERS-COLOR-SCHEME) */
+@media (prefers-color-scheme: dark) {
+  .closing-banner {
+    background: linear-gradient(135deg, #1E1612 0%, #2A1D16 50%, #1A1310 100%);
+    border-bottom-color: rgba(208, 137, 66, 0.3);
+  }
+
+  .closing-banner::before {
+    background: radial-gradient(circle at 15% 30%, rgba(208, 137, 66, 0.15) 0%, transparent 60%);
+  }
+
+  .closing-banner-logo {
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6)) brightness(1.05);
+  }
+
+  .closing-badge {
+    background: #D36526;
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(211, 101, 38, 0.4);
+  }
+
+  .closing-title {
+    color: #FAF4EC;
+  }
+
+  .closing-desc {
+    color: #E8D8C8;
+  }
+
+  .closing-highlight {
+    color: #E29D4B;
+  }
+
+  .closing-invite {
+    color: #FAF4EC;
+  }
+
+  .closing-btn {
+    background: linear-gradient(135deg, #C05A20 0%, #A94A14 100%);
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .closing-btn:hover {
+    background: linear-gradient(135deg, #D36526 0%, #BD5317 100%);
+  }
+
+  .closing-banner-photo {
+    border-color: #38281F;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  .archive-disclaimer {
+    background-color: rgba(208, 137, 66, 0.12);
+    border-color: rgba(208, 137, 66, 0.4);
+    border-left-color: #E29D4B;
+  }
+
+  .archive-disclaimer-text {
+    color: #FAF4EC;
+  }
+}
+
+/* Suporte legado caso hero-image ainda seja referenciado */
 .banner-wrapper {
   position: relative;
   width: 100%;

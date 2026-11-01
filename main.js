@@ -151,6 +151,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 2.4 Botão "Fale com a Curitidoce" (Banner de encerramento)
+  const closingContactBtn = document.getElementById('btn-fale-curitidoce');
+  if (closingContactBtn) {
+    closingContactBtn.addEventListener('click', () => {
+      trackEvent('closing_banner_contact_click', {
+        destination_url: closingContactBtn.href,
+        cta_text: 'Fale com a Curitidoce'
+      });
+    });
+  }
+
   // 3. BANNER DE COOKIES
   const COOKIE_CONSENT_KEY = 'curitipao_cookies_consent';
   const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
