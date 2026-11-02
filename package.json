@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "build:pages": "node scripts/build_pages.cjs",
     "prepare:2026": "node scripts/prepare_festival_2026.cjs",
-    "postbuild": "node scripts/post_build.cjs"
+    "postbuild": "node scripts/post_build.cjs",
+    "deploy:production": "npm run build && node scripts/push_production.cjs"
   },
   "devDependencies": {
     "playwright-core": "^1.64.1",

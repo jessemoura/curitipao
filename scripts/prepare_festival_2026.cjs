@@ -439,6 +439,41 @@ const extraCss = `
   padding: 0;
 }
 
+/* GRADE RESPONSIVA DOS 15 CARDS HISTÓRICOS */
+.cards {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1.5rem !important;
+  align-items: stretch !important;
+  width: 100% !important;
+}
+
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.75rem !important;
+  }
+}
+
+.card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: auto !important;
+  box-sizing: border-box !important;
+}
+
+.card .contact {
+  margin-top: auto !important;
+}
+
 @media (max-width: 768px) {
   #imprensa,
   .festival-press-section,
@@ -518,7 +553,11 @@ originalHtml = originalHtml.replaceAll('https://curitipao.conexus.press/', 'http
 // 2. Adjust assets paths to root /assets/
 // In 2026 index.html, paths are assets/photos/..., assets/logos/..., assets/curitipao-logo.png
 // By making them /assets/... they will resolve correctly from /festival/2026/
+originalHtml = originalHtml.replaceAll('srcset="assets/', 'srcset="/assets/');
+originalHtml = originalHtml.replaceAll('srcset="./assets/', 'srcset="/assets/');
 originalHtml = originalHtml.replaceAll('src="assets/', 'src="/assets/');
+originalHtml = originalHtml.replaceAll('src="./assets/', 'src="/assets/');
+originalHtml = originalHtml.replaceAll('href="assets/', 'href="/assets/');
 originalHtml = originalHtml.replaceAll('href="/assets/', 'href="/assets/');
 originalHtml = originalHtml.replaceAll('src="./main.js', 'src="./main.js');
 originalHtml = originalHtml.replaceAll('href="./style.css', 'href="./style.css');
@@ -793,7 +832,7 @@ let cardIndex = 0;
 originalHtml = originalHtml.replace(/(<!-- Card \d+: [^>]+ -->\s*)<article class="card">/g, (match, prefix) => {
   const slug = bakeryAnchorSlugs[cardIndex++];
   const aliases = (bakeryAnchorAliases[slug] || []).map(a => `<span id="${a}" class="anchor-target-alias" aria-hidden="true"></span>`).join('');
-  return `${prefix}${aliases}<article class="card" id="${slug}">`;
+  return `${prefix}<article class="card" id="${slug}">${aliases}`;
 });
 
 // 6. Add prominent portal return button and update privacy policy in footer

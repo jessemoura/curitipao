@@ -31,7 +31,13 @@ filesToRoot.forEach(file => {
   }
 });
 
-// 2. Ensure historical festival/2026 assets exist in dist/festival/2026/
+// 2. Ensure complete assets tree is copied to dist/assets/ and dist/festival/2026/assets/
+const srcAssets = path.resolve('assets');
+if (fs.existsSync(srcAssets)) {
+  fs.cpSync(srcAssets, path.join(distDir, 'assets'), { recursive: true });
+  console.log('[Copied complete assets tree to dist/assets/]');
+}
+
 const festival2026Dist = path.join(distDir, 'festival', '2026');
 if (fs.existsSync(festival2026Dist)) {
   ['style.css', 'main.js'].forEach(file => {
@@ -42,9 +48,12 @@ if (fs.existsSync(festival2026Dist)) {
       console.log(`[Copied to dist/festival/2026/] ${file} (${fs.statSync(dest).size} bytes)`);
     }
   });
+  // Also provide relative assets path for festival 2026
+  fs.cpSync(srcAssets, path.join(festival2026Dist, 'assets'), { recursive: true });
+  console.log('[Copied relative assets tree to dist/festival/2026/assets/]');
 }
 
-// 3. Remove screenshots_evidence, backups, and temporary files from dist/
+// 3. Remove screenshots_evidence, backups, and temporary files from dist/ (NEVER delete .git)
 const forbiddenInDist = [
   'screenshots_evidence',
   'capturas',
@@ -59,10 +68,10 @@ forbiddenInDist.forEach(dirName => {
   }
 });
 
-// Remove any .zip files from dist
+// Remove any .zip, .tmp, or log files from dist (preserving .git and essential dotfiles)
 const distFiles = fs.readdirSync(distDir);
 distFiles.forEach(file => {
-  if (file.endsWith('.zip') || file.endsWith('.tmp') || file.startsWith('.git')) {
+  if (file.endsWith('.zip') || file.endsWith('.tmp') || file.endsWith('.log')) {
     fs.rmSync(path.join(distDir, file), { force: true });
     console.log(`[Removed unwanted file from dist] ${file}`);
   }
