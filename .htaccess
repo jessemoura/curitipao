@@ -1,0 +1,59 @@
+# ========================================================
+# PORTAL CURITIPÃO — CONFIGURAÇÕES DE PRODUÇÃO (APACHE / LITESPEED)
+# Domínio Principal: https://curitipao.com.br/
+# ========================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # 1. Forçar HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://curitipao.com.br/$1 [R=301,L]
+
+    # 2. Forçar domínio sem WWW (Canônico: curitipao.com.br)
+    RewriteCond %{HTTP_HOST} ^www\.curitipao\.com\.br$ [NC]
+    RewriteRule ^(.*)$ https://curitipao.com.br/$1 [R=301,L]
+
+    # 3. Redirecionamento legado de Política de Privacidade
+    RewriteRule ^politica-de-privacidade\.html$ https://curitipao.com.br/privacidade/ [R=301,L,QSA]
+    RewriteRule ^festival/2026/politica-de-privacidade\.html$ https://curitipao.com.br/privacidade/ [R=301,L,QSA]
+
+    # 4. Forçar barra final em diretórios para evitar duplicidade de URL
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteCond %{REQUEST_URI} !(.*)/$
+    RewriteRule ^(.*)$ https://curitipao.com.br/$1/ [R=301,L]
+</IfModule>
+
+# Página de Erro 404 Personalizada
+ErrorDocument 404 /404.html
+
+# Cabeçalhos de Segurança
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# MIME Types Essenciais
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddType image/svg+xml .svg .svgz
+    AddType application/json .json
+    AddType video/mp4 .mp4
+</IfModule>
+
+# Cache de Arquivos Estáticos (Performance)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType video/mp4 "access plus 1 year"
+</IfModule>

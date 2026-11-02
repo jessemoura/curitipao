@@ -1,0 +1,19 @@
+{
+  "name": "curitipao",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/prepare_festival_2026.cjs && node scripts/build_pages.cjs && vite build && node scripts/post_build.cjs",
+    "preview": "vite preview",
+    "build:pages": "node scripts/build_pages.cjs",
+    "prepare:2026": "node scripts/prepare_festival_2026.cjs",
+    "postbuild": "node scripts/post_build.cjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.64.1",
+    "sharp": "^0.33.5",
+    "vite": "^6.2.0"
+  }
+}

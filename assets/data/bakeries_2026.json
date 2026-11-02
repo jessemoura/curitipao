@@ -1,0 +1,332 @@
+[
+  {
+    "name": "AQUARIUS PANIFICADORA",
+    "neighborhood": "Bacacheri",
+    "product": "Pão Floresta Negra",
+    "description": "Pão de fermentação natural com cacau, chocolate, cereja desidratada e castanha-do-pará, inspirado nos sabores da tradicional Floresta Negra.",
+    "price": "R$ 99 o quilo (aprox. R$ 29,70 unidade)",
+    "address": "Avenida Prefeito Erasto Gaertner, 363 – Bacacheri",
+    "hours": "atendimento 24 horas, todos os dias",
+    "instagram": "https://instagram.com/aquariuscuritiba",
+    "instaHandle": "@aquariuscuritiba",
+    "photos": [
+      {
+        "src": "assets/photos/aquarius-inteiro.jpg",
+        "alt": "Pão Floresta Negra - foto inteira"
+      },
+      {
+        "src": "assets/photos/aquarius-cortado.jpg",
+        "alt": "Pão Floresta Negra - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "AQUI NA MATA",
+    "neighborhood": "Juvevê",
+    "product": "Rolinho Tiramisu",
+    "description": "Massa de brioche enrolada e recheada com manteiga de cupuaçu, açúcar mascavo, cacau e café. Recebe cobertura de cream cheese de castanha-de-caju e cacau polvilhado.",
+    "price": "R$ 22",
+    "address": "Rua Alberto Folloni, 220, Loja 1 – Juvevê",
+    "hours": "Terça a sexta: das 7h às 19h; Sábado: das 9h às 17h",
+    "instagram": "https://instagram.com/aquinamata",
+    "instaHandle": "@aquinamata",
+    "photos": [
+      {
+        "src": "assets/photos/Rolinho Tiramisu - Aqui na Mata 12.jpg",
+        "alt": "Rolinho Tiramisu - foto inteira"
+      },
+      {
+        "src": "assets/photos/Rolinho Tiramisu - Aqui na Mata 4.jpg",
+        "alt": "Rolinho Tiramisu - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "BONIN BAKERY",
+    "neighborhood": "Centro",
+    "product": "Pão do Bosque",
+    "description": "Pão de fermentação natural e alta hidratação, com cranberry e pistache em uma combinação de sabores frutados e delicadamente tostados.",
+    "price": "R$ 30",
+    "address": "Alameda Prudente de Moraes, 995 – Centro",
+    "hours": "Segunda a sábado: das 9h às 18h30",
+    "instagram": "https://instagram.com/boninbakery",
+    "instaHandle": "@boninbakery",
+    "photos": [
+      {
+        "src": "assets/photos/bonin-inteiro.jpg",
+        "alt": "Pão do Bosque - foto inteira"
+      },
+      {
+        "src": "assets/photos/bonin-cortado.jpg",
+        "alt": "Pão do Bosque - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "CONFRARIA DOS PÃES",
+    "neighborhood": "Alto da XV",
+    "product": "Baguete Veneza – Integral com Cranberry e Goji Berry",
+    "description": "Baguete de fermentação natural feita com farinha integral, cranberry, goji berry e sementes, com crosta dourada, miolo macio e equilíbrio entre sabores frutados e rústicos.",
+    "price": "R$ 8",
+    "address": "Rua Atílio Bório, 1307 - Alto da XV",
+    "hours": "Segunda a sexta: das 8h30 às 19h30; Sábado: das 8h30 às 18h30",
+    "instagram": "https://instagram.com/confraria_dos_paes",
+    "instaHandle": "@confraria_dos_paes",
+    "photos": [
+      {
+        "src": "assets/photos/baguete veneza - integral - Confraria 1.jpg",
+        "alt": "Baguete Veneza – Integral (foto inteira)"
+      },
+      {
+        "src": "assets/photos/baguete veneza - integral - Confraria 6.jpg",
+        "alt": "Baguete Veneza – Integral (foto cortada)"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "FABIANO MARCOLINI ALIMENTARI",
+    "neighborhood": "Batel",
+    "product": "Ciabatta de Tomate, Manjericão e Azeitonas",
+    "description": "Ciabatta artesanal preparada com tomate, manjericão e azeitonas, combinando sabores clássicos da cozinha italiana.",
+    "price": "R$ 14",
+    "address": "Alameda Dr. Carlos de Carvalho, 1181 – Batel",
+    "hours": "Segunda 7h30‑19h; Terça a sábado 7h30‑20h; Domingo 8h‑19h",
+    "instagram": "https://instagram.com/fabianomarcolini",
+    "instaHandle": "@fabianomarcolini",
+    "photos": [
+      {
+        "src": "assets/photos/Ciabatta recheado - Marcolini 4.jpg",
+        "alt": "Ciabatta de Tomate, Manjericão e Azeitonas - foto inteira"
+      },
+      {
+        "src": "assets/photos/Ciabatta recheado - Marcolini 3.jpg",
+        "alt": "Ciabatta de Tomate, Manjericão e Azeitonas - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "FÁBRIKA PÃES",
+    "neighborhood": "Alto da XV",
+    "product": "Campanha Abóbora",
+    "description": "Pão de campanha preparado com abóbora-pescoço assada e incorporada à massa, que acrescenta sabor e maciez à receita artesanal.",
+    "price": "R$ 39",
+    "address": "Rua Schiller, 1341 – Alto da XV",
+    "hours": "Segunda a sexta: das 13h às 19h; Sábado: das 9h às 16h",
+    "instagram": "https://instagram.com/fabrikapaes",
+    "instaHandle": "@fabrikapaes",
+    "photos": [
+      {
+        "src": "assets/photos/PÃ£o de Campanha - Fabrika PÃ£es - 01.jpg",
+        "alt": "Pão de Campanha - foto inteira"
+      },
+      {
+        "src": "assets/photos/PÃ£o de Campanha - Fabrika PÃ£es - 02.jpg",
+        "alt": "Pão de Campanha - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "FELIPANE",
+    "neighborhood": "Juvevê",
+    "product": "Babka de Nutella e Pistache",
+    "description": "Massa macia de brioche, trançada e generosamente recheada com Nutella e pistache.",
+    "price": "R$ 28",
+    "address": "Rua Cândido Mader, 81 – Juvevê",
+    "hours": "",
+    "instagram": "https://instagram.com/feli.pane",
+    "instaHandle": "@feli.pane",
+    "photos": [
+      {
+        "src": "assets/photos/Babka de Nutella e Pistache - FELIPANE 5.jpg",
+        "alt": "Babka de Nutella e Pistache - foto inteira"
+      },
+      {
+        "src": "assets/photos/Babka de Nutella e Pistache - FELIPANE 2.jpg",
+        "alt": "Babka de Nutella e Pistache - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "HAIAT ATELIÊ DO PÃO",
+    "neighborhood": "Juvevê",
+    "product": "Fougasse de Primavera",
+    "description": "Pão provençal em formato de folha, preparado com azeite, limão-siciliano, manjericão e azeitonas pretas, finalizado com crosta de parmesão.",
+    "price": "R$ 24",
+    "address": "Rua Constantino Marochi, 658 – Juvevê",
+    "hours": "Terça a sexta: das 10h às 19h; Sábado: das 8h às 18h",
+    "instagram": "https://instagram.com/haiat.ateliedopao",
+    "instaHandle": "@haiat.ateliedopao",
+    "photos": [
+      {
+        "src": "assets/photos/Fougasse de primavera - Haiat 1.jpg",
+        "alt": "Fougasse de Primavera - foto inteira"
+      },
+      {
+        "src": "assets/photos/Fougasse de primavera - Haiat 7.jpg",
+        "alt": "Fougasse de Primavera - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "MAÇÃ ORGÂNICA PADARIA",
+    "neighborhood": "",
+    "product": "Sonho de Gengibre e Abacaxi",
+    "description": "Sonho artesanal recheado com creme de gengibre e geleia de abacaxi, finalizado com chocolate branco, abacaxi cristalizado e gel.",
+    "price": "R$ 26",
+    "address": "",
+    "hours": "",
+    "instagram": "",
+    "instaHandle": "@macapadaria",
+    "photos": [
+      {
+        "src": "assets/photos/maca-organica-inteiro.jpg",
+        "alt": "Sonho de Gengibre e Abacaxi - foto inteira"
+      },
+      {
+        "src": "assets/photos/maca-organica-cortado.jpg",
+        "alt": "Sonho de Gengibre e Abacaxi - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "PADARIA AMÉRICA",
+    "neighborhood": "São Francisco",
+    "product": "BroaBrie",
+    "description": "Broa de centeio com damasco e nozes, recheada e finalizada com uma crosta de queijo brie. Uma criação agridoce que une a tradição da Padaria América a uma combinação especial de sabores.",
+    "price": "R$ 25 a unidade",
+    "address": "Rua Presidente Carlos Cavalcanti, 942 – São Francisco",
+    "hours": "Segunda a sábado: das 8h às 20h",
+    "instagram": "https://instagram.com/padariaamerica",
+    "instaHandle": "@padariaamerica",
+    "photos": [
+      {
+        "src": "assets/photos/Padaria AmÃ©rica â€” BroaBrie 01.jpg",
+        "alt": "BroaBrie - foto inteira"
+      },
+      {
+        "src": "assets/photos/Padaria AmÃ©rica â€” BroaBrie 04.jpg",
+        "alt": "BroaBrie - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "PADARIA FAMÍLIA FARINHA",
+    "neighborhood": "Jardim Social",
+    "product": "Pão de Trigo 100% Integral",
+    "description": "Pão de fermentação natural produzido exclusivamente com farinha de trigo integral, em uma receita de sabor rústico desenvolvida especialmente para o festival.",
+    "price": "R$ 59,90 o quilo (aprox. R$ 26,95 unidade)",
+    "address": "Avenida Nossa Senhora da Luz, 2315 – Jardim Social",
+    "hours": "Segunda a sábado: 6h30 às 20h30 / Domingo: 8h às 20h.",
+    "instagram": "https://instagram.com/familiafarinha",
+    "instaHandle": "@familiafarinha",
+    "photos": [
+      {
+        "src": "assets/photos/familia-farinha-inteiro.jpg",
+        "alt": "Pão de Trigo 100% Integral - foto inteira"
+      },
+      {
+        "src": "assets/photos/familia-farinha-cortado.jpg",
+        "alt": "Pão de Trigo 100% Integral - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "PADARIA REQUINTE",
+    "neighborhood": "",
+    "product": "Pão de Chocolate com Café",
+    "description": "Pão de massa semidoce preparado com café e gotas de chocolate, em uma combinação aromática criada especialmente para o CuritiPão.",
+    "price": "R$ 55 o quilo",
+    "address": "",
+    "hours": "",
+    "instagram": "https://instagram.com/padariarequinte",
+    "instaHandle": "@padariarequinte",
+    "photos": [
+      {
+        "src": "assets/photos/requinte-inteiro.jpg",
+        "alt": "Pão de Chocolate com Café - foto inteira"
+      },
+      {
+        "src": "assets/photos/requinte-cortado.jpg",
+        "alt": "Pão de Chocolate com Café - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "PIEGEL PÃES",
+    "neighborhood": "Cabral",
+    "product": "Pão Doce de Laranja",
+    "description": "Pão de fermentação natural preparado com laranja e frutas cristalizadas, finalizado com uma delicada cobertura de açúcar cristalizado.",
+    "price": "R$ 31,50",
+    "address": "Avenida Anita Garibaldi, 590 – Cabral",
+    "hours": "Todos os dias: das 7h às 21h",
+    "instagram": "https://instagram.com/piegelpaes",
+    "instaHandle": "@piegelpaes",
+    "photos": [
+      {
+        "src": "assets/photos/PÃO DOCE DE LARANJA - Piegel 10.jpg",
+        "alt": "Pão Doce de Laranja - foto inteira"
+      },
+      {
+        "src": "assets/photos/piegel-cortado.jpg",
+        "alt": "Pão Doce de Laranja - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "SAINT GERMAIN PANIFICADORA",
+    "neighborhood": "",
+    "product": "Ciabatta de Calabresa",
+    "description": "Ciabatta de casca crocante e interior macio, generosamente recheada com calabresa.",
+    "price": "R$ 21,90",
+    "address": "",
+    "hours": "",
+    "instagram": "https://instagram.com/saintgermainpanificadora",
+    "instaHandle": "@saintgermainpanificadora",
+    "photos": [
+      {
+        "src": "assets/photos/CIABATTA C_ CALABRESA - SAINT GERMAIN 1.jpg",
+        "alt": "Ciabatta de Calabresa - foto inteira"
+      },
+      {
+        "src": "assets/photos/CIABATTA C_ CALABRESA - SAINT GERMAIN 6.jpg",
+        "alt": "Ciabatta de Calabresa - foto cortada"
+      }
+    ],
+    "units": []
+  },
+  {
+    "name": "SPHAIR ATELIÊ DE PÃES",
+    "neighborhood": "",
+    "product": "Bagel de Cebola e Provolone",
+    "description": "Bagel de fermentação natural preparado com cebola crocante, provolone e gergelim, combinando textura macia e sabor marcante.",
+    "price": "R$ 8",
+    "address": "",
+    "hours": "",
+    "instagram": "https://instagram.com/ateliedepaes",
+    "instaHandle": "@ateliedepaes",
+    "photos": [
+      {
+        "src": "assets/photos/Bagel - Sphair 4.jpg",
+        "alt": "Bagel de Cebola e Provolone - foto inteira"
+      },
+      {
+        "src": "assets/photos/Bagel - Sphair 7.jpg",
+        "alt": "Bagel de Cebola e Provolone - foto cortada"
+      }
+    ],
+    "units": []
+  }
+]

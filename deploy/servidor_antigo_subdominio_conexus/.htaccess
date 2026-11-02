@@ -1,0 +1,58 @@
+# ========================================================
+# CURITIPÃO — REDIRECIONAMENTOS DE MIGRAÇÃO EXPLÍCITOS (APACHE / LITESPEED)
+# Domínio de Origem: curitipao.conexus.press
+# Destino Oficial: https://curitipao.com.br
+#
+# IMPORTANTE / REGRA DE SEGURANÇA:
+# Este arquivo deve ser inserido EXCLUSIVAMENTE na pasta raiz do subdomínio
+# curitipao.conexus.press (ex: public_html/curitipao/ ou pasta do subdomínio).
+# NUNCA substitua o .htaccess principal de conexus.press!
+# ========================================================
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # ----------------------------------------------------
+    # 1. MAPEAMENTO EXPLÍCITO DE ROTAS HISTÓRICAS
+    # ----------------------------------------------------
+    # Raiz antiga e index.html -> Arquivo Histórico da Edição 2026
+    # Preserva Query Strings (QSA) e âncoras (gerenciadas pelo navegador)
+    RewriteRule ^$ https://curitipao.com.br/festival/2026/ [R=301,L,QSA]
+    RewriteRule ^index\.html$ https://curitipao.com.br/festival/2026/ [R=301,L,QSA]
+
+    # Política de Privacidade histórica -> Nova Política Unificada
+    RewriteRule ^politica-de-privacidade\.html$ https://curitipao.com.br/privacidade/ [R=301,L,QSA]
+
+    # Sitemap e Robots
+    RewriteRule ^sitemap\.xml$ https://curitipao.com.br/sitemap.xml [R=301,L]
+    RewriteRule ^robots\.txt$ https://curitipao.com.br/robots.txt [R=301,L]
+
+    # Estilos e Scripts Históricos
+    RewriteRule ^style\.css$ https://curitipao.com.br/festival/2026/style.css [R=301,L]
+    RewriteRule ^main\.js$ https://curitipao.com.br/festival/2026/main.js [R=301,L]
+
+    # Favicons históricos
+    RewriteRule ^favicon\.ico$ https://curitipao.com.br/favicon.ico [R=301,L]
+    RewriteRule ^favicon\.png$ https://curitipao.com.br/favicon.png [R=301,L]
+    RewriteRule ^apple-touch-icon\.png$ https://curitipao.com.br/apple-touch-icon.png [R=301,L]
+
+    # ----------------------------------------------------
+    # 2. MAPEAMENTO EXPLÍCITO DE ASSETS HISTÓRICOS
+    # ----------------------------------------------------
+    # Todos os arquivos do diretório assets/ foram sincronizados
+    # e validados no novo portal em curitipao.com.br/assets/
+    RewriteRule ^assets/(.*)$ https://curitipao.com.br/assets/$1 [R=301,L,QSA]
+
+    # ----------------------------------------------------
+    # 3. TRATAMENTO RESTRITIVO DE ROTAS DESCONHECIDAS
+    # ----------------------------------------------------
+    # URLs desconhecidas NÃO são redirecionadas indiscriminadamente
+    # para a home nem para destinos inexistentes. Retornam HTTP 404.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^.*$ - [R=404,L]
+</IfModule>
+
+# Resposta de erro 404 limpa e informativa para o subdomínio
+ErrorDocument 404 "404 Not Found - O recurso solicitado nao existe em curitipao.conexus.press."
