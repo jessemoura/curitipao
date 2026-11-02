@@ -5,3 +5,6 @@ capturas/
 scratch/
 .tempmediaStorage/
 *.log
+api/smtp_config.php
+api/*.secret.php
+api/.env

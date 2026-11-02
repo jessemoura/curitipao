@@ -258,7 +258,7 @@ function getFooter() {
 }
 
 // Base HTML Page Wrapper
-function wrapPage({ title, description, canonical, activeRoute, content, schemaJson, extraHead = '' }) {
+function wrapPage({ title, description, canonical, activeRoute, content, schemaJson, extraHead = '', ogImage = 'https://curitipao.com.br/assets/photos/curitipao-111.jpg' }) {
   const jsonLd = schemaJson ? `<script type="application/ld+json">\n${JSON.stringify(schemaJson, null, 2)}\n</script>` : '';
 
   return `<!DOCTYPE html>
@@ -292,13 +292,13 @@ function wrapPage({ title, description, canonical, activeRoute, content, schemaJ
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="https://curitipao.com.br${canonical}">
   <meta property="og:site_name" content="CuritiPão">
-  <meta property="og:image" content="https://curitipao.com.br/assets/photos/curitipao-111.jpg">
+  <meta property="og:image" content="${ogImage}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${title} | CuritiPão">
   <meta name="twitter:description" content="${description}">
-  <meta name="twitter:image" content="https://curitipao.com.br/assets/photos/curitipao-111.jpg">
+  <meta name="twitter:image" content="${ogImage}">
 
   ${jsonLd}
 
@@ -1125,6 +1125,7 @@ const blogContent = `
             <button type="button" class="btn btn-secondary blog-filter-btn active" data-category="all" style="padding: 6px 14px; font-size: 0.82rem;">Todas as Categorias</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Novidades e festival" style="padding: 6px 14px; font-size: 0.82rem;">Novidades e festival</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Padarias e pessoas" style="padding: 6px 14px; font-size: 0.82rem;">Padarias e pessoas</button>
+            <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Receitas" style="padding: 6px 14px; font-size: 0.82rem;">Receitas</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Roteiros" style="padding: 6px 14px; font-size: 0.82rem;">Roteiros</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Pães e sabores" style="padding: 6px 14px; font-size: 0.82rem;">Pães e sabores</button>
           </div>
@@ -1273,6 +1274,7 @@ const artigoHtml = wrapPage({
   description: 'Conheça a história e a nova fase do CuritiPão, agora estabelecido como guia permanente da panificação curitibana durante o ano todo.',
   canonical: '/blog/o-curitipao-continua/',
   activeRoute: '/blog/',
+  ogImage: 'https://curitipao.com.br/assets/photos/curitipao-108%20(1).jpg',
   content: artigoContent,
   schemaJson: {
     "@context": "https://schema.org",
