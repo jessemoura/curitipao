@@ -38,6 +38,13 @@ if (fs.existsSync(srcAssets)) {
   console.log('[Copied complete assets tree to dist/assets/]');
 }
 
+// Copy api/ backend directory
+const srcApi = path.resolve('api');
+if (fs.existsSync(srcApi)) {
+  fs.cpSync(srcApi, path.join(distDir, 'api'), { recursive: true });
+  console.log('[Copied api/ backend directory to dist/api/]');
+}
+
 const festival2026Dist = path.join(distDir, 'festival', '2026');
 if (fs.existsSync(festival2026Dist)) {
   ['style.css', 'main.js'].forEach(file => {
@@ -94,7 +101,8 @@ const essentialFiles = [
   'privacidade/index.html',
   'contato/index.html',
   'roteiros/index.html',
-  'blog/index.html'
+  'blog/index.html',
+  'api/contato.php'
 ];
 
 let allOk = true;

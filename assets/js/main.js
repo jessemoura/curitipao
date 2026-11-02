@@ -248,21 +248,177 @@
       });
     }
 
-    // 6. CONTACT FORMS HANDLING
+    // 6. CONTACT FORMS HANDLING & ENHANCED PHONE LOGIC
+    function formatPhone(val) {
+      if (!val) return '';
+      const digits = val.replace(/\D/g, '').slice(0, 11);
+      if (digits.length <= 2) return digits ? `(${digits}` : '';
+      if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+      if (digits.length <= 10) return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+      return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+    }
+
+    // Attach phone masks
+    const phoneInputs = document.querySelectorAll('input[type="tel"]');
+    phoneInputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const raw = input.value;
+        const formatted = formatPhone(raw);
+        if (formatted !== raw && raw.length > 0) {
+          input.value = formatted;
+        }
+      });
+    });
+
+    // Handle "O WhatsApp é o mesmo telefone" toggle
+    const samePhoneToggles = [
+      {
+        checkbox: document.getElementById('ind-mesmo-contato'),
+        tel: document.getElementById('ind-telefone'),
+        wpp: document.getElementById('ind-whatsapp')
+      },
+      {
+        checkbox: document.getElementById('cad-mesmo-contato'),
+        tel: document.getElementById('cad-telefone'),
+        wpp: document.getElementById('cad-whatsapp')
+      }
+    ];
+
+    samePhoneToggles.forEach(item => {
+      if (item.checkbox && item.tel && item.wpp) {
+        const syncPhone = () => {
+          if (item.checkbox.checked) {
+            item.wpp.value = item.tel.value;
+            item.wpp.setAttribute('readonly', 'readonly');
+            item.wpp.style.opacity = '0.7';
+          } else {
+            item.wpp.removeAttribute('readonly');
+            item.wpp.style.opacity = '1';
+          }
+        };
+
+        item.checkbox.addEventListener('change', syncPhone);
+        item.tel.addEventListener('input', () => {
+          if (item.checkbox.checked) {
+            item.wpp.value = item.tel.value;
+          }
+        });
+      }
+    });
+
     const forms = document.querySelectorAll('form[data-curitipao-form]');
     forms.forEach(form => {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        const formType = form.getAttribute('data-curitipao-form');
         const alertBox = form.querySelector('.form-status-message');
-        if (alertBox) {
-          alertBox.style.display = 'block';
-          alertBox.className = 'form-notice';
-          alertBox.innerHTML = `
-            <strong>Envio temporariamente indisponível pelo formulário.</strong><br>
-            A infraestrutura de transporte SMTP está em configuração técnica. Por favor, envie sua mensagem ou indicação diretamente para nosso e-mail oficial:
-            <a href="mailto:contato@curitipao.com.br" style="text-decoration: underline; font-weight:700;">contato@curitipao.com.br</a> ou pelo Instagram <a href="https://www.instagram.com/curitipao.guia/" target="_blank" rel="noopener" style="text-decoration: underline; font-weight:700;">@curitipao.guia</a>.
-          `;
-          alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        // Check honeypot
+        const hp = form.querySelector('input[name="curitipao_hp"]');
+        if (hp && hp.value.trim() !== '') {
+          return;
+        }
+
+        // Validate required contact in Form B (Cadastrar/Atualizar)
+        if (formType === 'cadastrar') {
+          const telInput = form.querySelector('[name="telefone_padaria"]');
+          const wppInput = form.querySelector('[name="whatsapp_padaria"]');
+          const alertaContato = form.querySelector('#cad-contato-alerta');
+          const telDigits = (telInput?.value || '').replace(/\D/g, '');
+          const wppDigits = (wppInput?.value || '').replace(/\D/g, '');
+
+          if (!telDigits && !wppDigits) {
+            if (alertaContato) alertaContato.style.display = 'block';
+            (telInput || wppInput)?.focus();
+            if (alertBox) {
+              alertBox.style.display = 'block';
+              alertBox.className = 'form-status-message form-notice';
+              alertBox.innerHTML = '<strong>Atenção:</strong> Por favor, informe ao menos um número de contato da padaria (telefone fixo ou WhatsApp).';
+              alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            return;
+          } else {
+            if (alertaContato) alertaContato.style.display = 'none';
+          }
+        }
+
+        // Native validity check for required fields
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn ? submitBtn.innerText : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Processando dados...';
+        }
+
+        // Collect form data
+        const formData = new FormData(form);
+        const dataObj = {};
+        formData.forEach((val, key) => {
+          dataObj[key] = val;
+        });
+        dataObj.tipo_formulario = formType;
+        dataObj.autoriza_tel = form.querySelector('[name="autoriza_tel"]')?.checked ? 1 : 0;
+        dataObj.autoriza_wpp = form.querySelector('[name="autoriza_wpp"]')?.checked ? 1 : 0;
+        dataObj.mesmo_contato = form.querySelector('[name="mesmo_contato"]')?.checked ? 1 : 0;
+
+        try {
+          const res = await fetch('/api/contato.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(dataObj)
+          });
+
+          const data = await res.json().catch(() => null);
+
+          if (alertBox) {
+            alertBox.style.display = 'block';
+            alertBox.className = 'form-status-message form-notice';
+
+            if (res.ok && data && data.success) {
+              alertBox.innerHTML = `
+                <strong>Solicitação recebida com sucesso!</strong><br>
+                ${data.message || 'As informações foram registradas como pendentes de análise pela curadoria CuritiPão. Nenhuma alteração é publicada automaticamente.'}
+              `;
+            } else if (data && data.status === 'pending_smtp_setup') {
+              alertBox.innerHTML = `
+                <strong>Dados conferidos e validados com sucesso!</strong><br>
+                ${data.message}<br><br>
+                <em>Observação: nenhuma confirmação simulada foi gerada. O contato direto por e-mail ou Instagram garante o recebimento imediato.</em>
+              `;
+            } else {
+              alertBox.innerHTML = `
+                <strong>Aviso sobre o envio:</strong><br>
+                ${(data && data.message) ? data.message : 'O serviço de envio direto aguarda a ativação técnica de SMTP na hospedagem.'}<br>
+                Para atendimento imediato, encaminhe seus dados diretamente para <a href="mailto:contato@curitipao.com.br" style="text-decoration: underline; font-weight:700;">contato@curitipao.com.br</a> ou pelo direct do Instagram <a href="https://www.instagram.com/curitipao.guia/" target="_blank" rel="noopener" style="text-decoration: underline; font-weight:700;">@curitipao.guia</a>.
+              `;
+            }
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        } catch (err) {
+          if (alertBox) {
+            alertBox.style.display = 'block';
+            alertBox.className = 'form-status-message form-notice';
+            alertBox.innerHTML = `
+              <strong>Dados validados localmente!</strong><br>
+              O transporte SMTP direto está em fase de ativação técnica na hospedagem. <strong>Nenhuma confirmação simulada foi gerada.</strong><br><br>
+              Por favor, encaminhe as informações preenchidas para o e-mail oficial:
+              <a href="mailto:contato@curitipao.com.br" style="text-decoration: underline; font-weight:700;">contato@curitipao.com.br</a> ou pelo direct do Instagram <a href="https://www.instagram.com/curitipao.guia/" target="_blank" rel="noopener" style="text-decoration: underline; font-weight:700;">@curitipao.guia</a>.
+            `;
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = originalBtnText;
+          }
         }
       });
     });
