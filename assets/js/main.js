@@ -383,6 +383,12 @@
             alertBox.className = 'form-status-message form-notice';
 
             if (res.ok && data && data.success) {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'form_submission_success', {
+                  form_type: formType,
+                  event_category: 'engagement'
+                });
+              }
               alertBox.innerHTML = `
                 <strong>Solicitação recebida com sucesso!</strong><br>
                 ${data.message || 'As informações foram registradas como pendentes de análise pela curadoria CuritiPão. Nenhuma alteração é publicada automaticamente.'}
@@ -421,6 +427,36 @@
           }
         }
       });
+    });
+
+    // 7. GLOBAL OUTBOUND EVENT TRACKING (Instagram, WhatsApp, Maps)
+    document.addEventListener('click', (e) => {
+      const anchor = e.target.closest('a');
+      if (!anchor || !anchor.href) return;
+      const href = anchor.href;
+
+      if (href.includes('instagram.com')) {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'instagram_click', {
+            destination_url: href,
+            link_text: anchor.innerText.trim() || 'Instagram'
+          });
+        }
+      } else if (href.includes('wa.me') || href.includes('whatsapp.com')) {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'whatsapp_click', {
+            destination_url: href,
+            link_text: anchor.innerText.trim() || 'WhatsApp'
+          });
+        }
+      } else if (href.includes('google.com/maps') || href.includes('maps.google') || href.includes('goo.gl/maps')) {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'maps_click', {
+            destination_url: href,
+            link_text: anchor.innerText.trim() || 'Como Chegar'
+          });
+        }
+      }
     });
   });
 })();

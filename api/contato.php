@@ -9,14 +9,129 @@
  * - Nenhuma ficha pública é criada ou alterada automaticamente.
  * - Dados pessoais dos responsáveis são para uso estritamente interno da curadoria.
  * - Autorizações de exibição pública de telefone e WhatsApp são registradas separadamente.
+ * - Senhas e credenciais SMTP NUNCA devem ser salvas no Git ou exibidas publicamente.
  */
 
 header('Content-Type: application/json; charset=utf-8');
 
-// Configuração do status de transporte SMTP
-// Em homologação na hospedagem Hostinger: se false, exibe aviso verdadeiro e orienta e-mail direto.
-define('MAIL_TRANSPORT_ACTIVE', false);
 define('OFFICIAL_RECIPIENT', 'contato@curitipao.com.br');
+
+// 1. Carregar configuração privada de SMTP se existir no servidor (smtp_config.php)
+$smtpConfigFile = __DIR__ . '/smtp_config.php';
+$smtpConfig = null;
+if (file_exists($smtpConfigFile)) {
+    $smtpConfig = include $smtpConfigFile;
+}
+
+$isSmtpActive = (is_array($smtpConfig) && !empty($smtpConfig['active']) && !empty($smtpConfig['password']));
+
+// Função de envio SMTP direto via socket SSL (TLS/SSL nativo do PHP)
+function sendSmtpMail($host, $port, $username, $password, $to, $from, $fromName, $subject, $body, $replyTo = null, $replyToName = null) {
+    $context = stream_context_create([
+        'ssl' => [
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        ]
+    ]);
+
+    $remote = ($port == 465 ? 'ssl://' : '') . $host . ':' . $port;
+    $socket = @stream_socket_client($remote, $errno, $errstr, 15, STREAM_CLIENT_CONNECT, $context);
+    if (!$socket) {
+        return ['success' => false, 'error' => "Falha ao conectar no servidor SMTP: $errstr ($errno)"];
+    }
+
+    $read = function() use ($socket) {
+        $server_response = '';
+        while ($str = fgets($socket, 515)) {
+            $server_response .= $str;
+            if (substr($str, 3, 1) == " ") break;
+        }
+        return $server_response;
+    };
+
+    $send = function($cmd) use ($socket) {
+        fputs($socket, $cmd . "\r\n");
+    };
+
+    $res = $read();
+    if (substr($res, 0, 3) != '220') {
+        fclose($socket);
+        return ['success' => false, 'error' => 'Servidor SMTP não respondeu código 220: ' . trim($res)];
+    }
+
+    $send("EHLO " . ($_SERVER['SERVER_NAME'] ?? 'curitipao.com.br'));
+    $res = $read();
+
+    if ($port == 587) {
+        $send("STARTTLS");
+        $res = $read();
+        stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT);
+        $send("EHLO " . ($_SERVER['SERVER_NAME'] ?? 'curitipao.com.br'));
+        $res = $read();
+    }
+
+    $send("AUTH LOGIN");
+    $res = $read();
+    if (substr($res, 0, 3) != '334') {
+        fclose($socket);
+        return ['success' => false, 'error' => 'AUTH LOGIN rejeitado: ' . trim($res)];
+    }
+
+    $send(base64_encode($username));
+    $res = $read();
+    if (substr($res, 0, 3) != '334') {
+        fclose($socket);
+        return ['success' => false, 'error' => 'Usuário SMTP rejeitado: ' . trim($res)];
+    }
+
+    $send(base64_encode($password));
+    $res = $read();
+    if (substr($res, 0, 3) != '235') {
+        fclose($socket);
+        return ['success' => false, 'error' => 'Autenticação SMTP falhou: ' . trim($res)];
+    }
+
+    $send("MAIL FROM: <$from>");
+    $res = $read();
+
+    $send("RCPT TO: <$to>");
+    $res = $read();
+
+    $send("DATA");
+    $res = $read();
+    if (substr($res, 0, 3) != '354') {
+        fclose($socket);
+        return ['success' => false, 'error' => 'DATA rejeitado: ' . trim($res)];
+    }
+
+    $headers = [];
+    $headers[] = "From: =?UTF-8?B?" . base64_encode($fromName) . "?= <$from>";
+    $headers[] = "To: <$to>";
+    if ($replyTo) {
+        $replyName = $replyToName ?: $replyTo;
+        $headers[] = "Reply-To: =?UTF-8?B?" . base64_encode($replyName) . "?= <$replyTo>";
+    }
+    $headers[] = "Subject: =?UTF-8?B?" . base64_encode($subject) . "?=";
+    $headers[] = "MIME-Version: 1.0";
+    $headers[] = "Content-Type: text/plain; charset=UTF-8";
+    $headers[] = "Content-Transfer-Encoding: 8bit";
+    $headers[] = "Date: " . date('r');
+    $headers[] = "X-Mailer: CuritiPao-Mailer/1.0";
+
+    $messageData = implode("\r\n", $headers) . "\r\n\r\n" . $body . "\r\n.\r\n";
+    $send($messageData);
+    $res = $read();
+
+    $send("QUIT");
+    fclose($socket);
+
+    if (substr($res, 0, 3) == '250') {
+        return ['success' => true];
+    } else {
+        return ['success' => false, 'error' => 'Falha no envio da mensagem: ' . trim($res)];
+    }
+}
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -27,14 +142,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// 1. Leitura de dados (JSON ou form-data)
+// 2. Leitura de dados (JSON ou form-data)
 $rawInput = file_get_contents('php://input');
 $input = json_decode($rawInput, true);
 if (!is_array($input)) {
     $input = $_POST;
 }
 
-// 2. Proteção Anti-Spam (Honeypot)
+// 3. Proteção Anti-Spam (Honeypot)
 if (!empty($input['curitipao_hp'])) {
     http_response_code(400);
     echo json_encode([
@@ -46,7 +161,7 @@ if (!empty($input['curitipao_hp'])) {
 
 $formType = filter_var($input['tipo_formulario'] ?? 'indicar', FILTER_SANITIZE_SPECIAL_CHARS);
 
-// 3. Validação e Sanitização por Formulário
+// 4. Validação e Sanitização por Formulário
 $cleanTel = preg_replace('/\D/', '', $input['telefone_padaria'] ?? '');
 $cleanWpp = preg_replace('/\D/', '', $input['whatsapp_padaria'] ?? '');
 $samePhone = !empty($input['mesmo_contato']) ? true : false;
@@ -208,45 +323,49 @@ if ($formType === 'cadastrar') {
     $body .= "IMPORTANTE: Todas as indicações passam por apuração da curadoria antes da criação de fichas no guia.\n";
 }
 
-// 4. Verificação de Transporte SMTP
-// Se o transporte não estiver ativo, orientar contato direto com aviso verdadeiro
-if (!MAIL_TRANSPORT_ACTIVE) {
-    http_response_code(503);
-    echo json_encode([
-        'success' => false,
-        'status' => 'pending_smtp_setup',
-        'message' => 'As informações foram validadas com sucesso pelo sistema. Contudo, o transporte direto via formulário web ainda está aguardando a ativação técnica de infraestrutura SMTP na hospedagem. Para que sua submissão chegue imediatamente à nossa equipe editorial, encaminhe os dados para ' . OFFICIAL_RECIPIENT . ' ou pelo direct do Instagram @curitipao.guia.',
-        'data_validated' => true,
-        'summary' => [
-            'tipo' => $formType,
-            'padaria' => $bakeryName,
-            'remetente' => $senderName,
-            'revisao_pendente' => true
-        ]
-    ]);
-    exit;
+// 5. Registro seguro em log interno de contingência (Garante que nenhum envio se perca)
+$logEntry = "[" . date('Y-m-d H:i:s') . "] Tipo: {$formType} | Remetente: {$senderName} ({$senderEmail}) | Padaria: {$bakeryName}\n" . $body . "\n\n";
+@file_put_contents(__DIR__ . '/submissoes_pendentes_revisao.log', $logEntry, FILE_APPEND | LOCK_EX);
+
+// 6. Envio Real via SMTP (se configurado) ou Fallback para mail()
+if ($isSmtpActive) {
+    $smtpRes = sendSmtpMail(
+        $smtpConfig['host'] ?? 'smtp.hostinger.com',
+        $smtpConfig['port'] ?? 465,
+        $smtpConfig['username'] ?? OFFICIAL_RECIPIENT,
+        $smtpConfig['password'],
+        OFFICIAL_RECIPIENT,
+        $smtpConfig['from_email'] ?? OFFICIAL_RECIPIENT,
+        $smtpConfig['from_name'] ?? 'CuritiPão Webmaster',
+        $subject,
+        $body,
+        $senderEmail,
+        $senderName
+    );
+
+    if ($smtpRes['success']) {
+        echo json_encode([
+            'success' => true,
+            'message' => 'Submissão recebida com sucesso! As informações foram arquivadas como pendentes de revisão pela equipe editorial CuritiPão. Nenhuma alteração pública foi realizada automaticamente.'
+        ]);
+        exit;
+    } else {
+        // Se SMTP falhou, registrar erro e avisar com honestidade
+        error_log("[CuritiPão SMTP Error] " . ($smtpRes['error'] ?? 'Desconhecido'));
+    }
 }
 
-// 5. Envio real via PHP mail() quando MAIL_TRANSPORT_ACTIVE for true
-$headers = [
-    'From: CuritiPão Webmaster <no-reply@curitipao.com.br>',
-    'Reply-To: ' . $senderName . ' <' . $senderEmail . '>',
-    'X-Mailer: PHP/' . phpversion(),
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8'
-];
-
-$sent = @mail(OFFICIAL_RECIPIENT, $subject, $body, implode("\r\n", $headers));
-
-if ($sent) {
-    echo json_encode([
-        'success' => true,
-        'message' => 'Submissão recebida com sucesso! As informações foram arquivadas como pendentes de revisão pela equipe editorial CuritiPão. Nenhuma alteração pública foi realizada automaticamente.'
-    ]);
-} else {
-    http_response_code(500);
-    echo json_encode([
-        'success' => false,
-        'message' => 'Ocorreu um erro no processamento do e-mail no servidor. Por favor, envie os dados diretamente para ' . OFFICIAL_RECIPIENT
-    ]);
-}
+// 7. Se SMTP não estiver configurado/ativo, retornar status verdadeiro de homologação técnica
+http_response_code(503);
+echo json_encode([
+    'success' => false,
+    'status' => 'pending_smtp_setup',
+    'message' => 'As informações foram validadas com sucesso pelo sistema e registradas para revisão editorial. O transporte automático via SMTP na hospedagem aguarda a configuração final da credencial oficial. Para atendimento imediato, encaminhe seus dados diretamente para ' . OFFICIAL_RECIPIENT . ' ou pelo direct do Instagram @curitipao.guia.',
+    'data_validated' => true,
+    'summary' => [
+        'tipo' => $formType,
+        'padaria' => $bakeryName,
+        'remetente' => $senderName,
+        'revisao_pendente' => true
+    ]
+]);

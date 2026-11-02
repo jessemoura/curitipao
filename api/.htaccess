@@ -1,0 +1,5 @@
+# Proteção de arquivos internos da API
+<FilesMatch "\.(log|env|sample\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
