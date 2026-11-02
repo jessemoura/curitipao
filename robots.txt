@@ -1,0 +1,7 @@
+# CuritiPão — robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /docs/
+
+Sitemap: https://curitipao.com.br/sitemap.xml
