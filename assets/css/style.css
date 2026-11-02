@@ -980,6 +980,105 @@ p:last-child {
   line-height: 1.6;
 }
 
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-section-divider {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: 32px 0 24px;
+}
+
+.form-section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-section-subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.form-checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--color-text);
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.form-checkbox {
+  accent-color: var(--color-accent);
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.form-badge-optional {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-left: 4px;
+}
+
+.form-contacts-block {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 22px;
+}
+
+.form-group-autorizacao {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-top: 14px;
+}
+
+.form-revision-notice {
+  background: rgba(208, 137, 66, 0.08);
+  border: 1px solid rgba(208, 137, 66, 0.35);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.form-error-inline {
+  color: #C0392B;
+  font-size: 0.82rem;
+  margin-top: 6px;
+  display: block;
+  font-weight: 600;
+}
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */
