@@ -284,7 +284,19 @@
   }
   </script>
 
-  <script type="module" crossorigin src="/assets/festival2026-B7IfV0hC.js"></script>
+
+  <script>
+    if (window.location.hash === '#imprensa') {
+      window.location.replace('/imprensa/#2026');
+    }
+    window.addEventListener('hashchange', function() {
+      if (window.location.hash === '#imprensa') {
+        window.location.replace('/imprensa/#2026');
+      }
+    });
+  </script>
+
+  <script type="module" crossorigin src="/assets/festival2026-xGusW40C.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
   <link rel="stylesheet" crossorigin href="/assets/festival2026-923Bgz12.css">
 </head>
@@ -300,9 +312,9 @@
       <span>Voltar ao portal CuritiPão</span>
     </a>
     <div class="portal-return-actions" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-      <a href="#imprensa" class="portal-return-link" style="color: #FAF4EC; opacity: 0.95; font-size: 0.82rem; text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="Pular direto para reportagens da imprensa">
+      <a href="/imprensa/#2026" class="portal-return-link" style="color: #FAF4EC; opacity: 0.95; font-size: 0.82rem; text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="Ver cobertura na imprensa">
         <span>CuritiPão na imprensa</span>
-        <span aria-hidden="true">&darr;</span>
+        <span aria-hidden="true">&rarr;</span>
       </a>
       <span class="portal-return-badge">Edição Encerrada • Arquivo Histórico Oficial 2026</span>
     </div>
@@ -340,6 +352,7 @@
       </div>
       <div class="closing-banner-media">
         <img src="/assets/curitipao-111-MstoRFJ5.jpg" alt="Pães artesanais participantes do Festival CuritiPão 2026" class="closing-banner-photo" width="720" height="520" loading="eager">
+        <div style="font-size: 0.78rem; color: #FAF4EC; opacity: 0.85; margin-top: 6px; font-style: italic; text-align: right;">Foto: Lorena Lenara Batista</div>
       </div>
     </div>
   </header>
@@ -514,9 +527,11 @@
           <img src="/assets/aquarius-inteiro-BC1hEsow.jpg" alt="Pão Floresta Negra - foto inteira">
           <img src="/assets/aquarius-cortado-bYQCkHYG.jpg" alt="Pão Floresta Negra - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>AQUARIUS PANIFICADORA</h3>
         <p class="product-name">Produto: Pão Floresta Negra</p>
         <p>Descrição: Pão de fermentação natural com cacau, chocolate, cereja desidratada e castanha-do-pará, inspirado nos sabores da tradicional Floresta Negra.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 99 o quilo (aprox. R$ 29,70 unidade)</p>
         <p>Endereço: Avenida Prefeito Erasto Gaertner, 363 – Bacacheri</p>
         <p>Horário: atendimento 24 horas, todos os dias</p>
@@ -535,9 +550,11 @@
           <img src="/assets/Rolinho%20Tiramisu%20-%20Aqui%20na%20Mata%2012-Do6FjM0m.jpg" alt="Rolinho Tiramisu - foto inteira">
           <img src="/assets/Rolinho%20Tiramisu%20-%20Aqui%20na%20Mata%204-CRqVcACT.jpg" alt="Rolinho Tiramisu - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>AQUI NA MATA</h3>
         <p class="product-name">Produto: Rolinho Tiramisu</p>
         <p>Descrição: Massa de brioche enrolada e recheada com manteiga de cupuaçu, açúcar mascavo, cacau e café. Recebe cobertura de cream cheese de castanha-de-caju e cacau polvilhado.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 22</p>
         <p>Endereço: Rua Alberto Folloni, 220, Loja 1 – Juvevê</p>
         <p>Horário: Terça a sexta: das 7h às 19h; Sábado: das 9h às 17h</p>
@@ -556,9 +573,11 @@
           <img src="/assets/bonin-inteiro-D3mnZupB.jpg" alt="Pão do Bosque - foto inteira">
           <img src="/assets/bonin-cortado-BVbEz_DJ.jpg" alt="Pão do Bosque - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>BONIN BAKERY</h3>
         <p class="product-name">Produto: Pão do Bosque</p>
         <p>Descrição: Pão de fermentação natural e alta hidratação, com cranberry e pistache em uma combinação de sabores frutados e delicadamente tostados.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 30</p>
         <p>Endereço: Alameda Prudente de Moraes, 995 – Centro</p>
         <p>Horário: Segunda a sábado: das 9h às 18h30</p>
@@ -577,9 +596,11 @@
           <img src="/assets/baguete%20veneza%20-%20integral%20-%20Confraria%201-DvyTpOU0.jpg" alt="Baguete Veneza – Integral (foto inteira)">
           <img src="/assets/baguete%20veneza%20-%20integral%20-%20Confraria%206-BL6EDHsr.jpg" alt="Baguete Veneza – Integral (foto cortada)">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>CONFRARIA DOS PÃES</h3>
         <p class="product-name">Produto: Baguete Veneza – Integral com Cranberry e Goji Berry</p>
         <p>Descrição: Baguete de fermentação natural feita com farinha integral, cranberry, goji berry e sementes, com crosta dourada, miolo macio e equilíbrio entre sabores frutados e rústicos.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 8</p>
         <p>Endereço: Rua Atílio Bório, 1307 - Alto da XV</p>
         <p>Horário: Segunda a sexta: das 8h30 às 19h30; Sábado: das 8h30 às 18h30</p>
@@ -598,9 +619,11 @@
           <img src="/assets/Ciabatta%20recheado%20-%20Marcolini%204-YU5tI6s9.jpg" alt="Ciabatta de Tomate, Manjericão e Azeitonas - foto inteira">
           <img src="/assets/Ciabatta%20recheado%20-%20Marcolini%203-CN6voZuY.jpg" alt="Ciabatta de Tomate, Manjericão e Azeitonas - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>FABIANO MARCOLINI ALIMENTARI</h3>
         <p class="product-name">Produto: Ciabatta de Tomate, Manjericão e Azeitonas</p>
         <p>Descrição: Ciabatta artesanal preparada com tomate, manjericão e azeitonas, combinando sabores clássicos da cozinha italiana.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 14</p>
         <p>Endereço: Alameda Dr. Carlos de Carvalho, 1181 – Batel</p>
         <p>Horário: Segunda 7h30‑19h; Terça a sábado 7h30‑20h; Domingo 8h‑19h</p>
@@ -619,9 +642,11 @@
           <img src="/assets/P%C3%83%C2%A3o%20de%20Campanha%20-%20Fabrika%20P%C3%83%C2%A3es%20-%2001-5R0pQ0MO.jpg" alt="Pão de Campanha - foto inteira">
           <img src="/assets/P%C3%83%C2%A3o%20de%20Campanha%20-%20Fabrika%20P%C3%83%C2%A3es%20-%2002-hzImtJAI.jpg" alt="Pão de Campanha - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>FÁBRIKA PÃES</h3>
         <p class="product-name">Produto: Campanha Abóbora</p>
         <p>Descrição: Pão de campanha preparado com abóbora-pescoço assada e incorporada à massa, que acrescenta sabor e maciez à receita artesanal.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 39</p>
         <p>Endereço: Rua Schiller, 1341 – Alto da XV</p>
         <p>Horário: Segunda a sexta: das 13h às 19h; Sábado: das 9h às 16h</p>
@@ -640,9 +665,11 @@
           <img src="/assets/Babka%20de%20Nutella%20e%20Pistache%20-%20FELIPANE%205-CNuPnwzp.jpg" alt="Babka de Nutella e Pistache - foto inteira">
           <img src="/assets/Babka%20de%20Nutella%20e%20Pistache%20-%20FELIPANE%202-C34TWZ8U.jpg" alt="Babka de Nutella e Pistache - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>FELIPANE</h3>
         <p class="product-name">Produto: Babka de Nutella e Pistache</p>
         <p>Descrição: Massa macia de brioche, trançada e generosamente recheada com Nutella e pistache.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 28</p>
         <p>Endereço: Rua Cândido Mader, 81 – Juvevê</p>
         <p>Horários: Terça a sexta: das 10h às 18h30; Sábado: das 9h às 14h</p>
@@ -661,9 +688,11 @@
           <img src="/assets/Fougasse%20de%20primavera%20-%20Haiat%201-_GKeyA-u.jpg" alt="Fougasse de Primavera - foto inteira">
           <img src="/assets/Fougasse%20de%20primavera%20-%20Haiat%207-DbstPNT-.jpg" alt="Fougasse de Primavera - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>HAIAT ATELIÊ DO PÃO</h3>
         <p class="product-name">Produto: Fougasse de Primavera</p>
         <p>Descrição: Pão provençal em formato de folha, preparado com azeite, limão-siciliano, manjericão e azeitonas pretas, finalizado com crosta de parmesão.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 24</p>
         <p>Endereço: Rua Constantino Marochi, 658 – Juvevê</p>
         <p>Horário: Terça a sexta: das 10h às 19h; Sábado: das 8h às 18h</p>
@@ -682,9 +711,11 @@
           <img src="/assets/maca-organica-inteiro-Dll_xQCD.jpg" alt="Sonho de Gengibre e Abacaxi - foto inteira">
           <img src="/assets/maca-organica-cortado-WGP28aL2.jpg" alt="Sonho de Gengibre e Abacaxi - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>MAÇÃ ORGÂNICA PADARIA</h3>
         <p class="product-name">Produto: Sonho de Gengibre e Abacaxi</p>
         <p>Descrição: Sonho artesanal recheado com creme de gengibre e geleia de abacaxi, finalizado com chocolate branco, abacaxi cristalizado e gel.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 26</p>
         <div class="multi-units-wrapper">
           <div class="units-list">
@@ -728,9 +759,11 @@
           <img src="/assets/Padaria%20Am%C3%83%C2%A9rica%20%C3%A2%E2%82%AC%E2%80%9D%20BroaBrie%2001-8A6nc4gl.jpg" alt="BroaBrie - foto inteira">
           <img src="/assets/Padaria%20Am%C3%83%C2%A9rica%20%C3%A2%E2%82%AC%E2%80%9D%20BroaBrie%2004-mqyZDhEf.jpg" alt="BroaBrie - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>PADARIA AMÉRICA</h3>
         <p class="product-name">Produto: BroaBrie</p>
         <p>Descrição: Broa de centeio com damasco e nozes, recheada e finalizada com uma crosta de queijo brie. Uma criação agridoce que une a tradição da Padaria América a uma combinação especial de sabores.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 25 a unidade</p>
         <p>Endereço: Rua Presidente Carlos Cavalcanti, 942 – São Francisco</p>
         <p>Horário: Segunda a sábado: das 8h às 20h</p>
@@ -749,9 +782,11 @@
           <img src="/assets/familia-farinha-inteiro-Bqnks8Bi.jpg" alt="Pão de Trigo 100% Integral - foto inteira">
           <img src="/assets/familia-farinha-cortado-I9rRXMMP.jpg" alt="Pão de Trigo 100% Integral - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>PADARIA FAMÍLIA FARINHA</h3>
         <p class="product-name">Produto: Pão de Trigo 100% Integral</p>
         <p>Descrição: Pão de fermentação natural produzido exclusivamente com farinha de trigo integral, em uma receita de sabor rústico desenvolvida especialmente para o festival.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 59,90 o quilo (aprox. R$ 26,95 unidade)</p>
         <p>Endereço: Avenida Nossa Senhora da Luz, 2315 – Jardim Social</p>
         <p>Horário: Segunda a sábado: 6h30 às 20h30 / Domingo: 8h às 20h.</p>
@@ -770,9 +805,11 @@
           <img src="/assets/requinte-inteiro-B9DVIU-x.jpg" alt="Pão de Chocolate com Café - foto inteira">
           <img src="/assets/requinte-cortado-mVTDM_FV.jpg" alt="Pão de Chocolate com Café - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>PADARIA REQUINTE</h3>
         <p class="product-name">Produto: Pão de Chocolate com Café</p>
         <p>Descrição: Pão de massa semidoce preparado com café e gotas de chocolate, em uma combinação aromática criada especialmente para o CuritiPão.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 55 o quilo</p>
         <div class="multi-units-wrapper">
           <div class="units-common-schedule">
@@ -810,9 +847,11 @@
           <img src="/assets/P%C3%83O%20DOCE%20DE%20LARANJA%20-%20Piegel%2010-B0gWtWiG.jpg" alt="Pão Doce de Laranja - foto inteira">
           <img src="/assets/piegel-cortado-DCFWT2VG.jpg" alt="Pão Doce de Laranja - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>PIEGEL PÃES</h3>
         <p class="product-name">Produto: Pão Doce de Laranja</p>
         <p>Descrição: Pão de fermentação natural preparado com laranja e frutas cristalizadas, finalizado com uma delicada cobertura de açúcar cristalizado.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 31,50</p>
         <p>Endereço: Avenida Anita Garibaldi, 590 – Cabral</p>
         <p>Horário: Todos os dias: das 7h às 21h</p>
@@ -831,9 +870,11 @@
           <img src="/assets/CIABATTA%20C_%20CALABRESA%20-%20SAINT%20GERMAIN%201-C7pzG7A2.jpg" alt="Ciabatta de Calabresa - foto inteira">
           <img src="/assets/CIABATTA%20C_%20CALABRESA%20-%20SAINT%20GERMAIN%206-n_ZlGIgA.jpg" alt="Ciabatta de Calabresa - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>SAINT GERMAIN PANIFICADORA</h3>
         <p class="product-name">Produto: Ciabatta de Calabresa</p>
         <p>Descrição: Ciabatta de casca crocante e interior macio, generosamente recheada com calabresa.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 21,90</p>
         <div class="multi-units-wrapper">
           <div class="units-common-schedule">
@@ -871,9 +912,11 @@
           <img src="/assets/Bagel%20-%20Sphair%204-Dil_u2f3.jpg" alt="Bagel de Cebola e Provolone - foto inteira">
           <img src="/assets/Bagel%20-%20Sphair%207-ZfHZHrnM.jpg" alt="Bagel de Cebola e Provolone - foto cortada">
         </div>
+        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>
         <h3>SPHAIR ATELIÊ DE PÃES</h3>
         <p class="product-name">Produto: Bagel de Cebola e Provolone</p>
         <p>Descrição: Bagel de fermentação natural preparado com cebola crocante, provolone e gergelim, combinando textura macia e sabor marcante.</p>
+        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         <p class="price">Preço: R$ 8</p>
         <div class="multi-units-wrapper">
           <div class="units-common-schedule">
@@ -925,6 +968,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">AQUARIUS PANIFICADORA</div>
           <div class="gallery-thumb-product">Pão Floresta Negra</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -935,6 +980,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">AQUI NA MATA</div>
           <div class="gallery-thumb-product">Rolinho Tiramisu</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -945,6 +992,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">BONIN BAKERY</div>
           <div class="gallery-thumb-product">Pão do Bosque</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -955,6 +1004,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">CONFRARIA DOS PÃES</div>
           <div class="gallery-thumb-product">Baguete Veneza – Integral com Cranberry e Goji Berry</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -965,6 +1016,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">FABIANO MARCOLINI ALIMENTARI</div>
           <div class="gallery-thumb-product">Ciabatta de Tomate, Manjericão e Azeitonas</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -975,6 +1028,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">FÁBRIKA PÃES</div>
           <div class="gallery-thumb-product">Campanha Abóbora</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -985,6 +1040,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">FELIPANE</div>
           <div class="gallery-thumb-product">Babka de Nutella e Pistache</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -995,6 +1052,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">HAIAT ATELIÊ DO PÃO</div>
           <div class="gallery-thumb-product">Fougasse de Primavera</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -1005,6 +1064,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">MAÇÃ ORGÂNICA PADARIA</div>
           <div class="gallery-thumb-product">Sonho de Gengibre e Abacaxi</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -1015,6 +1076,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">PADARIA AMÉRICA</div>
           <div class="gallery-thumb-product">BroaBrie</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -1025,6 +1088,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">PADARIA FAMÍLIA FARINHA</div>
           <div class="gallery-thumb-product">Pão de Trigo 100% Integral</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -1035,6 +1100,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">PADARIA REQUINTE</div>
           <div class="gallery-thumb-product">Pão de Chocolate com Café</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -1045,6 +1112,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">PIEGEL PÃES</div>
           <div class="gallery-thumb-product">Pão Doce de Laranja</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -1055,6 +1124,8 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">SAINT GERMAIN PANIFICADORA</div>
           <div class="gallery-thumb-product">Ciabatta de Calabresa</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
 
@@ -1065,254 +1136,65 @@
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">SPHAIR ATELIÊ DE PÃES</div>
           <div class="gallery-thumb-product">Bagel de Cebola e Provolone</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SEÇÃO CURITIPÃO NA IMPRENSA -->
+  <!-- SEÇÃO HISTÓRICA: VÍDEO RICTV & DIRECIONAMENTO PARA COBERTURA NA IMPRENSA -->
   <section class="festival-press-section" id="imprensa" aria-labelledby="imprensa-titulo">
     <div class="festival-press-container">
       <div class="festival-press-header">
-        <span class="press-badge">Repercussão Oficial</span>
+        <span class="press-badge">Cobertura & Registro</span>
         <h2 id="imprensa-titulo" class="festival-press-title">CuritiPão na imprensa</h2>
-        <p class="festival-press-intro">Confira reportagens e publicações sobre a primeira edição do Festival CuritiPão.</p>
+        <p class="festival-press-intro">
+          A cobertura da primeira edição do Festival CuritiPão reuniu 17 publicações externas em 12 veículos de imprensa, além de matéria exclusiva em vídeo da RICtv Record.
+        </p>
       </div>
 
-      <!-- Grid com 9 publicações confirmadas -->
-      <div class="festival-press-grid">
-
-        <article class="press-card">
-          
-          <div class="press-card-media">
-            <img src="/assets/ric-noticias-manha-frame-CKcJJAn8.jpg" alt="Capa da reportagem: CuritiPão estreia em Curitiba com receitas exclusivas de 15 padarias" loading="lazy">
-            <span class="press-media-badge">Reportagem TV & Coluna</span>
+      <!-- Destaque: Vídeo Local da RICtv Record no Arquivo Histórico -->
+      <div class="festival-video-featured-card" style="background: #FFFFFF; border: 1px solid #E8D8C8; border-radius: 12px; padding: 24px; max-width: 880px; margin: 0 auto; box-shadow: 0 4px 16px rgba(93, 51, 35, 0.06);">
+        <div style="margin-bottom: 16px;">
+          <video controls preload="metadata" poster="/assets/ric-noticias-manha-frame-CKcJJAn8.jpg" style="width: 100%; border-radius: 8px; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #000;">
+            <source src="/assets/ric-noticias-manha-video-D4r2YWVM.mp4" type="video/mp4">
+            Seu navegador não suporta reprodução direta de vídeos em MP4.
+          </video>
+          <div style="font-size: 0.78rem; color: #8C7567; margin-top: 6px; font-style: italic;">
+            Captura: RICtv / Record • Edição Manhã (09/10/2026)
           </div>
-          <div class="press-card-body">
-            <div class="press-card-vehicle">RIC • Coluna Simone Bello (Gastronomia)</div>
-            <h3 class="press-card-title">CuritiPão estreia em Curitiba com receitas exclusivas de 15 padarias</h3>
-            
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="2026-10-09">09/10/2026</time>
-            </div>
+        </div>
+        <div>
+          <div style="color: #D08942; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
+            RICtv / Record • Reportagem em Vídeo
           </div>
-          
-          <div class="press-card-footer">
-            <div class="press-card-actions">
-              <a href="https://ric.com.br/estilo-de-vida/gastronomia/curitipao-estreia-em-curitiba-com-receitas-exclusivas-de-15-padarias/" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="Ler matéria em RIC: CuritiPão estreia em Curitiba com receitas exclusivas de 15 padarias">
-                <span>Ler matéria</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
-              <a href="/assets/press/ric-noticias-manha-video.mp4" target="_blank" rel="noopener noreferrer" class="press-card-btn press-card-btn-video" aria-label="Assistir reportagem de TV em RIC: CuritiPão estreia em Curitiba com receitas exclusivas de 15 padarias">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                <span>Assistir reportagem (Vídeo TV)</span>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="press-card">
-          
-          <div class="press-card-media">
-            <img src="/assets/curitipao-111-3r2hyvMq.webp" alt="Capa da reportagem: 1° CuritiPão reúne 15 padarias de Curitiba com receitas exclusivas; festival quer mostrar a diversidade da panificação curitibana" loading="lazy">
-            <span class="press-media-badge">Abertura Oficial</span>
-          </div>
-          <div class="press-card-body">
-            <div class="press-card-vehicle">TOPVIEW • Grands</div>
-            <h3 class="press-card-title">1° CuritiPão reúne 15 padarias de Curitiba com receitas exclusivas; festival quer mostrar a diversidade da panificação curitibana</h3>
-            
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="2026-10-06">06/10/2026</time>
-            </div>
-          </div>
-          
-          <div class="press-card-footer">
-            <a href="https://topview.com.br/grands/1-curitipao-reune-15-padarias-de-curitiba-com-receitas-exclusivas-festival-quer-mostrar-a-diversidade-da-panificacao-curitibana/" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="Ler matéria em TOPVIEW: 1° CuritiPão reúne 15 padarias de Curitiba com receitas exclusivas; festival quer mostrar a diversidade da panificação curitibana">
-              <span>Ler matéria</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          <h3 style="color: #3B1F14; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">
+            CuritiPão estreia em Curitiba com receitas exclusivas de 15 padarias
+          </h3>
+          <p style="color: #6A554A; font-size: 0.95rem; line-height: 1.55; margin-bottom: 18px;">
+            Assista à matéria do telejornal da RICtv sobre as criações exclusivas das 15 padarias de Curitiba. A lista completa com todas as 17 publicações externas e reportagens sobre a edição histórica de 2026 está disponível em nossa seção dedicada à imprensa.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+            <a href="/imprensa/#2026" class="press-card-btn press-card-btn-video" style="padding: 12px 24px; font-size: 0.95rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border-radius: 8px; background: #D08942; color: #1E1511;">
+              <span>Ver cobertura na imprensa</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
-        </article>
-
-        <article class="press-card">
-          
-          <div class="press-card-media">
-            <img src="/assets/Ciabatta%20recheado%20-%20Marcolini%203-BXAGOIEs.webp" alt="Capa da reportagem: Festival CuritiPão reúne criações exclusivas em 15 padarias de Curitiba" loading="lazy">
-            <span class="press-media-badge">Gastronomia Local</span>
-          </div>
-          <div class="press-card-body">
-            <div class="press-card-vehicle">Bem Paraná • Comer e Curtir</div>
-            <h3 class="press-card-title">Festival CuritiPão reúne criações exclusivas em 15 padarias de Curitiba</h3>
-            
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="2026-10-20">20/10/2026</time>
-            </div>
-          </div>
-          
-          <div class="press-card-footer">
-            <a href="https://www.bemparana.com.br/publicacao/blogs/comerecurtir/festival-curitipao-reune-criacoes-exclusivas-em-15-padarias-de-curitiba/" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="Ler matéria em Bem Paraná: Festival CuritiPão reúne criações exclusivas em 15 padarias de Curitiba">
-              <span>Ler matéria</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="press-card">
-          
-          <div class="press-card-media">
-            <img src="/assets/Babka%20de%20Nutella%20e%20Pistache%20-%20FELIPANE%202-3uAvnNQV.webp" alt="Capa da reportagem: Festival CuritiPão reúne criações exclusivas em 15 padarias até sexta-feira" loading="lazy">
-            <span class="press-media-badge">Reta Final</span>
-          </div>
-          <div class="press-card-body">
-            <div class="press-card-vehicle">Bem Paraná • Comer e Curtir</div>
-            <h3 class="press-card-title">Festival CuritiPão reúne criações exclusivas em 15 padarias até sexta-feira</h3>
-            
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="2026-10-27">27/10/2026</time>
-            </div>
-          </div>
-          
-          <div class="press-card-footer">
-            <a href="https://www.bemparana.com.br/publicacao/blogs/comerecurtir/festival-curitipao-reune-criacoes-exclusivas-em-15-padarias-ate-sexta-feira/" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="Ler matéria em Bem Paraná: Festival CuritiPão reúne criações exclusivas em 15 padarias até sexta-feira">
-              <span>Ler matéria</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="press-card">
-          
-          <div class="press-card-media">
-            <img src="/assets/aquarius-cortado-K45ijkmE.webp" alt="Capa da reportagem: Curitiba celebra a arte de fazer pão com o Festival CuritiPão!" loading="lazy">
-            <span class="press-media-badge">Cultura & Pão</span>
-          </div>
-          <div class="press-card-body">
-            <div class="press-card-vehicle">Bem Paraná • Mesa Dividida</div>
-            <h3 class="press-card-title">Curitiba celebra a arte de fazer pão com o Festival CuritiPão!</h3>
-            
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="2026-10-19">19/10/2026</time>
-            </div>
-          </div>
-          
-          <div class="press-card-footer">
-            <a href="https://www.bemparana.com.br/publicacao/blogs/mesadividida/curitiba-celebra-a-arte-de-fazer-pao-com-o-festival-curitipao/" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="Ler matéria em Bem Paraná: Curitiba celebra a arte de fazer pão com o Festival CuritiPão!">
-              <span>Ler matéria</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="press-card">
-          
-          <div class="press-card-media">
-            <img src="/assets/curitipao-108%20(1)-scs9dzdD.webp" alt="Capa da reportagem: Curitiba celebra a panificação autoral" loading="lazy">
-            <span class="press-media-badge">Panificação Autoral</span>
-          </div>
-          <div class="press-card-body">
-            <div class="press-card-vehicle">Bem Paraná • Mesa Dividida</div>
-            <h3 class="press-card-title">Curitiba celebra a panificação autoral</h3>
-            
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="2026-10-05">05/10/2026</time>
-            </div>
-          </div>
-          
-          <div class="press-card-footer">
-            <a href="https://www.bemparana.com.br/publicacao/blogs/mesadividida/curitiba-celebra-a-panificacao-autoral/" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="Ler matéria em Bem Paraná: Curitiba celebra a panificação autoral">
-              <span>Ler matéria</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="press-card">
-          
-          <div class="press-card-media">
-            <img src="/assets/bonin-cortado-DVJ8ODgw.webp" alt="Capa da reportagem: Festival CuritiPão começa nesta terça com criações exclusivas em 15 padarias de Curitiba" loading="lazy">
-            <span class="press-media-badge">Lançamento</span>
-          </div>
-          <div class="press-card-body">
-            <div class="press-card-vehicle">Folha de Curitiba</div>
-            <h3 class="press-card-title">Festival CuritiPão começa nesta terça com criações exclusivas em 15 padarias de Curitiba</h3>
-            
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="2026-10-20">20/10/2026</time>
-            </div>
-          </div>
-          
-          <div class="press-card-footer">
-            <a href="https://folhadecuritiba.com.br/festival-curitipao-comeca-nesta-terca-com-criacoes-exclusivas-em-15-padarias-de-curitiba/" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="Ler matéria em Folha de Curitiba: Festival CuritiPão começa nesta terça com criações exclusivas em 15 padarias de Curitiba">
-              <span>Ler matéria</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="press-card">
-          
-          <div class="press-card-media">
-            <img src="/assets/familia-farinha-cortado-in21U3ki.webp" alt="Capa da reportagem: Festival CuritiPão entra na reta final com criações exclusivas em 15 padarias de Curitiba" loading="lazy">
-            <span class="press-media-badge">Roteiro Gastronômico</span>
-          </div>
-          <div class="press-card-body">
-            <div class="press-card-vehicle">Curitiba Honesta</div>
-            <h3 class="press-card-title">Festival CuritiPão entra na reta final com criações exclusivas em 15 padarias de Curitiba</h3>
-            
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="2026-10-28">28/10/2026</time>
-            </div>
-          </div>
-          
-          <div class="press-card-footer">
-            <a href="https://curitibahonesta.com.br/festival-curitipao-entra-na-reta-final-com-criacoes-exclusivas-em-15-padarias-de-curitiba/" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="Ler matéria em Curitiba Honesta: Festival CuritiPão entra na reta final com criações exclusivas em 15 padarias de Curitiba">
-              <span>Ler matéria</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="press-card">
-          
-          <div class="press-card-media">
-            <img src="/assets/requinte-cortado-Ck_3vLPG.webp" alt="Capa da reportagem: Festival CuritiPão reúne 15 padarias de Curitiba com receitas exclusivas" loading="lazy">
-            <span class="press-media-badge">Receitas Exclusivas</span>
-          </div>
-          <div class="press-card-body">
-            <div class="press-card-vehicle">Sabores de Curitiba</div>
-            <h3 class="press-card-title">Festival CuritiPão reúne 15 padarias de Curitiba com receitas exclusivas</h3>
-            
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="2026-10-06">06/10/2026</time>
-            </div>
-          </div>
-          
-          <div class="press-card-footer">
-            <a href="https://saboresdecuritiba.com.br/festival-curitipao-reune-15-padarias-de-curitiba-com-receitas-exclusivas/" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="Ler matéria em Sabores de Curitiba: Festival CuritiPão reúne 15 padarias de Curitiba com receitas exclusivas">
-              <span>Ler matéria</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>
-        </article>
+        </div>
       </div>
 
-      <!-- Pendências Internas (Registradas fora dos cards públicos, conforme especificação) -->
-      <!--
-        REGISTRO DE PENDÊNCIAS EDITORIAIS INTERNAS (FORA DOS CARDS PÚBLICOS):
-        1. CBN Curitiba (https://cbncuritiba.com.br/materias/festival-curitipao-vai-ate-sexta-30-em-15-padarias-de-curitiba-ouca-a-coluna/):
-           Bloqueio automatizado de acesso (HTTP 403 / timeout) impossibilitou a confirmação direta do título exato da página, data no texto e disponibilidade de reprodutor de áudio ativo para validação do botão "Ouvir e ler". Mantido em pendência editorial.
-        2. Paranashop (https://www.paranashop.com.br/post/eventos-curitiba-parana-agenda-da-semana):
-           URL aponta para agenda semanal rotativa ("Eventos em Curitiba: agenda de 2 a 8 de novembro") e o conteúdo da semana apurada não menciona mais o Festival CuritiPão. Mantido em pendência para identificação de eventual link de arquivo permanente.
-      -->
+      <!-- Aviso com link visível como alternativa sem JavaScript -->
+      <noscript>
+        <div style="margin-top: 24px; padding: 16px; background: #FAF4EC; border: 1px solid #D08942; border-radius: 8px; text-align: center;">
+          <p style="margin-bottom: 6px; color: #3B1F14; font-weight: 600;">
+            A lista completa com as 17 publicações foi migrada para nossa página de imprensa:
+          </p>
+          <a href="/imprensa/#2026" style="color: #D08942; font-weight: 700; text-decoration: underline;">
+            Acessar cobertura completa em /imprensa/#2026 &rarr;
+          </a>
+        </div>
+      </noscript>
     </div>
   </section>
 

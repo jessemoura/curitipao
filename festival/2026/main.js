@@ -214,13 +214,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Ensure smooth and accurate scroll to hash if page loaded with an anchor
 if (window.location.hash) {
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const hash = window.location.hash.substring(1);
-      const el = document.getElementById(hash);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 150);
-  });
+  // Redirecionamento exclusivo do fragmento #imprensa para a página dedicada /imprensa/#2026
+  if (window.location.hash === '#imprensa') {
+    window.location.replace('/imprensa/#2026');
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const hash = window.location.hash.substring(1);
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 150);
+    });
+  }
 }
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#imprensa') {
+    window.location.replace('/imprensa/#2026');
+  }
+});
