@@ -1,0 +1,108 @@
+[
+  {
+    "name": "Band",
+    "url": "https://www.band.com.br/nacional/pr/festival-curitipao-destaca-paes-artesanais-em-curitiba",
+    "status": 200,
+    "h1": "Band solicita o seu consentimento para usar os seus dados pessoais para os seguintes fins:",
+    "title": "Festival Curitipão destaca pães artesanais em Curitiba",
+    "timeEl": "",
+    "metaDate": "",
+    "firstDateInText": null,
+    "hasAudio": false,
+    "audioSrcs": [],
+    "hasVideo": false
+  },
+  {
+    "name": "CBN Curitiba",
+    "url": "https://cbncuritiba.com.br/materias/festival-curitipao-vai-ate-sexta-30-em-15-padarias-de-curitiba-ouca-a-coluna/",
+    "status": 403,
+    "h1": "cbncuritiba.com.br",
+    "title": "Um momento…",
+    "timeEl": "",
+    "metaDate": "",
+    "firstDateInText": null,
+    "hasAudio": false,
+    "audioSrcs": [],
+    "hasVideo": false
+  },
+  {
+    "name": "Where Curitiba",
+    "url": "https://www.wherecuritiba.com.br/festival-curitipao-reune-15-padarias-com-criacoes-exclusivas/",
+    "status": 200,
+    "h1": "Festival CuritiPão reúne 15 padarias com criações exclusivas",
+    "title": "Festival CuritiPão reúne 15 padarias com criações exclusivas – Where Curitiba",
+    "timeEl": "outubro 5, 2026",
+    "metaDate": "2026-10-05T09:32:23-03:00",
+    "firstDateInText": null,
+    "hasAudio": false,
+    "audioSrcs": [],
+    "hasVideo": false
+  },
+  {
+    "name": "Notícias de Curitiba",
+    "url": "https://www.noticiasdecuritiba.com.br/materia/festival-curitipao-2026-curitiba-15-padarias-receitas-exclusivas",
+    "status": 200,
+    "h1": "Festival CuritiPão reúne 15 padarias de Curitiba com receitas exclusivas; veja como participar",
+    "title": "Festival CuritiPão reúne 15 padarias de Curitiba com receitas exc",
+    "timeEl": "",
+    "metaDate": "2026-10-23T22:00:00.000Z",
+    "firstDateInText": null,
+    "hasAudio": false,
+    "audioSrcs": [],
+    "hasVideo": false
+  },
+  {
+    "name": "Júlio Zaruch",
+    "url": "https://juliozaruch.com.br/gastronomia/festival-de-padarias-de-20-a-30-de-outubro/",
+    "status": 200,
+    "h1": "Festival de Padarias, de 20 a 30 de outubro",
+    "title": "Festival de Padarias, de 20 a 30 de outubro - Júlio Zaruch | Turismo e Gastronomia",
+    "timeEl": "5 de outubro de 2026",
+    "metaDate": "2026-10-05T14:12:04+00:00",
+    "firstDateInText": null,
+    "hasAudio": false,
+    "audioSrcs": [],
+    "hasVideo": false
+  },
+  {
+    "name": "O Que Fazer Curitiba",
+    "url": "https://oquefazercuritiba.com.br/curitiba-vai-ficar-com-cheiro-de-pao-quentinho-vem-ai-o-festival-curitipao/",
+    "status": 200,
+    "h1": "Curitiba vai ficar com cheiro de pão quentinho: vem aí o Festival CuritiPão",
+    "title": "Curitiba vai ficar com cheiro de pão quentinho: vem aí o Festival CuritiPão - O Que Fazer Curitiba",
+    "timeEl": "",
+    "metaDate": "2026-10-14T13:00:38+00:00",
+    "firstDateInText": null,
+    "hasAudio": true,
+    "audioSrcs": [
+      "js no-applicationcache geolocation history postmessage svg websockets localstorage sessionstorage no-websqldatabase webworkers hashchange audio canvas canvastext video webgl cssgradients multiplebgs opacity rgba inlinesvg hsla supports svgclippaths smil fontface generatedcontent textshadow cssanimations backgroundsize borderimage borderradius csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside boxshadow flexbox cssreflections csstransforms csstransforms3d csstransitions indexeddb"
+    ],
+    "hasVideo": false
+  },
+  {
+    "name": "Bem Paraná - Comer e Curtir 05/10",
+    "url": "https://www.bemparana.com.br/publicacao/blogs/comerecurtir/curitipao-reune-15-padarias-com-criacoes-exclusivas-em-curitiba/",
+    "status": 200,
+    "h1": "Comer e Curtir",
+    "title": "CuritiPão reúne 15 padarias com criações exclusivas em Curitiba",
+    "timeEl": "",
+    "metaDate": "",
+    "firstDateInText": "05/10/2026",
+    "hasAudio": false,
+    "audioSrcs": [],
+    "hasVideo": false
+  },
+  {
+    "name": "Curitiba Honesta - Agenda 23/10",
+    "url": "https://curitibahonesta.com.br/final-de-semana-chegou-e-que-tem-para-fazer/",
+    "status": 200,
+    "h1": "Final de Semana Chegou. E que tem para fazer em Curitiba??",
+    "title": "Final de Semana Chegou. E que tem para fazer em Curitiba?? - Curitiba Honesta",
+    "timeEl": "2026-11-03T08:53:46-03:00",
+    "metaDate": "2026-10-23T11:42:07+00:00",
+    "firstDateInText": "23/10/2026",
+    "hasAudio": false,
+    "audioSrcs": [],
+    "hasVideo": false
+  }
+]

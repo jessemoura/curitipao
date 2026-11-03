@@ -95,6 +95,7 @@ const essentialFiles = [
   'festival/2026/index.html',
   'festival/2026/style.css',
   'festival/2026/main.js',
+  'imprensa/index.html',
   'solucoes-digitais/index.html',
   'padarias/index.html',
   'sobre/index.html',

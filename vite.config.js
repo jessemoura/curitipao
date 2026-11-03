@@ -21,6 +21,7 @@ export default defineConfig({
         blogArtigo: resolve(import.meta.dirname, 'blog/o-curitipao-continua/index.html'),
         festival: resolve(import.meta.dirname, 'festival/index.html'),
         festival2026: resolve(import.meta.dirname, 'festival/2026/index.html'),
+        imprensa: resolve(import.meta.dirname, 'imprensa/index.html'),
         contato: resolve(import.meta.dirname, 'contato/index.html'),
         solucoesDigitais: resolve(import.meta.dirname, 'solucoes-digitais/index.html'),
         privacidade: resolve(import.meta.dirname, 'privacidade/index.html'),

@@ -527,16 +527,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Ensure smooth and accurate scroll to hash if page loaded with an anchor
 if (window.location.hash) {
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      const hash = window.location.hash.substring(1);
-      const el = document.getElementById(hash);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 150);
-  });
+  // Redirecionamento exclusivo do fragmento #imprensa para a página dedicada /imprensa/#2026
+  if (window.location.hash === '#imprensa') {
+    window.location.replace('/imprensa/#2026');
+  } else {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const hash = window.location.hash.substring(1);
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 150);
+    });
+  }
 }
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#imprensa') {
+    window.location.replace('/imprensa/#2026');
+  }
+});
 `;
 fs.writeFileSync(path.join(targetDir, 'main.js'), originalJs + '\n' + extraJs, 'utf8');
 
@@ -550,9 +561,22 @@ originalHtml = originalHtml.replace(
 );
 originalHtml = originalHtml.replaceAll('https://curitipao.conexus.press/', 'https://curitipao.com.br/festival/2026/');
 
+// Inject immediate hash redirect in <head> for #imprensa specifically
+const immediateHashRedirectScript = `
+  <script>
+    if (window.location.hash === '#imprensa') {
+      window.location.replace('/imprensa/#2026');
+    }
+    window.addEventListener('hashchange', function() {
+      if (window.location.hash === '#imprensa') {
+        window.location.replace('/imprensa/#2026');
+      }
+    });
+  </script>
+`;
+originalHtml = originalHtml.replace('</head>', immediateHashRedirectScript + '\n</head>');
+
 // 2. Adjust assets paths to root /assets/
-// In 2026 index.html, paths are assets/photos/..., assets/logos/..., assets/curitipao-logo.png
-// By making them /assets/... they will resolve correctly from /festival/2026/
 originalHtml = originalHtml.replaceAll('srcset="assets/', 'srcset="/assets/');
 originalHtml = originalHtml.replaceAll('srcset="./assets/', 'srcset="/assets/');
 originalHtml = originalHtml.replaceAll('src="assets/', 'src="/assets/');
@@ -574,9 +598,9 @@ const returnBarHtml = `
       <span>Voltar ao portal CuritiPão</span>
     </a>
     <div class="portal-return-actions" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-      <a href="#imprensa" class="portal-return-link" style="color: #FAF4EC; opacity: 0.95; font-size: 0.82rem; text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="Pular direto para reportagens da imprensa">
+      <a href="/imprensa/#2026" class="portal-return-link" style="color: #FAF4EC; opacity: 0.95; font-size: 0.82rem; text-decoration: underline; display: inline-flex; align-items: center; gap: 4px;" title="Ver cobertura na imprensa">
         <span>CuritiPão na imprensa</span>
-        <span aria-hidden="true">&darr;</span>
+        <span aria-hidden="true">&rarr;</span>
       </a>
       <span class="portal-return-badge">Edição Encerrada • Arquivo Histórico Oficial 2026</span>
     </div>
@@ -585,7 +609,7 @@ const returnBarHtml = `
 
 originalHtml = originalHtml.replace('<body>', '<body>\n' + returnBarHtml);
 
-// 4. Build Gallery of the 15 Bakeries and Press Section
+// 4. Build Gallery of the 15 Bakeries with Photo Credits & Disclaimers
 const bakeries = JSON.parse(fs.readFileSync('./assets/data/bakeries_2026.json', 'utf8'));
 
 let galleryCardsHtml = bakeries.map(b => {
@@ -600,151 +624,16 @@ let galleryCardsHtml = bakeries.map(b => {
         <div class="gallery-thumb-info">
           <div class="gallery-thumb-bakery">${b.name}</div>
           <div class="gallery-thumb-product">${b.product}</div>
+          <div class="gallery-photo-credit" style="font-size: 0.75rem; color: #8C7567; margin-top: 4px; font-style: italic;">Foto: Lorena Lenara Batista</div>
+          <p class="gallery-creation-disclaimer" style="font-size: 0.72rem; color: #6A554A; margin-top: 4px; font-style: italic; line-height: 1.35;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>
         </div>
       </div>`;
 }).join('\n');
 
-// 9 Publicações confirmadas apuradas diretamente nos links fornecidos com capas horizontais do acervo e frame da TV
-const pressArticles = [
-  {
-    vehicle: 'RIC',
-    column: 'Coluna Simone Bello (Gastronomia)',
-    title: 'CuritiPão estreia em Curitiba com receitas exclusivas de 15 padarias',
-    date: '09/10/2026',
-    url: 'https://ric.com.br/estilo-de-vida/gastronomia/curitipao-estreia-em-curitiba-com-receitas-exclusivas-de-15-padarias/',
-    buttonText: 'Ler matéria',
-    cover: '/assets/press/ric-noticias-manha-frame.jpg',
-    badge: 'Reportagem TV & Coluna',
-    videoUrl: '/assets/press/ric-noticias-manha-video.mp4'
-  },
-  {
-    vehicle: 'TOPVIEW',
-    column: 'Grands',
-    title: '1° CuritiPão reúne 15 padarias de Curitiba com receitas exclusivas; festival quer mostrar a diversidade da panificação curitibana',
-    date: '06/10/2026',
-    url: 'https://topview.com.br/grands/1-curitipao-reune-15-padarias-de-curitiba-com-receitas-exclusivas-festival-quer-mostrar-a-diversidade-da-panificacao-curitibana/',
-    buttonText: 'Ler matéria',
-    cover: '/assets/photos/curitipao-111.webp',
-    badge: 'Abertura Oficial'
-  },
-  {
-    vehicle: 'Bem Paraná',
-    column: 'Comer e Curtir',
-    title: 'Festival CuritiPão reúne criações exclusivas em 15 padarias de Curitiba',
-    date: '20/10/2026',
-    url: 'https://www.bemparana.com.br/publicacao/blogs/comerecurtir/festival-curitipao-reune-criacoes-exclusivas-em-15-padarias-de-curitiba/',
-    buttonText: 'Ler matéria',
-    cover: '/assets/photos/Ciabatta recheado - Marcolini 3.webp',
-    badge: 'Gastronomia Local'
-  },
-  {
-    vehicle: 'Bem Paraná',
-    column: 'Comer e Curtir',
-    title: 'Festival CuritiPão reúne criações exclusivas em 15 padarias até sexta-feira',
-    date: '27/10/2026',
-    url: 'https://www.bemparana.com.br/publicacao/blogs/comerecurtir/festival-curitipao-reune-criacoes-exclusivas-em-15-padarias-ate-sexta-feira/',
-    buttonText: 'Ler matéria',
-    cover: '/assets/photos/Babka de Nutella e Pistache - FELIPANE 2.webp',
-    badge: 'Reta Final'
-  },
-  {
-    vehicle: 'Bem Paraná',
-    column: 'Mesa Dividida',
-    title: 'Curitiba celebra a arte de fazer pão com o Festival CuritiPão!',
-    date: '19/10/2026',
-    url: 'https://www.bemparana.com.br/publicacao/blogs/mesadividida/curitiba-celebra-a-arte-de-fazer-pao-com-o-festival-curitipao/',
-    buttonText: 'Ler matéria',
-    cover: '/assets/photos/aquarius-cortado.webp',
-    badge: 'Cultura & Pão'
-  },
-  {
-    vehicle: 'Bem Paraná',
-    column: 'Mesa Dividida',
-    title: 'Curitiba celebra a panificação autoral',
-    date: '05/10/2026',
-    url: 'https://www.bemparana.com.br/publicacao/blogs/mesadividida/curitiba-celebra-a-panificacao-autoral/',
-    buttonText: 'Ler matéria',
-    cover: '/assets/photos/curitipao-108 (1).webp',
-    badge: 'Panificação Autoral'
-  },
-  {
-    vehicle: 'Folha de Curitiba',
-    column: '',
-    title: 'Festival CuritiPão começa nesta terça com criações exclusivas em 15 padarias de Curitiba',
-    date: '20/10/2026',
-    url: 'https://folhadecuritiba.com.br/festival-curitipao-comeca-nesta-terca-com-criacoes-exclusivas-em-15-padarias-de-curitiba/',
-    buttonText: 'Ler matéria',
-    cover: '/assets/photos/bonin-cortado.webp',
-    badge: 'Lançamento'
-  },
-  {
-    vehicle: 'Curitiba Honesta',
-    column: '',
-    title: 'Festival CuritiPão entra na reta final com criações exclusivas em 15 padarias de Curitiba',
-    date: '28/10/2026',
-    url: 'https://curitibahonesta.com.br/festival-curitipao-entra-na-reta-final-com-criacoes-exclusivas-em-15-padarias-de-curitiba/',
-    buttonText: 'Ler matéria',
-    cover: '/assets/photos/familia-farinha-cortado.webp',
-    badge: 'Roteiro Gastronômico'
-  },
-  {
-    vehicle: 'Sabores de Curitiba',
-    column: '',
-    title: 'Festival CuritiPão reúne 15 padarias de Curitiba com receitas exclusivas',
-    date: '06/10/2026',
-    url: 'https://saboresdecuritiba.com.br/festival-curitipao-reune-15-padarias-de-curitiba-com-receitas-exclusivas/',
-    buttonText: 'Ler matéria',
-    cover: '/assets/photos/requinte-cortado.webp',
-    badge: 'Receitas Exclusivas'
-  }
-];
-
-const pressCardsHtml = pressArticles.map(art => {
-  const vehicleLabel = art.column ? `${art.vehicle} • ${art.column}` : art.vehicle;
-  const dateHtml = art.date ? `
-            <div class="press-card-date">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <time datetime="${art.date.split('/').reverse().join('-')}">${art.date}</time>
-            </div>` : '';
-
-  const mediaHtml = art.cover ? `
-          <div class="press-card-media">
-            <img src="${art.cover}" alt="Capa da reportagem: ${art.title}" loading="lazy">
-            <span class="press-media-badge">${art.badge || art.vehicle}</span>
-          </div>` : '';
-
-  const footerActions = art.videoUrl ? `
-          <div class="press-card-footer">
-            <div class="press-card-actions">
-              <a href="${art.url}" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="${art.buttonText} em ${art.vehicle}: ${art.title}">
-                <span>${art.buttonText}</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-              </a>
-              <a href="${art.videoUrl}" target="_blank" rel="noopener noreferrer" class="press-card-btn press-card-btn-video" aria-label="Assistir reportagem de TV em RIC: ${art.title}">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                <span>Assistir reportagem (Vídeo TV)</span>
-              </a>
-            </div>
-          </div>` : `
-          <div class="press-card-footer">
-            <a href="${art.url}" target="_blank" rel="noopener noreferrer" class="press-card-btn" aria-label="${art.buttonText} em ${art.vehicle}: ${art.title}">
-              <span>${art.buttonText}</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-            </a>
-          </div>`;
-
-  return `
-        <article class="press-card">
-          ${mediaHtml}
-          <div class="press-card-body">
-            <div class="press-card-vehicle">${vehicleLabel}</div>
-            <h3 class="press-card-title">${art.title}</h3>
-            ${dateHtml}
-          </div>
-          ${footerActions}
-        </article>`;
-}).join('\n');
-
+// 5. Structure Gallery & Press Section in /festival/2026/
+// The full list of external articles has been migrated to /imprensa/#2026 per approved specification.
+// In /festival/2026/, we maintain the local RIC video player with presentation and playback working,
+// with the button "Ver cobertura na imprensa" pointing to /imprensa/#2026.
 const galleryAndPressHtml = `
   <!-- GALERIA ORGANIZADA POR PADARIA (EDIÇÃO 2026) -->
   <section class="festival-gallery-section" id="galeria-2026">
@@ -757,28 +646,58 @@ const galleryAndPressHtml = `
     </div>
   </section>
 
-  <!-- SEÇÃO CURITIPÃO NA IMPRENSA -->
+  <!-- SEÇÃO HISTÓRICA: VÍDEO RICTV & DIRECIONAMENTO PARA COBERTURA NA IMPRENSA -->
   <section class="festival-press-section" id="imprensa" aria-labelledby="imprensa-titulo">
     <div class="festival-press-container">
       <div class="festival-press-header">
-        <span class="press-badge">Repercussão Oficial</span>
+        <span class="press-badge">Cobertura & Registro</span>
         <h2 id="imprensa-titulo" class="festival-press-title">CuritiPão na imprensa</h2>
-        <p class="festival-press-intro">Confira reportagens e publicações sobre a primeira edição do Festival CuritiPão.</p>
+        <p class="festival-press-intro">
+          A cobertura da primeira edição do Festival CuritiPão reuniu 17 publicações externas em 12 veículos de imprensa, além de matéria exclusiva em vídeo da RICtv Record.
+        </p>
       </div>
 
-      <!-- Grid com 9 publicações confirmadas -->
-      <div class="festival-press-grid">
-${pressCardsHtml}
+      <!-- Destaque: Vídeo Local da RICtv Record no Arquivo Histórico -->
+      <div class="festival-video-featured-card" style="background: #FFFFFF; border: 1px solid #E8D8C8; border-radius: 12px; padding: 24px; max-width: 880px; margin: 0 auto; box-shadow: 0 4px 16px rgba(93, 51, 35, 0.06);">
+        <div style="margin-bottom: 16px;">
+          <video controls preload="metadata" poster="/assets/press/ric-noticias-manha-frame.jpg" style="width: 100%; border-radius: 8px; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.1); background: #000;">
+            <source src="/assets/press/ric-noticias-manha-video.mp4" type="video/mp4">
+            Seu navegador não suporta reprodução direta de vídeos em MP4.
+          </video>
+          <div style="font-size: 0.78rem; color: #8C7567; margin-top: 6px; font-style: italic;">
+            Captura: RICtv / Record • Edição Manhã (09/10/2026)
+          </div>
+        </div>
+        <div>
+          <div style="color: #D08942; font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">
+            RICtv / Record • Reportagem em Vídeo
+          </div>
+          <h3 style="color: #3B1F14; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px;">
+            CuritiPão estreia em Curitiba com receitas exclusivas de 15 padarias
+          </h3>
+          <p style="color: #6A554A; font-size: 0.95rem; line-height: 1.55; margin-bottom: 18px;">
+            Assista à matéria do telejornal da RICtv sobre as criações exclusivas das 15 padarias de Curitiba. A lista completa com todas as 17 publicações externas e reportagens sobre a edição histórica de 2026 está disponível em nossa seção dedicada à imprensa.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+            <a href="/imprensa/#2026" class="press-card-btn press-card-btn-video" style="padding: 12px 24px; font-size: 0.95rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border-radius: 8px; background: #D08942; color: #1E1511;">
+              <span>Ver cobertura na imprensa</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <!-- Pendências Internas (Registradas fora dos cards públicos, conforme especificação) -->
-      <!--
-        REGISTRO DE PENDÊNCIAS EDITORIAIS INTERNAS (FORA DOS CARDS PÚBLICOS):
-        1. CBN Curitiba (https://cbncuritiba.com.br/materias/festival-curitipao-vai-ate-sexta-30-em-15-padarias-de-curitiba-ouca-a-coluna/):
-           Bloqueio automatizado de acesso (HTTP 403 / timeout) impossibilitou a confirmação direta do título exato da página, data no texto e disponibilidade de reprodutor de áudio ativo para validação do botão "Ouvir e ler". Mantido em pendência editorial.
-        2. Paranashop (https://www.paranashop.com.br/post/eventos-curitiba-parana-agenda-da-semana):
-           URL aponta para agenda semanal rotativa ("Eventos em Curitiba: agenda de 2 a 8 de novembro") e o conteúdo da semana apurada não menciona mais o Festival CuritiPão. Mantido em pendência para identificação de eventual link de arquivo permanente.
-      -->
+      <!-- Aviso com link visível como alternativa sem JavaScript -->
+      <noscript>
+        <div style="margin-top: 24px; padding: 16px; background: #FAF4EC; border: 1px solid #D08942; border-radius: 8px; text-align: center;">
+          <p style="margin-bottom: 6px; color: #3B1F14; font-weight: 600;">
+            A lista completa com as 17 publicações foi migrada para nossa página de imprensa:
+          </p>
+          <a href="/imprensa/#2026" style="color: #D08942; font-weight: 700; text-decoration: underline;">
+            Acessar cobertura completa em /imprensa/#2026 &rarr;
+          </a>
+        </div>
+      </noscript>
     </div>
   </section>
 `;
@@ -789,7 +708,7 @@ originalHtml = originalHtml.replace(
   galleryAndPressHtml + '\n  <section class="hero-sponsors-strip footer-sponsors-strip">'
 );
 
-// 5. Add id="padarias" to cards section and individual IDs to the 15 bakery cards
+// 6. Add id="padarias" to cards section and individual IDs to the 15 bakery cards
 originalHtml = originalHtml.replace('<section class="cards-section">', '<section class="cards-section" id="padarias">');
 
 const bakeryAnchorSlugs = [
@@ -835,7 +754,24 @@ originalHtml = originalHtml.replace(/(<!-- Card \d+: [^>]+ -->\s*)<article class
   return `${prefix}<article class="card" id="${slug}">${aliases}`;
 });
 
-// 6. Add prominent portal return button and update privacy policy in footer
+// 7. Add photo credits and disclaimers to 15 bakery cards
+originalHtml = originalHtml.replaceAll(
+  '</div>\n        <h3>',
+  '</div>\n        <div class="photo-credit-strip" style="font-size: 0.78rem; color: #8C7567; margin: 4px 0 10px; font-style: italic;">Foto: Lorena Lenara Batista</div>\n        <h3>'
+);
+
+originalHtml = originalHtml.replace(
+  /(<p>Descrição: [^<]+<\/p>)/g,
+  '$1\n        <p class="creation-disclaimer" style="font-size: 0.82rem; color: #7C6053; margin: 6px 0 12px; font-style: italic; line-height: 1.4;">Criação apresentada no Festival CuritiPão 2026. Consulte a padaria sobre a disponibilidade atual.</p>'
+);
+
+// Credit under closing banner photo
+originalHtml = originalHtml.replace(
+  'class="closing-banner-photo" width="720" height="520" loading="eager">\n      </div>',
+  'class="closing-banner-photo" width="720" height="520" loading="eager">\n        <div style="font-size: 0.78rem; color: #FAF4EC; opacity: 0.85; margin-top: 6px; font-style: italic; text-align: right;">Foto: Lorena Lenara Batista</div>\n      </div>'
+);
+
+// 8. Add prominent portal return button and update privacy policy in footer
 originalHtml = originalHtml.replace(
   '<p class="privacy-paragraph">\n      <a href="politica-de-privacidade.html" class="privacy-link">Política de Privacidade</a>\n    </p>',
   `<div class="footer-portal-callout" style="margin: 25px auto 15px; text-align: center;">
@@ -848,6 +784,5 @@ originalHtml = originalHtml.replace(
     </p>`
 );
 
-// Update disclaimer text in header/cards to make sure it's 100% explicit about 2026
 fs.writeFileSync(path.join(targetDir, 'index.html'), originalHtml, 'utf8');
 console.log('festival/2026/index.html, style.css and main.js generated successfully!');
