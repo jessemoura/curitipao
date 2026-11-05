@@ -1887,3 +1887,307 @@ p:last-child {
 }
 
 
+
+
+/* =============================================================
+   ROTEIROS: MATÉRIA DETALHADA (15 PADARIAS POR BAIRRO)
+   ============================================================= */
+.roteiro-article-container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.roteiro-byline-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 14px 0;
+  margin: 20px 0 35px;
+}
+
+.roteiro-byline-author {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.roteiro-lead-intro {
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin-bottom: 35px;
+}
+
+.roteiro-lead-intro p {
+  margin-bottom: 1.4rem;
+}
+
+.roteiro-lead-intro p:first-of-type {
+  font-size: 1.22rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  line-height: 1.8;
+}
+
+/* Índice Navegável / Table of Contents */
+.roteiro-toc-card {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-left: 5px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  margin-bottom: 45px;
+  box-shadow: var(--shadow-sm);
+}
+
+.roteiro-toc-title {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.roteiro-toc-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.roteiro-toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.roteiro-toc-item {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.roteiro-toc-item:hover {
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+  transform: translateY(-2px);
+}
+
+.roteiro-toc-bairro {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+}
+
+.roteiro-toc-padaria {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Bairros e Padarias */
+.roteiro-bairro-header {
+  margin-top: 55px;
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.roteiro-bairro-header h2 {
+  font-size: 1.75rem;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.roteiro-bairro-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--color-accent-light);
+  color: var(--color-primary-dark);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+}
+
+.roteiro-bakery-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base);
+}
+
+.roteiro-bakery-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.roteiro-bakery-figure {
+  margin: 0;
+  position: relative;
+  background: #1E1A17;
+  overflow: hidden;
+}
+
+.roteiro-bakery-img {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.roteiro-bakery-caption {
+  padding: 8px 16px;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.roteiro-photo-credit {
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.roteiro-bakery-content {
+  padding: 28px 30px;
+}
+
+@media (max-width: 640px) {
+  .roteiro-bakery-content {
+    padding: 20px 18px;
+  }
+}
+
+.roteiro-bakery-title {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+.roteiro-bakery-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 18px;
+}
+
+.roteiro-bakery-text p {
+  margin-bottom: 1rem;
+}
+
+.roteiro-creation-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-accent);
+  padding: 10px 14px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin: 14px 0 18px;
+}
+
+.roteiro-address-box {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.roteiro-address-box strong {
+  color: var(--color-primary);
+}
+
+.roteiro-address-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.roteiro-address-list li {
+  padding: 4px 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.roteiro-address-list li::before {
+  content: "•";
+  color: var(--color-accent);
+  font-weight: bold;
+}
+
+.roteiro-bakery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Seção Como Usar o Guia */
+.roteiro-how-to-use {
+  background: var(--color-surface);
+  border: 2px dashed var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: 35px 30px;
+  margin-top: 50px;
+  box-shadow: var(--shadow-sm);
+}
+
+.roteiro-how-to-use h2 {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.roteiro-how-to-use p {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  margin-bottom: 1.2rem;
+}
+
+.roteiro-how-to-use a {
+  color: var(--color-primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.roteiro-how-to-use a:hover {
+  color: var(--color-accent);
+}
