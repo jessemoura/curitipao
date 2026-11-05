@@ -12,8 +12,9 @@ try {
   // Check if there are changes to commit
   const status = execSync('git status --porcelain', { cwd: distDir, encoding: 'utf8' }).trim();
   if (status) {
-    console.log('Committing changes in dist...');
-    execSync('git commit -m "deploy: secao imprensa, migracao festival 2026, cabecalho e creditos Conexus Digital Solutions"', { cwd: distDir, stdio: 'inherit' });
+    const commitMsg = process.env.COMMIT_MSG || 'deploy: publicacao do artigo 15 padarias em curitiba por bairro (Ledinara)';
+    console.log(`Committing changes in dist with message: "${commitMsg}"...`);
+    execSync(`git commit -m "${commitMsg}"`, { cwd: distDir, stdio: 'inherit' });
   } else {
     console.log('No new changes to commit in dist.');
   }

@@ -102,6 +102,7 @@ const essentialFiles = [
   'privacidade/index.html',
   'contato/index.html',
   'roteiros/index.html',
+  'roteiros/padarias-em-curitiba-por-bairro/index.html',
   'blog/index.html',
   'api/contato.php'
 ];

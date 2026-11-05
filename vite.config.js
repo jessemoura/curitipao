@@ -16,6 +16,7 @@ export default defineConfig({
         padarias: resolve(import.meta.dirname, 'padarias/index.html'),
         padariasModelo: resolve(import.meta.dirname, 'padarias/modelo/index.html'),
         roteiros: resolve(import.meta.dirname, 'roteiros/index.html'),
+        roteirosPadariasPorBairro: resolve(import.meta.dirname, 'roteiros/padarias-em-curitiba-por-bairro/index.html'),
         roteirosModelo: resolve(import.meta.dirname, 'roteiros/modelo/index.html'),
         blog: resolve(import.meta.dirname, 'blog/index.html'),
         blogArtigo: resolve(import.meta.dirname, 'blog/o-curitipao-continua/index.html'),
