@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
+import articles from './content/blog/articles.json';
 
 export default defineConfig({
   root: '.',
@@ -20,6 +21,10 @@ export default defineConfig({
         roteirosModelo: resolve(import.meta.dirname, 'roteiros/modelo/index.html'),
         blog: resolve(import.meta.dirname, 'blog/index.html'),
         blogArtigo: resolve(import.meta.dirname, 'blog/o-curitipao-continua/index.html'),
+        ...Object.fromEntries(articles.map(({ slug_suggested }) => [
+          slug_suggested.split('/')[2],
+          resolve(import.meta.dirname, '.' + slug_suggested, 'index.html')
+        ])),
         festival: resolve(import.meta.dirname, 'festival/index.html'),
         festival2026: resolve(import.meta.dirname, 'festival/2026/index.html'),
         imprensa: resolve(import.meta.dirname, 'imprensa/index.html'),

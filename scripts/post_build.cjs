@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const articles = require('../content/blog/articles.json');
 
 const distDir = path.resolve('dist');
 
@@ -104,6 +105,7 @@ const essentialFiles = [
   'roteiros/index.html',
   'roteiros/padarias-em-curitiba-por-bairro/index.html',
   'blog/index.html',
+  ...articles.map(({ slug_suggested }) => slug_suggested.slice(1) + 'index.html'),
   'api/contato.php'
 ];
 

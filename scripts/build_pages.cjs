@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { renderBlogCards, writeBlogArticles, blogUrls, invitation, invitationArticle } = require('./blog_articles.cjs');
 
 // Helper to create directories
 function ensureDir(dir) {
@@ -1750,6 +1751,8 @@ const roteiro15PadariasContent = `
         </div>
       </section>
 
+      ${invitation(invitationArticle, 'Tem uma padaria em Curitiba e quer apresentá-la ao CuritiPão? Veja como enviar as informações da sua casa.')}
+
       <!-- Rodapé do Artigo / Navegação de Roteiros -->
       <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--color-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
         <a href="/roteiros/" class="btn btn-secondary">&larr; Ver todos os Roteiros</a>
@@ -1902,7 +1905,7 @@ const blogContent = `
       </div>
 
       <!-- LISTAGEM DE ARTIGOS -->
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+      <div class="card-grid blog-grid">
         <!-- Artigo 1 Publicado -->
         <article class="card-editorial blog-card" data-title="O CuritiPão continua: do roteiro ao festival, agora um guia permanente" data-summary="O projeto que reuniu 15 padarias de Curitiba em 2026 agora se transforma em uma plataforma permanente sobre a cultura do pão." data-category="Novidades e festival">
           <div class="card-media">
@@ -1922,6 +1925,7 @@ const blogContent = `
             </div>
           </div>
         </article>
+${renderBlogCards()}
       </div>
 
       <!-- ESTADO VAZIO DO BLOG -->
@@ -2067,6 +2071,7 @@ const artigoHtml = wrapPage({
 });
 fs.writeFileSync('./blog/o-curitipao-continua/index.html', artigoHtml, 'utf8');
 console.log('Generated blog/o-curitipao-continua/index.html');
+writeBlogArticles(wrapPage);
 
 // -------------------------------------------------------------
 // PAGE 9: FESTIVAL HUB (/festival/)
@@ -3129,6 +3134,7 @@ const publicUrls = [
   'https://curitipao.com.br/roteiros/padarias-em-curitiba-por-bairro/',
   'https://curitipao.com.br/blog/',
   'https://curitipao.com.br/blog/o-curitipao-continua/',
+  ...blogUrls,
   'https://curitipao.com.br/festival/',
   'https://curitipao.com.br/festival/2026/',
   'https://curitipao.com.br/imprensa/',
@@ -3140,8 +3146,7 @@ const publicUrls = [
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${publicUrls.map(url => `  <url>
-    <loc>${url}</loc>
-    <lastmod>2026-11-04</lastmod>
+    <loc>${url}</loc>${blogUrls.includes(url) ? '' : '\n    <lastmod>2026-11-04</lastmod>'}
     <changefreq>weekly</changefreq>
     <priority>${url.endsWith('.br/') ? '1.0' : (url.includes('/padarias-em-curitiba-por-bairro/') ? '0.9' : '0.8')}</priority>
   </url>`).join('\n')}
