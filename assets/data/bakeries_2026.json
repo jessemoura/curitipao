@@ -2,11 +2,14 @@
   {
     "name": "AQUARIUS PANIFICADORA",
     "neighborhood": "Bacacheri",
+    "allBairros": ["Bacacheri"],
+    "city": "Curitiba",
     "product": "Pão Floresta Negra",
-    "description": "Pão de fermentação natural com cacau, chocolate, cereja desidratada e castanha-do-pará, inspirado nos sabores da tradicional Floresta Negra.",
+    "description": "Panificadora tradicional de Curitiba com atendimento ininterrupto 24 horas, oferecendo fornadas contínuas de pães artesanais, confeitaria completa e opções para qualquer hora do dia.",
     "price": "R$ 99 o quilo (aprox. R$ 29,70 unidade)",
     "address": "Avenida Prefeito Erasto Gaertner, 363 – Bacacheri",
-    "hours": "atendimento 24 horas, todos os dias",
+    "hours": "Atendimento 24 horas, todos os dias",
+    "mapsQuery": "Avenida Prefeito Erasto Gaertner, 363 - Bacacheri, Curitiba - PR",
     "instagram": "https://instagram.com/aquariuscuritiba",
     "instaHandle": "@aquariuscuritiba",
     "photos": [
@@ -24,11 +27,14 @@
   {
     "name": "AQUI NA MATA",
     "neighborhood": "Juvevê",
+    "allBairros": ["Juvevê"],
+    "city": "Curitiba",
     "product": "Rolinho Tiramisu",
-    "description": "Massa de brioche enrolada e recheada com manteiga de cupuaçu, açúcar mascavo, cacau e café. Recebe cobertura de cream cheese de castanha-de-caju e cacau polvilhado.",
+    "description": "Padaria artesanal 100% vegana no Juvevê, com foco em fermentação natural, brioches e viennoiserie preparados sem qualquer ingrediente de origem animal.",
     "price": "R$ 22",
     "address": "Rua Alberto Folloni, 220, Loja 1 – Juvevê",
     "hours": "Terça a sexta: das 7h às 19h; Sábado: das 9h às 17h",
+    "mapsQuery": "Rua Alberto Folloni, 220 - Juvevê, Curitiba - PR",
     "instagram": "https://instagram.com/aquinamata",
     "instaHandle": "@aquinamata",
     "photos": [
@@ -46,11 +52,14 @@
   {
     "name": "BONIN BAKERY",
     "neighborhood": "Centro",
+    "allBairros": ["Centro"],
+    "city": "Curitiba",
     "product": "Pão do Bosque",
-    "description": "Pão de fermentação natural e alta hidratação, com cranberry e pistache em uma combinação de sabores frutados e delicadamente tostados.",
+    "description": "Padaria e confeitaria artesanal na Alameda Prudente de Moraes com pães de fermentação natural de alta hidratação e viennoiserie clássica francesa.",
     "price": "R$ 30",
     "address": "Alameda Prudente de Moraes, 995 – Centro",
     "hours": "Segunda a sábado: das 9h às 18h30",
+    "mapsQuery": "Alameda Prudente de Moraes, 995 - Centro, Curitiba - PR",
     "instagram": "https://instagram.com/boninbakery",
     "instaHandle": "@boninbakery",
     "photos": [
@@ -68,11 +77,14 @@
   {
     "name": "CONFRARIA DOS PÃES",
     "neighborhood": "Alto da XV",
+    "allBairros": ["Alto da XV"],
+    "city": "Curitiba",
     "product": "Baguete Veneza – Integral com Cranberry e Goji Berry",
-    "description": "Baguete de fermentação natural feita com farinha integral, cranberry, goji berry e sementes, com crosta dourada, miolo macio e equilíbrio entre sabores frutados e rústicos.",
+    "description": "Panificação artesanal com fermentação lenta e natural, baguetes de farinha integral com sementes e grãos selecionados, pães rústicos e empório.",
     "price": "R$ 8",
-    "address": "Rua Atílio Bório, 1307 - Alto da XV",
+    "address": "Rua Atílio Bório, 1307 – Alto da XV",
     "hours": "Segunda a sexta: das 8h30 às 19h30; Sábado: das 8h30 às 18h30",
+    "mapsQuery": "Rua Atílio Bório, 1307 - Alto da XV, Curitiba - PR",
     "instagram": "https://instagram.com/confraria_dos_paes",
     "instaHandle": "@confraria_dos_paes",
     "photos": [
@@ -90,11 +102,14 @@
   {
     "name": "FABIANO MARCOLINI ALIMENTARI",
     "neighborhood": "Batel",
+    "allBairros": ["Batel"],
+    "city": "Curitiba",
     "product": "Ciabatta de Tomate, Manjericão e Azeitonas",
-    "description": "Ciabatta artesanal preparada com tomate, manjericão e azeitonas, combinando sabores clássicos da cozinha italiana.",
+    "description": "Gastronomia e panificação artesanal de inspiração italiana comandada pelo chef Fabiano Marcolini, célebre por suas ciabattas tradicionais e confeitaria clássica.",
     "price": "R$ 14",
     "address": "Alameda Dr. Carlos de Carvalho, 1181 – Batel",
-    "hours": "Segunda 7h30‑19h; Terça a sábado 7h30‑20h; Domingo 8h‑19h",
+    "hours": "Segunda: 7h30 às 19h; Terça a sábado: 7h30 às 20h; Domingo: 8h às 19h",
+    "mapsQuery": "Alameda Dr. Carlos de Carvalho, 1181 - Batel, Curitiba - PR",
     "instagram": "https://instagram.com/fabianomarcolini",
     "instaHandle": "@fabianomarcolini",
     "photos": [
@@ -112,20 +127,23 @@
   {
     "name": "FÁBRIKA PÃES",
     "neighborhood": "Alto da XV",
+    "allBairros": ["Alto da XV"],
+    "city": "Curitiba",
     "product": "Campanha Abóbora",
-    "description": "Pão de campanha preparado com abóbora-pescoço assada e incorporada à massa, que acrescenta sabor e maciez à receita artesanal.",
+    "description": "Ateliê de panificação artesanal focado em sourdough rústico, pães de campanha de fermentação lenta e fornadas frescas em ambiente acolhedor.",
     "price": "R$ 39",
     "address": "Rua Schiller, 1341 – Alto da XV",
     "hours": "Segunda a sexta: das 13h às 19h; Sábado: das 9h às 16h",
+    "mapsQuery": "Rua Schiller, 1341 - Alto da XV, Curitiba - PR",
     "instagram": "https://instagram.com/fabrikapaes",
     "instaHandle": "@fabrikapaes",
     "photos": [
       {
-        "src": "assets/photos/PÃ£o de Campanha - Fabrika PÃ£es - 01.jpg",
+        "src": "assets/photos/Pão de Campanha - Fabrika Pães - 01.jpg",
         "alt": "Pão de Campanha - foto inteira"
       },
       {
-        "src": "assets/photos/PÃ£o de Campanha - Fabrika PÃ£es - 02.jpg",
+        "src": "assets/photos/Pão de Campanha - Fabrika Pães - 02.jpg",
         "alt": "Pão de Campanha - foto cortada"
       }
     ],
@@ -134,11 +152,14 @@
   {
     "name": "FELIPANE",
     "neighborhood": "Juvevê",
+    "allBairros": ["Juvevê"],
+    "city": "Curitiba",
     "product": "Babka de Nutella e Pistache",
-    "description": "Massa macia de brioche, trançada e generosamente recheada com Nutella e pistache.",
+    "description": "Microbakery artesanal no Juvevê especializada em fermentação natural, babkas trançadas generosamente recheadas e pães amanteigados de alta qualidade.",
     "price": "R$ 28",
     "address": "Rua Cândido Mader, 81 – Juvevê",
-    "hours": "",
+    "hours": "Terça a sexta: das 10h às 18h30; Sábado: das 9h às 14h",
+    "mapsQuery": "Rua Cândido Mader, 81 - Juvevê, Curitiba - PR",
     "instagram": "https://instagram.com/feli.pane",
     "instaHandle": "@feli.pane",
     "photos": [
@@ -156,11 +177,14 @@
   {
     "name": "HAIAT ATELIÊ DO PÃO",
     "neighborhood": "Juvevê",
+    "allBairros": ["Juvevê"],
+    "city": "Curitiba",
     "product": "Fougasse de Primavera",
-    "description": "Pão provençal em formato de folha, preparado com azeite, limão-siciliano, manjericão e azeitonas pretas, finalizado com crosta de parmesão.",
+    "description": "Ateliê familiar com técnicas de panificação rústica, fougasses provençais em formato de folha com azeitonas, pães artesanais e fermentação natural.",
     "price": "R$ 24",
     "address": "Rua Constantino Marochi, 658 – Juvevê",
     "hours": "Terça a sexta: das 10h às 19h; Sábado: das 8h às 18h",
+    "mapsQuery": "Rua Constantino Marochi, 658 - Juvevê, Curitiba - PR",
     "instagram": "https://instagram.com/haiat.ateliedopao",
     "instaHandle": "@haiat.ateliedopao",
     "photos": [
@@ -177,13 +201,16 @@
   },
   {
     "name": "MAÇÃ ORGÂNICA PADARIA",
-    "neighborhood": "",
+    "neighborhood": "Vila Izabel, Água Verde e Alto da XV",
+    "allBairros": ["Vila Izabel", "Água Verde", "Alto da XV"],
+    "city": "Curitiba",
     "product": "Sonho de Gengibre e Abacaxi",
-    "description": "Sonho artesanal recheado com creme de gengibre e geleia de abacaxi, finalizado com chocolate branco, abacaxi cristalizado e gel.",
+    "description": "Primeira padaria 100% orgânica de Curitiba, com pães de fermentação natural feitos com grãos e ingredientes orgânicos certificados, confeitaria artesanal e café.",
     "price": "R$ 26",
-    "address": "",
-    "hours": "",
-    "instagram": "",
+    "address": "Rua Professor Sebastião Paraná, 195 — Vila Izabel",
+    "hours": "Seg. a sex.: 9h às 19h • Sáb.: 8h às 20h • Dom.: 9h às 19h",
+    "mapsQuery": "Rua Professor Sebastião Paraná, 195 - Vila Izabel, Curitiba - PR",
+    "instagram": "https://www.instagram.com/macapadaria",
     "instaHandle": "@macapadaria",
     "photos": [
       {
@@ -195,25 +222,47 @@
         "alt": "Sonho de Gengibre e Abacaxi - foto cortada"
       }
     ],
-    "units": []
+    "units": [
+      {
+        "bairro": "Vila Izabel",
+        "address": "Rua Professor Sebastião Paraná, 195 — Vila Izabel",
+        "hours": "Seg. a sex.: 9h às 19h • Sáb.: 8h às 20h • Dom.: 9h às 19h",
+        "mapsQuery": "Rua Professor Sebastião Paraná, 195 - Vila Izabel, Curitiba - PR"
+      },
+      {
+        "bairro": "Praça do Japão / Água Verde",
+        "address": "Av. Sete de Setembro, 4979 — Água Verde",
+        "hours": "Seg. a sex.: 8h30 às 19h • Sáb.: 9h às 18h30 • Dom.: fechado",
+        "mapsQuery": "Av. Sete de Setembro, 4979 - Água Verde, Curitiba - PR"
+      },
+      {
+        "bairro": "Alto da XV",
+        "address": "Rua Fernando Amaro, 802-B — Alto da XV",
+        "hours": "Seg. a sex.: 10h às 19h • Sáb.: 9h30 às 18h30 • Dom.: fechado",
+        "mapsQuery": "Rua Fernando Amaro, 802-B - Alto da XV, Curitiba - PR"
+      }
+    ]
   },
   {
     "name": "PADARIA AMÉRICA",
     "neighborhood": "São Francisco",
+    "allBairros": ["São Francisco"],
+    "city": "Curitiba",
     "product": "BroaBrie",
-    "description": "Broa de centeio com damasco e nozes, recheada e finalizada com uma crosta de queijo brie. Uma criação agridoce que une a tradição da Padaria América a uma combinação especial de sabores.",
+    "description": "Fundada em 1913, a mais antiga e tradicional padaria de Curitiba, patrimônio da panificação curitibana famosa por suas autênticas broas de centeio e receitas centenárias.",
     "price": "R$ 25 a unidade",
     "address": "Rua Presidente Carlos Cavalcanti, 942 – São Francisco",
     "hours": "Segunda a sábado: das 8h às 20h",
+    "mapsQuery": "Rua Presidente Carlos Cavalcanti, 942 - São Francisco, Curitiba - PR",
     "instagram": "https://instagram.com/padariaamerica",
     "instaHandle": "@padariaamerica",
     "photos": [
       {
-        "src": "assets/photos/Padaria AmÃ©rica â€” BroaBrie 01.jpg",
+        "src": "assets/photos/Padaria América — BroaBrie 01.jpg",
         "alt": "BroaBrie - foto inteira"
       },
       {
-        "src": "assets/photos/Padaria AmÃ©rica â€” BroaBrie 04.jpg",
+        "src": "assets/photos/Padaria América — BroaBrie 04.jpg",
         "alt": "BroaBrie - foto cortada"
       }
     ],
@@ -222,11 +271,14 @@
   {
     "name": "PADARIA FAMÍLIA FARINHA",
     "neighborhood": "Jardim Social",
+    "allBairros": ["Jardim Social"],
+    "city": "Curitiba",
     "product": "Pão de Trigo 100% Integral",
-    "description": "Pão de fermentação natural produzido exclusivamente com farinha de trigo integral, em uma receita de sabor rústico desenvolvida especialmente para o festival.",
+    "description": "Referência gastronômica há mais de 35 anos em Curitiba, com ampla linha de pães 100% integrais de fermentação natural, confeitaria fina e café colonial.",
     "price": "R$ 59,90 o quilo (aprox. R$ 26,95 unidade)",
     "address": "Avenida Nossa Senhora da Luz, 2315 – Jardim Social",
-    "hours": "Segunda a sábado: 6h30 às 20h30 / Domingo: 8h às 20h.",
+    "hours": "Segunda a sábado: 6h30 às 20h30 • Domingo: 8h às 20h",
+    "mapsQuery": "Avenida Nossa Senhora da Luz, 2315 - Jardim Social, Curitiba - PR",
     "instagram": "https://instagram.com/familiafarinha",
     "instaHandle": "@familiafarinha",
     "photos": [
@@ -243,12 +295,15 @@
   },
   {
     "name": "PADARIA REQUINTE",
-    "neighborhood": "",
+    "neighborhood": "Bigorrilho e Cabral",
+    "allBairros": ["Bigorrilho", "Cabral"],
+    "city": "Curitiba",
     "product": "Pão de Chocolate com Café",
-    "description": "Pão de massa semidoce preparado com café e gotas de chocolate, em uma combinação aromática criada especialmente para o CuritiPão.",
+    "description": "Quatro décadas de história na panificação curitibana, unindo receitas clássicas, pães especiais, confeitaria artesanal e seus consagrados minissonhos.",
     "price": "R$ 55 o quilo",
-    "address": "",
-    "hours": "",
+    "address": "Rua Francisco Rocha, 1809 — Bigorrilho",
+    "hours": "Segunda a sábado: 7h às 20h30 • Domingo: 8h às 19h",
+    "mapsQuery": "Rua Francisco Rocha, 1809 - Bigorrilho, Curitiba - PR",
     "instagram": "https://instagram.com/padariarequinte",
     "instaHandle": "@padariarequinte",
     "photos": [
@@ -261,16 +316,32 @@
         "alt": "Pão de Chocolate com Café - foto cortada"
       }
     ],
-    "units": []
+    "units": [
+      {
+        "bairro": "Bigorrilho",
+        "address": "Rua Francisco Rocha, 1809 — Bigorrilho",
+        "hours": "Segunda a sábado: 7h às 20h30 • Domingo: 8h às 19h",
+        "mapsQuery": "Rua Francisco Rocha, 1809 - Bigorrilho, Curitiba - PR"
+      },
+      {
+        "bairro": "Cabral",
+        "address": "Rua Recife, 34 — Cabral",
+        "hours": "Segunda a sábado: 7h às 20h30 • Domingo: 8h às 19h",
+        "mapsQuery": "Rua Recife, 34 - Cabral, Curitiba - PR"
+      }
+    ]
   },
   {
     "name": "PIEGEL PÃES",
     "neighborhood": "Cabral",
+    "allBairros": ["Cabral"],
+    "city": "Curitiba",
     "product": "Pão Doce de Laranja",
-    "description": "Pão de fermentação natural preparado com laranja e frutas cristalizadas, finalizado com uma delicada cobertura de açúcar cristalizado.",
+    "description": "Mais de um século de tradição familiar na panificação de Curitiba, com ampla variedade de broas, pães franceses estaladiços, pães doces de laranja e empório.",
     "price": "R$ 31,50",
     "address": "Avenida Anita Garibaldi, 590 – Cabral",
     "hours": "Todos os dias: das 7h às 21h",
+    "mapsQuery": "Avenida Anita Garibaldi, 590 - Cabral, Curitiba - PR",
     "instagram": "https://instagram.com/piegelpaes",
     "instaHandle": "@piegelpaes",
     "photos": [
@@ -287,12 +358,15 @@
   },
   {
     "name": "SAINT GERMAIN PANIFICADORA",
-    "neighborhood": "",
+    "neighborhood": "Batel e Ecoville",
+    "allBairros": ["Batel", "Ecoville"],
+    "city": "Curitiba",
     "product": "Ciabatta de Calabresa",
-    "description": "Ciabatta de casca crocante e interior macio, generosamente recheada com calabresa.",
+    "description": "Panificadora tradicional e empório gourmet em dois endereços de Curitiba, com ciabattas de fermentação natural, pães rústicos e confeitaria internacional.",
     "price": "R$ 21,90",
-    "address": "",
-    "hours": "",
+    "address": "Avenida Visconde de Guarapuava, 4882 — Batel",
+    "hours": "Segunda a sábado: 7h às 20h30 • Domingo: 8h às 20h",
+    "mapsQuery": "Avenida Visconde de Guarapuava, 4882 - Batel, Curitiba - PR",
     "instagram": "https://instagram.com/saintgermainpanificadora",
     "instaHandle": "@saintgermainpanificadora",
     "photos": [
@@ -305,16 +379,32 @@
         "alt": "Ciabatta de Calabresa - foto cortada"
       }
     ],
-    "units": []
+    "units": [
+      {
+        "bairro": "Batel",
+        "address": "Avenida Visconde de Guarapuava, 4882 — Batel",
+        "hours": "Segunda a sábado: 7h às 20h30 • Domingo: 8h às 20h",
+        "mapsQuery": "Avenida Visconde de Guarapuava, 4882 - Batel, Curitiba - PR"
+      },
+      {
+        "bairro": "Ecoville",
+        "address": "Rua Professor Pedro Viriato Parigot de Souza, 2748 — Ecoville",
+        "hours": "Segunda a sábado: 7h às 20h30 • Domingo: 8h às 20h",
+        "mapsQuery": "Rua Professor Pedro Viriato Parigot de Souza, 2748 - Ecoville, Curitiba - PR"
+      }
+    ]
   },
   {
     "name": "SPHAIR ATELIÊ DE PÃES",
-    "neighborhood": "",
+    "neighborhood": "Ahú e Bigorrilho",
+    "allBairros": ["Ahú", "Bigorrilho"],
+    "city": "Curitiba",
     "product": "Bagel de Cebola e Provolone",
-    "description": "Bagel de fermentação natural preparado com cebola crocante, provolone e gergelim, combinando textura macia e sabor marcante.",
+    "description": "Ateliê de panificação artesanal focado em fermentação longa e natural, conhecido por seus bagels artesanais recheados, pães rústicos e focaccias aromáticas.",
     "price": "R$ 8",
-    "address": "",
-    "hours": "",
+    "address": "Rua Tomazina, 345, Loja 7 — Ahú",
+    "hours": "Segunda a sábado: 11h às 19h",
+    "mapsQuery": "Rua Tomazina, 345, Loja 7 - Ahú, Curitiba - PR",
     "instagram": "https://instagram.com/ateliedepaes",
     "instaHandle": "@ateliedepaes",
     "photos": [
@@ -327,6 +417,19 @@
         "alt": "Bagel de Cebola e Provolone - foto cortada"
       }
     ],
-    "units": []
+    "units": [
+      {
+        "bairro": "Ahú",
+        "address": "Rua Tomazina, 345, Loja 7 — Ahú",
+        "hours": "Segunda a sábado: 11h às 19h",
+        "mapsQuery": "Rua Tomazina, 345, Loja 7 - Ahú, Curitiba - PR"
+      },
+      {
+        "bairro": "Bigorrilho",
+        "address": "Rua Professor Fernando Moreira, 951 — Bigorrilho",
+        "hours": "Segunda a sábado: 11h às 19h",
+        "mapsQuery": "Rua Professor Fernando Moreira, 951 - Bigorrilho, Curitiba - PR"
+      }
+    ]
   }
 ]

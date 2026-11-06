@@ -224,7 +224,7 @@ function getFooter() {
           <p>
             <a href="https://www.instagram.com/curitipao.guia/" target="_blank" rel="noopener noreferrer" class="footer-link footer-link-with-icon">
               ${OFFICIAL_INSTAGRAM_SVG(16, 'ig-footer-link')}
-              <span>@curitipao.guia no Instagram</span>
+              <span>@curitipao.guia</span>
             </a>
           </p>
         </div>
@@ -687,34 +687,99 @@ function slugify(text) {
     .replace(/^-+|-+$/g, '');
 }
 
-// Extract unique neighborhoods from bakeries
-const allBairros = Array.from(new Set(bakeries.map(b => b.neighborhood).filter(Boolean)));
+function removeAccents(str) {
+  return (str || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+}
 
-const bakeryCardsHtml = bakeries.map(b => {
-  const photo = (b.photos && b.photos[0]) ? b.photos[0] : { src: '/assets/photos/curitipao-111.jpg', alt: b.name };
-  let photoSrc = photo.src;
-  if (!photoSrc.startsWith('/') && !photoSrc.startsWith('http')) photoSrc = '/' + photoSrc;
+// Extract unique neighborhoods from bakeries for filter buttons
+const filterBairros = [
+  'Ahú',
+  'Alto da XV',
+  'Bacacheri',
+  'Batel',
+  'Bigorrilho',
+  'Cabral',
+  'Centro',
+  'Jardim Social',
+  'Juvevê',
+  'São Francisco',
+  'Vila Izabel'
+];
+
+// Sort bakeries alphabetically by name
+const sortedBakeries = [...bakeries].sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
+
+const bakeryCardsHtml = sortedBakeries.map(b => {
   const slug = slugify(b.name);
+  const bairrosList = b.allBairros && b.allBairros.length ? b.allBairros : [b.neighborhood];
+  const bairrosStr = bairrosList.join(', ');
+  const searchCorpus = `${b.name} ${bairrosStr} ${b.city || 'Curitiba'} ${b.address || ''} ${b.description || ''}`;
+  const normalizedSearch = removeAccents(searchCorpus);
+
+  let addressAndScheduleHtml = '';
+  let footerMapBtnHtml = '';
+
+  if (b.units && b.units.length > 0) {
+    // Multi-unit rendering
+    addressAndScheduleHtml = `
+      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+        ${b.units.map(u => `
+          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
+            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade ${u.bairro}:</strong>
+            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> ${u.address}</p>
+            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> ${u.hours}</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(u.mapsQuery || u.address)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
+              Como chegar &rarr;
+            </a>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    footerMapBtnHtml = '';
+  } else {
+    // Single unit rendering
+    addressAndScheduleHtml = `
+      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
+        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> ${b.address}</p>
+        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> ${b.hours}</p>
+      </div>
+    `;
+    footerMapBtnHtml = `
+      <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.mapsQuery || b.address)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+        Como chegar &rarr;
+      </a>
+    `;
+  }
 
   return `
-    <article class="card-editorial bakery-card" data-name="${b.name}" data-bairro="${b.neighborhood}" data-specialty="${b.product}">
-      <div class="card-media">
-        <img src="${photoSrc}" alt="${photo.alt || b.product}" loading="lazy">
-      </div>
-      <div class="card-body">
-        <span class="card-tag">${b.neighborhood || 'Curitiba'}</span>
-        <h3 class="card-title">${b.name}</h3>
-        <p class="card-desc" style="font-size: 0.88rem; margin-bottom: 10px;">
-          <strong>Criação Festival 2026:</strong> ${b.product}
+    <article class="card-editorial bakery-card bakery-free-card" id="${slug}" data-name="${b.name}" data-bairro="${b.neighborhood}" data-bairros="${bairrosList.join(',')}" data-cidade="${b.city || 'Curitiba'}" data-search="${normalizedSearch}" style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+      <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
+        <!-- Começa pelo nome -->
+        <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
+          ${b.name}
+        </h3>
+
+        <!-- Bairro e Cidade -->
+        <div style="margin-bottom: 12px;">
+          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+            ${b.neighborhood} • ${b.city || 'Curitiba'}
+          </span>
+        </div>
+
+        <!-- Breve descrição -->
+        <p class="card-desc bakery-desc" style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 14px; line-height: 1.5; flex-grow: 1;">
+          ${b.description}
         </p>
-        <p style="font-size: 0.8rem; color: var(--color-text-light); margin-bottom: 14px; font-style: italic;">
-          * Criação apresentada no Festival CuritiPão 2026. Consulte a disponibilidade atual.
-        </p>
-        <div class="card-footer">
-          <a href="${b.instagram || 'https://www.instagram.com/curitipao.guia/'}" target="_blank" rel="noopener noreferrer" class="footer-link" style="font-size: 0.82rem;">
-            ${b.instaHandle || 'Instagram'}
+
+        <!-- Endereço e Horários confirmados -->
+        ${addressAndScheduleHtml}
+
+        <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
+        <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
+          ${footerMapBtnHtml}
+          <a href="/festival/2026/#${slug}" class="footer-link" style="font-size: 0.8rem; color: var(--color-text-muted); text-decoration: underline;">
+            Edição Festival 2026 &rarr;
           </a>
-          <a href="/festival/2026/#${slug}" class="btn btn-secondary" style="padding: 5px 12px; font-size: 0.8rem;">Ver edição 2026 &rarr;</a>
         </div>
       </div>
     </article>
@@ -729,47 +794,133 @@ const padariasContent = `
         <span class="sep">/</span>
         <span aria-current="page">Padarias</span>
       </nav>
-      <h1>Guia Permanente de Padarias de Curitiba</h1>
-      <p class="lead">
-        Explore as padarias participantes da edição inaugural de 2026 e acompanhe a expansão do catálogo permanente com estabelecimentos de todos os bairros da capital.
+      <h1>Guia de Padarias de Curitiba e Região Metropolitana</h1>
+      <p class="lead" style="margin-bottom: 20px;">
+        Encontre padarias artesanais, panificadoras tradicionais e ateliês de fermentação natural em Curitiba, com horários e endereços confirmados.
       </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 10px;">
+        <a href="/contato/#cadastrar" class="btn btn-primary btn-sm" style="font-size: 0.85rem; padding: 7px 16px;">Cadastre sua padaria gratuitamente</a>
+        <a href="/blog/indicar-cadastrar-padaria-curitipao/" class="btn btn-secondary btn-sm" style="font-size: 0.85rem; padding: 7px 16px;">Como funciona o cadastro?</a>
+      </div>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" style="padding-top: 30px;">
     <div class="container">
-      <!-- AVISO EDITORIAL SOBRE DADOS PERMANENTES -->
-      <div class="form-notice" style="margin-bottom: 35px;">
-        <strong>Informação sobre os cadastros:</strong>
-        As padarias listadas abaixo participaram do Festival CuritiPão 2026. As fichas individuais completas e novos estabelecimentos de Curitiba estão sendo revisados e cadastrados para o guia anual.
-        <a href="/contato/#cadastrar" style="text-decoration: underline; font-weight: 700; margin-left: 6px;">Tem uma padaria? Cadastre seu estabelecimento gratuitamente</a>.
+
+      <!-- 1. TOPO: CARD ILUSTRATIVO "PADARIA EXEMPLO" (EXEMPLO DE DESTAQUE) -->
+      <section class="destaque-exemplo-container" aria-label="Demonstração do destaque de padaria" style="margin-bottom: 40px;">
+        <div style="background: var(--color-surface); border: 2px dashed var(--color-primary); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 12px;">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+              <span class="badge badge-gold" style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.82rem; padding: 4px 10px;">Exemplo de destaque</span>
+              <span style="font-size: 0.85rem; color: var(--color-text-muted); font-style: italic;">Demonstração ilustrativa (fora da contagem e dos filtros do guia)</span>
+            </div>
+            <a href="/contato/#cadastrar" class="btn btn-secondary btn-sm" style="font-size: 0.8rem; padding: 5px 12px;">Anuncie sua padaria &rarr;</a>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: start;">
+            <!-- Mídia / Galeria Ilustrativa -->
+            <div>
+              <div style="border-radius: var(--radius-md); overflow: hidden; margin-bottom: 10px; aspect-ratio: 16/10; box-shadow: var(--shadow-sm);">
+                <img src="/assets/photos/curitipao-111.jpg" alt="Pães artesanais de fermentação natural - Padaria Exemplo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                <div style="border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/curitipao-108 (1).jpg" alt="Fornos e pães - demonstração" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <div style="border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/aquarius-cortado.jpg" alt="Pão fatiado - demonstração" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <div style="border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/maca-organica-sonho.jpg" alt="Confeitaria artesanal - demonstração" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+              </div>
+              <p style="font-size: 0.75rem; color: var(--color-text-light); margin-top: 6px; text-align: center; font-style: italic;">
+                Foto principal e galeria ilustrativas para exibição da vitrine e dos produtos
+              </p>
+            </div>
+
+            <!-- Informações Demonstrativas da Padaria Exemplo -->
+            <div>
+              <div style="margin-bottom: 8px;">
+                <span class="card-tag" style="background: rgba(208, 137, 66, 0.15); color: var(--color-primary); font-weight: 700; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem;">Juvevê • Curitiba</span>
+              </div>
+              <h2 style="font-size: 1.7rem; margin: 0 0 8px 0; color: var(--color-primary);">Padaria Exemplo</h2>
+              <p style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 14px; line-height: 1.5;">
+                Demonstração de ficha em destaque no Guia CuritiPão. Mostra como estabelecimentos parceiros apresentam história, produtos principais, horários confirmados, cardápio digital em PDF e canais diretos para os clientes.
+              </p>
+
+              <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); margin-bottom: 14px; font-size: 0.86rem; line-height: 1.45; border: 1px solid var(--color-border);">
+                <p style="margin: 0 0 5px 0;"><strong>Endereço:</strong> Rua das Fornadas, 123 — Juvevê, Curitiba — PR <em>(endereço ilustrativo para demonstração)</em></p>
+                <p style="margin: 0;"><strong>Horário confirmado:</strong> Segunda a sábado: 7h às 19h • Domingo: 8h às 14h</p>
+              </div>
+
+              <!-- Produtos em destaque com preço opcional -->
+              <div style="margin-bottom: 14px;">
+                <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px;">
+                  Produtos em Destaque (até 3 itens com preço opcional):
+                </span>
+                <div style="display: flex; flex-direction: column; gap: 5px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; background: var(--color-bg); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🥖 <strong>Sourdough Tradicional</strong> (fermentação natural)</span>
+                    <strong style="color: var(--color-primary);">R$ 28</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; background: var(--color-bg); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🥐 <strong>Croissant Folhado Francês</strong></span>
+                    <strong style="color: var(--color-primary);">R$ 14</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; background: var(--color-bg); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🍞 <strong>Brioche Trançado Artesanal</strong></span>
+                    <strong style="color: var(--color-primary);">R$ 22</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botões e canais ilustrativos -->
+              <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px;">
+                <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.82rem; padding: 6px 14px;">
+                  Como chegar
+                </button>
+                <a href="#cardapio-exemplo" class="btn btn-secondary btn-sm" onclick="event.preventDefault(); alert('Demonstração ilustrativa: no card patrocinado, este botão abre o arquivo em PDF com o cardápio da padaria.'); return false;" style="font-size: 0.82rem; padding: 6px 14px;">
+                  📄 Cardápio em PDF
+                </a>
+                <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.8rem; color: var(--color-text-muted); background: var(--color-bg); padding: 5px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
+                  Instagram: <strong>@padariaexemplo (demonstração)</strong>
+                </span>
+                <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.8rem; color: var(--color-text-muted); background: var(--color-bg); padding: 5px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
+                  WhatsApp: <strong>(41) 99999-0000 (demonstração)</strong>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. ABAIXO: BARRA DE BUSCA E FILTROS -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 14px;">
+        <h2 style="font-size: 1.5rem; margin: 0; color: var(--color-text);">Padarias Cadastradas em Curitiba</h2>
+        <span id="bakery-count-badge" style="font-size: 0.88rem; color: var(--color-text-muted); font-weight: 600;">15 padarias cadastradas</span>
       </div>
 
-      <!-- BARRA DE BUSCA E FILTROS -->
-      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 35px; box-shadow: var(--shadow-sm);">
-        <div style="margin-bottom: 20px;">
-          <label for="bakery-search" class="form-label" style="font-size: 1rem;">Buscar padaria ou tipo de pão:</label>
-          <input type="text" id="bakery-search" class="form-input" placeholder="Digite o nome da padaria, bairro ou produto (ex: Felipane, Juvevê, Baguete)...">
+      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 30px; box-shadow: var(--shadow-sm);">
+        <div style="margin-bottom: 16px;">
+          <label for="bakery-search" class="form-label" style="font-size: 0.95rem; font-weight: 700;">Busque por padaria, bairro ou cidade:</label>
+          <input type="text" id="bakery-search" class="form-input" placeholder="Digite o nome da padaria, bairro ou cidade (ex: Felipane, Juvevê, Curitiba)...">
         </div>
 
         <div>
-          <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 10px;">
+          <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 8px;">
             Filtrar por Bairro:
           </span>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <button type="button" class="btn btn-secondary filter-btn active" data-bairro="all" style="padding: 6px 14px; font-size: 0.82rem;">Todos os Bairros</button>
-            <button type="button" class="btn btn-secondary filter-btn" data-bairro="Juvevê" style="padding: 6px 14px; font-size: 0.82rem;">Juvevê</button>
-            <button type="button" class="btn btn-secondary filter-btn" data-bairro="Centro" style="padding: 6px 14px; font-size: 0.82rem;">Centro</button>
-            <button type="button" class="btn btn-secondary filter-btn" data-bairro="Batel" style="padding: 6px 14px; font-size: 0.82rem;">Batel / Bigorrilho</button>
-            <button type="button" class="btn btn-secondary filter-btn" data-bairro="Cabral" style="padding: 6px 14px; font-size: 0.82rem;">Cabral</button>
-            <button type="button" class="btn btn-secondary filter-btn" data-bairro="Alto da XV" style="padding: 6px 14px; font-size: 0.82rem;">Alto da XV</button>
-            <button type="button" class="btn btn-secondary filter-btn" data-bairro="Bacacheri" style="padding: 6px 14px; font-size: 0.82rem;">Bacacheri</button>
-            <button type="button" class="btn btn-secondary filter-btn" data-bairro="Vila Izabel" style="padding: 6px 14px; font-size: 0.82rem;">Vila Izabel</button>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+            <button type="button" class="btn btn-secondary filter-btn active" data-bairro="all" style="padding: 5px 12px; font-size: 0.8rem;">Todos os Bairros</button>
+            ${filterBairros.map(b => `<button type="button" class="btn btn-secondary filter-btn" data-bairro="${b}" style="padding: 5px 12px; font-size: 0.8rem;">${b}</button>`).join('\n            ')}
           </div>
         </div>
       </div>
 
-      <!-- GRID DE CARDS -->
+      <!-- 3. GRID COM AS 15 FICHAS GRATUITAS (ORDEM ALFABÉTICA) -->
       <div class="card-grid" id="bakery-cards-container">
         ${bakeryCardsHtml}
       </div>
@@ -778,7 +929,7 @@ const padariasContent = `
       <div id="bakery-empty-state" style="display: none; text-align: center; padding: 60px 20px; background: var(--color-surface); border-radius: var(--radius-md); border: 1px dashed var(--color-border); margin-top: 20px;">
         <h3>Nenhuma padaria encontrada</h3>
         <p style="color: var(--color-text-muted); margin-bottom: 20px;">Não encontramos nenhum estabelecimento com os termos pesquisados.</p>
-        <button type="button" class="btn btn-primary" onclick="document.getElementById('bakery-search').value=''; document.querySelector('.filter-btn[data-bairro=all]').click();">Limpar busca e filtros</button>
+        <button type="button" class="btn btn-primary" onclick="document.getElementById('bakery-search').value=''; document.querySelectorAll('.filter-btn[data-bairro]').forEach(b=>b.classList.remove('active')); document.querySelector('.filter-btn[data-bairro=all]').classList.add('active'); if(window.curitipaoFilterBakeries) window.curitipaoFilterBakeries();">Limpar busca e filtros</button>
       </div>
 
       <!-- BANNER DE CONVITE PARA CADASTRO -->
@@ -788,7 +939,7 @@ const padariasContent = `
           O guia permanente do CuritiPão está aberto para estabelecimentos de todos os bairros de Curitiba que prezam pela boa panificação artesanal.
         </p>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
-          <a href="/contato/#cadastrar" class="btn btn-primary">Cadastrar ou atualizar minha padaria</a>
+          <a href="/contato/#cadastrar" class="btn btn-primary">Cadastrar minha padaria gratuitamente</a>
           <a href="/festival/2026/#padarias" class="btn btn-secondary">Ver 15 padarias do Festival 2026</a>
         </div>
       </div>
@@ -797,8 +948,8 @@ const padariasContent = `
 `;
 
 const padariasHtml = wrapPage({
-  title: 'Guia de Padarias de Curitiba',
-  description: 'Descubra as padarias artesanais de Curitiba por bairro, conheça criações exclusivas e saiba onde encontrar fornadas frescas de pão.',
+  title: 'Guia de Padarias de Curitiba e Região Metropolitana — CuritiPão',
+  description: 'Conheça 15 padarias artesanais e tradicionais de Curitiba e Região Metropolitana com horários, endereços e informações confirmadas.',
   canonical: '/padarias/',
   activeRoute: '/padarias/',
   content: padariasContent
@@ -806,7 +957,6 @@ const padariasHtml = wrapPage({
 fs.writeFileSync('./padarias/index.html', padariasHtml, 'utf8');
 console.log('Generated padarias/index.html');
 
-// -------------------------------------------------------------
 // PAGE 4: MODELO DE FICHA DE PADARIA (/padarias/modelo/)
 // -------------------------------------------------------------
 ensureDir('./padarias/modelo');
