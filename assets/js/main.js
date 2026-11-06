@@ -155,22 +155,27 @@
     const bakeryFilterButtons = document.querySelectorAll('.filter-btn[data-bairro]');
     const bakeryCards = document.querySelectorAll('.bakery-card');
     const bakeryEmptyState = document.getElementById('bakery-empty-state');
+    const bakeryCountBadge = document.getElementById('bakery-count-badge');
+
+    function removeAccents(str) {
+      return (str || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
+    }
 
     function filterBakeries() {
       if (!bakeryCards.length) return;
-      const query = (bakerySearchInput ? bakerySearchInput.value : '').toLowerCase().trim();
+      const query = removeAccents(bakerySearchInput ? bakerySearchInput.value : '');
       const activeBtn = document.querySelector('.filter-btn[data-bairro].active');
       const selectedBairro = activeBtn ? activeBtn.getAttribute('data-bairro') : 'all';
+      const selectedBairroNorm = removeAccents(selectedBairro);
 
       let visibleCount = 0;
 
       bakeryCards.forEach(card => {
-        const name = (card.getAttribute('data-name') || '').toLowerCase();
-        const bairro = (card.getAttribute('data-bairro') || '').toLowerCase();
-        const specialty = (card.getAttribute('data-specialty') || '').toLowerCase();
+        const searchData = removeAccents(card.getAttribute('data-search') || '');
+        const cardBairros = removeAccents(card.getAttribute('data-bairros') || card.getAttribute('data-bairro') || '');
 
-        const matchesQuery = !query || name.includes(query) || bairro.includes(query) || specialty.includes(query);
-        const matchesBairro = selectedBairro === 'all' || bairro.includes(selectedBairro.toLowerCase());
+        const matchesQuery = !query || searchData.includes(query);
+        const matchesBairro = selectedBairro === 'all' || cardBairros.includes(selectedBairroNorm);
 
         if (matchesQuery && matchesBairro) {
           card.style.display = '';
@@ -183,7 +188,14 @@
       if (bakeryEmptyState) {
         bakeryEmptyState.style.display = visibleCount === 0 ? 'block' : 'none';
       }
+      if (bakeryCountBadge) {
+        bakeryCountBadge.textContent = visibleCount === 15 
+          ? '15 padarias cadastradas' 
+          : `${visibleCount} de 15 padarias encontradas`;
+      }
     }
+
+    window.curitipaoFilterBakeries = filterBakeries;
 
     if (bakerySearchInput) {
       bakerySearchInput.addEventListener('input', filterBakeries);

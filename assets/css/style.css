@@ -2191,3 +2191,31 @@ p:last-child {
 .roteiro-how-to-use a:hover {
   color: var(--color-accent);
 }
+
+.blog-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+}
+
+.blog-article-body {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.blog-article-body > p,
+.blog-article-body > ul,
+.blog-article-body > ol {
+  margin-bottom: 1.1rem;
+}
+
+.blog-article-body h2 {
+  margin: 1.7rem 0 0.65rem;
+}
+
+.blog-invitation {
+  margin: 1.5rem 0;
+}
+
+.roteiro-how-to-use.blog-invitation .btn {
+  color: var(--color-white, #fff);
+  text-decoration: none;
+}
