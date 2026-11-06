@@ -162,6 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 2.5 Botão "Acessar o site oficial do CuritiPão" (Portal oficial)
+  const portalOficialBtn = document.getElementById('btn-portal-oficial');
+  if (portalOficialBtn) {
+    portalOficialBtn.addEventListener('click', () => {
+      trackEvent('closing_banner_portal_click', {
+        destination_url: portalOficialBtn.href,
+        cta_text: 'Acessar o site oficial do CuritiPão →'
+      });
+    });
+  }
+
   // 3. BANNER DE COOKIES
   const COOKIE_CONSENT_KEY = 'curitipao_cookies_consent';
   const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
