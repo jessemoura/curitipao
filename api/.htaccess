@@ -1,5 +1,24 @@
-# Proteção de arquivos internos da API
-<FilesMatch "\.(log|env|sample\.php)$">
-    Order allow,deny
-    Deny from all
+# Proteção de segurança da API CuritiPão
+Options -Indexes
+
+# Bloquear acesso web direto a qualquer arquivo de configuração, dados ou logs
+<FilesMatch "\.(log|json|env|sample\.php|php)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
 </FilesMatch>
+
+# Permitir unicamente o endpoint público de processamento contato.php
+<Files "contato.php">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Allow from all
+    </IfModule>
+</Files>

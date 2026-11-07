@@ -401,9 +401,10 @@
                   event_category: 'engagement'
                 });
               }
+              const protocolInfo = data && data.submission_id ? `<br><small style="opacity: 0.85; display: inline-block; margin-top: 4px;">Protocolo de registro: <code>${data.submission_id}</code></small>` : '';
               alertBox.innerHTML = `
                 <strong>Solicitação recebida com sucesso!</strong><br>
-                ${data.message || 'Sua mensagem foi encaminhada para a curadoria do CuritiPão. Nossa equipe revisa todas as informações antes de qualquer atualização no guia.'}
+                ${data.message || 'Sua mensagem foi encaminhada para a curadoria do CuritiPão. Nossa equipe revisa todas as informações antes de qualquer atualização no guia.'}${protocolInfo}
               `;
               form.reset();
             } else {
