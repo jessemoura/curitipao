@@ -1,4 +1,5 @@
-﻿api/smtp_config.php
+# Arquivos de credenciais privadas e dados confidenciais
+api/smtp_config.php
 api/*.secret.php
 api/.env
 api/submissoes_pendentes*

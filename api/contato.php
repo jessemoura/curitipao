@@ -17,10 +17,26 @@ header('Content-Type: application/json; charset=utf-8');
 define('OFFICIAL_RECIPIENT', 'contato@curitipao.com.br');
 
 // 1. Carregar configuração privada de SMTP se existir no servidor (smtp_config.php)
-$smtpConfigFile = __DIR__ . '/smtp_config.php';
+// Busca primeiro fora da public_html (imune a deploys do Git) e depois em __DIR__
+$possibleSmtpConfigs = [
+    dirname(__DIR__, 2) . '/smtp_config.php',
+    dirname(__DIR__, 1) . '/smtp_config.php',
+    __DIR__ . '/smtp_config.php'
+];
+
+$smtpConfigFile = null;
 $smtpConfig = null;
-if (file_exists($smtpConfigFile)) {
-    $smtpConfig = include $smtpConfigFile;
+foreach ($possibleSmtpConfigs as $cfg) {
+    if (file_exists($cfg) && is_readable($cfg)) {
+        $loaded = include $cfg;
+        if (is_array($loaded)) {
+            $smtpConfigFile = $cfg;
+            $smtpConfig = $loaded;
+            if (!empty($smtpConfig['active']) && !empty($smtpConfig['password'])) {
+                break;
+            }
+        }
+    }
 }
 
 $isSmtpActive = (is_array($smtpConfig) && !empty($smtpConfig['active']) && !empty($smtpConfig['password']));
@@ -335,28 +351,45 @@ if ($formType === 'cadastrar') {
 
 // 5. Registro seguro e verificável em armazenamento persistente
 $logEntry = "[" . date('Y-m-d H:i:s') . "] [ID: {$submissionId}] Tipo: {$formType} | Remetente: {$senderName} ({$senderEmail}) | Padaria: {$bakeryName}\n" . $body . "\n\n";
-$logSaved = @file_put_contents(__DIR__ . '/submissoes_pendentes_revisao.log', $logEntry, FILE_APPEND | LOCK_EX);
 
-// Também registra em JSON estruturado para auditoria da curadoria
-$jsonFile = __DIR__ . '/submissoes_pendentes.json';
-$existingSubmissions = [];
-if (file_exists($jsonFile)) {
-    $existingSubmissions = json_decode(@file_get_contents($jsonFile), true) ?: [];
+// Identificar diretórios de armazenamento persistente
+// 1) Diretório local em __DIR__ (public_html/api/)
+// 2) Diretório externo privado fora do document root (imune a deploys do Git)
+$targetDirs = [__DIR__];
+$externalDir = dirname(__DIR__, 2) . '/curitipao_dados';
+if (!is_dir($externalDir)) {
+    @mkdir($externalDir, 0750, true);
 }
-$existingSubmissions[] = [
-    'id' => $submissionId,
-    'data' => date('Y-m-d H:i:s'),
-    'tipo' => $formType,
-    'remetente_nome' => $senderName,
-    'remetente_email' => $senderEmail,
-    'padaria_nome' => $bakeryName,
-    'bairro' => $neighborhood,
-    'status' => 'pendente_revisao_editorial',
-    'dados' => $input
-];
-$jsonSaved = @file_put_contents($jsonFile, json_encode($existingSubmissions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+if (is_dir($externalDir) && is_writable($externalDir)) {
+    $targetDirs[] = $externalDir;
+}
 
-$isPersisted = ($logSaved !== false || $jsonSaved !== false);
+$isPersisted = false;
+foreach ($targetDirs as $tDir) {
+    $logSaved = @file_put_contents($tDir . '/submissoes_pendentes_revisao.log', $logEntry, FILE_APPEND | LOCK_EX);
+
+    $jsonFile = $tDir . '/submissoes_pendentes.json';
+    $existingSubmissions = [];
+    if (file_exists($jsonFile)) {
+        $existingSubmissions = json_decode(@file_get_contents($jsonFile), true) ?: [];
+    }
+    $existingSubmissions[] = [
+        'id' => $submissionId,
+        'data' => date('Y-m-d H:i:s'),
+        'tipo' => $formType,
+        'remetente_nome' => $senderName,
+        'remetente_email' => $senderEmail,
+        'padaria_nome' => $bakeryName,
+        'bairro' => $neighborhood,
+        'status' => 'pendente_revisao_editorial',
+        'dados' => $input
+    ];
+    $jsonSaved = @file_put_contents($jsonFile, json_encode($existingSubmissions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+
+    if ($logSaved !== false || $jsonSaved !== false) {
+        $isPersisted = true;
+    }
+}
 
 // 6. Envio Real via SMTP (se configurado)
 $emailSent = false;

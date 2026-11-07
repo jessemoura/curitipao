@@ -3,28 +3,36 @@
  * CURITIPÃO — CONFIGURAÇÃO PRIVADA DE TRANSPORTE SMTP
  * 
  * GUIA DE ATIVAÇÃO NO HPANEL DA HOSTINGER:
- * 1. Acesse o painel da Hostinger (hPanel) > Gerenciador de Arquivos (File Manager).
- * 2. Navegue até o diretório: public_html/api/
- * 3. Crie um novo arquivo chamado exatamente: smtp_config.php
- *    (ou copie este smtp_config.sample.php renomeando-o para smtp_config.php).
- * 4. Preencha o arquivo com o código abaixo, inserindo a senha da caixa contato@curitipao.com.br
- *    no campo 'password' e alterando 'active' para true:
  * 
- *    <?php
- *    return [
- *        'active'     => true,
- *        'host'       => 'smtp.hostinger.com',
- *        'port'       => 465, // SSL (recomendado) ou 587 (TLS)
- *        'username'   => 'contato@curitipao.com.br',
- *        'password'   => 'SENHA_DA_SUA_CAIXA_POSTAL',
- *        'from_email' => 'contato@curitipao.com.br',
- *        'from_name'  => 'CuritiPão'
- *    ];
+ * LOCALIZAÇÃO RECOMENDADA (À PROVA DE QUALQUER DEPLOY/RESTAURAÇÃO DO GIT):
+ * 1. Acesse o painel da Hostinger (hPanel) > Gerenciador de Arquivos (File Manager).
+ * 2. Navegue até a pasta pai da public_html:
+ *    domains/curitipao.com.br/
+ * 3. Crie ali um novo arquivo chamado: smtp_config.php
+ *    (Por estar fora da public_html, este arquivo NUNCA é tocado por deploys do Git
+ *     e é fisicamente inacessível a qualquer visitante pela web).
+ * 
+ * LOCALIZAÇÃO ALTERNATIVA (DENTRO DA API):
+ *    public_html/api/smtp_config.php
+ *    (Protegido no .htaccess e listado no .gitignore).
+ * 
+ * CONTEÚDO DO ARQUIVO:
+ * Preencha com o código abaixo, inserindo a senha da caixa contato@curitipao.com.br
+ * no campo 'password' e alterando 'active' para true:
+ * 
+ * <?php
+ * return [
+ *     'active'     => true,
+ *     'host'       => 'smtp.hostinger.com',
+ *     'port'       => 465, // SSL (recomendado) ou 587 (TLS/STARTTLS)
+ *     'username'   => 'contato@curitipao.com.br',
+ *     'password'   => 'SENHA_DA_SUA_CAIXA_POSTAL',
+ *     'from_email' => 'contato@curitipao.com.br',
+ *     'from_name'  => 'CuritiPão'
+ * ];
  * 
  * SEGURANÇA E PRESERVAÇÃO:
- * - O arquivo smtp_config.php NUNCA deve ser commitado no Git.
- * - O arquivo está protegido no .htaccess (retorna 403 Forbidden para visitantes).
- * - O arquivo está no .gitignore para nunca ser sobrescrito por deploys automáticos.
+ * - A credencial NUNCA deve ser commitada no Git, compartilhada em prompts ou salva em logs.
  */
 
 return [
