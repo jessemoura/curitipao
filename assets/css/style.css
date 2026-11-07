@@ -22,6 +22,17 @@
   --color-border: #E8D8C8;        /* Borda Neutra Bege */
   --color-border-subtle: #F0E4D8;
   
+  /* Paleta por Bairro - Guia de Padarias (Light Mode) */
+  --bairro-terracota: #B8532C;
+  --bairro-terracota-bg: rgba(184, 83, 44, 0.08);
+  --bairro-terracota-border: rgba(184, 83, 44, 0.25);
+  --bairro-salvia: #356553;
+  --bairro-salvia-bg: rgba(53, 101, 83, 0.08);
+  --bairro-salvia-border: rgba(53, 101, 83, 0.25);
+  --bairro-ocre: #A0621E;
+  --bairro-ocre-bg: rgba(160, 98, 30, 0.08);
+  --bairro-ocre-border: rgba(160, 98, 30, 0.25);
+
   --color-text: #2C2420;          /* Texto Principal Quente */
   --color-text-muted: #6B5E57;    /* Texto Secundário */
   --color-text-light: #94867F;    /* Legendas e Metadados */
@@ -67,6 +78,17 @@
   --color-surface-hover: #312722;
   --color-border: #42342C;        /* Borda Escura Quente */
   --color-border-subtle: #2F241F;
+
+  /* Paleta por Bairro - Guia de Padarias (Dark Mode) */
+  --bairro-terracota: #E27D5F;
+  --bairro-terracota-bg: rgba(226, 125, 95, 0.16);
+  --bairro-terracota-border: rgba(226, 125, 95, 0.35);
+  --bairro-salvia: #79B39F;
+  --bairro-salvia-bg: rgba(121, 179, 159, 0.16);
+  --bairro-salvia-border: rgba(121, 179, 159, 0.35);
+  --bairro-ocre: #E5A358;
+  --bairro-ocre-bg: rgba(229, 163, 88, 0.16);
+  --bairro-ocre-border: rgba(229, 163, 88, 0.35);
 
   --color-text: #F6EDE3;          /* Creme Claro de Alto Contraste */
   --color-text-muted: #C0B0A5;    /* Texto Suave Legível */
@@ -2219,3 +2241,76 @@ p:last-child {
   color: var(--color-white, #fff);
   text-decoration: none;
 }
+
+/* ==========================================================================
+   FICHAS GRATUITAS DO GUIA DE PADARIAS (/padarias/)
+   ========================================================================== */
+.theme-terracota {
+  --card-bairro-color: var(--bairro-terracota);
+  --card-bairro-bg: var(--bairro-terracota-bg);
+  --card-bairro-border: var(--bairro-terracota-border);
+}
+
+.theme-salvia {
+  --card-bairro-color: var(--bairro-salvia);
+  --card-bairro-bg: var(--bairro-salvia-bg);
+  --card-bairro-border: var(--bairro-salvia-border);
+}
+
+.theme-ocre {
+  --card-bairro-color: var(--bairro-ocre);
+  --card-bairro-bg: var(--bairro-ocre-bg);
+  --card-bairro-border: var(--bairro-ocre-border);
+}
+
+/* Faixa superior no topo do card */
+.bakery-free-card {
+  position: relative;
+  border-top: 4px solid var(--card-bairro-color) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.bakery-free-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Etiqueta / Tag do bairro */
+.bakery-bairro-tag {
+  background-color: var(--card-bairro-bg) !important;
+  color: var(--card-bairro-color) !important;
+  border: 1px solid var(--card-bairro-border) !important;
+  transition: all var(--transition-fast);
+}
+
+/* Ícones discretos */
+.bakery-meta-icon {
+  color: var(--card-bairro-color) !important;
+  flex-shrink: 0;
+}
+
+/* Botão Como chegar contornado na cor do bairro */
+.btn-como-chegar {
+  border: 1.5px solid var(--card-bairro-color) !important;
+  color: var(--card-bairro-color) !important;
+  background-color: transparent !important;
+  font-weight: 600 !important;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.btn-como-chegar:hover {
+  background-color: var(--card-bairro-color) !important;
+  color: #FFFFFF !important;
+  border-color: var(--card-bairro-color) !important;
+}
+
+[data-theme="dark"] .btn-como-chegar:hover {
+  color: #140F0D !important;
+}
+

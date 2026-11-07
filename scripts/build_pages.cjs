@@ -691,6 +691,27 @@ function removeAccents(str) {
   return (str || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
 }
 
+// Bairro color theme mapping:
+// Terracota para Bacacheri, Verde Sálvia para Juvevê, Ocre para Centro
+// Reutiliza a mesma paleta e mantém consistência para o mesmo bairro
+function getBairroTheme(bairro) {
+  const norm = removeAccents(bairro || '');
+  if (norm.includes('bacacheri') || norm.includes('alto da xv') || norm.includes('cabral') || norm.includes('vila izabel')) {
+    return 'terracota';
+  }
+  if (norm.includes('juveve') || norm.includes('batel') || norm.includes('jardim social') || norm.includes('ahu')) {
+    return 'salvia';
+  }
+  if (norm.includes('centro') || norm.includes('sao francisco') || norm.includes('bigorrilho')) {
+    return 'ocre';
+  }
+  return 'terracota';
+}
+
+const iconPinSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>`;
+
+const iconClockSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`;
+
 // Extract unique neighborhoods from bakeries for filter buttons
 const filterBairros = [
   'Ahú',
@@ -715,6 +736,7 @@ const bakeryCardsHtml = sortedBakeries.map(b => {
   const bairrosStr = bairrosList.join(', ');
   const searchCorpus = `${b.name} ${bairrosStr} ${b.city || 'Curitiba'} ${b.address || ''} ${b.description || ''}`;
   const normalizedSearch = removeAccents(searchCorpus);
+  const cardTheme = getBairroTheme(b.neighborhood);
 
   let addressAndScheduleHtml = '';
   let footerMapBtnHtml = '';
@@ -722,37 +744,60 @@ const bakeryCardsHtml = sortedBakeries.map(b => {
   if (b.units && b.units.length > 0) {
     // Multi-unit rendering
     addressAndScheduleHtml = `
-      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
-        ${b.units.map(u => `
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade ${u.bairro}:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> ${u.address}</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> ${u.hours}</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(u.mapsQuery || u.address)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;">
+        ${b.units.map(u => {
+          const unitTheme = getBairroTheme(u.bairro);
+          return `
+          <div class="bakery-unit-item theme-${unitTheme}" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade ${u.bairro}</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(u.mapsQuery || u.address)}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              ${iconPinSvg}
+              <span style="color: var(--color-text);">${u.address}</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              ${iconClockSvg}
+              <span style="color: var(--color-text-muted);">${u.hours}</span>
+            </div>
           </div>
-        `).join('')}
+          `;
+        }).join('')}
       </div>
     `;
     footerMapBtnHtml = '';
   } else {
     // Single unit rendering
     addressAndScheduleHtml = `
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> ${b.address}</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> ${b.hours}</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          ${iconPinSvg}
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">${b.address}</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          ${iconClockSvg}
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">${b.hours}</span>
+          </div>
+        </div>
       </div>
     `;
     footerMapBtnHtml = `
-      <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.mapsQuery || b.address)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(b.mapsQuery || b.address)}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     `;
   }
 
   return `
-    <article class="card-editorial bakery-card bakery-free-card" id="${slug}" data-name="${b.name}" data-bairro="${b.neighborhood}" data-bairros="${bairrosList.join(',')}" data-cidade="${b.city || 'Curitiba'}" data-search="${normalizedSearch}" style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-${cardTheme}" id="${slug}" data-name="${b.name}" data-bairro="${b.neighborhood}" data-bairros="${bairrosList.join(',')}" data-cidade="${b.city || 'Curitiba'}" data-search="${normalizedSearch}" style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -761,7 +806,8 @@ const bakeryCardsHtml = sortedBakeries.map(b => {
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             ${b.neighborhood} • ${b.city || 'Curitiba'}
           </span>
         </div>
@@ -771,7 +817,7 @@ const bakeryCardsHtml = sortedBakeries.map(b => {
           ${b.description}
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         ${addressAndScheduleHtml}
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
