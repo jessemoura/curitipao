@@ -32,6 +32,19 @@ filesToRoot.forEach(file => {
   }
 });
 
+// Ensure dist/.gitignore for production repository
+const distGitignore = path.join(distDir, '.gitignore');
+const distGitignoreContent = `# Arquivos de credenciais privadas e dados confidenciais
+api/smtp_config.php
+api/*.secret.php
+api/.env
+api/submissoes_pendentes*
+api/*.log
+api/*.json
+`;
+fs.writeFileSync(distGitignore, distGitignoreContent, 'utf8');
+console.log('[Ensured dist/.gitignore]');
+
 // 2. Ensure complete assets tree is copied to dist/assets/ and dist/festival/2026/assets/
 const srcAssets = path.resolve('assets');
 if (fs.existsSync(srcAssets)) {
