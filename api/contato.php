@@ -26,7 +26,7 @@ if (file_exists($smtpConfigFile)) {
 $isSmtpActive = (is_array($smtpConfig) && !empty($smtpConfig['active']) && !empty($smtpConfig['password']));
 
 // Função de envio SMTP direto via socket SSL (TLS/SSL nativo do PHP)
-function sendSmtpMail($host, $port, $username, $password, $to, $from, $fromName, $subject, $body, $replyTo = null, $replyToName = null) {
+function sendSmtpMail($host, $port, $username, $password, $to, $from, $fromName, $subject, $body, $replyTo = null, $replyToName = null, $submissionId = null) {
     $context = stream_context_create([
         'ssl' => [
             'verify_peer' => false,
@@ -66,7 +66,8 @@ function sendSmtpMail($host, $port, $username, $password, $to, $from, $fromName,
     if ($port == 587) {
         $send("STARTTLS");
         $res = $read();
-        stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT);
+        $cryptoMethod = defined('STREAM_CRYPTO_METHOD_TLS_CLIENT') ? STREAM_CRYPTO_METHOD_TLS_CLIENT : STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT;
+        stream_socket_enable_crypto($socket, true, $cryptoMethod);
         $send("EHLO " . ($_SERVER['SERVER_NAME'] ?? 'curitipao.com.br'));
         $res = $read();
     }
@@ -118,6 +119,9 @@ function sendSmtpMail($host, $port, $username, $password, $to, $from, $fromName,
     $headers[] = "Content-Transfer-Encoding: 8bit";
     $headers[] = "Date: " . date('r');
     $headers[] = "X-Mailer: CuritiPao-Mailer/1.0";
+    if ($submissionId) {
+        $headers[] = "X-CuritiPao-Submission-ID: {$submissionId}";
+    }
 
     $messageData = implode("\r\n", $headers) . "\r\n\r\n" . $body . "\r\n.\r\n";
     $send($messageData);
@@ -198,10 +202,12 @@ if (!empty($cleanWpp) && !$validaTelefone($cleanWpp)) {
 $autorizaTel = !empty($input['autoriza_tel']) ? 'SIM (Autorizado para exibição pública na ficha do guia)' : 'NÃO (Manter apenas para contato interno da curadoria)';
 $autorizaWpp = !empty($input['autoriza_wpp']) ? 'SIM (Autorizado para exibição pública na ficha do guia)' : 'NÃO (Manter apenas para contato interno da curadoria)';
 
+$submissionId = uniqid('sub_');
 $subject = '';
 $body = '';
 $senderName = '';
 $senderEmail = '';
+$neighborhood = '';
 
 if ($formType === 'cadastrar') {
     // FORMULÁRIO B: CADASTRO OU ATUALIZAÇÃO
@@ -212,6 +218,7 @@ if ($formType === 'cadastrar') {
     $senderDirectPhone = trim(filter_var($input['tel_responsavel'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
 
     $bakeryName = trim(filter_var($input['nome_padaria'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
+    $neighborhood = trim(filter_var($input['bairro'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
     $address = trim(filter_var($input['endereco'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
     $hours = trim(filter_var($input['horarios'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
     $instaSite = trim(filter_var($input['instagram_site'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
@@ -240,11 +247,12 @@ if ($formType === 'cadastrar') {
     }
 
     $tipoLabel = ($solicitacaoTipo === 'atualizacao') ? 'ATUALIZAÇÃO DE DADOS' : 'NOVO CADASTRO';
-    $subject = "[CuritiPão] {$tipoLabel} (PENDENTE DE REVISÃO): {$bakeryName}";
+    $subject = "[CuritiPão] {$tipoLabel} (PENDENTE DE REVISÃO): {$bakeryName} [{$submissionId}]";
 
     $body = "=========================================================\n";
     $body .= "CURITIPÃO — SOLICITAÇÃO DE {$tipoLabel}\n";
     $body .= "Status: PENDENTE DE REVISÃO EDITORIAL (Não publicado automaticamente)\n";
+    $body .= "ID da Submissão: {$submissionId}\n";
     $body .= "Data/Hora: " . date('d/m/Y H:i:s') . "\n";
     $body .= "=========================================================\n\n";
 
@@ -281,6 +289,7 @@ if ($formType === 'cadastrar') {
     $senderEmail = filter_var($input['email'] ?? '', FILTER_VALIDATE_EMAIL);
     $bakeryName = trim(filter_var($input['nome_padaria'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
     $neighborhood = trim(filter_var($input['bairro'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
+    $neighborhood = trim(filter_var($input['bairro'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
     $instaSite = trim(filter_var($input['instagram'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
     $reason = trim(filter_var($input['motivo'] ?? '', FILTER_SANITIZE_SPECIAL_CHARS));
 
@@ -293,11 +302,12 @@ if ($formType === 'cadastrar') {
         exit;
     }
 
-    $subject = "[CuritiPão] INDICAÇÃO DE PADARIA (PENDENTE DE REVISÃO): {$bakeryName}";
+    $subject = "[CuritiPão] INDICAÇÃO DE PADARIA (PENDENTE DE REVISÃO): {$bakeryName} [{$submissionId}]";
 
     $body = "=========================================================\n";
     $body .= "CURITIPÃO — INDICAÇÃO DE VISITANTE\n";
     $body .= "Status: PENDENTE DE REVISÃO EDITORIAL (Não publicado automaticamente)\n";
+    $body .= "ID da Submissão: {$submissionId}\n";
     $body .= "Data/Hora: " . date('d/m/Y H:i:s') . "\n";
     $body .= "=========================================================\n\n";
 
@@ -324,6 +334,7 @@ if ($formType === 'cadastrar') {
 }
 
 // 5. Registro seguro e verificável em armazenamento persistente
+$logEntry = "[" . date('Y-m-d H:i:s') . "] [ID: {$submissionId}] Tipo: {$formType} | Remetente: {$senderName} ({$senderEmail}) | Padaria: {$bakeryName}\n" . $body . "\n\n";
 $logSaved = @file_put_contents(__DIR__ . '/submissoes_pendentes_revisao.log', $logEntry, FILE_APPEND | LOCK_EX);
 
 // Também registra em JSON estruturado para auditoria da curadoria
@@ -333,7 +344,7 @@ if (file_exists($jsonFile)) {
     $existingSubmissions = json_decode(@file_get_contents($jsonFile), true) ?: [];
 }
 $existingSubmissions[] = [
-    'id' => uniqid('sub_'),
+    'id' => $submissionId,
     'data' => date('Y-m-d H:i:s'),
     'tipo' => $formType,
     'remetente_nome' => $senderName,
@@ -357,11 +368,12 @@ if ($isSmtpActive) {
         $smtpConfig['password'],
         OFFICIAL_RECIPIENT,
         $smtpConfig['from_email'] ?? OFFICIAL_RECIPIENT,
-        $smtpConfig['from_name'] ?? 'CuritiPão Webmaster',
+        $smtpConfig['from_name'] ?? 'CuritiPão',
         $subject,
         $body,
         $senderEmail,
-        $senderName
+        $senderName,
+        $submissionId
     );
 
     if ($smtpRes['success']) {
@@ -376,6 +388,7 @@ if ($emailSent || $isPersisted) {
     http_response_code(200);
     echo json_encode([
         'success' => true,
+        'submission_id' => $submissionId,
         'email_sent' => $emailSent,
         'persisted' => $isPersisted,
         'message' => 'Sua solicitação foi recebida com sucesso e encaminhada para a curadoria do CuritiPão. Nossa equipe revisa todas as informações antes de qualquer atualização no guia.'

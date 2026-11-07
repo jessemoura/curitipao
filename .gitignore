@@ -8,3 +8,4 @@ scratch/
 api/smtp_config.php
 api/*.secret.php
 api/.env
+api/submissoes_pendentes*
