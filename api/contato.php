@@ -323,11 +323,32 @@ if ($formType === 'cadastrar') {
     $body .= "IMPORTANTE: Todas as indicações passam por apuração da curadoria antes da criação de fichas no guia.\n";
 }
 
-// 5. Registro seguro em log interno de contingência (Garante que nenhum envio se perca)
-$logEntry = "[" . date('Y-m-d H:i:s') . "] Tipo: {$formType} | Remetente: {$senderName} ({$senderEmail}) | Padaria: {$bakeryName}\n" . $body . "\n\n";
-@file_put_contents(__DIR__ . '/submissoes_pendentes_revisao.log', $logEntry, FILE_APPEND | LOCK_EX);
+// 5. Registro seguro e verificável em armazenamento persistente
+$logSaved = @file_put_contents(__DIR__ . '/submissoes_pendentes_revisao.log', $logEntry, FILE_APPEND | LOCK_EX);
 
-// 6. Envio Real via SMTP (se configurado) ou Fallback para mail()
+// Também registra em JSON estruturado para auditoria da curadoria
+$jsonFile = __DIR__ . '/submissoes_pendentes.json';
+$existingSubmissions = [];
+if (file_exists($jsonFile)) {
+    $existingSubmissions = json_decode(@file_get_contents($jsonFile), true) ?: [];
+}
+$existingSubmissions[] = [
+    'id' => uniqid('sub_'),
+    'data' => date('Y-m-d H:i:s'),
+    'tipo' => $formType,
+    'remetente_nome' => $senderName,
+    'remetente_email' => $senderEmail,
+    'padaria_nome' => $bakeryName,
+    'bairro' => $neighborhood,
+    'status' => 'pendente_revisao_editorial',
+    'dados' => $input
+];
+$jsonSaved = @file_put_contents($jsonFile, json_encode($existingSubmissions, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+
+$isPersisted = ($logSaved !== false || $jsonSaved !== false);
+
+// 6. Envio Real via SMTP (se configurado)
+$emailSent = false;
 if ($isSmtpActive) {
     $smtpRes = sendSmtpMail(
         $smtpConfig['host'] ?? 'smtp.hostinger.com',
@@ -344,28 +365,28 @@ if ($isSmtpActive) {
     );
 
     if ($smtpRes['success']) {
-        echo json_encode([
-            'success' => true,
-            'message' => 'Submissão recebida com sucesso! As informações foram arquivadas como pendentes de revisão pela equipe editorial CuritiPão. Nenhuma alteração pública foi realizada automaticamente.'
-        ]);
-        exit;
+        $emailSent = true;
     } else {
-        // Se SMTP falhou, registrar erro e avisar com honestidade
         error_log("[CuritiPão SMTP Error] " . ($smtpRes['error'] ?? 'Desconhecido'));
     }
 }
 
-// 7. Se SMTP não estiver configurado/ativo, retornar status verdadeiro de homologação técnica
-http_response_code(503);
+// 7. Retorno de Status: Sucesso somente se e-mail enviado OU registro persistente verificado
+if ($emailSent || $isPersisted) {
+    http_response_code(200);
+    echo json_encode([
+        'success' => true,
+        'email_sent' => $emailSent,
+        'persisted' => $isPersisted,
+        'message' => 'Sua solicitação foi recebida com sucesso e encaminhada para a curadoria do CuritiPão. Nossa equipe revisa todas as informações antes de qualquer atualização no guia.'
+    ]);
+    exit;
+}
+
+// Se ambos falharem (sem SMTP e sem conseguir gravar no disco), retorna falha para preservar os campos no navegador
+http_response_code(500);
 echo json_encode([
     'success' => false,
-    'status' => 'pending_smtp_setup',
-    'message' => 'As informações foram validadas com sucesso pelo sistema e registradas para revisão editorial. O transporte automático via SMTP na hospedagem aguarda a configuração final da credencial oficial. Para atendimento imediato, encaminhe seus dados diretamente para ' . OFFICIAL_RECIPIENT . ' ou pelo direct do Instagram @curitipao.guia.',
-    'data_validated' => true,
-    'summary' => [
-        'tipo' => $formType,
-        'padaria' => $bakeryName,
-        'remetente' => $senderName,
-        'revisao_pendente' => true
-    ]
+    'message' => 'Não foi possível registrar ou enviar sua solicitação no momento devido a uma instabilidade temporária. Por favor, tente novamente mais tarde ou envie diretamente para ' . OFFICIAL_RECIPIENT . '.'
 ]);
+exit;

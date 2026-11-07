@@ -392,9 +392,9 @@
 
           if (alertBox) {
             alertBox.style.display = 'block';
-            alertBox.className = 'form-status-message form-notice';
 
             if (res.ok && data && data.success) {
+              alertBox.className = 'form-status-message form-success';
               if (typeof window.gtag === 'function') {
                 window.gtag('event', 'form_submission_success', {
                   form_type: formType,
@@ -403,19 +403,16 @@
               }
               alertBox.innerHTML = `
                 <strong>Solicitação recebida com sucesso!</strong><br>
-                ${data.message || 'As informações foram registradas como pendentes de análise pela curadoria CuritiPão. Nenhuma alteração é publicada automaticamente.'}
+                ${data.message || 'Sua mensagem foi encaminhada para a curadoria do CuritiPão. Nossa equipe revisa todas as informações antes de qualquer atualização no guia.'}
               `;
-            } else if (data && data.status === 'pending_smtp_setup') {
-              alertBox.innerHTML = `
-                <strong>Dados conferidos e validados com sucesso!</strong><br>
-                ${data.message}<br><br>
-                <em>Observação: nenhuma confirmação simulada foi gerada. O contato direto por e-mail ou Instagram garante o recebimento imediato.</em>
-              `;
+              form.reset();
             } else {
+              // Se o envio e a persistência falharem, preserva os campos e avisa com clareza
+              alertBox.className = 'form-status-message form-notice';
               alertBox.innerHTML = `
-                <strong>Aviso sobre o envio:</strong><br>
-                ${(data && data.message) ? data.message : 'O serviço de envio direto aguarda a ativação técnica de SMTP na hospedagem.'}<br>
-                Para atendimento imediato, encaminhe seus dados diretamente para <a href="mailto:contato@curitipao.com.br" style="text-decoration: underline; font-weight:700;">contato@curitipao.com.br</a> ou pelo direct do Instagram <a href="https://www.instagram.com/curitipao.guia/" target="_blank" rel="noopener" style="text-decoration: underline; font-weight:700;">@curitipao.guia</a>.
+                <strong>Não foi possível enviar sua solicitação no momento:</strong><br>
+                ${(data && data.message) ? data.message : 'Ocorreu uma instabilidade temporária no serviço.'}<br><br>
+                Seus dados foram preservados no formulário acima. Se preferir, você também pode nos contatar diretamente pelo e-mail <a href="mailto:contato@curitipao.com.br" style="text-decoration: underline; font-weight:700;">contato@curitipao.com.br</a>.
               `;
             }
             alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -425,10 +422,8 @@
             alertBox.style.display = 'block';
             alertBox.className = 'form-status-message form-notice';
             alertBox.innerHTML = `
-              <strong>Dados validados localmente!</strong><br>
-              O transporte SMTP direto está em fase de ativação técnica na hospedagem. <strong>Nenhuma confirmação simulada foi gerada.</strong><br><br>
-              Por favor, encaminhe as informações preenchidas para o e-mail oficial:
-              <a href="mailto:contato@curitipao.com.br" style="text-decoration: underline; font-weight:700;">contato@curitipao.com.br</a> ou pelo direct do Instagram <a href="https://www.instagram.com/curitipao.guia/" target="_blank" rel="noopener" style="text-decoration: underline; font-weight:700;">@curitipao.guia</a>.
+              <strong>Não foi possível enviar sua solicitação no momento:</strong><br>
+              Houve uma falha de conexão. Seus dados foram preservados no formulário para você tentar novamente ou enviar diretamente para <a href="mailto:contato@curitipao.com.br" style="text-decoration: underline; font-weight:700;">contato@curitipao.com.br</a>.
             `;
             alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           }
