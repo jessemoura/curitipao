@@ -163,18 +163,37 @@
 
     function filterBakeries() {
       if (!bakeryCards.length) return;
-      const query = removeAccents(bakerySearchInput ? bakerySearchInput.value : '');
+      const rawQuery = bakerySearchInput ? bakerySearchInput.value : '';
+      const queryNorm = removeAccents(rawQuery);
+      const queryWords = queryNorm.split(/\s+/).filter(Boolean);
       const activeBtn = document.querySelector('.filter-btn[data-bairro].active');
       const selectedBairro = activeBtn ? activeBtn.getAttribute('data-bairro') : 'all';
       const selectedBairroNorm = removeAccents(selectedBairro);
+
+      const genericTerms = ['padaria', 'panificadora', 'bakery'];
+      const isGenericSingleQuery = queryWords.length === 1 && genericTerms.includes(queryWords[0]);
 
       let visibleCount = 0;
 
       bakeryCards.forEach(card => {
         const searchData = removeAccents(card.getAttribute('data-search') || '');
         const cardBairros = removeAccents(card.getAttribute('data-bairros') || card.getAttribute('data-bairro') || '');
+        const cardDesc = removeAccents(card.getAttribute('data-description') || '');
+        const cardName = removeAccents(card.getAttribute('data-name') || '');
+        const fullCorpus = `${cardName} ${cardBairros} ${cardDesc} ${searchData}`;
 
-        const matchesQuery = !query || searchData.includes(query);
+        let matchesQuery = true;
+        if (queryWords.length > 0) {
+          if (isGenericSingleQuery) {
+            matchesQuery = true;
+          } else {
+            matchesQuery = queryWords.every(word => {
+              if (genericTerms.includes(word)) return true;
+              return fullCorpus.includes(word);
+            });
+          }
+        }
+
         const matchesBairro = selectedBairro === 'all' || cardBairros.includes(selectedBairroNorm);
 
         if (matchesQuery && matchesBairro) {
@@ -189,9 +208,15 @@
         bakeryEmptyState.style.display = visibleCount === 0 ? 'block' : 'none';
       }
       if (bakeryCountBadge) {
-        bakeryCountBadge.textContent = visibleCount === 15 
-          ? '15 padarias cadastradas' 
-          : `${visibleCount} de 15 padarias encontradas`;
+        if (visibleCount === 15 && (!queryNorm || isGenericSingleQuery) && selectedBairro === 'all') {
+          bakeryCountBadge.textContent = '15 padarias cadastradas';
+        } else if (visibleCount === 0) {
+          bakeryCountBadge.textContent = 'Nenhuma padaria encontrada';
+        } else if (visibleCount === 1) {
+          bakeryCountBadge.textContent = '1 de 15 padaria encontrada';
+        } else {
+          bakeryCountBadge.textContent = `${visibleCount} de 15 padarias encontradas`;
+        }
       }
     }
 
@@ -216,22 +241,32 @@
     const blogFilterButtons = document.querySelectorAll('.blog-filter-btn[data-category]');
     const blogArticles = document.querySelectorAll('.blog-card');
     const blogEmptyState = document.getElementById('blog-empty-state');
+    const blogCountBadge = document.getElementById('blog-count-badge');
+    const blogAllBtn = document.getElementById('blog-all-filter-btn') || document.querySelector('.blog-filter-btn[data-category="all"]');
+
+    const totalBlogCount = blogArticles.length;
+
+    // Manter o total do catálogo no botão "Todos (N)"
+    if (blogAllBtn && totalBlogCount > 0) {
+      blogAllBtn.textContent = `Todos (${totalBlogCount})`;
+    }
 
     function filterBlog() {
       if (!blogArticles.length) return;
-      const query = (blogSearchInput ? blogSearchInput.value : '').toLowerCase().trim();
+      const query = removeAccents(blogSearchInput ? blogSearchInput.value : '');
       const activeBtn = document.querySelector('.blog-filter-btn[data-category].active');
       const selectedCategory = activeBtn ? activeBtn.getAttribute('data-category') : 'all';
+      const selectedCategoryNorm = removeAccents(selectedCategory);
 
       let visibleCount = 0;
 
       blogArticles.forEach(card => {
-        const title = (card.getAttribute('data-title') || '').toLowerCase();
-        const summary = (card.getAttribute('data-summary') || '').toLowerCase();
-        const category = (card.getAttribute('data-category') || '').toLowerCase();
+        const title = removeAccents(card.getAttribute('data-title') || '');
+        const summary = removeAccents(card.getAttribute('data-summary') || '');
+        const category = removeAccents(card.getAttribute('data-category') || '');
 
         const matchesQuery = !query || title.includes(query) || summary.includes(query);
-        const matchesCategory = selectedCategory === 'all' || category === selectedCategory.toLowerCase();
+        const matchesCategory = selectedCategory === 'all' || category === selectedCategoryNorm;
 
         if (matchesQuery && matchesCategory) {
           card.style.display = '';
@@ -243,6 +278,20 @@
 
       if (blogEmptyState) {
         blogEmptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+
+      // Contador discreto abaixo da busca
+      if (blogCountBadge) {
+        const isFiltering = !!query || selectedCategory !== 'all';
+        if (!isFiltering) {
+          blogCountBadge.textContent = `${totalBlogCount} artigos publicados`;
+        } else if (visibleCount === 0) {
+          blogCountBadge.textContent = 'Nenhum artigo encontrado';
+        } else if (visibleCount === 1) {
+          blogCountBadge.textContent = `1 de ${totalBlogCount} artigo encontrado`;
+        } else {
+          blogCountBadge.textContent = `${visibleCount} de ${totalBlogCount} artigos encontrados`;
+        }
       }
     }
 
@@ -585,6 +634,93 @@
         }
       });
     }
+
+    // 7. DEMO CARDS CAROUSEL (MOBILE)
+    function initDemoCarousel() {
+      const track = document.getElementById('destaque-cards-track');
+      const prevBtn = document.getElementById('destaque-prev-btn');
+      const nextBtn = document.getElementById('destaque-next-btn');
+      const dots = document.querySelectorAll('.destaque-dot');
+
+      if (!track) return;
+
+      const cards = track.querySelectorAll('.demo-vertical-card');
+      if (!cards.length) return;
+
+      function updateCarouselState() {
+        const trackScrollLeft = track.scrollLeft;
+        let closestIndex = 0;
+        let minDiff = Infinity;
+
+        cards.forEach((card, idx) => {
+          const cardLeft = card.offsetLeft - track.offsetLeft;
+          const diff = Math.abs(cardLeft - trackScrollLeft);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = idx;
+          }
+        });
+
+        dots.forEach((dot, idx) => {
+          const isActive = idx === closestIndex;
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        if (prevBtn) {
+          prevBtn.disabled = closestIndex === 0;
+        }
+        if (nextBtn) {
+          nextBtn.disabled = closestIndex >= cards.length - 1;
+        }
+      }
+
+      function scrollToCard(index) {
+        if (index < 0 || index >= cards.length) return;
+        const targetCard = cards[index];
+        if (targetCard) {
+          targetCard.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          let currentIndex = 0;
+          dots.forEach((d, idx) => {
+            if (d.classList.contains('active')) currentIndex = idx;
+          });
+          scrollToCard(Math.max(0, currentIndex - 1));
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          let currentIndex = 0;
+          dots.forEach((d, idx) => {
+            if (d.classList.contains('active')) currentIndex = idx;
+          });
+          scrollToCard(Math.min(cards.length - 1, currentIndex + 1));
+        });
+      }
+
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const idx = parseInt(dot.getAttribute('data-index'), 10);
+          scrollToCard(idx);
+        });
+      });
+
+      let scrollTimeout;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateCarouselState, 60);
+      }, { passive: true });
+
+      // Initial state
+      updateCarouselState();
+    }
+
+    initDemoCarousel();
 
     initDemoLightbox();
   });
