@@ -854,91 +854,248 @@ const padariasContent = `
   <section class="section" style="padding-top: 30px;">
     <div class="container">
 
-      <!-- 1. TOPO: CARD ILUSTRATIVO "PADARIA EXEMPLO" (EXEMPLO DE DESTAQUE) -->
-      <section class="destaque-exemplo-container" aria-label="Demonstração do destaque de padaria" style="margin-bottom: 40px;">
+      <!-- 1. TOPO: 3 CARDS PATROCINADOS FICTÍCIOS E VERTICAIS (EXEMPLO DE DESTAQUE) -->
+      <section class="destaque-exemplo-container" aria-label="Demonstração de destaques patrocinados" style="margin-bottom: 40px;">
         <div style="background: var(--color-surface); border: 2px dashed var(--color-primary); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);">
-          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 12px;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; border-bottom: 1px solid var(--color-border); padding-bottom: 14px;">
             <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
               <span class="badge badge-gold" style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.82rem; padding: 4px 10px;">Exemplo de destaque</span>
-              <span style="font-size: 0.85rem; color: var(--color-text-muted); font-style: italic;">Demonstração ilustrativa (fora da contagem e dos filtros do guia)</span>
+              <span style="font-size: 0.86rem; color: var(--color-text-muted); font-style: italic;">3 modelos ilustrativos verticais (demonstração fora da contagem e dos filtros do guia)</span>
             </div>
-            <a href="/contato/#cadastrar" class="btn btn-secondary btn-sm" style="font-size: 0.8rem; padding: 5px 12px;">Anuncie sua padaria &rarr;</a>
+            <a href="/contato/#cadastrar" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; padding: 6px 14px; font-weight: 600;">Anuncie sua padaria &rarr;</a>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: start;">
-            <!-- Mídia / Galeria Ilustrativa -->
-            <div>
-              <div style="border-radius: var(--radius-md); overflow: hidden; margin-bottom: 10px; aspect-ratio: 16/10; box-shadow: var(--shadow-sm);">
-                <img src="/assets/photos/curitipao-111.jpg" alt="Pães artesanais de fermentação natural - Padaria Exemplo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+          <!-- Grade dos 3 cards verticais: lado a lado no desktop, empilhados no celular -->
+          <div class="destaque-cards-grid">
+            
+            <!-- CARD 1: Ateliê do Trigo (Demonstração - Juvevê) -->
+            <article class="demo-vertical-card" style="display: flex; flex-direction: column; height: 100%;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span class="badge badge-gold" style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em; padding: 3px 8px;">Exemplo de destaque</span>
+                <span style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic;">Demonstração</span>
               </div>
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
-                <div style="border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 1/1;">
-                  <img src="/assets/photos/curitipao-108 (1).jpg" alt="Fornos e pães - demonstração" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+
+              <!-- Foto de Capa 1 -->
+              <div style="border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 8px; aspect-ratio: 16/10; box-shadow: var(--shadow-sm);">
+                <img src="/assets/photos/curitipao-111.jpg" alt="Pães artesanais de fermentação natural - Ateliê do Trigo" class="demo-card-cover-img" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+              </div>
+
+              <!-- Mini-Galeria 1 -->
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px;">
+                <div style="border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/piegel-cortado.jpg" alt="Fornos artesanais" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <div style="border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 1/1;">
-                  <img src="/assets/photos/aquarius-cortado.jpg" alt="Pão fatiado - demonstração" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                <div style="border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/aquarius-cortado.jpg" alt="Pão fatiado miolo" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
-                <div style="border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 1/1;">
-                  <img src="/assets/photos/maca-organica-sonho.jpg" alt="Confeitaria artesanal - demonstração" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                <div style="border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/bonin-cortado.jpg" alt="Viennoiserie artesanal" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                 </div>
               </div>
-              <p style="font-size: 0.75rem; color: var(--color-text-light); margin-top: 6px; text-align: center; font-style: italic;">
-                Foto principal e galeria ilustrativas para exibição da vitrine e dos produtos
+
+              <!-- Bairro e Título -->
+              <div style="margin-bottom: 6px;">
+                <span class="card-tag" style="background: rgba(53, 101, 83, 0.12); color: #356553; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.76rem;">Juvevê • Curitiba</span>
+              </div>
+              <h3 style="font-size: 1.25rem; margin: 0 0 6px 0; color: var(--color-primary); line-height: 1.25;">Ateliê do Trigo</h3>
+              <p style="font-size: 0.88rem; color: var(--color-text); margin-bottom: 12px; line-height: 1.45; flex-grow: 1;">
+                Modelo com foco em fermentação natural de alta hidratação, pães rústicos de casca crocante e fornadas matinais frescas.
               </p>
-            </div>
 
-            <!-- Informações Demonstrativas da Padaria Exemplo -->
-            <div>
-              <div style="margin-bottom: 8px;">
-                <span class="card-tag" style="background: rgba(208, 137, 66, 0.15); color: var(--color-primary); font-weight: 700; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem;">Juvevê • Curitiba</span>
-              </div>
-              <h2 style="font-size: 1.7rem; margin: 0 0 8px 0; color: var(--color-primary);">Padaria Exemplo</h2>
-              <p style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 14px; line-height: 1.5;">
-                Demonstração de ficha em destaque no Guia CuritiPão. Mostra como estabelecimentos parceiros apresentam história, produtos principais, horários confirmados, cardápio digital em PDF e canais diretos para os clientes.
-              </p>
-
-              <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); margin-bottom: 14px; font-size: 0.86rem; line-height: 1.45; border: 1px solid var(--color-border);">
-                <p style="margin: 0 0 5px 0;"><strong>Endereço:</strong> Rua das Fornadas, 123 — Juvevê, Curitiba — PR <em>(endereço ilustrativo para demonstração)</em></p>
-                <p style="margin: 0;"><strong>Horário confirmado:</strong> Segunda a sábado: 7h às 19h • Domingo: 8h às 14h</p>
+              <!-- Endereço e Horários -->
+              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 12px; font-size: 0.82rem; line-height: 1.4;">
+                <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Rua das Fornadas, 120 — Juvevê</p>
+                <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Ter a Sáb: 7h às 19h • Dom: 8h às 13h</p>
               </div>
 
-              <!-- Produtos em destaque com preço opcional -->
+              <!-- Produtos em Destaque -->
               <div style="margin-bottom: 14px;">
-                <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px;">
-                  Produtos em Destaque (até 3 itens com preço opcional):
-                </span>
-                <div style="display: flex; flex-direction: column; gap: 5px;">
-                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; background: var(--color-bg); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🥖 <strong>Sourdough Tradicional</strong> (fermentação natural)</span>
-                    <strong style="color: var(--color-primary);">R$ 28</strong>
+                <strong style="font-size: 0.76rem; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px; letter-spacing: 0.03em;">Produtos em Destaque:</strong>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🥖 Sourdough Tradicional</span>
+                    <strong style="color: var(--color-primary);">R$ 26</strong>
                   </div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; background: var(--color-bg); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🥐 <strong>Croissant Folhado Francês</strong></span>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🥐 Croissant Francês</span>
                     <strong style="color: var(--color-primary);">R$ 14</strong>
                   </div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.85rem; background: var(--color-bg); padding: 6px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🍞 <strong>Brioche Trançado Artesanal</strong></span>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🍫 Babka de Chocolate</span>
                     <strong style="color: var(--color-primary);">R$ 22</strong>
                   </div>
                 </div>
               </div>
 
-              <!-- Botões e canais ilustrativos -->
-              <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px;">
-                <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.82rem; padding: 6px 14px;">
+              <!-- Botões Ilustrativos -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
+                <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
                   Como chegar
                 </button>
-                <a href="#cardapio-exemplo" class="btn btn-secondary btn-sm" onclick="event.preventDefault(); alert('Demonstração ilustrativa: no card patrocinado, este botão abre o arquivo em PDF com o cardápio da padaria.'); return false;" style="font-size: 0.82rem; padding: 6px 14px;">
-                  📄 Cardápio em PDF
+                <a href="#cardapio-1" class="btn btn-secondary btn-sm" onclick="event.preventDefault(); alert('Demonstração ilustrativa: abre o cardápio oficial em PDF fornecido pela padaria.'); return false;" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  📄 Cardápio PDF
                 </a>
-                <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.8rem; color: var(--color-text-muted); background: var(--color-bg); padding: 5px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
-                  Instagram: <strong>@padariaexemplo (demonstração)</strong>
-                </span>
-                <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.8rem; color: var(--color-text-muted); background: var(--color-bg); padding: 5px 10px; border-radius: 4px; border: 1px solid var(--color-border);">
-                  WhatsApp: <strong>(41) 99999-0000 (demonstração)</strong>
-                </span>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: inicia conversa no WhatsApp oficial da padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  💬 WhatsApp
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: abre o perfil verificado da padaria no Instagram.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  📸 Instagram
+                </button>
               </div>
-            </div>
+            </article>
+
+            <!-- CARD 2: Panifício Imperial (Demonstração - Batel) -->
+            <article class="demo-vertical-card" style="display: flex; flex-direction: column; height: 100%;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span class="badge badge-gold" style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em; padding: 3px 8px;">Exemplo de destaque</span>
+                <span style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic;">Demonstração</span>
+              </div>
+
+              <!-- Foto de Capa 2 -->
+              <div style="border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 8px; aspect-ratio: 16/10; box-shadow: var(--shadow-sm);">
+                <img src="/assets/photos/curitipao-108 (1).jpg" alt="Confeitaria e pães italianos - Panifício Imperial" class="demo-card-cover-img" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+              </div>
+
+              <!-- Mini-Galeria 2 -->
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px;">
+                <div style="border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/maca-organica-cortado.jpg" alt="Doces artesanais" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <div style="border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/familia-farinha-cortado.jpg" alt="Pão integral corte" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <div style="border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/requinte-cortado.jpg" alt="Confeitaria fina" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+              </div>
+
+              <!-- Bairro e Título -->
+              <div style="margin-bottom: 6px;">
+                <span class="card-tag" style="background: rgba(184, 83, 44, 0.12); color: #B8532C; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.76rem;">Batel • Curitiba</span>
+              </div>
+              <h3 style="font-size: 1.25rem; margin: 0 0 6px 0; color: var(--color-primary); line-height: 1.25;">Panifício Imperial</h3>
+              <p style="font-size: 0.88rem; color: var(--color-text); margin-bottom: 12px; line-height: 1.45; flex-grow: 1;">
+                Modelo com confeitaria clássica, ciabattas italianas, sanduíches artesanais e ambiente acolhedor para café colonial.
+              </p>
+
+              <!-- Endereço e Horários -->
+              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 12px; font-size: 0.82rem; line-height: 1.4;">
+                <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Alameda dos Pães, 450 — Batel</p>
+                <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Seg a Sáb: 6h30 às 20h • Dom: 7h às 19h</p>
+              </div>
+
+              <!-- Produtos em Destaque -->
+              <div style="margin-bottom: 14px;">
+                <strong style="font-size: 0.76rem; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px; letter-spacing: 0.03em;">Produtos em Destaque:</strong>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🥖 Ciabatta Tradicional</span>
+                    <strong style="color: var(--color-primary);">R$ 18</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🥧 Torta Folhada de Maçã</span>
+                    <strong style="color: var(--color-primary);">R$ 16</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🍞 Brioche Amanteigado</span>
+                    <strong style="color: var(--color-primary);">R$ 24</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botões Ilustrativos -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
+                <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  Como chegar
+                </button>
+                <a href="#cardapio-2" class="btn btn-secondary btn-sm" onclick="event.preventDefault(); alert('Demonstração ilustrativa: abre o cardápio oficial em PDF fornecido pela padaria.'); return false;" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  📄 Cardápio PDF
+                </a>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: inicia conversa no WhatsApp oficial da padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  💬 WhatsApp
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: abre o perfil verificado da padaria no Instagram.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  📸 Instagram
+                </button>
+              </div>
+            </article>
+
+            <!-- CARD 3: Fornada Central (Demonstração - Centro) -->
+            <article class="demo-vertical-card" style="display: flex; flex-direction: column; height: 100%;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <span class="badge badge-gold" style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em; padding: 3px 8px;">Exemplo de destaque</span>
+                <span style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic;">Demonstração</span>
+              </div>
+
+              <!-- Foto de Capa 3 -->
+              <div style="border-radius: var(--radius-sm); overflow: hidden; margin-bottom: 8px; aspect-ratio: 16/10; box-shadow: var(--shadow-sm);">
+                <img src="/assets/photos/bonin-inteiro.jpg" alt="Pães tradicionais e broas - Fornada Central" class="demo-card-cover-img" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+              </div>
+
+              <!-- Mini-Galeria 3 -->
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px;">
+                <div style="border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/aquarius-inteiro.jpg" alt="Pão rústico inteiro" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <div style="border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/requinte-inteiro.jpg" alt="Pães artesanais" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+                <div style="border-radius: 4px; overflow: hidden; aspect-ratio: 1/1;">
+                  <img src="/assets/photos/familia-farinha-inteiro.jpg" alt="Pão de centeio" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                </div>
+              </div>
+
+              <!-- Bairro e Título -->
+              <div style="margin-bottom: 6px;">
+                <span class="card-tag" style="background: rgba(160, 98, 30, 0.12); color: #A0621E; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.76rem;">Centro • Curitiba</span>
+              </div>
+              <h3 style="font-size: 1.25rem; margin: 0 0 6px 0; color: var(--color-primary); line-height: 1.25;">Fornada Central</h3>
+              <p style="font-size: 0.88rem; color: var(--color-text); margin-bottom: 12px; line-height: 1.45; flex-grow: 1;">
+                Exemplo de padaria urbana prática e autêntica, famosa pelas broas de centeio, pães multigrãos e cafés para viagem.
+              </p>
+
+              <!-- Endereço e Horários -->
+              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 12px; font-size: 0.82rem; line-height: 1.4;">
+                <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Rua das Flores, 88 — Centro</p>
+                <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Seg a Sex: 7h às 19h30 • Sáb: 8h às 14h</p>
+              </div>
+
+              <!-- Produtos em Destaque -->
+              <div style="margin-bottom: 14px;">
+                <strong style="font-size: 0.76rem; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px; letter-spacing: 0.03em;">Produtos em Destaque:</strong>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🍞 Broa de Centeio</span>
+                    <strong style="color: var(--color-primary);">R$ 20</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🥖 Baguete Tradicional</span>
+                    <strong style="color: var(--color-primary);">R$ 12</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
+                    <span>🌾 Pão de Campanha</span>
+                    <strong style="color: var(--color-primary);">R$ 25</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Botões Ilustrativos -->
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
+                <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  Como chegar
+                </button>
+                <a href="#cardapio-3" class="btn btn-secondary btn-sm" onclick="event.preventDefault(); alert('Demonstração ilustrativa: abre o cardápio oficial em PDF fornecido pela padaria.'); return false;" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  📄 Cardápio PDF
+                </a>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: inicia conversa no WhatsApp oficial da padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  💬 WhatsApp
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: abre o perfil verificado da padaria no Instagram.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
+                  📸 Instagram
+                </button>
+              </div>
+            </article>
+
           </div>
         </div>
       </section>

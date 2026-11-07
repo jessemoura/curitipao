@@ -16,7 +16,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--color-creme);
   color: var(--color-marrom);
@@ -162,15 +163,56 @@ html, body {
   font-weight: 700;
   color: #C05A20;
   line-height: 1.5;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.closing-portal-group {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.closing-portal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, #C05A20 0%, #A94A14 100%);
+  color: #FFFFFF !important;
+  text-decoration: none;
+  font-size: 1.08rem;
+  font-weight: 700;
+  padding: 0.95rem 2.1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(192, 90, 32, 0.35);
+  transition: all 0.25s ease;
+  min-height: 50px;
+}
+
+.closing-portal-btn:hover {
+  background: linear-gradient(135deg, #D36526 0%, #BD5317 100%);
+  box-shadow: 0 6px 20px rgba(192, 90, 32, 0.45);
+  transform: translateY(-2px);
+}
+
+.closing-portal-btn .portal-arrow {
+  display: inline-block;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.closing-portal-btn:hover .portal-arrow {
+  transform: translateX(4px);
 }
 
 .closing-action-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.6rem;
+  gap: 0.65rem;
   width: 100%;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(93, 51, 35, 0.15);
 }
 
 .closing-invite {
@@ -265,6 +307,12 @@ html, body {
     justify-content: center;
   }
 
+  .closing-portal-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
   .closing-action-group {
     align-items: center;
   }
@@ -300,6 +348,23 @@ html, body {
   .closing-highlight {
     font-size: 0.96rem;
     margin-bottom: 1.25rem;
+  }
+
+  .closing-portal-group {
+    margin-bottom: 2rem;
+  }
+
+  .closing-portal-btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.9rem 1.25rem;
+  }
+
+  .closing-action-group {
+    padding-top: 1.75rem;
+    margin-top: 0;
+    gap: 0.75rem;
+    align-items: center;
   }
 
   .closing-btn {
@@ -358,6 +423,20 @@ html, body {
 
   .closing-invite {
     color: #FAF4EC;
+  }
+
+  .closing-portal-btn {
+    background: linear-gradient(135deg, #C05A20 0%, #A94A14 100%);
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .closing-portal-btn:hover {
+    background: linear-gradient(135deg, #D36526 0%, #BD5317 100%);
+  }
+
+  .closing-action-group {
+    border-top-color: rgba(232, 216, 200, 0.15);
   }
 
   .closing-btn {
@@ -665,7 +744,7 @@ html, body {
   margin: 0 auto;
 }
 
-.intro p + p {
+.intro p+p {
   margin-top: 0.6rem;
 }
 
@@ -1047,7 +1126,7 @@ html, body {
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--color-bege);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -1055,7 +1134,7 @@ html, body {
 }
 
 .card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .photos {
@@ -1347,6 +1426,7 @@ html, body {
     font-size: 0.88rem;
     gap: 8px;
   }
+
   .conexus-logo {
     height: 36px;
     max-width: 185px;
@@ -1380,7 +1460,7 @@ html, body {
   color: var(--color-creme);
   padding: 1rem 1.5rem;
   z-index: 9999;
-  box-shadow: 0 -4px 16px rgba(0,0,0,0.25);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1443,7 +1523,7 @@ html, body {
 }
 
 .cookie-btn-reject:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -1453,6 +1533,7 @@ html, body {
     gap: 1rem;
     padding: 1rem;
   }
+
   .cookie-content {
     flex-direction: column;
     align-items: center;
@@ -1478,7 +1559,7 @@ html, body {
   max-height: 90vh;
   object-fit: contain;
   border-radius: 6px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
   cursor: default;
 }
 
@@ -1503,7 +1584,6 @@ html, body {
   top: -9999px !important;
   left: -9999px !important;
 }
-
 
 /* ========================================================
    PORTAL RETURN BAR & 2026 ARCHIVE ENHANCEMENTS
