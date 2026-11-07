@@ -41,8 +41,8 @@
 
   
   <script type="module" crossorigin src="/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
-  <script type="module" crossorigin src="/assets/main-BlkI1ouR.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/main-D27Jg7ur.css">
+  <script type="module" crossorigin src="/assets/main-fS6oK2NL.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-Ccxxn6vD.css">
 </head>
 <body>
   
@@ -322,7 +322,7 @@
       <!-- 3. GRID COM AS 15 FICHAS GRATUITAS (ORDEM ALFABÉTICA) -->
       <div class="card-grid" id="bakery-cards-container">
         
-    <article class="card-editorial bakery-card bakery-free-card" id="aquarius-panificadora" data-name="AQUARIUS PANIFICADORA" data-bairro="Bacacheri" data-bairros="Bacacheri" data-cidade="Curitiba" data-search="aquarius panificadora bacacheri curitiba avenida prefeito erasto gaertner, 363 – bacacheri panificadora tradicional de curitiba com atendimento ininterrupto 24 horas, oferecendo fornadas continuas de paes artesanais, confeitaria completa e opcoes para qualquer hora do dia." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-terracota" id="aquarius-panificadora" data-name="AQUARIUS PANIFICADORA" data-bairro="Bacacheri" data-bairros="Bacacheri" data-cidade="Curitiba" data-search="aquarius panificadora bacacheri curitiba avenida prefeito erasto gaertner, 363 – bacacheri panificadora tradicional de curitiba com atendimento ininterrupto 24 horas, oferecendo fornadas continuas de paes artesanais, confeitaria completa e opcoes para qualquer hora do dia." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -331,7 +331,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Bacacheri • Curitiba
           </span>
         </div>
@@ -341,18 +342,30 @@
           Panificadora tradicional de Curitiba com atendimento ininterrupto 24 horas, oferecendo fornadas contínuas de pães artesanais, confeitaria completa e opções para qualquer hora do dia.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Avenida Prefeito Erasto Gaertner, 363 – Bacacheri</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Atendimento 24 horas, todos os dias</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Avenida Prefeito Erasto Gaertner, 363 – Bacacheri</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Atendimento 24 horas, todos os dias</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Avenida%20Prefeito%20Erasto%20Gaertner%2C%20363%20-%20Bacacheri%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Avenida%20Prefeito%20Erasto%20Gaertner%2C%20363%20-%20Bacacheri%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -364,7 +377,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="aqui-na-mata" data-name="AQUI NA MATA" data-bairro="Juvevê" data-bairros="Juvevê" data-cidade="Curitiba" data-search="aqui na mata juveve curitiba rua alberto folloni, 220, loja 1 – juveve padaria artesanal 100% vegana no juveve, com foco em fermentacao natural, brioches e viennoiserie preparados sem qualquer ingrediente de origem animal." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-salvia" id="aqui-na-mata" data-name="AQUI NA MATA" data-bairro="Juvevê" data-bairros="Juvevê" data-cidade="Curitiba" data-search="aqui na mata juveve curitiba rua alberto folloni, 220, loja 1 – juveve padaria artesanal 100% vegana no juveve, com foco em fermentacao natural, brioches e viennoiserie preparados sem qualquer ingrediente de origem animal." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -373,7 +386,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Juvevê • Curitiba
           </span>
         </div>
@@ -383,18 +397,30 @@
           Padaria artesanal 100% vegana no Juvevê, com foco em fermentação natural, brioches e viennoiserie preparados sem qualquer ingrediente de origem animal.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Alberto Folloni, 220, Loja 1 – Juvevê</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Terça a sexta: das 7h às 19h; Sábado: das 9h às 17h</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Rua Alberto Folloni, 220, Loja 1 – Juvevê</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Terça a sexta: das 7h às 19h; Sábado: das 9h às 17h</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Alberto%20Folloni%2C%20220%20-%20Juvev%C3%AA%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Alberto%20Folloni%2C%20220%20-%20Juvev%C3%AA%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -406,7 +432,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="bonin-bakery" data-name="BONIN BAKERY" data-bairro="Centro" data-bairros="Centro" data-cidade="Curitiba" data-search="bonin bakery centro curitiba alameda prudente de moraes, 995 – centro padaria e confeitaria artesanal na alameda prudente de moraes com paes de fermentacao natural de alta hidratacao e viennoiserie classica francesa." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-ocre" id="bonin-bakery" data-name="BONIN BAKERY" data-bairro="Centro" data-bairros="Centro" data-cidade="Curitiba" data-search="bonin bakery centro curitiba alameda prudente de moraes, 995 – centro padaria e confeitaria artesanal na alameda prudente de moraes com paes de fermentacao natural de alta hidratacao e viennoiserie classica francesa." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -415,7 +441,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Centro • Curitiba
           </span>
         </div>
@@ -425,18 +452,30 @@
           Padaria e confeitaria artesanal na Alameda Prudente de Moraes com pães de fermentação natural de alta hidratação e viennoiserie clássica francesa.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Alameda Prudente de Moraes, 995 – Centro</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Segunda a sábado: das 9h às 18h30</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Alameda Prudente de Moraes, 995 – Centro</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Segunda a sábado: das 9h às 18h30</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Alameda%20Prudente%20de%20Moraes%2C%20995%20-%20Centro%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Alameda%20Prudente%20de%20Moraes%2C%20995%20-%20Centro%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -448,7 +487,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="confraria-dos-paes" data-name="CONFRARIA DOS PÃES" data-bairro="Alto da XV" data-bairros="Alto da XV" data-cidade="Curitiba" data-search="confraria dos paes alto da xv curitiba rua atilio borio, 1307 – alto da xv panificacao artesanal com fermentacao lenta e natural, baguetes de farinha integral com sementes e graos selecionados, paes rusticos e emporio." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-terracota" id="confraria-dos-paes" data-name="CONFRARIA DOS PÃES" data-bairro="Alto da XV" data-bairros="Alto da XV" data-cidade="Curitiba" data-search="confraria dos paes alto da xv curitiba rua atilio borio, 1307 – alto da xv panificacao artesanal com fermentacao lenta e natural, baguetes de farinha integral com sementes e graos selecionados, paes rusticos e emporio." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -457,7 +496,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Alto da XV • Curitiba
           </span>
         </div>
@@ -467,18 +507,30 @@
           Panificação artesanal com fermentação lenta e natural, baguetes de farinha integral com sementes e grãos selecionados, pães rústicos e empório.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Atílio Bório, 1307 – Alto da XV</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Segunda a sexta: das 8h30 às 19h30; Sábado: das 8h30 às 18h30</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Rua Atílio Bório, 1307 – Alto da XV</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Segunda a sexta: das 8h30 às 19h30; Sábado: das 8h30 às 18h30</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20At%C3%ADlio%20B%C3%B3rio%2C%201307%20-%20Alto%20da%20XV%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20At%C3%ADlio%20B%C3%B3rio%2C%201307%20-%20Alto%20da%20XV%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -490,7 +542,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="fabiano-marcolini-alimentari" data-name="FABIANO MARCOLINI ALIMENTARI" data-bairro="Batel" data-bairros="Batel" data-cidade="Curitiba" data-search="fabiano marcolini alimentari batel curitiba alameda dr. carlos de carvalho, 1181 – batel gastronomia e panificacao artesanal de inspiracao italiana comandada pelo chef fabiano marcolini, celebre por suas ciabattas tradicionais e confeitaria classica." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-salvia" id="fabiano-marcolini-alimentari" data-name="FABIANO MARCOLINI ALIMENTARI" data-bairro="Batel" data-bairros="Batel" data-cidade="Curitiba" data-search="fabiano marcolini alimentari batel curitiba alameda dr. carlos de carvalho, 1181 – batel gastronomia e panificacao artesanal de inspiracao italiana comandada pelo chef fabiano marcolini, celebre por suas ciabattas tradicionais e confeitaria classica." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -499,7 +551,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Batel • Curitiba
           </span>
         </div>
@@ -509,18 +562,30 @@
           Gastronomia e panificação artesanal de inspiração italiana comandada pelo chef Fabiano Marcolini, célebre por suas ciabattas tradicionais e confeitaria clássica.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Alameda Dr. Carlos de Carvalho, 1181 – Batel</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Segunda: 7h30 às 19h; Terça a sábado: 7h30 às 20h; Domingo: 8h às 19h</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Alameda Dr. Carlos de Carvalho, 1181 – Batel</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Segunda: 7h30 às 19h; Terça a sábado: 7h30 às 20h; Domingo: 8h às 19h</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Alameda%20Dr.%20Carlos%20de%20Carvalho%2C%201181%20-%20Batel%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Alameda%20Dr.%20Carlos%20de%20Carvalho%2C%201181%20-%20Batel%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -532,7 +597,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="fabrika-paes" data-name="FÁBRIKA PÃES" data-bairro="Alto da XV" data-bairros="Alto da XV" data-cidade="Curitiba" data-search="fabrika paes alto da xv curitiba rua schiller, 1341 – alto da xv atelie de panificacao artesanal focado em sourdough rustico, paes de campanha de fermentacao lenta e fornadas frescas em ambiente acolhedor." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-terracota" id="fabrika-paes" data-name="FÁBRIKA PÃES" data-bairro="Alto da XV" data-bairros="Alto da XV" data-cidade="Curitiba" data-search="fabrika paes alto da xv curitiba rua schiller, 1341 – alto da xv atelie de panificacao artesanal focado em sourdough rustico, paes de campanha de fermentacao lenta e fornadas frescas em ambiente acolhedor." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -541,7 +606,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Alto da XV • Curitiba
           </span>
         </div>
@@ -551,18 +617,30 @@
           Ateliê de panificação artesanal focado em sourdough rústico, pães de campanha de fermentação lenta e fornadas frescas em ambiente acolhedor.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Schiller, 1341 – Alto da XV</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Segunda a sexta: das 13h às 19h; Sábado: das 9h às 16h</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Rua Schiller, 1341 – Alto da XV</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Segunda a sexta: das 13h às 19h; Sábado: das 9h às 16h</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Schiller%2C%201341%20-%20Alto%20da%20XV%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Schiller%2C%201341%20-%20Alto%20da%20XV%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -574,7 +652,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="felipane" data-name="FELIPANE" data-bairro="Juvevê" data-bairros="Juvevê" data-cidade="Curitiba" data-search="felipane juveve curitiba rua candido mader, 81 – juveve microbakery artesanal no juveve especializada em fermentacao natural, babkas trancadas generosamente recheadas e paes amanteigados de alta qualidade." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-salvia" id="felipane" data-name="FELIPANE" data-bairro="Juvevê" data-bairros="Juvevê" data-cidade="Curitiba" data-search="felipane juveve curitiba rua candido mader, 81 – juveve microbakery artesanal no juveve especializada em fermentacao natural, babkas trancadas generosamente recheadas e paes amanteigados de alta qualidade." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -583,7 +661,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Juvevê • Curitiba
           </span>
         </div>
@@ -593,18 +672,30 @@
           Microbakery artesanal no Juvevê especializada em fermentação natural, babkas trançadas generosamente recheadas e pães amanteigados de alta qualidade.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Cândido Mader, 81 – Juvevê</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Terça a sexta: das 10h às 18h30; Sábado: das 9h às 14h</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Rua Cândido Mader, 81 – Juvevê</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Terça a sexta: das 10h às 18h30; Sábado: das 9h às 14h</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20C%C3%A2ndido%20Mader%2C%2081%20-%20Juvev%C3%AA%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20C%C3%A2ndido%20Mader%2C%2081%20-%20Juvev%C3%AA%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -616,7 +707,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="haiat-atelie-do-pao" data-name="HAIAT ATELIÊ DO PÃO" data-bairro="Juvevê" data-bairros="Juvevê" data-cidade="Curitiba" data-search="haiat atelie do pao juveve curitiba rua constantino marochi, 658 – juveve atelie familiar com tecnicas de panificacao rustica, fougasses provencais em formato de folha com azeitonas, paes artesanais e fermentacao natural." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-salvia" id="haiat-atelie-do-pao" data-name="HAIAT ATELIÊ DO PÃO" data-bairro="Juvevê" data-bairros="Juvevê" data-cidade="Curitiba" data-search="haiat atelie do pao juveve curitiba rua constantino marochi, 658 – juveve atelie familiar com tecnicas de panificacao rustica, fougasses provencais em formato de folha com azeitonas, paes artesanais e fermentacao natural." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -625,7 +716,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Juvevê • Curitiba
           </span>
         </div>
@@ -635,18 +727,30 @@
           Ateliê familiar com técnicas de panificação rústica, fougasses provençais em formato de folha com azeitonas, pães artesanais e fermentação natural.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Constantino Marochi, 658 – Juvevê</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Terça a sexta: das 10h às 19h; Sábado: das 8h às 18h</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Rua Constantino Marochi, 658 – Juvevê</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Terça a sexta: das 10h às 19h; Sábado: das 8h às 18h</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Constantino%20Marochi%2C%20658%20-%20Juvev%C3%AA%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Constantino%20Marochi%2C%20658%20-%20Juvev%C3%AA%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -658,7 +762,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="maca-organica-padaria" data-name="MAÇÃ ORGÂNICA PADARIA" data-bairro="Vila Izabel, Água Verde e Alto da XV" data-bairros="Vila Izabel,Água Verde,Alto da XV" data-cidade="Curitiba" data-search="maca organica padaria vila izabel, agua verde, alto da xv curitiba rua professor sebastiao parana, 195 — vila izabel primeira padaria 100% organica de curitiba, com paes de fermentacao natural feitos com graos e ingredientes organicos certificados, confeitaria artesanal e cafe." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-terracota" id="maca-organica-padaria" data-name="MAÇÃ ORGÂNICA PADARIA" data-bairro="Vila Izabel, Água Verde e Alto da XV" data-bairros="Vila Izabel,Água Verde,Alto da XV" data-cidade="Curitiba" data-search="maca organica padaria vila izabel, agua verde, alto da xv curitiba rua professor sebastiao parana, 195 — vila izabel primeira padaria 100% organica de curitiba, com paes de fermentacao natural feitos com graos e ingredientes organicos certificados, confeitaria artesanal e cafe." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -667,7 +771,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Vila Izabel, Água Verde e Alto da XV • Curitiba
           </span>
         </div>
@@ -677,37 +782,61 @@
           Primeira padaria 100% orgânica de Curitiba, com pães de fermentação natural feitos com grãos e ingredientes orgânicos certificados, confeitaria artesanal e café.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;">
         
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade Vila Izabel:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Professor Sebastião Paraná, 195 — Vila Izabel</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> Seg. a sex.: 9h às 19h • Sáb.: 8h às 20h • Dom.: 9h às 19h</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Professor%20Sebasti%C3%A3o%20Paran%C3%A1%2C%20195%20-%20Vila%20Izabel%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+          <div class="bakery-unit-item theme-terracota" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade Vila Izabel</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Professor%20Sebasti%C3%A3o%20Paran%C3%A1%2C%20195%20-%20Vila%20Izabel%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: var(--color-text);">Rua Professor Sebastião Paraná, 195 — Vila Izabel</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: var(--color-text-muted);">Seg. a sex.: 9h às 19h • Sáb.: 8h às 20h • Dom.: 9h às 19h</span>
+            </div>
           </div>
-        
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade Praça do Japão / Água Verde:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> Av. Sete de Setembro, 4979 — Água Verde</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> Seg. a sex.: 8h30 às 19h • Sáb.: 9h às 18h30 • Dom.: fechado</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Av.%20Sete%20de%20Setembro%2C%204979%20-%20%C3%81gua%20Verde%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+          
+          <div class="bakery-unit-item theme-terracota" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade Praça do Japão / Água Verde</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Av.%20Sete%20de%20Setembro%2C%204979%20-%20%C3%81gua%20Verde%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: var(--color-text);">Av. Sete de Setembro, 4979 — Água Verde</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: var(--color-text-muted);">Seg. a sex.: 8h30 às 19h • Sáb.: 9h às 18h30 • Dom.: fechado</span>
+            </div>
           </div>
-        
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade Alto da XV:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Fernando Amaro, 802-B — Alto da XV</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> Seg. a sex.: 10h às 19h • Sáb.: 9h30 às 18h30 • Dom.: fechado</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Fernando%20Amaro%2C%20802-B%20-%20Alto%20da%20XV%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+          
+          <div class="bakery-unit-item theme-terracota" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade Alto da XV</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Fernando%20Amaro%2C%20802-B%20-%20Alto%20da%20XV%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: var(--color-text);">Rua Fernando Amaro, 802-B — Alto da XV</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: var(--color-text-muted);">Seg. a sex.: 10h às 19h • Sáb.: 9h30 às 18h30 • Dom.: fechado</span>
+            </div>
           </div>
-        
+          
       </div>
     
 
@@ -722,7 +851,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="padaria-america" data-name="PADARIA AMÉRICA" data-bairro="São Francisco" data-bairros="São Francisco" data-cidade="Curitiba" data-search="padaria america sao francisco curitiba rua presidente carlos cavalcanti, 942 – sao francisco fundada em 1913, a mais antiga e tradicional padaria de curitiba, patrimonio da panificacao curitibana famosa por suas autenticas broas de centeio e receitas centenarias." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-ocre" id="padaria-america" data-name="PADARIA AMÉRICA" data-bairro="São Francisco" data-bairros="São Francisco" data-cidade="Curitiba" data-search="padaria america sao francisco curitiba rua presidente carlos cavalcanti, 942 – sao francisco fundada em 1913, a mais antiga e tradicional padaria de curitiba, patrimonio da panificacao curitibana famosa por suas autenticas broas de centeio e receitas centenarias." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -731,7 +860,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             São Francisco • Curitiba
           </span>
         </div>
@@ -741,18 +871,30 @@
           Fundada em 1913, a mais antiga e tradicional padaria de Curitiba, patrimônio da panificação curitibana famosa por suas autênticas broas de centeio e receitas centenárias.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Presidente Carlos Cavalcanti, 942 – São Francisco</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Segunda a sábado: das 8h às 20h</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Rua Presidente Carlos Cavalcanti, 942 – São Francisco</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Segunda a sábado: das 8h às 20h</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Presidente%20Carlos%20Cavalcanti%2C%20942%20-%20S%C3%A3o%20Francisco%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Presidente%20Carlos%20Cavalcanti%2C%20942%20-%20S%C3%A3o%20Francisco%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -764,7 +906,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="padaria-familia-farinha" data-name="PADARIA FAMÍLIA FARINHA" data-bairro="Jardim Social" data-bairros="Jardim Social" data-cidade="Curitiba" data-search="padaria familia farinha jardim social curitiba avenida nossa senhora da luz, 2315 – jardim social referencia gastronomica ha mais de 35 anos em curitiba, com ampla linha de paes 100% integrais de fermentacao natural, confeitaria fina e cafe colonial." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-salvia" id="padaria-familia-farinha" data-name="PADARIA FAMÍLIA FARINHA" data-bairro="Jardim Social" data-bairros="Jardim Social" data-cidade="Curitiba" data-search="padaria familia farinha jardim social curitiba avenida nossa senhora da luz, 2315 – jardim social referencia gastronomica ha mais de 35 anos em curitiba, com ampla linha de paes 100% integrais de fermentacao natural, confeitaria fina e cafe colonial." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -773,7 +915,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Jardim Social • Curitiba
           </span>
         </div>
@@ -783,18 +926,30 @@
           Referência gastronômica há mais de 35 anos em Curitiba, com ampla linha de pães 100% integrais de fermentação natural, confeitaria fina e café colonial.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Avenida Nossa Senhora da Luz, 2315 – Jardim Social</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Segunda a sábado: 6h30 às 20h30 • Domingo: 8h às 20h</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Avenida Nossa Senhora da Luz, 2315 – Jardim Social</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Segunda a sábado: 6h30 às 20h30 • Domingo: 8h às 20h</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Avenida%20Nossa%20Senhora%20da%20Luz%2C%202315%20-%20Jardim%20Social%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Avenida%20Nossa%20Senhora%20da%20Luz%2C%202315%20-%20Jardim%20Social%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -806,7 +961,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="padaria-requinte" data-name="PADARIA REQUINTE" data-bairro="Bigorrilho e Cabral" data-bairros="Bigorrilho,Cabral" data-cidade="Curitiba" data-search="padaria requinte bigorrilho, cabral curitiba rua francisco rocha, 1809 — bigorrilho quatro decadas de historia na panificacao curitibana, unindo receitas classicas, paes especiais, confeitaria artesanal e seus consagrados minissonhos." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-terracota" id="padaria-requinte" data-name="PADARIA REQUINTE" data-bairro="Bigorrilho e Cabral" data-bairros="Bigorrilho,Cabral" data-cidade="Curitiba" data-search="padaria requinte bigorrilho, cabral curitiba rua francisco rocha, 1809 — bigorrilho quatro decadas de historia na panificacao curitibana, unindo receitas classicas, paes especiais, confeitaria artesanal e seus consagrados minissonhos." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -815,7 +970,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Bigorrilho e Cabral • Curitiba
           </span>
         </div>
@@ -825,28 +981,44 @@
           Quatro décadas de história na panificação curitibana, unindo receitas clássicas, pães especiais, confeitaria artesanal e seus consagrados minissonhos.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;">
         
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade Bigorrilho:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Francisco Rocha, 1809 — Bigorrilho</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> Segunda a sábado: 7h às 20h30 • Domingo: 8h às 19h</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Francisco%20Rocha%2C%201809%20-%20Bigorrilho%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+          <div class="bakery-unit-item theme-ocre" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade Bigorrilho</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Francisco%20Rocha%2C%201809%20-%20Bigorrilho%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: var(--color-text);">Rua Francisco Rocha, 1809 — Bigorrilho</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: var(--color-text-muted);">Segunda a sábado: 7h às 20h30 • Domingo: 8h às 19h</span>
+            </div>
           </div>
-        
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade Cabral:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Recife, 34 — Cabral</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> Segunda a sábado: 7h às 20h30 • Domingo: 8h às 19h</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Recife%2C%2034%20-%20Cabral%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+          
+          <div class="bakery-unit-item theme-terracota" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade Cabral</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Recife%2C%2034%20-%20Cabral%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: var(--color-text);">Rua Recife, 34 — Cabral</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: var(--color-text-muted);">Segunda a sábado: 7h às 20h30 • Domingo: 8h às 19h</span>
+            </div>
           </div>
-        
+          
       </div>
     
 
@@ -861,7 +1033,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="piegel-paes" data-name="PIEGEL PÃES" data-bairro="Cabral" data-bairros="Cabral" data-cidade="Curitiba" data-search="piegel paes cabral curitiba avenida anita garibaldi, 590 – cabral mais de um seculo de tradicao familiar na panificacao de curitiba, com ampla variedade de broas, paes franceses estaladicos, paes doces de laranja e emporio." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-terracota" id="piegel-paes" data-name="PIEGEL PÃES" data-bairro="Cabral" data-bairros="Cabral" data-cidade="Curitiba" data-search="piegel paes cabral curitiba avenida anita garibaldi, 590 – cabral mais de um seculo de tradicao familiar na panificacao de curitiba, com ampla variedade de broas, paes franceses estaladicos, paes doces de laranja e emporio." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -870,7 +1042,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Cabral • Curitiba
           </span>
         </div>
@@ -880,18 +1053,30 @@
           Mais de um século de tradição familiar na panificação de Curitiba, com ampla variedade de broas, pães franceses estaladiços, pães doces de laranja e empório.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div style="background: var(--color-bg); padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; font-size: 0.88rem; line-height: 1.5;">
-        <p style="margin: 0 0 6px 0; color: var(--color-text);"><strong>Endereço:</strong> Avenida Anita Garibaldi, 590 – Cabral</p>
-        <p style="margin: 0; color: var(--color-text-muted);"><strong>Horário confirmado:</strong> Todos os dias: das 7h às 21h</p>
+      <div class="bakery-info-box" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <span style="color: var(--color-text);">Avenida Anita Garibaldi, 590 – Cabral</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <div>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <span style="color: var(--color-text-muted);">Todos os dias: das 7h às 21h</span>
+          </div>
+        </div>
       </div>
     
 
         <!-- Rodapé do Card: Botão Como chegar e Link Festival 2026 -->
         <div class="card-footer" style="margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px;">
           
-      <a href="https://www.google.com/maps/search/?api=1&query=Avenida%20Anita%20Garibaldi%2C%20590%20-%20Cabral%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Avenida%20Anita%20Garibaldi%2C%20590%20-%20Cabral%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.82rem; font-weight: 600; padding: 6px 14px;">
         Como chegar &rarr;
       </a>
     
@@ -903,7 +1088,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="saint-germain-panificadora" data-name="SAINT GERMAIN PANIFICADORA" data-bairro="Batel e Ecoville" data-bairros="Batel,Ecoville" data-cidade="Curitiba" data-search="saint germain panificadora batel, ecoville curitiba avenida visconde de guarapuava, 4882 — batel panificadora tradicional e emporio gourmet em dois enderecos de curitiba, com ciabattas de fermentacao natural, paes rusticos e confeitaria internacional." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-salvia" id="saint-germain-panificadora" data-name="SAINT GERMAIN PANIFICADORA" data-bairro="Batel e Ecoville" data-bairros="Batel,Ecoville" data-cidade="Curitiba" data-search="saint germain panificadora batel, ecoville curitiba avenida visconde de guarapuava, 4882 — batel panificadora tradicional e emporio gourmet em dois enderecos de curitiba, com ciabattas de fermentacao natural, paes rusticos e confeitaria internacional." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -912,7 +1097,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Batel e Ecoville • Curitiba
           </span>
         </div>
@@ -922,28 +1108,44 @@
           Panificadora tradicional e empório gourmet em dois endereços de Curitiba, com ciabattas de fermentação natural, pães rústicos e confeitaria internacional.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;">
         
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade Batel:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> Avenida Visconde de Guarapuava, 4882 — Batel</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> Segunda a sábado: 7h às 20h30 • Domingo: 8h às 20h</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Avenida%20Visconde%20de%20Guarapuava%2C%204882%20-%20Batel%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+          <div class="bakery-unit-item theme-salvia" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade Batel</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Avenida%20Visconde%20de%20Guarapuava%2C%204882%20-%20Batel%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: var(--color-text);">Avenida Visconde de Guarapuava, 4882 — Batel</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: var(--color-text-muted);">Segunda a sábado: 7h às 20h30 • Domingo: 8h às 20h</span>
+            </div>
           </div>
-        
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade Ecoville:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Professor Pedro Viriato Parigot de Souza, 2748 — Ecoville</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> Segunda a sábado: 7h às 20h30 • Domingo: 8h às 20h</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Professor%20Pedro%20Viriato%20Parigot%20de%20Souza%2C%202748%20-%20Ecoville%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+          
+          <div class="bakery-unit-item theme-terracota" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade Ecoville</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Professor%20Pedro%20Viriato%20Parigot%20de%20Souza%2C%202748%20-%20Ecoville%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: var(--color-text);">Rua Professor Pedro Viriato Parigot de Souza, 2748 — Ecoville</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: var(--color-text-muted);">Segunda a sábado: 7h às 20h30 • Domingo: 8h às 20h</span>
+            </div>
           </div>
-        
+          
       </div>
     
 
@@ -958,7 +1160,7 @@
     </article>
   
 
-    <article class="card-editorial bakery-card bakery-free-card" id="sphair-atelie-de-paes" data-name="SPHAIR ATELIÊ DE PÃES" data-bairro="Ahú e Bigorrilho" data-bairros="Ahú,Bigorrilho" data-cidade="Curitiba" data-search="sphair atelie de paes ahu, bigorrilho curitiba rua tomazina, 345, loja 7 — ahu atelie de panificacao artesanal focado em fermentacao longa e natural, conhecido por seus bagels artesanais recheados, paes rusticos e focaccias aromaticas." style="border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm);">
+    <article class="card-editorial bakery-card bakery-free-card theme-salvia" id="sphair-atelie-de-paes" data-name="SPHAIR ATELIÊ DE PÃES" data-bairro="Ahú e Bigorrilho" data-bairros="Ahú,Bigorrilho" data-cidade="Curitiba" data-search="sphair atelie de paes ahu, bigorrilho curitiba rua tomazina, 345, loja 7 — ahu atelie de panificacao artesanal focado em fermentacao longa e natural, conhecido por seus bagels artesanais recheados, paes rusticos e focaccias aromaticas." style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -967,7 +1169,8 @@
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(93, 51, 35, 0.08); color: var(--color-primary); padding: 3px 8px; border-radius: 4px; font-weight: 600;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+            <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             Ahú e Bigorrilho • Curitiba
           </span>
         </div>
@@ -977,28 +1180,44 @@
           Ateliê de panificação artesanal focado em fermentação longa e natural, conhecido por seus bagels artesanais recheados, pães rústicos e focaccias aromáticas.
         </p>
 
-        <!-- Endereço e Horários confirmados -->
+        <!-- Endereço e Horários confirmados com ícones discretos -->
         
-      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px;">
+      <div class="bakery-units-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px;">
         
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade Ahú:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Tomazina, 345, Loja 7 — Ahú</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> Segunda a sábado: 11h às 19h</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Tomazina%2C%20345%2C%20Loja%207%20-%20Ah%C3%BA%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+          <div class="bakery-unit-item theme-salvia" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade Ahú</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Tomazina%2C%20345%2C%20Loja%207%20-%20Ah%C3%BA%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: var(--color-text);">Rua Tomazina, 345, Loja 7 — Ahú</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: var(--color-text-muted);">Segunda a sábado: 11h às 19h</span>
+            </div>
           </div>
-        
-          <div class="bakery-unit-item" style="background: var(--color-bg); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); font-size: 0.86rem; line-height: 1.45;">
-            <strong style="color: var(--color-primary); display: block; margin-bottom: 3px;">Unidade Bigorrilho:</strong>
-            <p style="margin: 0 0 3px 0; color: var(--color-text);"><strong>Endereço:</strong> Rua Professor Fernando Moreira, 951 — Bigorrilho</p>
-            <p style="margin: 0 0 6px 0; color: var(--color-text-muted);"><strong>Horário:</strong> Segunda a sábado: 11h às 19h</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Professor%20Fernando%20Moreira%2C%20951%20-%20Bigorrilho%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.78rem; padding: 4px 10px;">
-              Como chegar &rarr;
-            </a>
+          
+          <div class="bakery-unit-item theme-ocre" style="background: var(--color-bg); padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); border-left: 3px solid var(--card-bairro-color); font-size: 0.86rem; line-height: 1.45;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <strong style="color: var(--card-bairro-color); font-size: 0.88rem;">Unidade Bigorrilho</strong>
+              <a href="https://www.google.com/maps/search/?api=1&query=Rua%20Professor%20Fernando%20Moreira%2C%20951%20-%20Bigorrilho%2C%20Curitiba%20-%20PR" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-como-chegar" style="font-size: 0.78rem; padding: 4px 10px;">
+                Como chegar &rarr;
+              </a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span style="color: var(--color-text);">Rua Professor Fernando Moreira, 951 — Bigorrilho</span>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span style="color: var(--color-text-muted);">Segunda a sábado: 11h às 19h</span>
+            </div>
           </div>
-        
+          
       </div>
     
 
