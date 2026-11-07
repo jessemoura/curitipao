@@ -923,25 +923,6 @@ const padariasContent = `
                 <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Ter a Sáb: 7h às 19h • Dom: 8h às 13h</p>
               </div>
 
-              <!-- Produtos em Destaque -->
-              <div style="margin-bottom: 14px;">
-                <strong style="font-size: 0.76rem; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px; letter-spacing: 0.03em;">Produtos em Destaque:</strong>
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🥖 Sourdough Tradicional</span>
-                    <strong style="color: var(--color-primary);">R$ 26</strong>
-                  </div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🥐 Croissant Francês</span>
-                    <strong style="color: var(--color-primary);">R$ 14</strong>
-                  </div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🍫 Babka de Chocolate</span>
-                    <strong style="color: var(--color-primary);">R$ 22</strong>
-                  </div>
-                </div>
-              </div>
-
               <!-- Botões Ilustrativos -->
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
                 <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
@@ -1014,25 +995,6 @@ const padariasContent = `
                 <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Seg a Sáb: 6h30 às 20h • Dom: 7h às 19h</p>
               </div>
 
-              <!-- Produtos em Destaque -->
-              <div style="margin-bottom: 14px;">
-                <strong style="font-size: 0.76rem; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px; letter-spacing: 0.03em;">Produtos em Destaque:</strong>
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🥖 Ciabatta Tradicional</span>
-                    <strong style="color: var(--color-primary);">R$ 18</strong>
-                  </div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🥧 Torta Folhada de Maçã</span>
-                    <strong style="color: var(--color-primary);">R$ 16</strong>
-                  </div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🍞 Brioche Amanteigado</span>
-                    <strong style="color: var(--color-primary);">R$ 24</strong>
-                  </div>
-                </div>
-              </div>
-
               <!-- Botões Ilustrativos -->
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
                 <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
@@ -1103,25 +1065,6 @@ const padariasContent = `
               <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 12px; font-size: 0.82rem; line-height: 1.4;">
                 <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Rua das Flores, 88 — Centro</p>
                 <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Seg a Sex: 7h às 19h30 • Sáb: 8h às 14h</p>
-              </div>
-
-              <!-- Produtos em Destaque -->
-              <div style="margin-bottom: 14px;">
-                <strong style="font-size: 0.76rem; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 6px; letter-spacing: 0.03em;">Produtos em Destaque:</strong>
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🍞 Broa de Centeio</span>
-                    <strong style="color: var(--color-primary);">R$ 20</strong>
-                  </div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🥖 Baguete Tradicional</span>
-                    <strong style="color: var(--color-primary);">R$ 12</strong>
-                  </div>
-                  <div style="display: flex; justify-content: space-between; font-size: 0.82rem; background: var(--color-surface); padding: 5px 8px; border-radius: 4px; border: 1px solid var(--color-border);">
-                    <span>🌾 Pão de Campanha</span>
-                    <strong style="color: var(--color-primary);">R$ 25</strong>
-                  </div>
-                </div>
               </div>
 
               <!-- Botões Ilustrativos -->
