@@ -466,5 +466,126 @@
         }
       }
     });
+
+    // 8. VISOR / LIGHTBOX DOS CARDS DE DESTAQUE (/padarias/)
+    function initDemoLightbox() {
+      const lightbox = document.getElementById('demo-lightbox');
+      if (!lightbox) return;
+
+      const backdrop = lightbox.querySelector('.demo-lightbox-backdrop');
+      const closeBtn = document.getElementById('demo-lightbox-close');
+      const img = document.getElementById('demo-lightbox-img');
+      const loader = document.getElementById('demo-lightbox-loader');
+      const title = document.getElementById('demo-lightbox-title');
+      const subtitle = document.getElementById('demo-lightbox-subtitle');
+      const photoTriggers = document.querySelectorAll('.demo-photo-btn');
+
+      let lastActiveTrigger = null;
+      let scrollPosition = 0;
+
+      function openLightbox(trigger) {
+        lastActiveTrigger = trigger;
+        const fullSrc = trigger.getAttribute('data-full-src');
+        const altText = trigger.getAttribute('data-alt') || 'Foto ampliada';
+        const padariaText = trigger.getAttribute('data-padaria') || 'Demonstração de Destaque';
+
+        // Salvar posição atual da página para preservar scroll sem saltos
+        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Atualizar textos informativos
+        if (title) title.textContent = altText;
+        if (subtitle) subtitle.textContent = padariaText;
+
+        // Exibir modal e resetar estado de carregamento da imagem
+        lightbox.style.display = 'flex';
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        if (img) {
+          img.style.display = 'none';
+          img.src = '';
+          img.alt = altText;
+        }
+        if (loader) {
+          loader.style.display = 'flex';
+        }
+
+        // Carregar a versão de maior resolução sob demanda
+        if (fullSrc && img) {
+          const highResImg = new Image();
+          highResImg.onload = function() {
+            img.src = fullSrc;
+            if (loader) loader.style.display = 'none';
+            img.style.display = 'block';
+          };
+          highResImg.onerror = function() {
+            if (loader) {
+              loader.innerHTML = '<span style="color: #ff9999; font-size: 0.85rem;">Não foi possível carregar a imagem em alta resolução.</span>';
+            }
+          };
+          highResImg.src = fullSrc;
+        }
+
+        // Focar no botão de fechar para controle por teclado
+        if (closeBtn) {
+          setTimeout(() => closeBtn.focus(), 60);
+        }
+      }
+
+      function closeLightbox() {
+        if (lightbox.style.display === 'none') return;
+
+        lightbox.style.display = 'none';
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+
+        // Limpar imagem para liberar memória
+        if (img) {
+          img.src = '';
+          img.style.display = 'none';
+        }
+
+        // Restaurar e preservar a exata posição da página
+        window.scrollTo(0, scrollPosition);
+
+        // Devolver o foco à foto que abriu o visor
+        if (lastActiveTrigger && typeof lastActiveTrigger.focus === 'function') {
+          lastActiveTrigger.focus();
+        }
+      }
+
+      photoTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openLightbox(btn);
+        });
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeLightbox();
+        });
+      }
+
+      if (backdrop) {
+        backdrop.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeLightbox();
+        });
+      }
+
+      // Suporte à tecla Esc
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+          if (lightbox && lightbox.style.display !== 'none') {
+            e.preventDefault();
+            closeLightbox();
+          }
+        }
+      });
+    }
+
+    initDemoLightbox();
   });
 })();
