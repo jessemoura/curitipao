@@ -195,6 +195,7 @@
         <div style="margin-bottom: 20px;">
           <label for="blog-search" class="form-label">Buscar artigos:</label>
           <input type="text" id="blog-search" class="form-input" placeholder="Pesquisar por título ou tema...">
+          <div id="blog-count-badge" style="font-size: 0.88rem; color: var(--color-text-muted); font-weight: 600; margin-top: 8px;" aria-live="polite">21 artigos publicados</div>
         </div>
 
         <div>
@@ -202,7 +203,7 @@
             Categorias Editoriais:
           </span>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <button type="button" class="btn btn-secondary blog-filter-btn active" data-category="all" style="padding: 6px 14px; font-size: 0.82rem;">Todas as Categorias</button>
+            <button type="button" class="btn btn-secondary blog-filter-btn active" data-category="all" id="blog-all-filter-btn" style="padding: 6px 14px; font-size: 0.82rem;">Todos (21)</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Novidades e festival" style="padding: 6px 14px; font-size: 0.82rem;">Novidades e festival</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Padarias e pessoas" style="padding: 6px 14px; font-size: 0.82rem;">Padarias e pessoas</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Receitas" style="padding: 6px 14px; font-size: 0.82rem;">Receitas</button>

@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const { renderBlogCards, writeBlogArticles, blogUrls, invitation, invitationArticle } = require('./blog_articles.cjs');
+const blogArticlesData = require('../content/blog/articles.json');
+const totalBlogArticlesCount = 1 + blogArticlesData.length;
 
 // Helper to create directories
 function ensureDir(dir) {
@@ -734,7 +736,8 @@ const bakeryCardsHtml = sortedBakeries.map(b => {
   const slug = slugify(b.name);
   const bairrosList = b.allBairros && b.allBairros.length ? b.allBairros : [b.neighborhood];
   const bairrosStr = bairrosList.join(', ');
-  const searchCorpus = `${b.name} ${bairrosStr} ${b.city || 'Curitiba'} ${b.address || ''} ${b.description || ''}`;
+  const unitsStr = b.units && b.units.length ? b.units.map(u => `${u.bairro} ${u.address} ${u.hours}`).join(' ') : '';
+  const searchCorpus = `${b.name} ${bairrosStr} ${b.city || 'Curitiba'} ${b.address || ''} ${b.hours || ''} ${b.description || ''} ${unitsStr}`;
   const normalizedSearch = removeAccents(searchCorpus);
   const cardTheme = getBairroTheme(b.neighborhood);
 
@@ -797,7 +800,7 @@ const bakeryCardsHtml = sortedBakeries.map(b => {
   }
 
   return `
-    <article class="card-editorial bakery-card bakery-free-card theme-${cardTheme}" id="${slug}" data-name="${b.name}" data-bairro="${b.neighborhood}" data-bairros="${bairrosList.join(',')}" data-cidade="${b.city || 'Curitiba'}" data-search="${normalizedSearch}" style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
+    <article class="card-editorial bakery-card bakery-free-card theme-${cardTheme}" id="${slug}" data-name="${b.name}" data-bairro="${b.neighborhood}" data-bairros="${bairrosList.join(',')}" data-cidade="${b.city || 'Curitiba'}" data-description="${b.description.replace(/"/g, '&quot;')}" data-search="${normalizedSearch}" style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
         <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
@@ -865,8 +868,9 @@ const padariasContent = `
             <a href="/contato/#cadastrar" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; padding: 6px 14px; font-weight: 600;">Anuncie sua padaria &rarr;</a>
           </div>
 
-          <!-- Grade dos 3 cards verticais: lado a lado no desktop, empilhados no celular -->
-          <div class="destaque-cards-grid">
+          <!-- Carrossel de 3 cards patrocinados fictícios e verticais: lado a lado no desktop, carrossel manual com setas e swipe no celular -->
+          <div class="destaque-carousel-wrapper">
+            <div class="destaque-cards-grid" id="destaque-cards-track" tabindex="0" aria-label="Carrossel de demonstração de destaques">
             
             <!-- CARD 1: Ateliê do Trigo (Demonstração - Juvevê) -->
             <article class="demo-vertical-card" style="display: flex; flex-direction: column; height: 100%;">
@@ -1084,6 +1088,22 @@ const padariasContent = `
               </div>
             </article>
 
+            </div>
+
+            <!-- Controles do carrossel no celular: setas e indicadores de bolinhas -->
+            <div class="destaque-carousel-nav" aria-label="Navegação dos destaques">
+              <button type="button" class="destaque-nav-arrow destaque-prev-btn" id="destaque-prev-btn" aria-label="Destaque anterior">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <div class="destaque-carousel-dots" id="destaque-carousel-dots" role="tablist" aria-label="Indicadores dos cards">
+                <button type="button" class="destaque-dot active" role="tab" aria-selected="true" aria-label="Destaque 1 de 3" data-index="0"></button>
+                <button type="button" class="destaque-dot" role="tab" aria-selected="false" aria-label="Destaque 2 de 3" data-index="1"></button>
+                <button type="button" class="destaque-dot" role="tab" aria-selected="false" aria-label="Destaque 3 de 3" data-index="2"></button>
+              </div>
+              <button type="button" class="destaque-nav-arrow destaque-next-btn" id="destaque-next-btn" aria-label="Próximo destaque">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -2257,6 +2277,7 @@ const blogContent = `
         <div style="margin-bottom: 20px;">
           <label for="blog-search" class="form-label">Buscar artigos:</label>
           <input type="text" id="blog-search" class="form-input" placeholder="Pesquisar por título ou tema...">
+          <div id="blog-count-badge" style="font-size: 0.88rem; color: var(--color-text-muted); font-weight: 600; margin-top: 8px;" aria-live="polite">${totalBlogArticlesCount} artigos publicados</div>
         </div>
 
         <div>
@@ -2264,7 +2285,7 @@ const blogContent = `
             Categorias Editoriais:
           </span>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <button type="button" class="btn btn-secondary blog-filter-btn active" data-category="all" style="padding: 6px 14px; font-size: 0.82rem;">Todas as Categorias</button>
+            <button type="button" class="btn btn-secondary blog-filter-btn active" data-category="all" id="blog-all-filter-btn" style="padding: 6px 14px; font-size: 0.82rem;">Todos (${totalBlogArticlesCount})</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Novidades e festival" style="padding: 6px 14px; font-size: 0.82rem;">Novidades e festival</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Padarias e pessoas" style="padding: 6px 14px; font-size: 0.82rem;">Padarias e pessoas</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Receitas" style="padding: 6px 14px; font-size: 0.82rem;">Receitas</button>
