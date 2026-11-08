@@ -266,6 +266,13 @@ function getFooter() {
 function wrapPage({ title, description, canonical, activeRoute, content, schemaJson, extraHead = '', ogImage = 'https://curitipao.com.br/assets/photos/curitipao-111.jpg', ogType = 'website' }) {
   const jsonLd = schemaJson ? `<script type="application/ld+json">\n${JSON.stringify(schemaJson, null, 2)}\n</script>` : '';
 
+  // Normaliza título para que a marca CuritiPão apareça exatamente uma vez
+  let cleanTitle = (title || '').trim();
+  if (cleanTitle.includes('CuritiPão')) {
+    cleanTitle = cleanTitle.replace(/\s*[—|-]\s*CuritiPão\b/g, '');
+  }
+  const pageTitle = cleanTitle.endsWith('CuritiPão') ? cleanTitle : `${cleanTitle} | CuritiPão`;
+
   return `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -280,7 +287,7 @@ function wrapPage({ title, description, canonical, activeRoute, content, schemaJ
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${title} | CuritiPão</title>
+  <title>${pageTitle}</title>
   <meta name="description" content="${description}">
   <link rel="canonical" href="https://curitipao.com.br${canonical}">
 
@@ -293,7 +300,7 @@ function wrapPage({ title, description, canonical, activeRoute, content, schemaJ
   <!-- Open Graph / Redes Sociais -->
   <meta property="og:locale" content="pt_BR">
   <meta property="og:type" content="${ogType}">
-  <meta property="og:title" content="${title} | CuritiPão">
+  <meta property="og:title" content="${pageTitle}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="https://curitipao.com.br${canonical}">
   <meta property="og:site_name" content="CuritiPão">
@@ -301,7 +308,7 @@ function wrapPage({ title, description, canonical, activeRoute, content, schemaJ
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${title} | CuritiPão">
+  <meta name="twitter:title" content="${pageTitle}">
   <meta name="twitter:description" content="${description}">
   <meta name="twitter:image" content="${ogImage}">
 
@@ -714,27 +721,79 @@ const iconPinSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" 
 
 const iconClockSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bakery-meta-icon" style="margin-top: 3px;" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`;
 
-// Extract unique neighborhoods from bakeries for filter buttons
-const filterBairros = [
-  'Ahú',
-  'Alto da XV',
-  'Bacacheri',
-  'Batel',
-  'Bigorrilho',
-  'Cabral',
-  'Centro',
-  'Jardim Social',
-  'Juvevê',
-  'São Francisco',
-  'Vila Izabel'
-];
+// Helper para botão de cardápio demonstrativo
+function getDemoMenuButtonHtml(pdfRelativePath) {
+  if (pdfRelativePath && fs.existsSync(path.join(rootDir, pdfRelativePath))) {
+    return `
+      <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--color-border);">
+        <a href="${pdfRelativePath}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; padding: 6px 14px; width: 100%; justify-content: center;">
+          📄 Cardápio de exemplo
+        </a>
+      </div>
+    `;
+  }
+  return '';
+}
+
+// Extrai bairros únicos das fichas reais e de todas as suas unidades
+const filterBairrosSet = new Set();
+bakeries.forEach(b => {
+  if (Array.isArray(b.allBairros)) {
+    b.allBairros.forEach(bairro => {
+      if (bairro && bairro.trim()) filterBairrosSet.add(bairro.trim());
+    });
+  }
+  if (Array.isArray(b.units)) {
+    b.units.forEach(u => {
+      if (u.bairro) {
+        if (u.bairro.includes('/')) {
+          u.bairro.split('/').forEach(part => {
+            const p = part.trim();
+            if (p && !p.toLowerCase().startsWith('praça')) {
+              filterBairrosSet.add(p);
+            }
+          });
+        } else {
+          filterBairrosSet.add(u.bairro.trim());
+        }
+      }
+    });
+  }
+  if (b.neighborhood && !b.neighborhood.includes(',') && !b.neighborhood.includes(' e ')) {
+    filterBairrosSet.add(b.neighborhood.trim());
+  }
+});
+const filterBairros = [...filterBairrosSet].sort((a, b) => a.localeCompare(b, 'pt-BR'));
 
 // Sort bakeries alphabetically by name
 const sortedBakeries = [...bakeries].sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
 
 const bakeryCardsHtml = sortedBakeries.map(b => {
   const slug = slugify(b.name);
-  const bairrosList = b.allBairros && b.allBairros.length ? b.allBairros : [b.neighborhood];
+  const cardBairrosSet = new Set();
+  if (Array.isArray(b.allBairros)) {
+    b.allBairros.forEach(x => cardBairrosSet.add(x.trim()));
+  }
+  if (Array.isArray(b.units)) {
+    b.units.forEach(u => {
+      if (u.bairro) {
+        if (u.bairro.includes('/')) {
+          u.bairro.split('/').forEach(p => {
+            const trimmed = p.trim();
+            if (trimmed && !trimmed.toLowerCase().startsWith('praça')) {
+              cardBairrosSet.add(trimmed);
+            }
+          });
+        } else {
+          cardBairrosSet.add(u.bairro.trim());
+        }
+      }
+    });
+  }
+  if (b.neighborhood && !b.neighborhood.includes(',') && !b.neighborhood.includes(' e ')) {
+    cardBairrosSet.add(b.neighborhood.trim());
+  }
+  const bairrosList = cardBairrosSet.size > 0 ? [...cardBairrosSet] : [b.neighborhood];
   const bairrosStr = bairrosList.join(', ');
   const unitsStr = b.units && b.units.length ? b.units.map(u => `${u.bairro} ${u.address} ${u.hours}`).join(' ') : '';
   const searchCorpus = `${b.name} ${bairrosStr} ${b.city || 'Curitiba'} ${b.address || ''} ${b.hours || ''} ${b.description || ''} ${unitsStr}`;
@@ -922,26 +981,12 @@ const padariasContent = `
               </p>
 
               <!-- Endereço e Horários -->
-              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 12px; font-size: 0.82rem; line-height: 1.4;">
+              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 0; font-size: 0.82rem; line-height: 1.4;">
                 <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Rua das Fornadas, 120 — Juvevê</p>
                 <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Ter a Sáb: 7h às 19h • Dom: 8h às 13h</p>
               </div>
 
-              <!-- Botões Ilustrativos -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
-                <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  Como chegar
-                </button>
-                <a href="#cardapio-1" class="btn btn-secondary btn-sm" onclick="event.preventDefault(); alert('Demonstração ilustrativa: abre o cardápio oficial em PDF fornecido pela padaria.'); return false;" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  📄 Cardápio PDF
-                </a>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: inicia conversa no WhatsApp oficial da padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  💬 WhatsApp
-                </button>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: abre o perfil verificado da padaria no Instagram.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  📸 Instagram
-                </button>
-              </div>
+              ${getDemoMenuButtonHtml(null)}
             </article>
 
             <!-- CARD 2: Panifício Imperial (Demonstração - Batel) -->
@@ -994,26 +1039,12 @@ const padariasContent = `
               </p>
 
               <!-- Endereço e Horários -->
-              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 12px; font-size: 0.82rem; line-height: 1.4;">
+              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 0; font-size: 0.82rem; line-height: 1.4;">
                 <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Alameda dos Pães, 450 — Batel</p>
                 <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Seg a Sáb: 6h30 às 20h • Dom: 7h às 19h</p>
               </div>
 
-              <!-- Botões Ilustrativos -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
-                <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  Como chegar
-                </button>
-                <a href="#cardapio-2" class="btn btn-secondary btn-sm" onclick="event.preventDefault(); alert('Demonstração ilustrativa: abre o cardápio oficial em PDF fornecido pela padaria.'); return false;" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  📄 Cardápio PDF
-                </a>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: inicia conversa no WhatsApp oficial da padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  💬 WhatsApp
-                </button>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: abre o perfil verificado da padaria no Instagram.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  📸 Instagram
-                </button>
-              </div>
+              ${getDemoMenuButtonHtml(null)}
             </article>
 
             <!-- CARD 3: Fornada Central (Demonstração - Centro) -->
@@ -1066,26 +1097,12 @@ const padariasContent = `
               </p>
 
               <!-- Endereço e Horários -->
-              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 12px; font-size: 0.82rem; line-height: 1.4;">
+              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 0; font-size: 0.82rem; line-height: 1.4;">
                 <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Rua das Flores, 88 — Centro</p>
                 <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Seg a Sex: 7h às 19h30 • Sáb: 8h às 14h</p>
               </div>
 
-              <!-- Botões Ilustrativos -->
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--color-border);">
-                <button type="button" class="btn btn-primary btn-sm" onclick="alert('Demonstração ilustrativa: este botão abre o trajeto no Google Maps até a padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  Como chegar
-                </button>
-                <a href="#cardapio-3" class="btn btn-secondary btn-sm" onclick="event.preventDefault(); alert('Demonstração ilustrativa: abre o cardápio oficial em PDF fornecido pela padaria.'); return false;" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  📄 Cardápio PDF
-                </a>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: inicia conversa no WhatsApp oficial da padaria.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  💬 WhatsApp
-                </button>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="alert('Demonstração ilustrativa: abre o perfil verificado da padaria no Instagram.');" style="font-size: 0.78rem; padding: 6px 8px; justify-content: center;">
-                  📸 Instagram
-                </button>
-              </div>
+              ${getDemoMenuButtonHtml(null)}
             </article>
 
             </div>
@@ -1111,7 +1128,7 @@ const padariasContent = `
       <!-- 2. ABAIXO: BARRA DE BUSCA E FILTROS -->
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 14px;">
         <h2 style="font-size: 1.5rem; margin: 0; color: var(--color-text);">Padarias Cadastradas em Curitiba</h2>
-        <span id="bakery-count-badge" style="font-size: 0.88rem; color: var(--color-text-muted); font-weight: 600;">15 padarias cadastradas</span>
+        <span id="bakery-count-badge" style="font-size: 0.88rem; color: var(--color-text-muted); font-weight: 600;">${sortedBakeries.length} padarias cadastradas</span>
       </div>
 
       <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px; margin-bottom: 30px; box-shadow: var(--shadow-sm);">
@@ -1188,7 +1205,7 @@ const padariasContent = `
 `;
 
 const padariasHtml = wrapPage({
-  title: 'Guia de Padarias de Curitiba e Região Metropolitana — CuritiPão',
+  title: 'Guia de Padarias de Curitiba',
   description: 'Conheça 15 padarias artesanais e tradicionais de Curitiba e Região Metropolitana com horários, endereços e informações confirmadas.',
   canonical: '/padarias/',
   activeRoute: '/padarias/',
