@@ -175,9 +175,14 @@
 
       let visibleCount = 0;
 
+      const totalBakeriesCount = bakeryCards.length;
+
       bakeryCards.forEach(card => {
         const searchData = removeAccents(card.getAttribute('data-search') || '');
         const cardBairros = removeAccents(card.getAttribute('data-bairros') || card.getAttribute('data-bairro') || '');
+        const cardBairrosArray = (card.getAttribute('data-bairros') || card.getAttribute('data-bairro') || '')
+          .split(',')
+          .map(b => removeAccents(b.trim()));
         const cardDesc = removeAccents(card.getAttribute('data-description') || '');
         const cardName = removeAccents(card.getAttribute('data-name') || '');
         const fullCorpus = `${cardName} ${cardBairros} ${cardDesc} ${searchData}`;
@@ -194,7 +199,9 @@
           }
         }
 
-        const matchesBairro = selectedBairro === 'all' || cardBairros.includes(selectedBairroNorm);
+        const matchesBairro = selectedBairro === 'all' || 
+          cardBairrosArray.includes(selectedBairroNorm) || 
+          cardBairros.includes(selectedBairroNorm);
 
         if (matchesQuery && matchesBairro) {
           card.style.display = '';
@@ -208,14 +215,14 @@
         bakeryEmptyState.style.display = visibleCount === 0 ? 'block' : 'none';
       }
       if (bakeryCountBadge) {
-        if (visibleCount === 15 && (!queryNorm || isGenericSingleQuery) && selectedBairro === 'all') {
-          bakeryCountBadge.textContent = '15 padarias cadastradas';
+        if (visibleCount === totalBakeriesCount && (!queryNorm || isGenericSingleQuery) && selectedBairro === 'all') {
+          bakeryCountBadge.textContent = `${totalBakeriesCount} padarias cadastradas`;
         } else if (visibleCount === 0) {
           bakeryCountBadge.textContent = 'Nenhuma padaria encontrada';
         } else if (visibleCount === 1) {
-          bakeryCountBadge.textContent = '1 de 15 padaria encontrada';
+          bakeryCountBadge.textContent = `1 padaria encontrada de ${totalBakeriesCount} cadastradas`;
         } else {
-          bakeryCountBadge.textContent = `${visibleCount} de 15 padarias encontradas`;
+          bakeryCountBadge.textContent = `${visibleCount} de ${totalBakeriesCount} padarias encontradas`;
         }
       }
     }
@@ -288,7 +295,7 @@
         } else if (visibleCount === 0) {
           blogCountBadge.textContent = 'Nenhum artigo encontrado';
         } else if (visibleCount === 1) {
-          blogCountBadge.textContent = `1 de ${totalBlogCount} artigo encontrado`;
+          blogCountBadge.textContent = `1 artigo encontrado de ${totalBlogCount} publicados`;
         } else {
           blogCountBadge.textContent = `${visibleCount} de ${totalBlogCount} artigos encontrados`;
         }
