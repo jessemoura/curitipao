@@ -1,5 +1,5 @@
 /* CuritiPão 2026 – Design Tokens Oficiais */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   --color-marrom: #5D3323;
@@ -18,7 +18,7 @@
 
 html,
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   background-color: var(--color-creme);
   color: var(--color-marrom);
   line-height: 1.5;
@@ -388,82 +388,7 @@ body {
   }
 }
 
-/* MODO ESCURO (PREFERS-COLOR-SCHEME) */
-@media (prefers-color-scheme: dark) {
-  .closing-banner {
-    background: linear-gradient(135deg, #1E1612 0%, #2A1D16 50%, #1A1310 100%);
-    border-bottom-color: rgba(208, 137, 66, 0.3);
-  }
-
-  .closing-banner::before {
-    background: radial-gradient(circle at 15% 30%, rgba(208, 137, 66, 0.15) 0%, transparent 60%);
-  }
-
-  .closing-banner-logo {
-    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6)) brightness(1.05);
-  }
-
-  .closing-badge {
-    background: #D36526;
-    color: #FFFFFF;
-    box-shadow: 0 2px 8px rgba(211, 101, 38, 0.4);
-  }
-
-  .closing-title {
-    color: #FAF4EC;
-  }
-
-  .closing-desc {
-    color: #E8D8C8;
-  }
-
-  .closing-highlight {
-    color: #E29D4B;
-  }
-
-  .closing-invite {
-    color: #FAF4EC;
-  }
-
-  .closing-portal-btn {
-    background: linear-gradient(135deg, #C05A20 0%, #A94A14 100%);
-    color: #FFFFFF !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  }
-
-  .closing-portal-btn:hover {
-    background: linear-gradient(135deg, #D36526 0%, #BD5317 100%);
-  }
-
-  .closing-action-group {
-    border-top-color: rgba(232, 216, 200, 0.15);
-  }
-
-  .closing-btn {
-    background: linear-gradient(135deg, #C05A20 0%, #A94A14 100%);
-    color: #FFFFFF !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-  }
-
-  .closing-btn:hover {
-    background: linear-gradient(135deg, #D36526 0%, #BD5317 100%);
-  }
-
-  .closing-banner-photo {
-    border-color: #38281F;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
-  }
-
-  .archive-disclaimer {
-    background-color: rgba(208, 137, 66, 0.12);
-    border-color: rgba(208, 137, 66, 0.4);
-    border-left-color: #E29D4B;
-  }
-
-  .archive-disclaimer-text {
-    color: #FAF4EC;
-  }
-}
+/* Dark mode rules managed cleanly via [data-theme="dark"] and OS fallback below */
 
 /* Suporte legado caso hero-image ainda seja referenciado */
 .banner-wrapper {
@@ -1588,6 +1513,80 @@ body {
 /* ========================================================
    PORTAL RETURN BAR & 2026 ARCHIVE ENHANCEMENTS
    ======================================================== */
+html,
+body,
+.portal-return-bar {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  white-space: normal !important;
+  overflow-wrap: break-word;
+}
+
+h1,
+.closing-title {
+  font-weight: 700 !important;
+}
+
+h2, h3, h4, h5, h6,
+.step-title,
+.celebration-title,
+.video-title,
+.card h3,
+.festival-press-title,
+.press-card-title,
+.gallery-thumb-product,
+.video-feature-heading {
+  font-weight: 600 !important;
+}
+
+p,
+.intro p,
+.step-desc,
+.celebration-desc,
+.video-desc,
+.archive-disclaimer-text,
+.closing-desc,
+.closing-highlight,
+.closing-invite,
+.card p,
+.card p.product-name,
+.card p.price,
+.unit-address,
+.unit-schedule,
+.gallery-creation-disclaimer,
+.creation-disclaimer,
+.festival-press-intro,
+.video-feature-desc,
+.privacy-paragraph {
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  opacity: 1 !important;
+}
+
+.closing-badge,
+.hero-sponsor-heading .heading-title,
+.celebration-title,
+.video-kicker,
+.card h3,
+.unit-badge,
+.portal-return-badge,
+.gallery-thumb-bakery,
+.press-badge,
+.press-card-vehicle,
+.video-feature-kicker {
+  text-transform: none !important;
+  letter-spacing: 0.02em !important;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+button, input, select, textarea, .cookie-btn {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 .portal-return-bar {
   background: #3B1F14;
   color: #FAF4EC;
@@ -1595,7 +1594,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 0.875rem;
   position: sticky;
   top: 0;
@@ -1614,28 +1612,139 @@ body {
 }
 
 .portal-return-link:hover {
-  color: #D08942;
+  color: #F4C491;
   text-decoration: underline;
 }
 
+.portal-return-link-sub {
+  color: #FAF4EC;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .portal-return-badge {
-  background: #D08942;
-  color: #3B1F14;
-  padding: 3px 10px;
+  background: #E5A059 !important;
+  color: #140F0D !important;
+  padding: 4px 12px;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 @media (max-width: 600px) {
   .portal-return-bar {
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     text-align: center;
-    padding: 8px 12px;
+    padding: 10px 12px;
   }
+  .portal-return-actions {
+    justify-content: center;
+  }
+}
+
+/* Light Mode WCAG AA Fixes */
+.closing-badge {
+  background: #8F3E10 !important;
+  color: #FFFFFF !important;
+}
+
+.closing-highlight {
+  color: #8F3E10 !important;
+}
+
+.closing-portal-btn,
+.closing-btn {
+  background: #8F3E10 !important;
+  color: #FFFFFF !important;
+}
+
+.closing-portal-btn:hover,
+.closing-btn:hover {
+  background: #73300A !important;
+  color: #FFFFFF !important;
+}
+
+.closing-banner-media {
+  flex-direction: column;
+}
+
+.closing-photo-credit {
+  font-size: 0.8rem;
+  color: #5E514A;
+  margin-top: 8px;
+  font-style: italic;
+  text-align: right;
+  max-width: 480px;
+  width: 100%;
+}
+
+.hero-sponsor-heading .heading-title,
+.step-number,
+.video-kicker,
+.gallery-thumb-bakery,
+.press-card-vehicle,
+.video-feature-kicker {
+  color: #85490F !important;
+}
+
+.step-number {
+  border-color: #85490F !important;
+}
+
+.video-cta-btn {
+  background: #5D3323 !important;
+  color: #FFFFFF !important;
+}
+
+.video-cta-btn:hover {
+  background: #3F2216 !important;
+  color: #FFFFFF !important;
+}
+
+.cookie-btn-accept {
+  background: #E5A059 !important;
+  color: #140F0D !important;
+}
+
+.cookie-text a {
+  color: #F4C491 !important;
+}
+
+.photo-credit-strip {
+  font-size: 0.8rem;
+  color: #5E514A;
+  margin: 6px 1.25rem 8px;
+  font-style: italic;
+}
+
+.creation-disclaimer {
+  font-size: 0.84rem;
+  color: #5E514A;
+  margin: 6px 1.25rem 12px;
+  font-style: italic;
+}
+
+.gallery-photo-credit {
+  font-size: 0.8rem;
+  color: #5E514A;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.gallery-creation-disclaimer {
+  font-size: 0.82rem;
+  color: #5E514A;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.unit-address,
+.unit-schedule {
+  color: #4A382E !important;
 }
 
 /* Galeria organizada por padaria */
@@ -1657,7 +1766,7 @@ body {
 }
 
 .festival-gallery-header p {
-  color: #666;
+  color: #5E514A;
   max-width: 650px;
   margin: 0 auto;
   font-size: 1rem;
@@ -1665,7 +1774,7 @@ body {
 
 .festival-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
   gap: 20px;
 }
 
@@ -1677,6 +1786,7 @@ body {
   border: 1px solid #E8D8C8;
   display: flex;
   flex-direction: column;
+  min-width: 0;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -1710,15 +1820,13 @@ body {
 }
 
 .gallery-thumb-bakery {
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   font-weight: 700;
-  color: #D08942;
-  text-transform: uppercase;
   margin-bottom: 4px;
 }
 
 .gallery-thumb-product {
-  font-size: 0.95rem;
+  font-size: 0.98rem;
   font-weight: 600;
   color: #333;
 }
@@ -1747,36 +1855,109 @@ body {
 
 .press-badge {
   display: inline-block;
-  background-color: #D08942;
-  color: #3B1F14;
+  background-color: #E5A059;
+  color: #140F0D;
   padding: 4px 12px;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
   margin-bottom: 12px;
 }
 
 .festival-press-title {
   color: #5D3323;
   font-size: 2.2rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 12px;
   line-height: 1.25;
 }
 
 .festival-press-intro {
-  color: #6A554A;
+  color: #5E514A;
   font-size: 1.05rem;
-  line-height: 1.6;
   margin: 0 auto;
 }
 
 .festival-press-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 24px;
+}
+
+.festival-video-featured-card {
+  background: #FFFFFF;
+  border: 1px solid #E8D8C8;
+  border-radius: 12px;
+  padding: clamp(16px, 3vw, 24px);
+  max-width: 880px;
+  margin: 0 auto;
+  box-shadow: 0 4px 16px rgba(93, 51, 35, 0.06);
+}
+
+.video-capture-credit {
+  font-size: 0.8rem;
+  color: #5E514A;
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.video-feature-kicker {
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.video-feature-heading {
+  color: #3B1F14;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.video-feature-desc {
+  color: #5E514A;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+.noscript-press-box {
+  margin-top: 24px;
+  padding: 16px;
+  background: #FAF4EC;
+  border: 1px solid #85490F;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.noscript-press-title {
+  margin-bottom: 6px;
+  color: #3B1F14;
+}
+
+.noscript-press-link {
+  color: #85490F;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.btn-footer-portal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #E5A059;
+  color: #140F0D;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-footer-portal:hover {
+  background: #F4C491;
+  color: #140F0D;
+  transform: translateY(-1px);
 }
 
 .press-card {
@@ -1787,6 +1968,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
   box-shadow: 0 4px 16px rgba(93, 51, 35, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
@@ -1802,18 +1984,15 @@ body {
 }
 
 .press-card-vehicle {
-  color: #D08942;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   margin-bottom: 10px;
 }
 
 .press-card-title {
   color: #3B1F14;
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.45;
   margin-bottom: 12px;
 }
@@ -1822,13 +2001,13 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #8C7567;
+  color: #5E514A;
   font-size: 0.82rem;
   font-weight: 500;
 }
 
 .press-card-date svg {
-  color: #D08942;
+  color: #85490F;
   flex-shrink: 0;
 }
 
@@ -1891,29 +2070,29 @@ body {
   gap: 8px;
   background-color: #5D3323;
   color: #FAF4EC;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 600;
   text-decoration: none;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 8px;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
   width: 100%;
 }
 
 .press-card-btn-video {
-  background-color: #D08942;
-  color: #1E1511;
+  background-color: #E5A059;
+  color: #140F0D;
   font-weight: 700;
 }
 
 .press-card-btn-video:hover {
-  background-color: #E29C58;
-  color: #000000;
+  background-color: #F4C491;
+  color: #140F0D;
 }
 
 .press-card-btn:hover {
-  background-color: #D08942;
-  color: #3B1F14;
+  background-color: #3F2216;
+  color: #FFFFFF;
 }
 
 .press-card-btn svg {
@@ -1924,76 +2103,543 @@ body {
   transform: translate(2px, -2px);
 }
 
-/* Compatibilidade com modo escuro */
-@media (prefers-color-scheme: dark) {
-  .festival-press-section {
-    background-color: #1E1511;
-    border-color: #3A261D;
-  }
-  .festival-press-title {
-    color: #FAF4EC;
-  }
-  .festival-press-intro {
-    color: #CDBBB0;
-  }
-  .press-card {
-    background: #281B15;
-    border-color: #442E23;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  }
-  .press-card:hover {
-    border-color: #D08942;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
-  }
-  .press-card-title {
-    color: #FAF4EC;
-  }
-  .press-card-date {
-    color: #B59F91;
-  }
-  .press-card-footer {
-    border-color: #3A261D;
-  }
-  .press-card-btn {
-    background-color: #D08942;
-    color: #1E1511;
-  }
-  .press-card-btn:hover {
-    background-color: #FAF4EC;
-    color: #1E1511;
-  }
-}
+/* Dark Theme via Portal Toggle ([data-theme="dark"]) and OS Fallback */
+[data-theme="dark"] html,
+  [data-theme="dark"] body,
+  [data-theme="dark"] .site-header {
 
-[data-theme="dark"] .festival-press-section {
-  background-color: #1E1511;
-  border-color: #3A261D;
-}
-[data-theme="dark"] .festival-press-title {
-  color: #FAF4EC;
-}
-[data-theme="dark"] .festival-press-intro {
-  color: #CDBBB0;
-}
-[data-theme="dark"] .press-card {
-  background: #281B15;
-  border-color: #442E23;
-}
-[data-theme="dark"] .press-card-title {
-  color: #FAF4EC;
-}
-[data-theme="dark"] .press-card-date {
-  color: #B59F91;
-}
-[data-theme="dark"] .press-card-footer {
-  border-color: #3A261D;
-}
-[data-theme="dark"] .press-card-btn {
-  background-color: #D08942;
-  color: #1E1511;
-}
-[data-theme="dark"] .press-card-btn:hover {
-  background-color: #FAF4EC;
-  color: #1E1511;
+    background-color: #140F0D;
+    color: #F6EDE3;
+  
+  }[data-theme="dark"] .top-bar {
+
+    background: #140F0D;
+    border-bottom-color: #2F241F;
+    color: #F6EDE3;
+  
+  }[data-theme="dark"] .top-bar a {
+
+    color: #F6EDE3;
+  
+  }[data-theme="dark"] .top-bar a:hover {
+
+    color: #F4C491;
+  
+  }[data-theme="dark"] .closing-banner {
+
+    background: linear-gradient(135deg, #1E1612 0%, #2A1D16 50%, #1A1310 100%);
+    border-bottom-color: rgba(208, 137, 66, 0.3);
+  
+  }[data-theme="dark"] .closing-banner::before {
+
+    background: radial-gradient(circle at 15% 30%, rgba(208, 137, 66, 0.15) 0%, transparent 60%);
+  
+  }[data-theme="dark"] .closing-banner-logo {
+
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6)) brightness(1.05);
+  
+  }[data-theme="dark"] .closing-badge {
+
+    background: #8F3E10 !important;
+    color: #FFFFFF !important;
+  
+  }[data-theme="dark"] .closing-title {
+
+    color: #F6EDE3 !important;
+  
+  }[data-theme="dark"] .closing-desc,
+  [data-theme="dark"] .closing-invite {
+
+    color: #E8D8C8 !important;
+  
+  }[data-theme="dark"] .closing-highlight {
+
+    color: #F4C491 !important;
+  
+  }[data-theme="dark"] .closing-portal-btn,
+  [data-theme="dark"] .closing-btn {
+
+    background: #E5A059 !important;
+    color: #140F0D !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  
+  }[data-theme="dark"] .closing-portal-btn:hover,
+  [data-theme="dark"] .closing-btn:hover {
+
+    background: #F4C491 !important;
+    color: #140F0D !important;
+  
+  }[data-theme="dark"] .closing-action-group {
+
+    border-top-color: rgba(232, 216, 200, 0.15);
+  
+  }[data-theme="dark"] .closing-banner-photo {
+
+    border-color: #38281F;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  
+  }[data-theme="dark"] .hero-sponsors-strip {
+
+    background-color: #140F0D;
+    border-color: #2F241F;
+  
+  }[data-theme="dark"] .hero-sponsor-logos-row {
+
+    background: #FAF4EC;
+    border-radius: 10px;
+    padding: 12px 18px;
+  
+  }[data-theme="dark"] .hero-sponsor-heading .heading-title {
+
+    color: #F4C491 !important;
+  
+  }[data-theme="dark"] .intro h2,
+  [data-theme="dark"] .how-it-works h2,
+  [data-theme="dark"] .step-title,
+  [data-theme="dark"] .celebration-title,
+  [data-theme="dark"] .video-title,
+  [data-theme="dark"] .festival-gallery-header h2,
+  [data-theme="dark"] .festival-press-title,
+  [data-theme="dark"] .video-feature-heading {
+
+    color: #F4C491 !important;
+  
+  }[data-theme="dark"] .intro p,
+  [data-theme="dark"] .step-desc,
+  [data-theme="dark"] .celebration-desc,
+  [data-theme="dark"] .video-desc,
+  [data-theme="dark"] .archive-disclaimer-text {
+
+    color: #E8D8C8 !important;
+  
+  }[data-theme="dark"] .archive-disclaimer {
+
+    background-color: rgba(208, 137, 66, 0.12);
+    border-color: rgba(208, 137, 66, 0.4);
+    border-left-color: #E5A059;
+  
+  }[data-theme="dark"] .step-card,
+  [data-theme="dark"] .celebration-box,
+  [data-theme="dark"] .video-card,
+  [data-theme="dark"] .card,
+  [data-theme="dark"] .gallery-thumb-card,
+  [data-theme="dark"] .press-card,
+  [data-theme="dark"] .festival-video-featured-card {
+
+    background: #261E1A !important;
+    border-color: #42342C !important;
+    color: #F6EDE3 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  
+  }[data-theme="dark"] .step-number {
+
+    background: #1F1815;
+    color: #F4C491 !important;
+    border-color: #E5A059 !important;
+  
+  }[data-theme="dark"] .video-kicker,
+  [data-theme="dark"] .gallery-thumb-bakery,
+  [data-theme="dark"] .press-card-vehicle,
+  [data-theme="dark"] .video-feature-kicker {
+
+    color: #F4C491 !important;
+  
+  }[data-theme="dark"] .video-action-bar {
+
+    background: #1F1815;
+    border-top-color: #42342C;
+  
+  }[data-theme="dark"] .video-cta-btn {
+
+    background: #E5A059 !important;
+    color: #140F0D !important;
+  
+  }[data-theme="dark"] .video-cta-btn:hover {
+
+    background: #F4C491 !important;
+    color: #140F0D !important;
+  
+  }[data-theme="dark"] .card h3,
+  [data-theme="dark"] .gallery-thumb-product,
+  [data-theme="dark"] .press-card-title {
+
+    color: #F6EDE3 !important;
+  
+  }[data-theme="dark"] .card p,
+  [data-theme="dark"] .card p.product-name,
+  [data-theme="dark"] .card p.price {
+
+    color: #E8D8C8 !important;
+  
+  }[data-theme="dark"] .card .contact {
+
+    background: #1F1815 !important;
+    border-top-color: #42342C !important;
+  
+  }[data-theme="dark"] .card .contact a.insta-link {
+
+    color: #F6EDE3 !important;
+  
+  }[data-theme="dark"] .card .contact a.insta-link:hover {
+
+    color: #F4C491 !important;
+  
+  }[data-theme="dark"] .map-btn,
+  [data-theme="dark"] .unit-map-btn {
+
+    background: #E5A059 !important;
+    color: #140F0D !important;
+  
+  }[data-theme="dark"] .map-btn:hover,
+  [data-theme="dark"] .unit-map-btn:hover {
+
+    background: #F4C491 !important;
+    color: #140F0D !important;
+  
+  }[data-theme="dark"] .units-common-schedule,
+  [data-theme="dark"] .unit-item {
+
+    background: #1F1815 !important;
+    border-color: #42342C !important;
+    color: #E8D8C8 !important;
+  
+  }[data-theme="dark"] .units-common-schedule strong,
+  [data-theme="dark"] .unit-schedule strong {
+
+    color: #F4C491 !important;
+  
+  }[data-theme="dark"] .unit-badge {
+
+    background: rgba(244, 196, 145, 0.2) !important;
+    color: #FDEBD6 !important;
+  
+  }[data-theme="dark"] .unit-address,
+  [data-theme="dark"] .unit-schedule,
+  [data-theme="dark"] .photo-credit-strip,
+  [data-theme="dark"] .gallery-photo-credit,
+  [data-theme="dark"] .gallery-creation-disclaimer,
+  [data-theme="dark"] .creation-disclaimer,
+  [data-theme="dark"] .festival-gallery-header p,
+  [data-theme="dark"] .festival-press-intro,
+  [data-theme="dark"] .press-card-date,
+  [data-theme="dark"] .closing-photo-credit,
+  [data-theme="dark"] .video-capture-credit,
+  [data-theme="dark"] .video-feature-desc {
+
+    color: #C0B0A5 !important;
+  
+  }[data-theme="dark"] .festival-press-section {
+
+    background-color: #1F1815 !important;
+    border-color: #42342C !important;
+  
+  }[data-theme="dark"] .press-card-footer {
+
+    border-top-color: #42342C !important;
+  
+  }[data-theme="dark"] .press-card-btn {
+
+    background-color: #E5A059 !important;
+    color: #140F0D !important;
+  
+  }[data-theme="dark"] .press-card-btn:hover {
+
+    background-color: #F4C491 !important;
+    color: #140F0D !important;
+  
+  }[data-theme="dark"] .site-footer {
+
+    background: #120D0B !important;
+    border-top: 1px solid #42342C;
+  
+  }[data-theme="dark"] .privacy-link {
+
+    color: #F4C491 !important;
+  
+  }[data-theme="dark"] .noscript-press-box {
+
+    background: #261E1A;
+    border-color: #E5A059;
+  
+  }[data-theme="dark"] .noscript-press-title {
+
+    color: #F6EDE3;
+  
+  }[data-theme="dark"] .noscript-press-link {
+
+    color: #F4C491;
+  
+  }
+
+
+@media (prefers-color-scheme: dark) {
+:root:not([data-theme="light"]) html,
+  :root:not([data-theme="light"]) body,
+  :root:not([data-theme="light"]) .site-header {
+
+    background-color: #140F0D;
+    color: #F6EDE3;
+  
+  }:root:not([data-theme="light"]) .top-bar {
+
+    background: #140F0D;
+    border-bottom-color: #2F241F;
+    color: #F6EDE3;
+  
+  }:root:not([data-theme="light"]) .top-bar a {
+
+    color: #F6EDE3;
+  
+  }:root:not([data-theme="light"]) .top-bar a:hover {
+
+    color: #F4C491;
+  
+  }:root:not([data-theme="light"]) .closing-banner {
+
+    background: linear-gradient(135deg, #1E1612 0%, #2A1D16 50%, #1A1310 100%);
+    border-bottom-color: rgba(208, 137, 66, 0.3);
+  
+  }:root:not([data-theme="light"]) .closing-banner::before {
+
+    background: radial-gradient(circle at 15% 30%, rgba(208, 137, 66, 0.15) 0%, transparent 60%);
+  
+  }:root:not([data-theme="light"]) .closing-banner-logo {
+
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6)) brightness(1.05);
+  
+  }:root:not([data-theme="light"]) .closing-badge {
+
+    background: #8F3E10 !important;
+    color: #FFFFFF !important;
+  
+  }:root:not([data-theme="light"]) .closing-title {
+
+    color: #F6EDE3 !important;
+  
+  }:root:not([data-theme="light"]) .closing-desc,
+  :root:not([data-theme="light"]) .closing-invite {
+
+    color: #E8D8C8 !important;
+  
+  }:root:not([data-theme="light"]) .closing-highlight {
+
+    color: #F4C491 !important;
+  
+  }:root:not([data-theme="light"]) .closing-portal-btn,
+  :root:not([data-theme="light"]) .closing-btn {
+
+    background: #E5A059 !important;
+    color: #140F0D !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  
+  }:root:not([data-theme="light"]) .closing-portal-btn:hover,
+  :root:not([data-theme="light"]) .closing-btn:hover {
+
+    background: #F4C491 !important;
+    color: #140F0D !important;
+  
+  }:root:not([data-theme="light"]) .closing-action-group {
+
+    border-top-color: rgba(232, 216, 200, 0.15);
+  
+  }:root:not([data-theme="light"]) .closing-banner-photo {
+
+    border-color: #38281F;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  
+  }:root:not([data-theme="light"]) .hero-sponsors-strip {
+
+    background-color: #140F0D;
+    border-color: #2F241F;
+  
+  }:root:not([data-theme="light"]) .hero-sponsor-logos-row {
+
+    background: #FAF4EC;
+    border-radius: 10px;
+    padding: 12px 18px;
+  
+  }:root:not([data-theme="light"]) .hero-sponsor-heading .heading-title {
+
+    color: #F4C491 !important;
+  
+  }:root:not([data-theme="light"]) .intro h2,
+  :root:not([data-theme="light"]) .how-it-works h2,
+  :root:not([data-theme="light"]) .step-title,
+  :root:not([data-theme="light"]) .celebration-title,
+  :root:not([data-theme="light"]) .video-title,
+  :root:not([data-theme="light"]) .festival-gallery-header h2,
+  :root:not([data-theme="light"]) .festival-press-title,
+  :root:not([data-theme="light"]) .video-feature-heading {
+
+    color: #F4C491 !important;
+  
+  }:root:not([data-theme="light"]) .intro p,
+  :root:not([data-theme="light"]) .step-desc,
+  :root:not([data-theme="light"]) .celebration-desc,
+  :root:not([data-theme="light"]) .video-desc,
+  :root:not([data-theme="light"]) .archive-disclaimer-text {
+
+    color: #E8D8C8 !important;
+  
+  }:root:not([data-theme="light"]) .archive-disclaimer {
+
+    background-color: rgba(208, 137, 66, 0.12);
+    border-color: rgba(208, 137, 66, 0.4);
+    border-left-color: #E5A059;
+  
+  }:root:not([data-theme="light"]) .step-card,
+  :root:not([data-theme="light"]) .celebration-box,
+  :root:not([data-theme="light"]) .video-card,
+  :root:not([data-theme="light"]) .card,
+  :root:not([data-theme="light"]) .gallery-thumb-card,
+  :root:not([data-theme="light"]) .press-card,
+  :root:not([data-theme="light"]) .festival-video-featured-card {
+
+    background: #261E1A !important;
+    border-color: #42342C !important;
+    color: #F6EDE3 !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  
+  }:root:not([data-theme="light"]) .step-number {
+
+    background: #1F1815;
+    color: #F4C491 !important;
+    border-color: #E5A059 !important;
+  
+  }:root:not([data-theme="light"]) .video-kicker,
+  :root:not([data-theme="light"]) .gallery-thumb-bakery,
+  :root:not([data-theme="light"]) .press-card-vehicle,
+  :root:not([data-theme="light"]) .video-feature-kicker {
+
+    color: #F4C491 !important;
+  
+  }:root:not([data-theme="light"]) .video-action-bar {
+
+    background: #1F1815;
+    border-top-color: #42342C;
+  
+  }:root:not([data-theme="light"]) .video-cta-btn {
+
+    background: #E5A059 !important;
+    color: #140F0D !important;
+  
+  }:root:not([data-theme="light"]) .video-cta-btn:hover {
+
+    background: #F4C491 !important;
+    color: #140F0D !important;
+  
+  }:root:not([data-theme="light"]) .card h3,
+  :root:not([data-theme="light"]) .gallery-thumb-product,
+  :root:not([data-theme="light"]) .press-card-title {
+
+    color: #F6EDE3 !important;
+  
+  }:root:not([data-theme="light"]) .card p,
+  :root:not([data-theme="light"]) .card p.product-name,
+  :root:not([data-theme="light"]) .card p.price {
+
+    color: #E8D8C8 !important;
+  
+  }:root:not([data-theme="light"]) .card .contact {
+
+    background: #1F1815 !important;
+    border-top-color: #42342C !important;
+  
+  }:root:not([data-theme="light"]) .card .contact a.insta-link {
+
+    color: #F6EDE3 !important;
+  
+  }:root:not([data-theme="light"]) .card .contact a.insta-link:hover {
+
+    color: #F4C491 !important;
+  
+  }:root:not([data-theme="light"]) .map-btn,
+  :root:not([data-theme="light"]) .unit-map-btn {
+
+    background: #E5A059 !important;
+    color: #140F0D !important;
+  
+  }:root:not([data-theme="light"]) .map-btn:hover,
+  :root:not([data-theme="light"]) .unit-map-btn:hover {
+
+    background: #F4C491 !important;
+    color: #140F0D !important;
+  
+  }:root:not([data-theme="light"]) .units-common-schedule,
+  :root:not([data-theme="light"]) .unit-item {
+
+    background: #1F1815 !important;
+    border-color: #42342C !important;
+    color: #E8D8C8 !important;
+  
+  }:root:not([data-theme="light"]) .units-common-schedule strong,
+  :root:not([data-theme="light"]) .unit-schedule strong {
+
+    color: #F4C491 !important;
+  
+  }:root:not([data-theme="light"]) .unit-badge {
+
+    background: rgba(244, 196, 145, 0.2) !important;
+    color: #FDEBD6 !important;
+  
+  }:root:not([data-theme="light"]) .unit-address,
+  :root:not([data-theme="light"]) .unit-schedule,
+  :root:not([data-theme="light"]) .photo-credit-strip,
+  :root:not([data-theme="light"]) .gallery-photo-credit,
+  :root:not([data-theme="light"]) .gallery-creation-disclaimer,
+  :root:not([data-theme="light"]) .creation-disclaimer,
+  :root:not([data-theme="light"]) .festival-gallery-header p,
+  :root:not([data-theme="light"]) .festival-press-intro,
+  :root:not([data-theme="light"]) .press-card-date,
+  :root:not([data-theme="light"]) .closing-photo-credit,
+  :root:not([data-theme="light"]) .video-capture-credit,
+  :root:not([data-theme="light"]) .video-feature-desc {
+
+    color: #C0B0A5 !important;
+  
+  }:root:not([data-theme="light"]) .festival-press-section {
+
+    background-color: #1F1815 !important;
+    border-color: #42342C !important;
+  
+  }:root:not([data-theme="light"]) .press-card-footer {
+
+    border-top-color: #42342C !important;
+  
+  }:root:not([data-theme="light"]) .press-card-btn {
+
+    background-color: #E5A059 !important;
+    color: #140F0D !important;
+  
+  }:root:not([data-theme="light"]) .press-card-btn:hover {
+
+    background-color: #F4C491 !important;
+    color: #140F0D !important;
+  
+  }:root:not([data-theme="light"]) .site-footer {
+
+    background: #120D0B !important;
+    border-top: 1px solid #42342C;
+  
+  }:root:not([data-theme="light"]) .privacy-link {
+
+    color: #F4C491 !important;
+  
+  }:root:not([data-theme="light"]) .noscript-press-box {
+
+    background: #261E1A;
+    border-color: #E5A059;
+  
+  }:root:not([data-theme="light"]) .noscript-press-title {
+
+    color: #F6EDE3;
+  
+  }:root:not([data-theme="light"]) .noscript-press-link {
+
+    color: #F4C491;
+  
+  }
+
 }
 
 #imprensa,
@@ -2043,11 +2689,20 @@ body {
   flex-direction: column !important;
   height: 100% !important;
   min-height: auto !important;
+  min-width: 0;
   box-sizing: border-box !important;
 }
 
 .card .contact {
   margin-top: auto !important;
+}
+
+.unit-item-header {
+  flex-wrap: wrap;
+}
+
+.footer-conexus {
+  flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
@@ -2058,6 +2713,10 @@ body {
   .card,
   .anchor-target-alias {
     scroll-margin-top: 130px;
+  }
+  body p {
+    font-size: max(1rem, 16px) !important;
+    line-height: 1.6 !important;
   }
 }
 
@@ -2074,5 +2733,18 @@ body {
   }
   .press-card {
     padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card .contact {
+    flex-wrap: wrap;
+  }
+  .btn-footer-portal {
+    max-width: 100%;
+    justify-content: center;
+  }
+  .conexus-logo {
+    max-width: 155px;
   }
 }

@@ -462,7 +462,7 @@ const homeContent = `
         </p>
       </div>
 
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));">
         <!-- Roteiro Publicado em Destaque -->
         <article class="card-editorial" style="border: 2px solid var(--color-accent); box-shadow: var(--shadow-sm);">
           <div class="card-media">
@@ -517,10 +517,10 @@ const homeContent = `
 
       <div style="max-width: 800px; margin: 0 auto;">
         <article class="card-editorial" style="flex-direction: row; flex-wrap: wrap;">
-          <div class="card-media" style="flex: 1 1 300px; min-height: 240px;">
+          <div class="card-media" style="flex: 1 1 260px; min-width: 0; min-height: 240px;">
             <img src="/assets/photos/curitipao-108 (1).jpg" alt="Fornos e pães artesanais em Curitiba" loading="lazy">
           </div>
-          <div class="card-body" style="flex: 1 1 320px;">
+          <div class="card-body" style="flex: 1 1 260px; min-width: 0;">
             <span class="card-tag">Novidades e festival</span>
             <h3 class="card-title">
               <a href="/blog/o-curitipao-continua/">O CuritiPão continua: do roteiro ao festival, agora um guia permanente</a>
@@ -541,7 +541,7 @@ const homeContent = `
   <!-- CHAMADA PARA O ARQUIVO FESTIVAL 2026 -->
   <section class="section">
     <div class="container">
-      <div style="background: var(--color-surface); border: 2px dashed var(--color-border); border-radius: var(--radius-lg); padding: 40px 30px; text-align: center; max-width: 900px; margin: 0 auto;">
+      <div style="background: var(--color-surface); border: 2px dashed var(--color-border); border-radius: var(--radius-lg); padding: clamp(22px, 4vw, 40px) clamp(16px, 4vw, 30px); text-align: center; max-width: 900px; margin: 0 auto;">
         <span class="badge badge-gold" style="margin-bottom: 12px;">Memória Histórica</span>
         <h2 style="margin-bottom: 12px; color: var(--color-primary);">Arquivo Oficial do Festival 2026</h2>
         <p style="color: var(--color-text-muted); max-width: 650px; margin: 0 auto 24px; line-height: 1.6;">
@@ -555,7 +555,7 @@ const homeContent = `
   <!-- CONVITE PARA PARTICIPAÇÃO & CONEXUS -->
   <section class="section section-alt">
     <div class="container">
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));">
         <!-- Card Participação -->
         <div class="form-card" style="margin-bottom: 0;">
           <h3 style="margin-bottom: 12px;">Indique uma padaria favorita</h3>
@@ -630,8 +630,8 @@ const sobreContent = `
         <img src="/assets/photos/curitipao-111.jpg" alt="Acervo oficial CuritiPão — pães de fermentação natural" style="width: 100%; height: auto; max-height: 460px; object-fit: cover;">
       </div>
 
-      <article style="font-size: 1.12rem; line-height: 1.8; color: var(--color-text);">
-        <p style="font-weight: 500; font-size: 1.25rem; color: var(--color-primary); margin-bottom: 1.6rem;">
+      <article style="font-size: 1.12rem; line-height: 1.65; color: var(--color-text);">
+        <p style="font-weight: 400; font-size: 1.2rem; color: var(--color-primary); line-height: 1.65; margin-bottom: 1.6rem;">
           O CuritiPão nasceu como um roteiro do Curitidoce e, em 2026, ganhou sua primeira edição como festival, reunindo 15 padarias de Curitiba em torno de criações desenvolvidas especialmente para o evento.
         </p>
 
@@ -838,14 +838,14 @@ const bakeryCardsHtml = sortedBakeries.map(b => {
         <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
           ${iconPinSvg}
           <div>
-            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Endereço</strong>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; letter-spacing: 0.02em; display: block; margin-bottom: 1px;">Endereço</strong>
             <span style="color: var(--color-text);">${b.address}</span>
           </div>
         </div>
         <div style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.88rem; line-height: 1.45;">
           ${iconClockSvg}
           <div>
-            <strong style="color: var(--color-text-muted); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
+            <strong style="color: var(--color-text-muted); font-size: 0.78rem; letter-spacing: 0.02em; display: block; margin-bottom: 1px;">Horário confirmado</strong>
             <span style="color: var(--color-text-muted);">${b.hours}</span>
           </div>
         </div>
@@ -868,14 +868,14 @@ const bakeryCardsHtml = sortedBakeries.map(b => {
 
         <!-- Bairro e Cidade -->
         <div style="margin-bottom: 12px;">
-          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+          <span class="card-tag bakery-bairro-tag" style="font-size: 0.78rem; letter-spacing: 0.02em; background: var(--card-bairro-bg); color: var(--card-bairro-color); border: 1px solid var(--card-bairro-border); padding: 4px 10px; border-radius: 999px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
             <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--card-bairro-color);" aria-hidden="true"></span>
             ${b.neighborhood} • ${b.city || 'Curitiba'}
           </span>
         </div>
 
         <!-- Breve descrição -->
-        <p class="card-desc bakery-desc" style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 14px; line-height: 1.5; flex-grow: 1;">
+        <p class="card-desc bakery-desc" style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 14px; line-height: 1.6; flex-grow: 1;">
           ${b.description}
         </p>
 
@@ -918,10 +918,10 @@ const padariasContent = `
 
       <!-- 1. TOPO: 3 CARDS PATROCINADOS FICTÍCIOS E VERTICAIS (EXEMPLO DE DESTAQUE) -->
       <section class="destaque-exemplo-container" aria-label="Demonstração de destaques patrocinados" style="margin-bottom: 40px;">
-        <div style="background: var(--color-surface); border: 2px dashed var(--color-primary); border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow-sm);">
+        <div style="background: var(--color-surface); border: 2px dashed var(--color-primary); border-radius: var(--radius-lg); padding: clamp(16px, 3vw, 24px); box-shadow: var(--shadow-sm);">
           <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; border-bottom: 1px solid var(--color-border); padding-bottom: 14px;">
             <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
-              <span class="badge badge-gold" style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.82rem; padding: 4px 10px;">Exemplo de destaque</span>
+              <span class="badge badge-gold" style="font-weight: 700; letter-spacing: 0.02em; font-size: 0.82rem; padding: 4px 10px;">Exemplo de destaque</span>
               <span style="font-size: 0.86rem; color: var(--color-text-muted); font-style: italic;">3 modelos ilustrativos verticais (demonstração fora da contagem e dos filtros do guia)</span>
             </div>
             <a href="/contato/#cadastrar" class="btn btn-secondary btn-sm" style="font-size: 0.82rem; padding: 6px 14px; font-weight: 600;">Anuncie sua padaria &rarr;</a>
@@ -934,7 +934,7 @@ const padariasContent = `
             <!-- CARD 1: Ateliê do Trigo (Demonstração - Juvevê) -->
             <article class="demo-vertical-card" style="display: flex; flex-direction: column; height: 100%;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <span class="badge badge-gold" style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em; padding: 3px 8px;">Exemplo de destaque</span>
+                <span class="badge badge-gold" style="font-size: 0.74rem; font-weight: 700; letter-spacing: 0.02em; padding: 3px 8px;">Exemplo de destaque</span>
                 <span style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic;">Demonstração</span>
               </div>
 
@@ -973,15 +973,15 @@ const padariasContent = `
 
               <!-- Bairro e Título -->
               <div style="margin-bottom: 6px;">
-                <span class="card-tag" style="background: rgba(53, 101, 83, 0.12); color: #356553; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.76rem;">Juvevê • Curitiba</span>
+                <span class="card-tag" style="background: var(--bairro-salvia-bg); color: var(--bairro-salvia); border: 1px solid var(--bairro-salvia-border); font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.78rem;">Juvevê • Curitiba</span>
               </div>
               <h3 style="font-size: 1.25rem; margin: 0 0 6px 0; color: var(--color-primary); line-height: 1.25;">Ateliê do Trigo</h3>
-              <p style="font-size: 0.88rem; color: var(--color-text); margin-bottom: 12px; line-height: 1.45; flex-grow: 1;">
+              <p style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 12px; line-height: 1.6; flex-grow: 1;">
                 Modelo com foco em fermentação natural de alta hidratação, pães rústicos de casca crocante e fornadas matinais frescas.
               </p>
 
               <!-- Endereço e Horários -->
-              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 0; font-size: 0.82rem; line-height: 1.4;">
+              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 0; font-size: 0.84rem; line-height: 1.55;">
                 <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Rua das Fornadas, 120 — Juvevê</p>
                 <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Ter a Sáb: 7h às 19h • Dom: 8h às 13h</p>
               </div>
@@ -992,7 +992,7 @@ const padariasContent = `
             <!-- CARD 2: Panifício Imperial (Demonstração - Batel) -->
             <article class="demo-vertical-card" style="display: flex; flex-direction: column; height: 100%;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <span class="badge badge-gold" style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em; padding: 3px 8px;">Exemplo de destaque</span>
+                <span class="badge badge-gold" style="font-size: 0.74rem; font-weight: 700; letter-spacing: 0.02em; padding: 3px 8px;">Exemplo de destaque</span>
                 <span style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic;">Demonstração</span>
               </div>
 
@@ -1031,15 +1031,15 @@ const padariasContent = `
 
               <!-- Bairro e Título -->
               <div style="margin-bottom: 6px;">
-                <span class="card-tag" style="background: rgba(184, 83, 44, 0.12); color: #B8532C; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.76rem;">Batel • Curitiba</span>
+                <span class="card-tag" style="background: var(--bairro-terracota-bg); color: var(--bairro-terracota); border: 1px solid var(--bairro-terracota-border); font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.78rem;">Batel • Curitiba</span>
               </div>
               <h3 style="font-size: 1.25rem; margin: 0 0 6px 0; color: var(--color-primary); line-height: 1.25;">Panifício Imperial</h3>
-              <p style="font-size: 0.88rem; color: var(--color-text); margin-bottom: 12px; line-height: 1.45; flex-grow: 1;">
+              <p style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 12px; line-height: 1.6; flex-grow: 1;">
                 Modelo com confeitaria clássica, ciabattas italianas, sanduíches artesanais e ambiente acolhedor para café colonial.
               </p>
 
               <!-- Endereço e Horários -->
-              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 0; font-size: 0.82rem; line-height: 1.4;">
+              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 0; font-size: 0.84rem; line-height: 1.55;">
                 <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Alameda dos Pães, 450 — Batel</p>
                 <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Seg a Sáb: 6h30 às 20h • Dom: 7h às 19h</p>
               </div>
@@ -1050,7 +1050,7 @@ const padariasContent = `
             <!-- CARD 3: Fornada Central (Demonstração - Centro) -->
             <article class="demo-vertical-card" style="display: flex; flex-direction: column; height: 100%;">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <span class="badge badge-gold" style="font-size: 0.72rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.04em; padding: 3px 8px;">Exemplo de destaque</span>
+                <span class="badge badge-gold" style="font-size: 0.74rem; font-weight: 700; letter-spacing: 0.02em; padding: 3px 8px;">Exemplo de destaque</span>
                 <span style="font-size: 0.75rem; color: var(--color-text-muted); font-style: italic;">Demonstração</span>
               </div>
 
@@ -1089,15 +1089,15 @@ const padariasContent = `
 
               <!-- Bairro e Título -->
               <div style="margin-bottom: 6px;">
-                <span class="card-tag" style="background: rgba(160, 98, 30, 0.12); color: #A0621E; font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.76rem;">Centro • Curitiba</span>
+                <span class="card-tag" style="background: var(--bairro-ocre-bg); color: var(--bairro-ocre); border: 1px solid var(--bairro-ocre-border); font-weight: 700; padding: 2px 8px; border-radius: 4px; font-size: 0.78rem;">Centro • Curitiba</span>
               </div>
               <h3 style="font-size: 1.25rem; margin: 0 0 6px 0; color: var(--color-primary); line-height: 1.25;">Fornada Central</h3>
-              <p style="font-size: 0.88rem; color: var(--color-text); margin-bottom: 12px; line-height: 1.45; flex-grow: 1;">
+              <p style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 12px; line-height: 1.6; flex-grow: 1;">
                 Exemplo de padaria urbana prática e autêntica, famosa pelas broas de centeio, pães multigrãos e cafés para viagem.
               </p>
 
               <!-- Endereço e Horários -->
-              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 0; font-size: 0.82rem; line-height: 1.4;">
+              <div style="background: var(--color-surface); padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); margin-bottom: 0; font-size: 0.84rem; line-height: 1.55;">
                 <p style="margin: 0 0 4px 0; color: var(--color-text);"><strong>📍 Endereço:</strong> Rua das Flores, 88 — Centro</p>
                 <p style="margin: 0; color: var(--color-text-muted);"><strong>🕒 Horário:</strong> Seg a Sex: 7h às 19h30 • Sáb: 8h às 14h</p>
               </div>
@@ -1138,7 +1138,7 @@ const padariasContent = `
         </div>
 
         <div>
-          <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 8px;">
+          <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-text-muted); display: block; margin-bottom: 8px;">
             Filtrar por Bairro:
           </span>
           <div style="display: flex; flex-wrap: wrap; gap: 6px;">
@@ -1161,7 +1161,7 @@ const padariasContent = `
       </div>
 
       <!-- BANNER DE CONVITE PARA CADASTRO -->
-      <div style="margin-top: 60px; background: var(--color-bg-alt); border-radius: var(--radius-lg); padding: 40px; border: 1px solid var(--color-border); text-align: center;">
+      <div style="margin-top: 60px; background: var(--color-bg-alt); border-radius: var(--radius-lg); padding: clamp(24px, 4vw, 40px); border: 1px solid var(--color-border); text-align: center;">
         <h2 style="font-size: 1.8rem; margin-bottom: 12px;">Sua padaria ainda não está no guia?</h2>
         <p style="max-width: 680px; margin: 0 auto 24px; color: var(--color-text-muted);">
           O guia permanente do CuritiPão está aberto para estabelecimentos de todos os bairros de Curitiba que prezam pela boa panificação artesanal.
@@ -1237,7 +1237,7 @@ const modeloPadariaContent = `
 
   <section class="section">
     <div class="container" style="max-width: 960px;">
-      <div class="form-card" style="padding: 40px; margin-bottom: 40px;">
+      <div class="form-card" style="margin-bottom: 40px;">
         <!-- Topo da Ficha -->
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 24px; margin-bottom: 24px;">
           <div>
@@ -1251,7 +1251,7 @@ const modeloPadariaContent = `
         </div>
 
         <!-- Mídia / Galeria da Ficha -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 30px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; margin-bottom: 30px;">
           <div style="border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/3;">
             <img src="/assets/photos/curitipao-111.jpg" alt="Pães de fermentação natural" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
@@ -1269,22 +1269,22 @@ const modeloPadariaContent = `
         </div>
 
         <!-- Dados de Serviço -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; background: var(--color-bg); padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--color-border); margin-bottom: 35px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 24px; background: var(--color-bg); padding: clamp(16px, 3vw, 24px); border-radius: var(--radius-md); border: 1px solid var(--color-border); margin-bottom: 35px;">
           <div>
-            <h4 style="font-size: 0.88rem; text-transform: uppercase; color: var(--color-accent); margin-bottom: 8px;">Endereço</h4>
+            <h4 style="font-size: 0.92rem; color: var(--color-accent-text); margin-bottom: 8px;">Endereço</h4>
             <p style="font-size: 0.92rem; margin-bottom: 8px;">Rua Exemplo Ilustrativo, 100 — Juvevê, Curitiba - PR</p>
             <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); font-weight: 600; font-size: 0.85rem; text-decoration: underline;">Como Chegar no Google Maps &rarr;</a>
           </div>
 
           <div>
-            <h4 style="font-size: 0.88rem; text-transform: uppercase; color: var(--color-accent); margin-bottom: 8px;">Horários</h4>
+            <h4 style="font-size: 0.92rem; color: var(--color-accent-text); margin-bottom: 8px;">Horários</h4>
             <p style="font-size: 0.92rem; margin-bottom: 4px;">Terça a Sexta: 07h30 às 19h00</p>
             <p style="font-size: 0.92rem; margin-bottom: 4px;">Sábados: 08h00 às 17h00</p>
             <p style="font-size: 0.92rem; color: var(--color-text-light);">Domingos e segundas: fechado</p>
           </div>
 
           <div>
-            <h4 style="font-size: 0.88rem; text-transform: uppercase; color: var(--color-accent); margin-bottom: 8px;">Atendimento & Pedidos</h4>
+            <h4 style="font-size: 0.92rem; color: var(--color-accent-text); margin-bottom: 8px;">Atendimento & Pedidos</h4>
             <p style="font-size: 0.92rem; margin-bottom: 4px;">✓ Consumo no local / Balcão</p>
             <p style="font-size: 0.92rem; margin-bottom: 4px;">✓ Retirada no balcão</p>
             <p style="font-size: 0.92rem; color: var(--color-text-muted);">✓ Delivery sob consulta</p>
@@ -1356,7 +1356,7 @@ const roteirosContent = `
 
       <div class="card-grid">
         <!-- Roteiro Destaque Publicado: 15 Padarias por Bairro -->
-        <article class="card-editorial" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; background: var(--color-surface); border: 2px solid var(--color-accent); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+        <article class="card-editorial" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px; background: var(--color-surface); border: 2px solid var(--color-accent); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
           <div class="card-media" style="min-height: 260px; height: 100%;">
             <a href="/roteiros/padarias-em-curitiba-por-bairro/" style="display: block; height: 100%;">
               <img src="/assets/photos/curitipao-111.jpg" alt="15 padarias em Curitiba para conhecer, bairro por bairro" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="eager">
@@ -1436,7 +1436,7 @@ const roteirosContent = `
       </div>
 
       <!-- Convite Sugestão de Roteiro -->
-      <div style="margin-top: 50px; background: var(--color-bg-alt); padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
+      <div style="margin-top: 50px; background: var(--color-bg-alt); padding: clamp(24px, 4vw, 40px); border-radius: var(--radius-lg); border: 1px solid var(--color-border); text-align: center;">
         <h3 style="margin-bottom: 10px;">Tem uma sugestão de trajeto ou padaria imperdível?</h3>
         <p style="color: var(--color-text-muted); max-width: 600px; margin: 0 auto 20px;">
           Compartilhe com a gente o roteiro de padarias que você costuma fazer no seu fim de semana por Curitiba.
@@ -2206,7 +2206,7 @@ const modeloRoteiroContent = `
 
   <section class="section">
     <div class="container" style="max-width: 900px;">
-      <article class="form-card" style="padding: 40px;">
+      <article class="form-card">
         <div style="margin-bottom: 24px; border-bottom: 1px solid var(--color-border); padding-bottom: 20px;">
           <span class="badge badge-brown" style="margin-bottom: 8px;">Tempo sugerido: 3 horas • A pé ou de bicicleta</span>
           <h2 style="font-size: 2rem; color: var(--color-primary); margin-bottom: 8px;">Roteiro de Pães Artesanais: Centro & Juvevê</h2>
@@ -2222,7 +2222,7 @@ const modeloRoteiroContent = `
         <div style="display: flex; flex-direction: column; gap: 24px; margin-bottom: 35px;">
           <!-- Parada 1 -->
           <div style="display: flex; gap: 20px; align-items: flex-start; background: var(--color-bg); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-            <div style="background: var(--color-primary); color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</div>
+            <div class="roteiro-step-badge">1</div>
             <div>
               <h4 style="font-size: 1.15rem; margin-bottom: 6px;">Ponto de Partida: Café & Croissant</h4>
               <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 8px;">
@@ -2234,7 +2234,7 @@ const modeloRoteiroContent = `
 
           <!-- Parada 2 -->
           <div style="display: flex; gap: 20px; align-items: flex-start; background: var(--color-bg); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-            <div style="background: var(--color-primary); color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</div>
+            <div class="roteiro-step-badge">2</div>
             <div>
               <h4 style="font-size: 1.15rem; margin-bottom: 6px;">O Forno Rústico: Pão de Campanha</h4>
               <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 8px;">
@@ -2290,7 +2290,7 @@ const blogContent = `
   <section class="section">
     <div class="container">
       <!-- BARRA DE BUSCA E CATEGORIAS OFICIAIS -->
-      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 40px; box-shadow: var(--shadow-sm);">
+      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: clamp(16px, 3vw, 24px); margin-bottom: 40px; box-shadow: var(--shadow-sm);">
         <div style="margin-bottom: 20px;">
           <label for="blog-search" class="form-label">Buscar artigos:</label>
           <input type="text" id="blog-search" class="form-input" placeholder="Pesquisar por título ou tema...">
@@ -2298,7 +2298,7 @@ const blogContent = `
         </div>
 
         <div>
-          <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); display: block; margin-bottom: 10px;">
+          <span style="font-size: 0.88rem; font-weight: 700; color: var(--color-text-muted); display: block; margin-bottom: 10px;">
             Categorias Editoriais:
           </span>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
@@ -2403,8 +2403,8 @@ const artigoContent = `
       </figure>
 
       <!-- Corpo do Artigo -->
-      <article style="font-size: 1.15rem; line-height: 1.85; color: var(--color-text);">
-        <p style="font-size: 1.25rem; font-weight: 500; color: var(--color-primary); margin-bottom: 1.8rem;">
+      <article style="font-size: 1.15rem; line-height: 1.65; color: var(--color-text);">
+        <p style="font-size: 1.2rem; font-weight: 400; color: var(--color-primary); line-height: 1.65; margin-bottom: 1.8rem;">
           Quando o CuritiPão foi concebido, a meta era dar voz aos aromas e às texturas das melhores padarias da capital paranaense. Nascido a partir dos roteiros do Curitidoce, o projeto ganhou em 2026 sua primeira edição no formato de festival.
         </p>
 
@@ -2524,7 +2524,7 @@ const festivalHubContent = `
       </div>
 
       <!-- CARD DESTAQUE DEDICADO: REPERCUSSÃO NA IMPRENSA -->
-      <div class="press-hub-callout" style="background: var(--color-surface); border: 1.5px solid var(--color-border); border-left: 5px solid var(--color-accent); border-radius: var(--radius-md); padding: 26px 30px; margin-bottom: 50px; box-shadow: var(--shadow-sm); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+      <div class="press-hub-callout" style="background: var(--color-surface); border: 1.5px solid var(--color-border); border-left: 5px solid var(--color-accent); border-radius: var(--radius-md); padding: clamp(20px, 3.5vw, 26px) clamp(16px, 4vw, 30px); margin-bottom: 50px; box-shadow: var(--shadow-sm); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
         <div style="max-width: 580px;">
           <span class="badge badge-gold" style="margin-bottom: 10px;">Cobertura Jornalística Oficial</span>
           <h3 style="font-size: 1.4rem; color: var(--color-primary); margin-bottom: 8px;">CuritiPão na Imprensa</h3>
@@ -2540,7 +2540,7 @@ const festivalHubContent = `
         </div>
       </div>
 
-      <div style="font-size: 1.1rem; line-height: 1.8; color: var(--color-text);">
+      <div style="font-size: 1.1rem; line-height: 1.65; color: var(--color-text);">
         <h2 style="margin-bottom: 18px; color: var(--color-primary);">A Origem e a Filosofia do Festival</h2>
         <p>
           O Festival CuritiPão foi concebido para celebrar a cultura da panificação de Curitiba. O evento estimula as padarias locais a exercerem sua criatividade máxima em receitas autorais, enquanto convida a população a explorar novos bairros e valorizar o trabalho artesanal de quem assa diariamente.
@@ -2597,7 +2597,7 @@ const contatoContent = `
   <section class="section">
     <div class="container" style="max-width: 900px;">
       <!-- CANAIS DIRETOS OFICIAIS -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 20px; margin-bottom: 40px;">
         <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; text-align: center;">
           <span style="font-size: 1.8rem; display: block; margin-bottom: 8px;">✉️</span>
           <h3 style="font-size: 1.1rem; margin-bottom: 6px;">E-mail Oficial</h3>
@@ -2815,7 +2815,7 @@ const contatoContent = `
           <div class="form-contacts-block">
             <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 4px;">
               <label class="form-label" style="margin-bottom: 0;">Contatos da Padaria <span class="required">*</span></label>
-              <span style="font-size: 0.8rem; font-weight: 600; color: var(--color-accent);">Solicite pelo menos um contato: Telefone ou WhatsApp</span>
+              <span style="font-size: 0.82rem; font-weight: 600; color: var(--color-accent-text);">Solicite pelo menos um contato: Telefone ou WhatsApp</span>
             </div>
             <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-bottom: 14px;">
               Informe com ou sem formatação (DDD + número). Aceita telefone fixo e celular.
@@ -2926,7 +2926,7 @@ const solucoesContent = `
 
   <section class="section">
     <div class="container" style="max-width: 900px;">
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-bottom: 45px;">
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); margin-bottom: 45px;">
         <div class="form-card" style="margin-bottom: 0;">
           <h3 style="font-size: 1.25rem; color: var(--color-primary); margin-bottom: 10px;">Websites Institucionais</h3>
           <p style="font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.6;">
@@ -2966,11 +2966,11 @@ const solucoesContent = `
           Para padarias, confeitarias e estabelecimentos gastronômicos interessados em novos projetos de websites, cardápios interativos via QR Code ou consultoria de presença digital:
         </p>
 
-        <div class="conexus-contact-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+        <div class="conexus-contact-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));">
           <!-- E-mail Comercial (Ícone Azul Adotado) -->
           <div class="conexus-channel-item">
             <div class="conexus-channel-icon-wrap icon-wrap-azul">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1A73E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
@@ -2978,7 +2978,7 @@ const solucoesContent = `
             <div class="conexus-channel-info">
               <h4>E-mail Comercial</h4>
               <p style="margin-bottom: 6px;">Propostas, projetos e orçamentos:</p>
-              <a href="mailto:comercial@conexus.press" style="font-weight: 700; color: #1A73E8; font-size: 0.95rem;">
+              <a href="mailto:comercial@conexus.press" class="conexus-email-link">
                 comercial@conexus.press
               </a>
             </div>
@@ -3044,7 +3044,7 @@ ensureDir('./imprensa');
 const pressPublications2026 = [
   {
     vehicle: 'CBN Curitiba',
-    title: 'Festival CuritiPão vai até sexta (30) em 15 padarias de Curitiba; OUÇA A COLUNA',
+    title: 'Festival CuritiPão vai até sexta (30) em 15 padarias de Curitiba; ouça a coluna',
     date: '29/10/2026',
     format: 'Coluna em áudio',
     formatBadge: 'Coluna em Áudio',
@@ -3304,7 +3304,7 @@ const imprensaContent = `
         <div class="press-video-content-wrap">
           <span class="press-format-badge" style="position: static; display: inline-block; margin-bottom: 10px;">Reportagem em Vídeo</span>
           <div class="press-card-vehicle" style="color: var(--color-primary); font-weight: 700;">RICtv / Record • RIC Notícias Manhã</div>
-          <h3 style="font-size: 1.35rem; color: var(--color-primary-dark); margin: 6px 0 12px; line-height: 1.35;">
+          <h3 style="font-size: 1.35rem; color: var(--color-primary); margin: 6px 0 12px; line-height: 1.35;">
             CuritiPão estreia em Curitiba com receitas exclusivas de 15 padarias
           </h3>
           <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
@@ -3349,7 +3349,7 @@ const imprensaContent = `
         </p>
       </div>
 
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));">
         <!-- Curitidoce -->
         <article class="form-card" style="margin-bottom: 0;">
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
@@ -3436,7 +3436,7 @@ const privacidadeContent = `
 
   <section class="section">
     <div class="container" style="max-width: 860px;">
-      <article style="font-size: 1.05rem; line-height: 1.8; color: var(--color-text);">
+      <article style="font-size: 1.05rem; line-height: 1.65; color: var(--color-text);">
         <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 24px;">
           Última atualização: Novembro de 2026 • CuritiPão (curitipao.com.br)
         </p>

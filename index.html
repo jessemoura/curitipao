@@ -311,7 +311,7 @@
         </p>
       </div>
 
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));">
         <!-- Roteiro Publicado em Destaque -->
         <article class="card-editorial" style="border: 2px solid var(--color-accent); box-shadow: var(--shadow-sm);">
           <div class="card-media">
@@ -366,10 +366,10 @@
 
       <div style="max-width: 800px; margin: 0 auto;">
         <article class="card-editorial" style="flex-direction: row; flex-wrap: wrap;">
-          <div class="card-media" style="flex: 1 1 300px; min-height: 240px;">
+          <div class="card-media" style="flex: 1 1 260px; min-width: 0; min-height: 240px;">
             <img src="/assets/photos/curitipao-108 (1).jpg" alt="Fornos e pães artesanais em Curitiba" loading="lazy">
           </div>
-          <div class="card-body" style="flex: 1 1 320px;">
+          <div class="card-body" style="flex: 1 1 260px; min-width: 0;">
             <span class="card-tag">Novidades e festival</span>
             <h3 class="card-title">
               <a href="/blog/o-curitipao-continua/">O CuritiPão continua: do roteiro ao festival, agora um guia permanente</a>
@@ -390,7 +390,7 @@
   <!-- CHAMADA PARA O ARQUIVO FESTIVAL 2026 -->
   <section class="section">
     <div class="container">
-      <div style="background: var(--color-surface); border: 2px dashed var(--color-border); border-radius: var(--radius-lg); padding: 40px 30px; text-align: center; max-width: 900px; margin: 0 auto;">
+      <div style="background: var(--color-surface); border: 2px dashed var(--color-border); border-radius: var(--radius-lg); padding: clamp(22px, 4vw, 40px) clamp(16px, 4vw, 30px); text-align: center; max-width: 900px; margin: 0 auto;">
         <span class="badge badge-gold" style="margin-bottom: 12px;">Memória Histórica</span>
         <h2 style="margin-bottom: 12px; color: var(--color-primary);">Arquivo Oficial do Festival 2026</h2>
         <p style="color: var(--color-text-muted); max-width: 650px; margin: 0 auto 24px; line-height: 1.6;">
@@ -404,7 +404,7 @@
   <!-- CONVITE PARA PARTICIPAÇÃO & CONEXUS -->
   <section class="section section-alt">
     <div class="container">
-      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));">
         <!-- Card Participação -->
         <div class="form-card" style="margin-bottom: 0;">
           <h3 style="margin-bottom: 12px;">Indique uma padaria favorita</h3>
