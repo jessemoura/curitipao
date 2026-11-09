@@ -862,7 +862,7 @@ const bakeryCardsHtml = sortedBakeries.map(b => {
     <article class="card-editorial bakery-card bakery-free-card theme-${cardTheme}" id="${slug}" data-name="${b.name}" data-bairro="${b.neighborhood}" data-bairros="${bairrosList.join(',')}" data-cidade="${b.city || 'Curitiba'}" data-description="${b.description.replace(/"/g, '&quot;')}" data-search="${normalizedSearch}" style="border: 1px solid var(--color-border); border-top: 4px solid var(--card-bairro-color); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); overflow: hidden;">
       <div class="card-body" style="padding: 22px; display: flex; flex-direction: column; height: 100%;">
         <!-- Começa pelo nome -->
-        <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; font-size: 1.3rem; color: var(--color-primary); line-height: 1.25;">
+        <h3 class="card-title bakery-name" style="margin: 0 0 8px 0; color: var(--color-primary);">
           ${b.name}
         </h3>
 
