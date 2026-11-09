@@ -2613,12 +2613,6 @@ const contatoContent = `
         </div>
       </div>
 
-      <!-- AVISO DE ATIVAÇÃO TÉCNICA DO TRANSPORTE DE E-MAIL -->
-      <div class="form-notice">
-        <strong>Aviso sobre os formulários do site:</strong><br>
-        O envio direto via formulário web está em fase de homologação técnica de infraestrutura SMTP na hospedagem. Todas as informações preenchidas são validadas pelo sistema para conferência. Para atendimento imediato da curadoria, você também pode enviar suas informações diretamente para <a href="mailto:contato@curitipao.com.br" style="text-decoration: underline; font-weight:700;">contato@curitipao.com.br</a> ou pelo direct do Instagram <a href="https://www.instagram.com/curitipao.guia/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; font-weight:700;">@curitipao.guia</a>.
-      </div>
-
       <!-- FORMULÁRIO A: INDIQUE UMA PADARIA -->
       <section class="form-card" id="indicar">
         <h2 style="font-size: 1.6rem; margin-bottom: 8px; color: var(--color-primary);">A) Indique uma Padaria</h2>
