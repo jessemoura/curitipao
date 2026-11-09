@@ -1,6 +1,6 @@
 [
   {
-    "name": "AQUARIUS PANIFICADORA",
+    "name": "Aquarius Panificadora",
     "neighborhood": "Bacacheri",
     "allBairros": ["Bacacheri"],
     "city": "Curitiba",
@@ -25,7 +25,7 @@
     "units": []
   },
   {
-    "name": "AQUI NA MATA",
+    "name": "Aqui na Mata",
     "neighborhood": "Juvevê",
     "allBairros": ["Juvevê"],
     "city": "Curitiba",
@@ -50,7 +50,7 @@
     "units": []
   },
   {
-    "name": "BONIN BAKERY",
+    "name": "Bonin Bakery",
     "neighborhood": "Centro",
     "allBairros": ["Centro"],
     "city": "Curitiba",
@@ -75,7 +75,7 @@
     "units": []
   },
   {
-    "name": "CONFRARIA DOS PÃES",
+    "name": "Confraria dos Pães",
     "neighborhood": "Alto da XV",
     "allBairros": ["Alto da XV"],
     "city": "Curitiba",
@@ -100,7 +100,7 @@
     "units": []
   },
   {
-    "name": "FABIANO MARCOLINI ALIMENTARI",
+    "name": "Fabiano Marcolini Alimentari",
     "neighborhood": "Batel",
     "allBairros": ["Batel"],
     "city": "Curitiba",
@@ -125,7 +125,7 @@
     "units": []
   },
   {
-    "name": "FÁBRIKA PÃES",
+    "name": "Fábrika Pães",
     "neighborhood": "Alto da XV",
     "allBairros": ["Alto da XV"],
     "city": "Curitiba",
@@ -150,7 +150,7 @@
     "units": []
   },
   {
-    "name": "FELIPANE",
+    "name": "Felipane",
     "neighborhood": "Juvevê",
     "allBairros": ["Juvevê"],
     "city": "Curitiba",
@@ -175,7 +175,7 @@
     "units": []
   },
   {
-    "name": "HAIAT ATELIÊ DO PÃO",
+    "name": "Haiat Ateliê do Pão",
     "neighborhood": "Juvevê",
     "allBairros": ["Juvevê"],
     "city": "Curitiba",
@@ -200,7 +200,7 @@
     "units": []
   },
   {
-    "name": "MAÇÃ ORGÂNICA PADARIA",
+    "name": "Maçã Orgânica Padaria",
     "neighborhood": "Vila Izabel, Água Verde e Alto da XV",
     "allBairros": ["Vila Izabel", "Água Verde", "Alto da XV"],
     "city": "Curitiba",
@@ -244,7 +244,7 @@
     ]
   },
   {
-    "name": "PADARIA AMÉRICA",
+    "name": "Padaria América",
     "neighborhood": "São Francisco",
     "allBairros": ["São Francisco"],
     "city": "Curitiba",
@@ -269,7 +269,7 @@
     "units": []
   },
   {
-    "name": "PADARIA FAMÍLIA FARINHA",
+    "name": "Padaria Família Farinha",
     "neighborhood": "Jardim Social",
     "allBairros": ["Jardim Social"],
     "city": "Curitiba",
@@ -294,7 +294,7 @@
     "units": []
   },
   {
-    "name": "PADARIA REQUINTE",
+    "name": "Padaria Requinte",
     "neighborhood": "Bigorrilho e Cabral",
     "allBairros": ["Bigorrilho", "Cabral"],
     "city": "Curitiba",
@@ -332,7 +332,7 @@
     ]
   },
   {
-    "name": "PIEGEL PÃES",
+    "name": "Piegel Pães",
     "neighborhood": "Cabral",
     "allBairros": ["Cabral"],
     "city": "Curitiba",
@@ -357,7 +357,7 @@
     "units": []
   },
   {
-    "name": "SAINT GERMAIN PANIFICADORA",
+    "name": "Saint Germain Panificadora",
     "neighborhood": "Batel e Ecoville",
     "allBairros": ["Batel", "Ecoville"],
     "city": "Curitiba",
@@ -395,7 +395,7 @@
     ]
   },
   {
-    "name": "SPHAIR ATELIÊ DE PÃES",
+    "name": "Sphair Ateliê de Pães",
     "neighborhood": "Ahú e Bigorrilho",
     "allBairros": ["Ahú", "Bigorrilho"],
     "city": "Curitiba",
