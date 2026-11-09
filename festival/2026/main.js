@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!card) return { id: 'desconhecido', name: 'Desconhecida' };
     const h3 = card.querySelector('h3');
     const name = h3 ? h3.textContent.trim() : 'Desconhecida';
-    const id = BAKERY_SLUG_MAP[name] || name.toLowerCase()
+    const id = BAKERY_SLUG_MAP[name] || BAKERY_SLUG_MAP[name.toUpperCase()] || name.toLowerCase()
       .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '');
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="cookie-content">
         <span class="cookie-icon" role="img" aria-label="Bolachinhas / Cookies">🍪</span>
         <div class="cookie-text">
-          <strong>Cookies:</strong> Utilizamos armazenamento local no navegador para salvar suas preferências e garantir o bom funcionamento do guia. Saiba mais na nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
+          <strong>Cookies:</strong> Utilizamos armazenamento local no navegador para salvar suas preferências e garantir o bom funcionamento do guia. Saiba mais na nossa <a href="/privacidade/">Política de Privacidade</a>.
         </div>
       </div>
       <div class="cookie-buttons">
@@ -222,6 +222,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Sync live if user has not explicitly picked a portal theme
+if (window.matchMedia) {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    try {
+      if (!localStorage.getItem('curitipao_theme')) {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      }
+    } catch {}
+  });
+}
 
 // Ensure smooth and accurate scroll to hash if page loaded with an anchor
 if (window.location.hash) {
