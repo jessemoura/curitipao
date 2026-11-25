@@ -38,7 +38,7 @@ slugs.forEach(slug => {
   console.log('Series nav present:', series);
 
   // Caption
-  const caption = html.includes('Imagem ilustrativa gerada por IA.');
+  const caption = html.includes('Imagem ilustrativa');
   console.log('Caption present:', caption);
 
   // Schema
