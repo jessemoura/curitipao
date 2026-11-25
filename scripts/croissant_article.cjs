@@ -529,9 +529,10 @@ function getCroissantArticleContent() {
       <!-- ENCERRAMENTO E LINK INTERNO -->
       <section class="roteiro-how-to-use" style="margin-top: 50px;">
         <h2>Seu croissant favorito em Curitiba</h2>
-        <p>Já tem um croissant sem recheio favorito em Curitiba? Quero saber onde você comeu e o que te faria voltar para pedir outro. E, se quiser aproveitar a saída para levar pão para casa, veja também o <a href="/roteiros/padarias-em-curitiba-por-bairro/">roteiro de padarias em Curitiba, bairro por bairro</a>.</p>
+        <p>Já tem um croissant sem recheio favorito em Curitiba? Quero saber onde você comeu e o que te faria voltar para pedir outro. E, se quiser aproveitar a saída para levar pão para casa, veja também o <a href="/roteiros/padarias-em-curitiba-por-bairro/">roteiro de 15 padarias do Festival CuritiPão</a> ou o nosso amplo <a href="/roteiros/guia-padarias-curitiba-por-bairro/">guia de 30 padarias em Curitiba por bairro</a>.</p>
         <div style="margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap;">
-          <a href="/roteiros/padarias-em-curitiba-por-bairro/" class="btn btn-primary">Ver Roteiro de 15 Padarias por Bairro &rarr;</a>
+          <a href="/roteiros/guia-padarias-curitiba-por-bairro/" class="btn btn-primary">Ver Guia de 30 Padarias por Bairro &rarr;</a>
+          <a href="/roteiros/padarias-em-curitiba-por-bairro/" class="btn btn-secondary">Ver Roteiro de 15 Padarias do Festival &rarr;</a>
           <a href="/contato/#indicar" class="btn btn-secondary">Indicar um novo croissant &rarr;</a>
         </div>
       </section>

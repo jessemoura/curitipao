@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { renderBlogCards, writeBlogArticles, blogUrls, invitation, invitationArticle } = require('./blog_articles.cjs');
 const { getCroissantArticleContent } = require('./croissant_article.cjs');
+const { renderGuiaPadariasHtml } = require('./guia_padarias_article.cjs');
 const blogArticlesData = require('../content/blog/articles.json');
 const totalBlogArticlesCount = 1 + blogArticlesData.length;
 
@@ -1356,6 +1357,31 @@ const roteirosContent = `
       </div>
 
       <div class="card-grid">
+        <!-- Roteiro Publicado: 30 padarias em Curitiba para conhecer, bairro por bairro -->
+        <article class="card-editorial" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px; background: var(--color-surface); border: 2px solid var(--color-accent); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+          <div class="card-media" style="min-height: 260px; height: 100%;">
+            <a href="/roteiros/guia-padarias-curitiba-por-bairro/" style="display: block; height: 100%;">
+              <img src="/assets/photos/roteiros/guia-padarias-curitiba-por-bairro/capa-guia-padarias-16x9.webp" alt="30 padarias em Curitiba para conhecer, bairro por bairro" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="eager">
+            </a>
+          </div>
+          <div class="card-body" style="padding: 28px; display: flex; flex-direction: column; justify-content: center;">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="badge badge-gold">Guia Completo</span>
+              <span class="card-tag" style="margin: 0;">Mapeamento por Bairros • 30 Padarias</span>
+            </div>
+            <h2 class="card-title" style="font-size: 1.6rem; margin-bottom: 12px; line-height: 1.3;">
+              <a href="/roteiros/guia-padarias-curitiba-por-bairro/" style="color: var(--color-primary); text-decoration: none;">30 padarias em Curitiba para conhecer, bairro por bairro</a>
+            </h2>
+            <p class="card-desc" style="font-size: 1rem; line-height: 1.6; margin-bottom: 20px; color: var(--color-text);">
+              Um guia com endereços e dicas do que pedir, do pão de fermentação natural ao croissant e ao buffet de café da manhã.
+            </p>
+            <div class="card-footer" style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--color-border); flex-wrap: wrap; gap: 10px;">
+              <span style="font-size: 0.85rem; color: var(--color-text-muted); font-style: italic;">Curadoria CuritiPão</span>
+              <a href="/roteiros/guia-padarias-curitiba-por-bairro/" class="btn btn-primary">Abrir guia completo &rarr;</a>
+            </div>
+          </div>
+        </article>
+
         <!-- Roteiro Destaque Publicado: 15 Padarias por Bairro -->
         <article class="card-editorial" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px; background: var(--color-surface); border: 2px solid var(--color-accent); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
           <div class="card-media" style="min-height: 260px; height: 100%;">
@@ -1563,6 +1589,9 @@ const roteiro15PadariasContent = `
         <p>Curitiba tem padarias centenárias, pequenos ateliês escondidos em ruas tranquilas, casas especializadas em fermentação natural e panificadoras onde ainda é possível encontrar aqueles clássicos que fazem parte da memória da cidade. Algumas são perfeitas para comprar o pão do dia; outras convidam a sentar, pedir um café e acompanhar o movimento das fornadas.</p>
         <p>A primeira edição do Festival CuritiPão reuniu 15 dessas padarias e ajudou a mostrar a diversidade da panificação curitibana. Agora, elas também formam o ponto de partida do guia permanente do CuritiPão, criado para apresentar os pães, as histórias e as pessoas que movimentam os fornos da cidade durante o ano inteiro.</p>
         <p>Este roteiro não é um ranking. É uma seleção construída a partir das padarias que participaram da primeira edição do festival, acrescida das minhas percepções e experiências em cada endereço. Organizei as casas por bairros para facilitar a escolha e ajudar você a descobrir novos lugares.</p>
+        <p style="font-size: 0.95rem; color: var(--color-text-muted); background: var(--color-surface); padding: 12px 16px; border-radius: var(--radius-md); border-left: 3px solid var(--color-accent); margin-top: 16px;">
+          Procurando um panorama ainda mais amplo pela cidade? Conheça também o nosso novo <a href="/roteiros/guia-padarias-curitiba-por-bairro/" style="color: var(--color-primary); font-weight: 600; text-decoration: underline;">guia de 30 padarias em Curitiba por bairro</a>, com dicas do pão ao buffet de café da manhã.
+        </p>
       </div>
 
       <!-- Índice Navegável por Bairros e Padarias -->
@@ -2257,6 +2286,63 @@ const roteiroCroissantHtml = wrapPage({
 });
 fs.writeFileSync('./roteiros/onde-comer-croissant-em-curitiba/index.html', roteiroCroissantHtml, 'utf8');
 console.log('Generated roteiros/onde-comer-croissant-em-curitiba/index.html');
+
+// -------------------------------------------------------------
+// PAGE 5D: ROTEIRO INDIVIDUAL - 30 PADARIAS POR BAIRRO (/roteiros/guia-padarias-curitiba-por-bairro/)
+// -------------------------------------------------------------
+ensureDir('./roteiros/guia-padarias-curitiba-por-bairro');
+
+const guia30PadariasFile = fs.existsSync('./curitipao-30-padarias.txt') 
+  ? './curitipao-30-padarias.txt' 
+  : (fs.existsSync('./docs/guia-30-padarias.md') ? './docs/guia-30-padarias.md' : null);
+
+const roteiro30PadariasSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "30 padarias em Curitiba para conhecer, bairro por bairro",
+  "alternativeHeadline": "30 padarias em Curitiba para conhecer por bairro",
+  "description": "Conheça 30 padarias em Curitiba por bairro, com endereços e dicas do que pedir, do pão de fermentação natural ao croissant e ao café da manhã.",
+  "image": [
+    "https://curitipao.com.br/assets/photos/roteiros/guia-padarias-curitiba-por-bairro/capa-guia-padarias-16x9.webp"
+  ],
+  "datePublished": "2026-11-25T12:00:00-03:00",
+  "dateModified": "2026-11-25T12:00:00-03:00",
+  "author": {
+    "@type": "Organization",
+    "name": "Curadoria CuritiPão",
+    "url": "https://curitipao.com.br/sobre/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CuritiPão",
+    "url": "https://curitipao.com.br",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://curitipao.com.br/assets/logos/curitipao-logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://curitipao.com.br/roteiros/guia-padarias-curitiba-por-bairro/"
+  },
+  "keywords": "padarias em Curitiba, padarias por bairro Curitiba, guia padarias Curitiba, café da manhã Curitiba, pão fermentação natural Curitiba"
+};
+
+const guia30PadariasRaw = guia30PadariasFile ? fs.readFileSync(guia30PadariasFile, 'utf8') : '';
+const guia30PadariasContent = renderGuiaPadariasHtml(guia30PadariasRaw);
+
+const roteiro30PadariasHtml = wrapPage({
+  title: '30 padarias em Curitiba para conhecer por bairro',
+  description: 'Conheça 30 padarias em Curitiba por bairro, com endereços e dicas do que pedir, do pão de fermentação natural ao croissant e ao café da manhã.',
+  canonical: '/roteiros/guia-padarias-curitiba-por-bairro/',
+  activeRoute: '/roteiros/',
+  ogType: 'article',
+  ogImage: 'https://curitipao.com.br/assets/photos/roteiros/guia-padarias-curitiba-por-bairro/capa-guia-padarias-16x9.webp',
+  schemaJson: roteiro30PadariasSchema,
+  content: guia30PadariasContent
+});
+fs.writeFileSync('./roteiros/guia-padarias-curitiba-por-bairro/index.html', roteiro30PadariasHtml, 'utf8');
+console.log('Generated roteiros/guia-padarias-curitiba-por-bairro/index.html');
 
 
 // -------------------------------------------------------------
@@ -3612,6 +3698,7 @@ const publicUrls = [
   'https://curitipao.com.br/roteiros/',
   'https://curitipao.com.br/roteiros/padarias-em-curitiba-por-bairro/',
   'https://curitipao.com.br/roteiros/onde-comer-croissant-em-curitiba/',
+  'https://curitipao.com.br/roteiros/guia-padarias-curitiba-por-bairro/',
   'https://curitipao.com.br/blog/',
   'https://curitipao.com.br/blog/o-curitipao-continua/',
   ...blogUrls,
