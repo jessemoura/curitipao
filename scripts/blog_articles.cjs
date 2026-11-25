@@ -44,7 +44,8 @@ function renderSeriesNav(article) {
   const seriesArticles = [
     { slug: '/blog/como-surgiu-o-pao/', title: 'Como surgiu o pão? Uma história que começou antes da agricultura' },
     { slug: '/blog/pao-islandia-calor-da-terra/', title: 'O pão que assa debaixo da terra: conheça uma tradição da Islândia' },
-    { slug: '/blog/lavash-pao-tradicional-armenia/', title: 'Lavash: o pão fininho que carrega uma tradição da Armênia' }
+    { slug: '/blog/lavash-pao-tradicional-armenia/', title: 'Lavash: o pão fininho que carrega uma tradição da Armênia' },
+    { slug: '/blog/shokupan-pao-japones/', title: 'Shokupan: conheça o pão japonês de miolo macio' }
   ];
   const items = seriesArticles
     .filter(item => item.slug !== article.slug_suggested)
