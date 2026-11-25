@@ -2258,6 +2258,89 @@ p:last-child {
   gap: 8px;
 }
 
+/* ========================================================
+   FOTOS INTERNAS DE ROTEIROS (SEM CORTE / PROPORÇÃO NATURAL)
+   ======================================================== */
+.roteiro-internal-photo-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.roteiro-internal-figure {
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.roteiro-internal-zoom-btn {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  position: relative;
+  line-height: 0;
+  text-align: center;
+}
+
+.roteiro-internal-zoom-btn:hover .roteiro-internal-img {
+  transform: none;
+}
+
+.roteiro-internal-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.roteiro-internal-caption {
+  width: 100%;
+  padding: 8px 12px;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.roteiro-internal-caption strong {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+@media (max-width: 640px) {
+  .roteiro-internal-photo-stage {
+    padding: 16px 14px 0;
+  }
+  .roteiro-internal-figure {
+    max-width: 100% !important;
+  }
+  .roteiro-internal-img {
+    max-height: 380px;
+  }
+}
+
 .roteiro-address-list li::before {
   content: "•";
   color: var(--color-accent);
