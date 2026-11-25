@@ -2466,10 +2466,9 @@ const blogContent = `
           </span>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
             <button type="button" class="btn btn-secondary blog-filter-btn active" data-category="all" id="blog-all-filter-btn" style="padding: 6px 14px; font-size: 0.82rem;">Todos (${totalBlogArticlesCount})</button>
+            <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Histórias do pão" style="padding: 6px 14px; font-size: 0.82rem;">Histórias do pão</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Novidades e festival" style="padding: 6px 14px; font-size: 0.82rem;">Novidades e festival</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Padarias e pessoas" style="padding: 6px 14px; font-size: 0.82rem;">Padarias e pessoas</button>
-            <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Receitas" style="padding: 6px 14px; font-size: 0.82rem;">Receitas</button>
-            <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Roteiros" style="padding: 6px 14px; font-size: 0.82rem;">Roteiros</button>
             <button type="button" class="btn btn-secondary blog-filter-btn" data-category="Pães e sabores" style="padding: 6px 14px; font-size: 0.82rem;">Pães e sabores</button>
           </div>
         </div>
@@ -3713,9 +3712,10 @@ const publicUrls = [
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${publicUrls.map(url => `  <url>
-    <loc>${url}</loc>${blogUrls.includes(url) ? '' : '\n    <lastmod>2026-11-04</lastmod>'}
+    <loc>${url}</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>${url.endsWith('.br/') ? '1.0' : (url.includes('/padarias-em-curitiba-por-bairro/') || url.includes('/onde-comer-croissant-em-curitiba/') ? '0.9' : '0.8')}</priority>
+    <priority>${url.endsWith('.br/') ? '1.0' : (url.includes('/padarias-em-curitiba-por-bairro/') || url.includes('/onde-comer-croissant-em-curitiba/') || url.includes('/guia-padarias-curitiba-por-bairro/') ? '0.9' : '0.8')}</priority>
   </url>`).join('\n')}
 </urlset>
 `;

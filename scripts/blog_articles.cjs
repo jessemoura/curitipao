@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const markdown = require('markdown-it')({ html: false });
+const markdown = require('markdown-it')({ html: false, linkify: true });
 const articles = require('../content/blog/articles.json');
 
 const site = 'https://curitipao.com.br';
@@ -39,10 +39,34 @@ function renderBody(article) {
   return markdown.render(intro) + callout + markdown.render(sections.join(''));
 }
 
+function renderSeriesNav(article) {
+  if (article.series !== 'Histórias do pão') return '';
+  const seriesArticles = [
+    { slug: '/blog/como-surgiu-o-pao/', title: 'Como surgiu o pão? Uma história que começou antes da agricultura' },
+    { slug: '/blog/pao-islandia-calor-da-terra/', title: 'O pão que assa debaixo da terra: conheça uma tradição da Islândia' },
+    { slug: '/blog/lavash-pao-tradicional-armenia/', title: 'Lavash: o pão fininho que carrega uma tradição da Armênia' }
+  ];
+  const items = seriesArticles
+    .filter(item => item.slug !== article.slug_suggested)
+    .map(item => `<li><a href="${item.slug}"><strong>${escapeHtml(item.title)}</strong></a></li>`)
+    .join('');
+
+  return `
+    <nav class="series-nav" aria-label="Série Histórias do pão" style="margin: 36px 0; padding: 24px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md);">
+      <span class="badge badge-gold" style="margin-bottom: 8px; display: inline-block;">Série editorial</span>
+      <h2 style="font-size: 1.25rem; margin: 4px 0 12px; color: var(--color-text);">Continue na série Histórias do pão</h2>
+      <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
+        ${items}
+      </ul>
+    </nav>`;
+}
+
 function writeBlogArticles(wrapPage) {
   for (const article of articles) {
     const title = escapeHtml(article.title);
-    const image = site + coverPath(article);
+    const coverUrl = site + coverPath(article);
+    const ogImage = article.share_image ? site + '/assets/photos/blog/' + article.share_image : coverUrl;
+    const authorName = article.author || 'Curadoria CuritiPão';
     const related = article.related_articles.map(link =>
       `<li><a href="${escapeHtml(link.url)}">${escapeHtml(link.title)}</a></li>`
     ).join('');
@@ -56,7 +80,7 @@ function writeBlogArticles(wrapPage) {
           </nav>
           <span class="badge badge-gold">${escapeHtml(article.category)}</span>
           <h1>${title}</h1>
-          <p>Por <strong>CuritiPão</strong></p>
+          <p class="article-byline">Por <strong>${escapeHtml(authorName)}</strong></p>
         </div>
       </section>
       <section class="section">
@@ -65,11 +89,12 @@ function writeBlogArticles(wrapPage) {
             <figure class="roteiro-bakery-figure">
               <img class="roteiro-bakery-img" src="${coverPath(article)}" alt="${escapeHtml(article.image_alt)}" width="${article.image_width}" height="${article.image_height}" fetchpriority="high">
               <figcaption class="roteiro-bakery-caption">
-                <em>${escapeHtml(article.image_credit)}</em>
+                ${article.image_credit ? `<em>${escapeHtml(article.image_credit)}</em>` : ''}
                 <span>${escapeHtml(article.image_caption)}</span>
               </figcaption>
             </figure>
             ${renderBody(article)}
+            ${renderSeriesNav(article)}
             <nav aria-label="Artigos relacionados">
               <h2>Leia também</h2>
               <ul>${related}</ul>
@@ -77,24 +102,58 @@ function writeBlogArticles(wrapPage) {
           </article>
         </div>
       </section>`;
+
+    const extraHead = `
+  <meta property="og:image:width" content="${article.share_width || 1200}">
+  <meta property="og:image:height" content="${article.share_height || (article.share_image ? 630 : 675)}">
+  <meta property="og:image:type" content="${article.share_type || (article.share_image ? 'image/jpeg' : 'image/webp')}">
+  <meta property="og:image:alt" content="${escapeHtml(article.image_alt)}">
+  <meta name="twitter:image:alt" content="${escapeHtml(article.image_alt)}">`;
+
+    const schemaJson = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'BreadcrumbList',
+          'itemListElement': [
+            { '@type': 'ListItem', 'position': 1, 'name': 'Início', 'item': site + '/' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Blog', 'item': site + '/blog/' },
+            { '@type': 'ListItem', 'position': 3, 'name': article.category, 'item': site + '/blog/' },
+            { '@type': 'ListItem', 'position': 4, 'name': article.title, 'item': site + article.slug_suggested }
+          ]
+        },
+        {
+          '@type': 'BlogPosting',
+          'headline': article.title,
+          'description': article.meta_description,
+          'image': ogImage,
+          'datePublished': article.datePublished || '2026-11-04',
+          'dateModified': article.dateModified || '2026-11-25',
+          'author': { '@type': 'Organization', 'name': authorName, 'url': site },
+          'publisher': {
+            '@type': 'Organization',
+            'name': 'CuritiPão',
+            'url': site,
+            'logo': {
+              '@type': 'ImageObject',
+              'url': site + '/assets/curitipao-logo.png'
+            }
+          },
+          'mainEntityOfPage': site + article.slug_suggested
+        }
+      ]
+    };
+
     const html = wrapPage({
       title: escapeHtml(article.seo_title),
       description: escapeHtml(article.meta_description),
       canonical: article.slug_suggested,
       activeRoute: '/blog/',
       ogType: 'article',
-      ogImage: image,
+      ogImage,
       content,
-      schemaJson: {
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: article.title,
-        description: article.meta_description,
-        image,
-        author: { '@type': 'Organization', name: 'CuritiPão', url: site },
-        publisher: { '@type': 'Organization', name: 'CuritiPão', url: site },
-        mainEntityOfPage: site + article.slug_suggested
-      }
+      extraHead,
+      schemaJson
     });
     const output = path.resolve('.' + article.slug_suggested, 'index.html');
     fs.mkdirSync(path.dirname(output), { recursive: true });

@@ -1,5 +1,113 @@
 [
   {
+    "title": "Como surgiu o pão? Uma história que começou antes da agricultura",
+    "seo_title": "Como surgiu o pão? Conheça suas origens | CuritiPão",
+    "slug_suggested": "/blog/como-surgiu-o-pao/",
+    "category": "Histórias do pão",
+    "series": "Histórias do pão",
+    "meta_description": "Conheça as origens do pão, os vestígios de 14.400 anos encontrados na Jordânia e o papel da moagem e da fermentação nessa história.",
+    "author": "Curadoria CuritiPão",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "image": "historias-do-pao/origem-do-pao.webp",
+    "share_image": "historias-do-pao/origem-do-pao-share.jpg",
+    "share_width": 1200,
+    "share_height": 630,
+    "share_type": "image/jpeg",
+    "image_alt": "Ilustração de pães achatados ao lado de grãos e uma pedra de moagem.",
+    "image_caption": "Imagem ilustrativa gerada por IA.",
+    "image_credit": "",
+    "image_width": 1200,
+    "image_height": 675,
+    "body_markdown": "Antes dos fornos das padarias e das massas que descansam durante horas, transformar grãos em pão já exigia observação, trabalho e conhecimento. Alguns vestígios dessa história sobreviveram justamente porque foram queimados.\n\n**Curadoria CuritiPão**\n\nQuem pega um pão no balcão encontra o resultado pronto. Por trás dele há escolhas sobre ingredientes, moagem, água, tempo e calor. Perguntar como surgiu o pão é voltar a um momento em que essas possibilidades ainda estavam sendo exploradas.\n\nA resposta não cabe no nome de uma pessoa ou em uma única receita. A arqueologia ajuda a reconhecer preparos antigos, mas não entrega uma certidão de nascimento do pão.\n\n## O que foi encontrado na atual Jordânia\n\nEm 2018, pesquisadores divulgaram a análise de fragmentos carbonizados encontrados em Shubayqa 1, no nordeste da atual Jordânia. Os vestígios, associados a um grupo de caçadores-coletores, têm cerca de 14.400 anos.\n\nO estudo identificou produtos semelhantes a pães achatados. O achado documenta o preparo de alimentos desse tipo antes do desenvolvimento da agricultura, contrariando a ideia de que seria preciso primeiro cultivar cereais para depois fazer pão.\n\nIsso não significa que o pão tenha sido inventado naquele ponto exato. Um vestígio preservado demonstra que a prática existia, sem revelar necessariamente onde começou.\n\n## Como esses preparos eram feitos\n\nA análise indicou processamento de cereais silvestres, com etapas de moagem, peneiramento e preparo da massa antes do cozimento. Os fragmentos apresentam semelhanças com pães achatados sem fermentação.\n\nNão temos uma receita completa para reproduzir aquela refeição. Temos indícios materiais de uma transformação que envolvia muito mais do que colher e comer grãos.\n\n## A fermentação acrescentou outras possibilidades\n\nPara entender os pães de fermentação natural atuais, é preciso olhar também para os microrganismos. Esses fermentos abrigam comunidades de leveduras e bactérias.\n\nAs leveduras produzem gás carbônico, que ajuda a massa a crescer. As bactérias participam da formação de ácidos e das características de sabor. Essa explicação descreve o processo biológico, sem estabelecer quem primeiro o descobriu.\n\n## Uma história para levar à próxima visita à padaria\n\nNa próxima vez que partir um pão, vale reparar na espessura da casca, no miolo e no aroma. São pistas de decisões tomadas ao longo do preparo.\n\nConhecer essa história também é um convite para conversar com quem faz pão hoje. Para começar pela cidade, explore nosso [guia de padarias em Curitiba, bairro por bairro](/roteiros/guia-padarias-curitiba-por-bairro/).\n\n### Fontes\n\n- Universidade de Copenhague — descoberta e análise dos vestígios de Shubayqa 1:  \n  <https://humanities.ku.dk/news/2018/archaeologists-discover-bread-that-predates-agriculture-by-4000-years/>\n\n- American Society for Microbiology — The Sourdough Microbiome:  \n  <https://asm.org/articles/2020/june/the-sourdough-microbiome>",
+    "related_articles": [
+      {
+        "title": "Pão de fermentação natural: entenda o termo antes de escolher",
+        "url": "/blog/pao-fermentacao-natural-o-que-e/"
+      },
+      {
+        "title": "Casca e miolo: um jeito de observar os pães sem buscar um padrão único",
+        "url": "/blog/casca-miolo-alveolos-pao/"
+      },
+      {
+        "title": "30 padarias em Curitiba para conhecer, bairro por bairro",
+        "url": "/roteiros/guia-padarias-curitiba-por-bairro/"
+      }
+    ]
+  },
+  {
+    "title": "O pão que assa debaixo da terra: conheça uma tradição da Islândia",
+    "seo_title": "Pão da Islândia: assado com calor da terra | CuritiPão",
+    "slug_suggested": "/blog/pao-islandia-calor-da-terra/",
+    "category": "Histórias do pão",
+    "series": "Histórias do pão",
+    "meta_description": "Conheça a tradição islandesa de preparar pão de centeio em panelas enterradas no solo quente, aproveitando o calor geotérmico.",
+    "author": "Curadoria CuritiPão",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "image": "historias-do-pao/pao-islandia.webp",
+    "share_image": "historias-do-pao/pao-islandia-share.jpg",
+    "share_width": 1200,
+    "share_height": 630,
+    "share_type": "image/jpeg",
+    "image_alt": "Ilustração de pão escuro de centeio e uma panela no solo junto a um lago islandês.",
+    "image_caption": "Imagem ilustrativa gerada por IA.",
+    "image_credit": "",
+    "image_width": 1200,
+    "image_height": 675,
+    "body_markdown": "Uma panela, uma massa de centeio e o calor do solo. Em algumas regiões islandesas, a paisagem também participa do preparo do pão.\n\n**Curadoria CuritiPão**\n\nImagine chegar para conhecer uma padaria e descobrir que o pão está debaixo da terra. Na Islândia, esse modo de preparo faz parte de uma tradição que aproveita o calor geotérmico.\n\nA curiosidade começa no lugar onde a panela é colocada. Depois, passa para a fatia: escura, de textura compacta e sabor adocicado. É uma maneira de ampliar a ideia do que pode ser um pão.\n\n## Como o calor da terra entra no preparo\n\nEm locais com atividade geotérmica, o calor do subsolo pode ser aproveitado para cozinhar alimentos. O órgão oficial de turismo da Islândia descreve o preparo de pão de centeio em panelas enterradas no terreno quente, perto de fontes termais.\n\nA massa fica dentro do recipiente. O solo fornece o calor necessário ao cozimento, sem contato direto da massa com a terra.\n\nNão se trata de colocar pão sobre lava nem de usar qualquer terreno como forno. O método depende das condições específicas do local.\n\n## Um exemplo em Laugarvatn\n\nO Laugarvatn Fontana mantém essa prática e apresenta o processo aos visitantes. Segundo o próprio estabelecimento, a panela é enterrada na areia quente e retirada depois de 24 horas.\n\nEsse tempo descreve o preparo informado pelo Fontana. Não é uma regra universal para todo pão islandês.\n\nNa degustação, o pão é servido ainda quente com manteiga. O estabelecimento descreve uma textura consistente e um sabor doce, com notas maltadas.\n\n## O que observar nessa fatia\n\nUm pão pode despertar curiosidade sem ter casca estaladiça ou miolo cheio de grandes alvéolos. Aqui, o interesse está também na textura, no modo de aquecimento e na relação entre alimento e paisagem.\n\nPara quem gosta de conhecer panificação, é uma boa mudança de perspectiva. Em vez de perguntar apenas qual farinha foi usada, surge outra pergunta: de onde veio o calor?\n\n## Uma tradição para conhecer com acompanhamento local\n\nÁreas geotérmicas podem ter água e solo muito quentes. Para observar o preparo, procure uma experiência organizada e siga a orientação dos responsáveis pelo local.\n\nA história fica ainda mais interessante quando o pão chega à mesa: o que parecia apenas uma panela enterrada se transforma em uma fatia que conta algo sobre a Islândia.\n\nVocê provaria esse pão com manteiga?\n\n### Fontes\n\n- Visit Iceland — uso da energia geotérmica no cotidiano e na culinária:  \n  <https://www.visiticeland.com/article/how-does-iceland-use-geothermal-energy-everyday/>\n\n- Laugarvatn Fontana — descrição do preparo e da experiência de pão geotérmico:  \n  <https://fontana.is/rye-bread-tour>",
+    "related_articles": [
+      {
+        "title": "Casca e miolo: um jeito de observar os pães sem buscar um padrão único",
+        "url": "/blog/casca-miolo-alveolos-pao/"
+      },
+      {
+        "title": "Pão de fermentação natural: entenda o termo antes de escolher",
+        "url": "/blog/pao-fermentacao-natural-o-que-e/"
+      },
+      {
+        "title": "Padarias em Curitiba: um guia para escolher seu próximo pão",
+        "url": "/blog/padarias-em-curitiba-como-escolher/"
+      }
+    ]
+  },
+  {
+    "title": "Lavash: o pão fininho que carrega uma tradição da Armênia",
+    "seo_title": "Lavash: conheça o pão tradicional da Armênia | CuritiPão",
+    "slug_suggested": "/blog/lavash-pao-tradicional-armenia/",
+    "category": "Histórias do pão",
+    "series": "Histórias do pão",
+    "meta_description": "Conheça o lavash, pão fino da tradição armênia, seu preparo no forno tonir e os costumes que tornam esse alimento parte da vida comunitária.",
+    "author": "Curadoria CuritiPão",
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "image": "historias-do-pao/lavash-armenia.webp",
+    "share_image": "historias-do-pao/lavash-armenia-share.jpg",
+    "share_width": 1200,
+    "share_height": 630,
+    "share_type": "image/jpeg",
+    "image_alt": "Ilustração de folhas finas de lavash com queijo e ervas, com forno de barro ao fundo.",
+    "image_caption": "Imagem ilustrativa gerada por IA.",
+    "image_credit": "",
+    "image_width": 1200,
+    "image_height": 675,
+    "body_markdown": "Aberto em folhas delicadas e assado na parede de um forno de barro, o lavash reúne habilidade manual, trabalho coletivo e costumes transmitidos entre gerações.\n\n**Curadoria CuritiPão**\n\nQuem pensa em pão como uma peça alta, cortada em fatias, pode se surpreender com o lavash. Na tradição armênia, ele aparece em folhas finas que mudam a maneira de servir e compartilhar a comida.\n\nO interesse vai além do formato. Acompanhar seu preparo é olhar para uma sequência de movimentos aprendidos e repetidos em conjunto.\n\n## Uma massa fina e um forno chamado tonir\n\nA descrição do portal oficial de turismo da Armênia apresenta uma massa simples de farinha de trigo e água, dividida e aberta em camadas finas.\n\nAs folhas são estendidas sobre uma almofada própria para o trabalho e pressionadas contra a parede interna do tonir, um forno tradicional de barro. Ali, o pão assa rapidamente.\n\nNão é apenas uma questão de abrir a massa o mais fino possível. O preparo exige coordenação para estender, transferir e retirar o pão.\n\n## O que a UNESCO reconheceu\n\nEm 2014, a preparação, o significado e a aparência do lavash como expressão da cultura na Armênia foram inscritos na Lista Representativa do Patrimônio Cultural Imaterial da Humanidade.\n\nO reconhecimento se refere a uma prática cultural. Inclui os conhecimentos e os vínculos associados ao pão, e não uma declaração de exclusividade sobre todos os pães achatados.\n\n## Como ele chega à mesa\n\nO lavash pode envolver queijos, ervas ou carnes. Seu formato permite imaginar uma refeição em que o pão participa de cada porção, acompanhando e reunindo outros ingredientes.\n\nNa cultura armênia, também há um papel ritual: ele pode ser colocado sobre os ombros dos noivos em uma celebração ligada à prosperidade e à fertilidade.\n\nO trabalho coletivo de preparo ajuda a transmitir habilidades e fortalecer relações familiares e comunitárias.\n\n## Conhecer um pão também é conhecer um gesto\n\nO lavash convida a prestar atenção em algo que a vitrine nem sempre mostra: as mãos, os utensílios e as pessoas que tornam aquele alimento possível.\n\nA próxima descoberta pode começar com uma pergunta simples ao padeiro: como esse pão costuma ser servido no lugar de onde veio?\n\n### Fontes\n\n- UNESCO — Lavash como expressão da cultura na Armênia:  \n  <https://ich.unesco.org/en/RL/lavash-the-preparation-meaning-and-appearance-of-traditional-bread-as-an-expression-of-culture-in-armenia-00985>\n\n- Armenia Travel — preparo, forno tonir e costumes associados ao lavash:  \n  <https://armenia.travel/destination/lavash-the-preparation-meaning-and-appearance-bread-as-an-expression-of-culture-in-armenia/>",
+    "related_articles": [
+      {
+        "title": "Pão de fermentação natural: entenda o termo antes de escolher",
+        "url": "/blog/pao-fermentacao-natural-o-que-e/"
+      },
+      {
+        "title": "Casca e miolo: um jeito de observar os pães sem buscar um padrão único",
+        "url": "/blog/casca-miolo-alveolos-pao/"
+      },
+      {
+        "title": "Padarias em Curitiba: um guia para escolher seu próximo pão",
+        "url": "/blog/padarias-em-curitiba-como-escolher/"
+      }
+    ]
+  },
+  {
     "title": "Padarias em Curitiba: um guia para escolher seu próximo pão",
     "seo_title": "Padarias em Curitiba: como escolher e planejar sua visita",
     "slug_suggested": "/blog/padarias-em-curitiba-como-escolher/",
