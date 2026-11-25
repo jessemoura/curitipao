@@ -120,19 +120,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="bonin-bakery">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant Bonin Bakery.jpeg" data-alt="Croissant artesanal folhado de fermentação natural da Bonin Bakery" data-padaria="Bonin Bakery • Centro" aria-label="Ampliar foto: Croissant da Bonin Bakery" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-bonin-bakery.webp" alt="Croissant artesanal folhado de fermentação natural da Bonin Bakery" class="roteiro-bakery-img" width="960" height="1280" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Croissant de fermentação natural servido aquecido</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 330px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant Bonin Bakery.jpeg" data-alt="Croissant artesanal folhado de fermentação natural da Bonin Bakery" data-padaria="Bonin Bakery • Centro" aria-label="Ampliar foto: Croissant da Bonin Bakery">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-bonin-bakery.webp" alt="Croissant artesanal folhado de fermentação natural da Bonin Bakery" class="roteiro-internal-img" width="960" height="1280" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>Croissant de fermentação natural servido aquecido</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Bonin Bakery — Centro</h3>
           <div class="roteiro-bakery-text">
@@ -158,19 +160,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="brod-bakery">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant brod bakery.jpeg" data-alt="Croissant folhado tradicional com manteiga francesa da Brød Bakery" data-padaria="Brød Bakery • Santo Inácio" aria-label="Ampliar foto: Croissant da Brød Bakery" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-brod-bakery.webp" alt="Croissant folhado tradicional com manteiga francesa da Brød Bakery" class="roteiro-bakery-img" width="604" height="785" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Folhamento em sala climatizada com manteiga francesa</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 338px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant brod bakery.jpeg" data-alt="Croissant folhado tradicional com manteiga francesa da Brød Bakery" data-padaria="Brød Bakery • Santo Inácio" aria-label="Ampliar foto: Croissant da Brød Bakery">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-brod-bakery.webp" alt="Croissant folhado tradicional com manteiga francesa da Brød Bakery" class="roteiro-internal-img" width="604" height="785" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>Folhamento em sala climatizada com manteiga francesa</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Brød Bakery — Santo Inácio</h3>
           <div class="roteiro-bakery-text">
@@ -195,19 +199,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="felipane">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant felipane.jpeg" data-alt="Croissant simples artesanal folhado da Felipane no Juvevê" data-padaria="Felipane • Juvevê" aria-label="Ampliar foto: Croissant da Felipane" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-felipane.webp" alt="Croissant simples artesanal folhado da Felipane no Juvevê" class="roteiro-bakery-img" width="822" height="791" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Croissant simples de padaria artesanal de bairro</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 457px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant felipane.jpeg" data-alt="Croissant simples artesanal folhado da Felipane no Juvevê" data-padaria="Felipane • Juvevê" aria-label="Ampliar foto: Croissant da Felipane">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-felipane.webp" alt="Croissant simples artesanal folhado da Felipane no Juvevê" class="roteiro-internal-img" width="822" height="791" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>Croissant simples de padaria artesanal de bairro</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Felipane — Juvevê</h3>
           <div class="roteiro-bakery-text">
@@ -232,19 +238,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="lucca-cafes-especiais">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant lucca.jpeg" data-alt="Croissant folhado dourado e amanteigado do Lucca Cafés Especiais no Batel" data-padaria="Lucca Cafés Especiais • Batel" aria-label="Ampliar foto: Croissant do Lucca Cafés Especiais" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-lucca.webp" alt="Croissant folhado dourado e amanteigado do Lucca Cafés Especiais no Batel" class="roteiro-bakery-img" width="768" height="1024" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Casquinha brilhante e massa amanteigada com café especial</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 330px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant lucca.jpeg" data-alt="Croissant folhado dourado e amanteigado do Lucca Cafés Especiais no Batel" data-padaria="Lucca Cafés Especiais • Batel" aria-label="Ampliar foto: Croissant do Lucca Cafés Especiais">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-lucca.webp" alt="Croissant folhado dourado e amanteigado do Lucca Cafés Especiais no Batel" class="roteiro-internal-img" width="768" height="1024" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>Casquinha brilhante e massa amanteigada com café especial</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Lucca Cafés Especiais — Batel</h3>
           <div class="roteiro-bakery-text">
@@ -270,19 +278,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="maca-padaria-artesanal">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant maca padaria.jpeg" data-alt="Croissant clássico folhado da Maçã Padaria Artesanal Brasileira" data-padaria="Maçã Padaria Artesanal • Curitiba" aria-label="Ampliar foto: Croissant da Maçã Padaria Artesanal" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-maca-padaria.webp" alt="Croissant clássico folhado da Maçã Padaria Artesanal Brasileira" class="roteiro-bakery-img" width="782" height="801" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Croissant clássico bem executado</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 430px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant maca padaria.jpeg" data-alt="Croissant clássico folhado da Maçã Padaria Artesanal Brasileira" data-padaria="Maçã Padaria Artesanal • Curitiba" aria-label="Ampliar foto: Croissant da Maçã Padaria Artesanal">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-maca-padaria.webp" alt="Croissant clássico folhado da Maçã Padaria Artesanal Brasileira" class="roteiro-internal-img" width="782" height="801" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>Croissant clássico bem executado</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Maçã Padaria Artesanal Brasileira — Alto da XV, Vila Izabel e Praça do Japão</h3>
           <div class="roteiro-bakery-text">
@@ -314,19 +324,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="noni-padaria">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant noni.jpeg" data-alt="Croissant artesanal leve e folhado em camadas da Noni Padaria no Ahú" data-padaria="Noni Padaria • Ahú" aria-label="Ampliar foto: Croissant da Noni Padaria" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-noni.webp" alt="Croissant artesanal leve e folhado em camadas da Noni Padaria no Ahú" class="roteiro-bakery-img" width="768" height="1024" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">O famoso "croi", folhado com estrutura e leveza</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 330px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant noni.jpeg" data-alt="Croissant artesanal leve e folhado em camadas da Noni Padaria no Ahú" data-padaria="Noni Padaria • Ahú" aria-label="Ampliar foto: Croissant da Noni Padaria">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-noni.webp" alt="Croissant artesanal leve e folhado em camadas da Noni Padaria no Ahú" class="roteiro-internal-img" width="768" height="1024" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>O famoso "croi", folhado com estrutura e leveza</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Noni Padaria — Ahú</h3>
           <div class="roteiro-bakery-text">
@@ -352,19 +364,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="origem-padaria">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant Origem padaria.jpeg" data-alt="Croissant tradicional francês com farinha francesa e manteiga da Origem Padaria" data-padaria="Origem Padaria • Centro" aria-label="Ampliar foto: Croissant da Origem Padaria" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-origem-padaria.webp" alt="Croissant tradicional francês com farinha francesa e manteiga da Origem Padaria" class="roteiro-bakery-img" width="624" height="803" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Massa que desmancha na boca com sabor de manteiga</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 342px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant Origem padaria.jpeg" data-alt="Croissant tradicional francês com farinha francesa e manteiga da Origem Padaria" data-padaria="Origem Padaria • Centro" aria-label="Ampliar foto: Croissant da Origem Padaria">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-origem-padaria.webp" alt="Croissant tradicional francês com farinha francesa e manteiga da Origem Padaria" class="roteiro-internal-img" width="624" height="803" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>Massa que desmancha na boca com sabor de manteiga</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Origem Padaria — Centro</h3>
           <div class="roteiro-bakery-text">
@@ -390,19 +404,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="pao-prosa">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant Pao Prosa.jpeg" data-alt="Croissant artesanal aberto à mão com camadas delicadas da Pão Prosa" data-padaria="Pão Prosa • Cristo Rei" aria-label="Ampliar foto: Croissant da Pão Prosa" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-pao-prosa.webp" alt="Croissant artesanal aberto à mão com camadas delicadas da Pão Prosa" class="roteiro-bakery-img" width="581" height="763" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Massa aberta artesanalmente com rolo e cilindro</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 335px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant Pao Prosa.jpeg" data-alt="Croissant artesanal aberto à mão com camadas delicadas da Pão Prosa" data-padaria="Pão Prosa • Cristo Rei" aria-label="Ampliar foto: Croissant da Pão Prosa">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-pao-prosa.webp" alt="Croissant artesanal aberto à mão com camadas delicadas da Pão Prosa" class="roteiro-internal-img" width="581" height="763" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>Massa aberta artesanalmente com rolo e cilindro</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Pão Prosa — Cristo Rei</h3>
           <div class="roteiro-bakery-text">
@@ -428,19 +444,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="prestinaria">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant prestinaria.jpeg" data-alt="Croissant tradicional folhado em camadas da Prestinaria" data-padaria="Prestinaria • Curitiba" aria-label="Ampliar foto: Croissant da Prestinaria" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-prestinaria.webp" alt="Croissant tradicional folhado em camadas da Prestinaria" class="roteiro-bakery-img" width="653" height="802" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Croissant tradicional da casa</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 358px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant prestinaria.jpeg" data-alt="Croissant tradicional folhado em camadas da Prestinaria" data-padaria="Prestinaria • Curitiba" aria-label="Ampliar foto: Croissant da Prestinaria">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-prestinaria.webp" alt="Croissant tradicional folhado em camadas da Prestinaria" class="roteiro-internal-img" width="653" height="802" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>Croissant tradicional da casa</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Prestinaria — seis unidades em Curitiba</h3>
           <div class="roteiro-bakery-text">
@@ -475,19 +493,21 @@ function getCroissantArticleContent() {
       </header>
 
       <article class="roteiro-bakery-item" id="sphair-gourmande">
-        <figure class="roteiro-bakery-figure" style="position: relative;">
-          <button type="button" class="demo-photo-btn roteiro-photo-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant sphair.jpeg" data-alt="Croissant artesanal receita Le Cordon Bleu do Sphair Gourmande Ateliê de Pães" data-padaria="Sphair Gourmande • Ahú" aria-label="Ampliar foto: Croissant do Sphair Gourmande" style="background: none; border: none; padding: 0; width: 100%; display: block; cursor: zoom-in; text-align: left; position: relative;">
-            <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-sphair.webp" alt="Croissant artesanal receita Le Cordon Bleu do Sphair Gourmande Ateliê de Pães" class="roteiro-bakery-img" width="768" height="1024" loading="lazy">
-            <span class="demo-photo-zoom-hint" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
-              <span>Ampliar</span>
-            </span>
-          </button>
-          <figcaption class="roteiro-bakery-caption">
-            <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Receita Le Cordon Bleu de Paris com farinha francesa</span>
-          </figcaption>
-        </figure>
+        <div class="roteiro-internal-photo-stage">
+          <figure class="roteiro-internal-figure" style="max-width: min(100%, 330px);">
+            <button type="button" class="demo-photo-btn roteiro-internal-zoom-btn" data-full-src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant sphair.jpeg" data-alt="Croissant artesanal receita Le Cordon Bleu do Sphair Gourmande Ateliê de Pães" data-padaria="Sphair Gourmande • Ahú" aria-label="Ampliar foto: Croissant do Sphair Gourmande">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/croissant-sphair.webp" alt="Croissant artesanal receita Le Cordon Bleu do Sphair Gourmande Ateliê de Pães" class="roteiro-internal-img" width="768" height="1024" loading="lazy">
+              <span class="demo-photo-zoom-hint" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                <span>Ampliar</span>
+              </span>
+            </button>
+            <figcaption class="roteiro-internal-caption">
+              <span class="roteiro-photo-credit">Curadoria CuritiPão</span>
+              <span>Receita Le Cordon Bleu de Paris com farinha francesa</span>
+            </figcaption>
+          </figure>
+        </div>
         <div class="roteiro-bakery-content">
           <h3 class="roteiro-bakery-title">Sphair Gourmande Ateliê de Pães — Ahú</h3>
           <div class="roteiro-bakery-text">
