@@ -1,0 +1,223 @@
+[
+  {
+    "url": "https://asbe.org/article/sourdough/",
+    "status": 200,
+    "final_url": "https://asbe.org/article/sourdough/",
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 165565
+  },
+  {
+    "url": "https://asbe.org/article/whole-grains/",
+    "status": 200,
+    "final_url": "https://asbe.org/article/whole-grains/",
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 164026
+  },
+  {
+    "url": "https://blogs.cornell.edu/cceherkimer/2020/05/04/tips-for-storing-bread/",
+    "status": 200,
+    "final_url": "https://blogs.cornell.edu/cceherkimer/2020/05/04/tips-for-storing-bread/",
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 82693
+  },
+  {
+    "url": "https://curitipao.com.br/",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/",
+    "content_type": "text/html",
+    "bytes": 31386,
+    "sha256": "6cc38424de651669d1c74317b11d303cc3a71ff88ff420674d3847c405067892"
+  },
+  {
+    "url": "https://curitipao.com.br/blog/",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/blog/",
+    "content_type": "text/html",
+    "bytes": 22790,
+    "sha256": "45cebbc87a8d79c498f5f3b0284c18d8d8df6cdda02813969cbe1cf3d2ff1149"
+  },
+  {
+    "url": "https://curitipao.com.br/contato/",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/contato/",
+    "content_type": "text/html",
+    "bytes": 37046,
+    "sha256": "9f88a39c3eceacdff5058f3166ddcebbccd0c8a33282b0d6b8da45e20f5fb8f9"
+  },
+  {
+    "url": "https://curitipao.com.br/festival/2026/",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/festival/2026/",
+    "content_type": "text/html",
+    "bytes": 75084,
+    "sha256": "b38d1e38fca6540dfdcd36930f6eb04163c1a39b03f042a9db3015b33cdcd032"
+  },
+  {
+    "url": "https://curitipao.com.br/festival/2026/#imprensa",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/festival/2026/#imprensa",
+    "content_type": "text/html",
+    "bytes": 75084,
+    "sha256": "b38d1e38fca6540dfdcd36930f6eb04163c1a39b03f042a9db3015b33cdcd032"
+  },
+  {
+    "url": "https://curitipao.com.br/padarias/",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/padarias/",
+    "content_type": "text/html",
+    "bytes": 41841,
+    "sha256": "d0c4cf4da2047289a86f06f88715ff6f5370c794303a81c1bffc74437c8d3b3c"
+  },
+  {
+    "url": "https://curitipao.com.br/privacidade/",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/privacidade/",
+    "content_type": "text/html",
+    "bytes": 21721,
+    "sha256": "3eb4a06ae681b1279b1c8f9425e454ffb851241b297f7e5212e07420c2b156ab"
+  },
+  {
+    "url": "https://curitipao.com.br/roteiros/",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/roteiros/",
+    "content_type": "text/html",
+    "bytes": 24030,
+    "sha256": "ce0dec8b5e026c1e48441ffd63498ce36fb55b1ac56cdb2ad89ed22daf416715"
+  },
+  {
+    "url": "https://ric.com.br/estilo-de-vida/gastronomia/curitipao-estreia-em-curitiba-com-receitas-exclusivas-de-15-padarias/",
+    "status": 200,
+    "final_url": "https://ric.com.br/estilo-de-vida/gastronomia/curitipao-estreia-em-curitiba-com-receitas-exclusivas-de-15-padarias/",
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 442379
+  },
+  {
+    "url": "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/molds-food-are-they-dangerous",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/blog/2020/11/05/how-to-produce-an-open-crumb-in-sourdough-bread",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/blog/2020/11/05/how-to-produce-an-open-crumb-in-sourdough-bread",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 326955
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/blog/2021/04/13/king-arthur-recipe-success",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/blog/2021/04/13/king-arthur-recipe-success",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 331170
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/blog/2022/02/18/digital-kitchen-scale",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/blog/2022/02/18/digital-kitchen-scale",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 337819
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/blog/2022/04/28/what-is-bakers-math-and-how-can-i-use-it-in-my-everyday-bread-baking",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/blog/2022/04/28/what-is-bakers-math-and-how-can-i-use-it-in-my-everyday-bread-baking",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 329867
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/blog/2023/01/11/bread-hydration",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/blog/2023/01/11/bread-hydration",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 334089
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/blog/2023/12/20/freeze-bread",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/blog/2023/12/20/freeze-bread",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 324679
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/learn/bread",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/learn/bread",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 326575
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/learn/guides/sourdough",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/learn/guides/sourdough",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 283759
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/learn/guides/sourdough/faq",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/learn/guides/sourdough/faq",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 287451
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/learn/guides/whole-grains",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/learn/guides/whole-grains",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 296102
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/pro/formulas/ciabatta",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/pro/formulas/ciabatta",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 275778
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/pro/reference/bakers-percentage",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/pro/reference/bakers-percentage",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 281756
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/recipes/resources/recipe-success-guide",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/recipes/resources/recipe-success-guide",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 285579
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/recipes/rustic-italian-ciabatta-recipe",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/recipes/rustic-italian-ciabatta-recipe",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 337451
+  },
+  {
+    "url": "https://www.kingarthurbaking.com/videos/baking-skills/how-to-measure-flour",
+    "status": 200,
+    "final_url": "https://www.kingarthurbaking.com/videos/baking-skills/how-to-measure-flour",
+    "content_type": "text/html; charset=utf-8",
+    "bytes": 273558
+  },
+  {
+    "url": "mailto:contato@curitipao.com.br",
+    "status": "not HTTP"
+  },
+  {
+    "url": "https://curitipao.com.br/imprensa/#2026",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/imprensa/#2026",
+    "content_type": "text/html",
+    "bytes": 64302,
+    "sha256": "af5d3207ee4dadc32f7bea34f2418e1d0c4e45e78f1e0612dba89ed747959913"
+  },
+  {
+    "url": "https://curitipao.com.br/sitemap.xml",
+    "status": 200,
+    "final_url": "https://curitipao.com.br/sitemap.xml",
+    "content_type": "application/xml",
+    "bytes": 2317,
+    "sha256": "469eab4d58f7006be02536c675b9bd800bf2bb7b5c8ca3a6cb1ebaa3a277409e"
+  }
+]

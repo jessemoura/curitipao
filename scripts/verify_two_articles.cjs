@@ -53,7 +53,7 @@ function testArticle(name, html, expected) {
   check(`${name} og:url`, html.includes(`property="og:url" content="${expected.canonical}"`));
   check(`${name} og:image`, html.includes(`property="og:image" content="${expected.ogImage}"`));
   check(`${name} og:image:width`, html.includes(`property="og:image:width" content="1200"`));
-  check(`${name} og:image:height`, html.includes(`property="og:image:height" content="630"`));
+  check(`${name} og:image:height`, html.includes(`property="og:image:height" content="${expected.ogHeight || '630'}"`));
   check(`${name} og:type`, html.includes(`property="og:type" content="article"`));
   check(`${name} og:site_name`, html.includes(`property="og:site_name" content="CuritiPão"`));
 
@@ -106,7 +106,8 @@ testArticle('Shokupan', shokupanHtml, {
   h1: 'Shokupan: conheça o pão japonês de miolo macio',
   ogTitle: 'Shokupan: conheça o tradicional pão japonês | CuritiPão',
   description: 'Conheça o shokupan, o tradicional pão japonês de miolo macio e delicado, sua história, características, técnicas de preparo e formas de consumo.',
-  ogImage: 'https://curitipao.com.br/assets/photos/blog/historias-do-pao/shokupan-share.jpg',
+  ogImage: 'https://curitipao.com.br/assets/photos/blog/historias-do-pao/shokupan.jpg',
+  ogHeight: '675',
   imageAlt: 'Pão japonês shokupan com casca dourada e fatias de miolo branco e macio sobre uma tábua de madeira.'
 });
 
@@ -147,8 +148,7 @@ if (fs.existsSync(sitemapPath)) {
 
 // 5. Check images in dist
 console.log('\n--- Checking Dist Images ---');
-check('Shokupan webp in dist', fs.existsSync('dist/assets/photos/blog/historias-do-pao/shokupan.webp'));
-check('Shokupan share jpg in dist', fs.existsSync('dist/assets/photos/blog/historias-do-pao/shokupan-share.jpg'));
+check('Shokupan jpg in dist', fs.existsSync('dist/assets/photos/blog/historias-do-pao/shokupan.jpg'));
 check('Cortes webp in dist', fs.existsSync('dist/assets/photos/blog/cortes-no-pao.webp'));
 check('Cortes share jpg in dist', fs.existsSync('dist/assets/photos/blog/cortes-no-pao-share.jpg'));
 

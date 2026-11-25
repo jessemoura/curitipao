@@ -78,6 +78,7 @@ if (fs.existsSync(festival2026Dist)) {
 const forbiddenInDist = [
   'screenshots_evidence',
   'capturas',
+  'backups',
   '.tempmediaStorage'
 ];
 
