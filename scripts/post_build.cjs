@@ -117,6 +117,7 @@ const essentialFiles = [
   'contato/index.html',
   'roteiros/index.html',
   'roteiros/padarias-em-curitiba-por-bairro/index.html',
+  'roteiros/onde-comer-croissant-em-curitiba/index.html',
   'blog/index.html',
   ...articles.map(({ slug_suggested }) => slug_suggested.slice(1) + 'index.html'),
   'api/contato.php'

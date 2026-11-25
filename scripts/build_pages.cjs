@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { renderBlogCards, writeBlogArticles, blogUrls, invitation, invitationArticle } = require('./blog_articles.cjs');
+const { getCroissantArticleContent } = require('./croissant_article.cjs');
 const blogArticlesData = require('../content/blog/articles.json');
 const totalBlogArticlesCount = 1 + blogArticlesData.length;
 
@@ -1380,6 +1381,31 @@ const roteirosContent = `
           </div>
         </article>
 
+        <!-- Roteiro Publicado: Onde comer croissant no estilo francês em Curitiba -->
+        <article class="card-editorial" style="grid-column: 1 / -1; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px; background: var(--color-surface); border: 2px solid var(--color-accent); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+          <div class="card-media" style="min-height: 260px; height: 100%;">
+            <a href="/roteiros/onde-comer-croissant-em-curitiba/" style="display: block; height: 100%;">
+              <img src="/assets/photos/roteiros/onde-comer-croissant-em-curitiba/capa-croissant-curitiba-16x9.webp" alt="Onde comer croissant no estilo francês em Curitiba" style="width: 100%; height: 100%; object-fit: cover; display: block;" loading="eager">
+            </a>
+          </div>
+          <div class="card-body" style="padding: 28px; display: flex; flex-direction: column; justify-content: center;">
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+              <span class="badge badge-gold">Roteiro Temático</span>
+              <span class="card-tag" style="margin: 0;">Viennoiserie • 10 Lugares</span>
+            </div>
+            <h2 class="card-title" style="font-size: 1.6rem; margin-bottom: 12px; line-height: 1.3;">
+              <a href="/roteiros/onde-comer-croissant-em-curitiba/" style="color: var(--color-primary); text-decoration: none;">Onde comer croissant no estilo francês em Curitiba</a>
+            </h2>
+            <p class="card-desc" style="font-size: 1rem; line-height: 1.6; margin-bottom: 20px; color: var(--color-text);">
+              10 lugares para provar croissant artesanal sem recheio, da padaria de bairro à confeitaria francesa.
+            </p>
+            <div class="card-footer" style="margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid var(--color-border); flex-wrap: wrap; gap: 10px;">
+              <span style="font-size: 0.85rem; color: var(--color-text-muted); font-style: italic;">Curadoria CuritiPão • Fotos do Acervo</span>
+              <a href="/roteiros/onde-comer-croissant-em-curitiba/" class="btn btn-primary">Abrir matéria &rarr;</a>
+            </div>
+          </div>
+        </article>
+
         <!-- Roteiro 1 -->
         <article class="card-editorial">
           <div class="card-media">
@@ -2181,6 +2207,57 @@ const roteiro15PadariasHtml = wrapPage({
 });
 fs.writeFileSync('./roteiros/padarias-em-curitiba-por-bairro/index.html', roteiro15PadariasHtml, 'utf8');
 console.log('Generated roteiros/padarias-em-curitiba-por-bairro/index.html');
+
+// -------------------------------------------------------------
+// PAGE 5C: ROTEIRO INDIVIDUAL - ONDE COMER CROISSANT EM CURITIBA (/roteiros/onde-comer-croissant-em-curitiba/)
+// -------------------------------------------------------------
+ensureDir('./roteiros/onde-comer-croissant-em-curitiba');
+
+const roteiroCroissantSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Onde comer croissant no estilo francês em Curitiba",
+  "alternativeHeadline": "Onde comer croissant em Curitiba: 10 lugares no estilo francês",
+  "description": "Descubra onde comer croissant em Curitiba. Veja 10 padarias, cafés e confeitarias que servem croissant artesanal no estilo francês, puro e sem recheio.",
+  "image": [
+    "https://curitipao.com.br/assets/photos/roteiros/onde-comer-croissant-em-curitiba/capa-croissant-curitiba-16x9.webp"
+  ],
+  "datePublished": "2026-11-25T12:00:00-03:00",
+  "dateModified": "2026-11-25T12:00:00-03:00",
+  "author": {
+    "@type": "Organization",
+    "name": "Curadoria CuritiPão",
+    "url": "https://curitipao.com.br/sobre/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CuritiPão",
+    "url": "https://curitipao.com.br",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://curitipao.com.br/assets/logos/curitipao-logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://curitipao.com.br/roteiros/onde-comer-croissant-em-curitiba/"
+  },
+  "keywords": "croissant Curitiba, onde comer croissant Curitiba, croissant francês Curitiba, viennoiserie Curitiba, padarias artesanais Curitiba"
+};
+
+const roteiroCroissantHtml = wrapPage({
+  title: 'Onde comer croissant em Curitiba: 10 lugares no estilo francês',
+  description: 'Descubra onde comer croissant em Curitiba. Veja 10 padarias, cafés e confeitarias que servem croissant artesanal no estilo francês, puro e sem recheio.',
+  canonical: '/roteiros/onde-comer-croissant-em-curitiba/',
+  activeRoute: '/roteiros/',
+  ogType: 'article',
+  ogImage: 'https://curitipao.com.br/assets/photos/roteiros/onde-comer-croissant-em-curitiba/capa-croissant-curitiba-16x9.webp',
+  schemaJson: roteiroCroissantSchema,
+  content: getCroissantArticleContent()
+});
+fs.writeFileSync('./roteiros/onde-comer-croissant-em-curitiba/index.html', roteiroCroissantHtml, 'utf8');
+console.log('Generated roteiros/onde-comer-croissant-em-curitiba/index.html');
+
 
 // -------------------------------------------------------------
 // PAGE 6: MODELO DE ROTEIRO INDIVIDUAL (/roteiros/modelo/)
@@ -3534,6 +3611,7 @@ const publicUrls = [
   'https://curitipao.com.br/padarias/',
   'https://curitipao.com.br/roteiros/',
   'https://curitipao.com.br/roteiros/padarias-em-curitiba-por-bairro/',
+  'https://curitipao.com.br/roteiros/onde-comer-croissant-em-curitiba/',
   'https://curitipao.com.br/blog/',
   'https://curitipao.com.br/blog/o-curitipao-continua/',
   ...blogUrls,
@@ -3550,7 +3628,7 @@ const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 ${publicUrls.map(url => `  <url>
     <loc>${url}</loc>${blogUrls.includes(url) ? '' : '\n    <lastmod>2026-11-04</lastmod>'}
     <changefreq>weekly</changefreq>
-    <priority>${url.endsWith('.br/') ? '1.0' : (url.includes('/padarias-em-curitiba-por-bairro/') ? '0.9' : '0.8')}</priority>
+    <priority>${url.endsWith('.br/') ? '1.0' : (url.includes('/padarias-em-curitiba-por-bairro/') || url.includes('/onde-comer-croissant-em-curitiba/') ? '0.9' : '0.8')}</priority>
   </url>`).join('\n')}
 </urlset>
 `;
